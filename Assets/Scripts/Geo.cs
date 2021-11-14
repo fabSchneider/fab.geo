@@ -35,6 +35,18 @@ namespace FabGeo
         }
 
         /// <summary>
+        /// Maps longitude and latitude into the interval [0, 1]
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <returns></returns>
+        public static float2 NormalizeCoordinate(Coordinate coordinate)
+        {
+            return new float2(
+                (math.PI + coordinate.latitude) / (math.PI * 2), 
+                (math.PI / 2f + coordinate.longitude) / (math.PI));
+        }
+
+        /// <summary>
         /// Calculates a point on a unit sphere from a point on a cube
         /// </summary>
         /// <param name="p"></param>

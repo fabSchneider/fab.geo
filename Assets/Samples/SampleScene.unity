@@ -614,6 +614,7 @@ GameObject:
   - component: {fileID: 1764717498}
   - component: {fileID: 1764717497}
   - component: {fileID: 1764717496}
+  - component: {fileID: 1764717500}
   m_Layer: 0
   m_Name: Globe
   m_TagString: Untagged
@@ -640,12 +641,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 18ccb82418385f64fb540b997c52bcc1, type: 2}
-  - {fileID: 2100000, guid: 419d94b2f72c5644d8f5d6f121b89a84, type: 2}
-  - {fileID: 2100000, guid: 8983605ae2490934ea8bf70a764af6cc, type: 2}
-  - {fileID: 2100000, guid: 51be21e75ae250d42bb56d9f2ba20006, type: 2}
-  - {fileID: 2100000, guid: 9505039596eb3d0448977f03927c2e68, type: 2}
-  - {fileID: 2100000, guid: 6f10ae01325221d428cf6a327fe1a8cd, type: 2}
+  - {fileID: 2100000, guid: 8ac3c1b0e5443624780e1908bdcad372, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -687,8 +683,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef375023ee2417b48a4a4820a86d9a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: 8
-  project: 0
+  resolution: 48
+  cells: 4
+  project: 1
 --- !u!4 &1764717499
 Transform:
   m_ObjectHideFlags: 0
@@ -703,3 +700,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1764717500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764717495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
