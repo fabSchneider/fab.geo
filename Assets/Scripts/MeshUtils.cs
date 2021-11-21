@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using Random = Unity.Mathematics.Random;
 
-namespace FabGeo
+namespace Fab.Geo
 {
     public static class MeshUtils
     {
@@ -205,12 +205,12 @@ namespace FabGeo
                                             + cellParam.x * cellDimension * faceAxisX - faceAxisX + faceAxisX * cellDimension * cellX
                                             + cellParam.y * cellDimension * faceAxisY - faceAxisY + faceAxisY * cellDimension * cellY;
 
-                                p = Geo.PointOnCubeToPointOnSphere(p);
+                                p = GeoUtils.PointOnCubeToPointOnSphere(p);
 
                                 positions[vertexID] = p;
                                 normals[vertexID] = p;
 
-                                float2 texCoord = Geo.NormalizeCoordinate(Geo.PointToCoordinate(p));
+                                float2 texCoord = GeoUtils.NormalizeCoordinate(GeoUtils.PointToCoordinate(p));
 
                                 //handle seam wrapping where the latitude is -180/180
                                 if (texCoord.x == 1f)

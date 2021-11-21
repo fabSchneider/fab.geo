@@ -1,0 +1,33 @@
+#pragma kernel GenerateDensity
+#pragma kernel GenerateDensityAccumulative
+
+
+RWStructuredBuffer<float2> Positions;
+int ThreadX;
+uint2 Resolution;
+
+RWTexture2D<float> Result;
+
+#define PI 3.14159265358979323846
+
+float2 coordToUV(float2 coord)
+{
+    return float2((PI + radians(coord.x)) / (PI * 2), (PI / 2 + radians(coord.y)) / PI);
+}
+
+[numthreads(1, 1, 1)]
+void GenerateDensity(uint3 id : SV_DispatchThreadID)
+{
+    float2 pos = coordToUV(Positions[id.x + id.y * ThreadX]);
+    int2 texID = int2(pos * Resolution);
+    Result[texID] = 1;
+}
+
+[numthreads(1,1,1)]
+void GenerateDensityAccumulative (uint3 id : SV_DispatchThreadID)
+{
+    float2 pos = coordToUV(Positions[id.x + id.y * ThreadX]);
+    int2 texID = int2(pos * Resolution);
+    Result[texID] =   Result[texID] + 1;
+}
+

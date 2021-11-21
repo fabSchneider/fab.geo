@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEngine;
 
-namespace FabGeo
+namespace Fab.Geo
 {
+    [System.Serializable]
     public struct Coordinate
     {
-        public float latitude;
         public float longitude;
+        public float latitude;
 
-        public Coordinate(float latitude, float longitude)
+        public Coordinate(float longitude, float latitude)
         {
-            this.latitude = latitude;
             this.longitude = longitude;
+            this.latitude = latitude;
         }
 
         public static implicit operator float2(Coordinate c)

@@ -1,0 +1,13 @@
+#pragma kernel PrepareDistance
+
+Texture2D<float> Input;
+RWTexture2D<float> Result;
+
+[numthreads(8,8,1)]
+void PrepareDistance (uint3 id : SV_DispatchThreadID)
+{
+    if (Input[id.xy] > 0)
+        Result[id.xy] = 1.0 / 0;
+    else
+        Result[id.xy] = 0;
+}
