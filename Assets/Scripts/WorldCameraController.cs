@@ -34,7 +34,8 @@ namespace Fab.Geo
             deltaAction = playerInput.actions.FindAction("Delta");
             zoomAction = playerInput.actions.FindAction("Zoom");
 
-            zoomLevel = transform.position.magnitude;
+            zoomLevel = transform.localPosition.magnitude;
+            cam.farClipPlane = zoomLevel;
         }
 
         private void Update()
@@ -44,6 +45,13 @@ namespace Fab.Geo
 
             if (zoomAction.triggered)
                 Zoom(zoomAction.ReadValue<Vector2>().y);
+
+            //Plane[] frustum = GeometryUtility.CalculateFrustumPlanes(cam);
+
+            //foreach (var mf in FindObjectsOfType<MeshFilter>(true))
+            //{
+            //    mf.gameObject.SetActive(GeometryUtility.TestPlanesAABB(frustum, mf.sharedMesh.bounds));
+            //}
         }
 
         public void Pan(Vector2 delta)
@@ -55,9 +63,8 @@ namespace Fab.Geo
         public void Zoom(float delta)
         {
             zoomLevel = Mathf.Clamp(zoomLevel + delta * zoomSpeed, zoomBounds.x, zoomBounds.y);
-            Debug.Log(zoomLevel);
-            transform.position =  (transform.position).normalized * zoomLevel;
-
+            transform.localPosition =  (transform.localPosition).normalized * zoomLevel;
+            cam.farClipPlane = zoomLevel;
         }
     }
 }
