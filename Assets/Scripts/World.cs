@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using NaughtyAttributes;
 using Unity.Collections;
+using Unity.Burst;
 
 namespace Fab.Geo
 {
@@ -111,6 +112,16 @@ namespace Fab.Geo
                 {
                     int index = chunkBaseIndex + x + y * chunkCount;
                     Mesh.MeshData meshData = meshDataArray[index];
+                    meshData.subMeshCount = 1;
+                    int chunkVertexCount = (chunkResolution + 1) * (chunkResolution + 1);
+
+                    meshData.SetVertexBufferParams(chunkVertexCount,
+                        new VertexAttributeDescriptor(VertexAttribute.Position),
+                        new VertexAttributeDescriptor(VertexAttribute.Normal, stream: 1),
+                        new VertexAttributeDescriptor(VertexAttribute.TexCoord0, dimension: 2, stream: 2));
+
+                    int chunkIndexCount = chunkResolution * chunkResolution * 6;
+                    meshData.SetIndexBufferParams(chunkIndexCount, IndexFormat.UInt32);
 
                     GenerateWorldChunkJob chunkJob = new GenerateWorldChunkJob()
                     {
@@ -217,7 +228,7 @@ namespace Fab.Geo
         }
     }
 
-
+    [BurstCompile]
     public struct GenerateWorldChunkJob : IJob
     {
         public Mesh.MeshData meshData;
@@ -229,18 +240,6 @@ namespace Fab.Geo
         public void Execute()
         {
             float chunkDimension = chunkExtent * 2;
-            meshData.subMeshCount = 1;
-
-            int chunkVertexCount = (chunkResolution + 1) * (chunkResolution + 1);
-
-            meshData.SetVertexBufferParams(chunkVertexCount,
-                new VertexAttributeDescriptor(VertexAttribute.Position),
-                new VertexAttributeDescriptor(VertexAttribute.Normal, stream: 1),
-                new VertexAttributeDescriptor(VertexAttribute.TexCoord0, dimension: 2, stream: 2));
-
-            int chunkIndexCount = chunkResolution * chunkResolution * 6;
-
-            meshData.SetIndexBufferParams(chunkIndexCount, IndexFormat.UInt32);
 
             var positions = meshData.GetVertexData<float3>();
             var normals = meshData.GetVertexData<float3>(1);
