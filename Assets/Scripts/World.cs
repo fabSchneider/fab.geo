@@ -5,42 +5,133 @@ using UnityEngine.Rendering;
 using NaughtyAttributes;
 using Unity.Collections;
 using Unity.Burst;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Fab.Geo
 {
+    public struct WorldChunk
+    {
+        public int3 id;
+        public int lod;
+
+        public WorldChunk(int3 id, int lod)
+        {
+            this.id = id;
+            this.lod = lod;
+        }
+    }
+
+    [System.Serializable]
+    public struct ChunkLOD
+    {
+        public int resolution;
+        public float distance;
+
+        public ChunkLOD(int resolution, float distance)
+        {
+            this.resolution = resolution;
+            this.distance = distance;
+        }
+    }
+
     public class World : MonoBehaviour
     {
-        [Tooltip("Mesh resolution of the generated chunks. Number relates to the number of quads for each row/column of the chunk.")]
-        [Range(1, 255)]
-        public int chunkResolution = 127;
+        //[Tooltip("Mesh resolution of the generated chunks. Number relates to the number of quads for each row/column of the chunk.")]
+        //[Range(1, 255)]
+        //public int chunkResolution = 127;
         [Tooltip("Number of chunks per row/column on each side of the sphere. Must be multiple of 2 and cannot be bigger than the chunk resolution.")]
         [Range(1, 16)]
         public int chunkCount = 8;
         [Tooltip("The chunk prefab to instantiate")]
-        public MeshFilter chunkPrefab;
+        public MeshRenderer chunkPrefab;
+
+        [SerializeField]
+        private ChunkLOD[] chunkLODs;
+
+        private WorldChunk[] chunks;
+        public IEnumerable<WorldChunk> Chunks => chunks;
+
+        private MeshRenderer[] chunkMeshRenderers;
+        public MeshRenderer GetChunk(int3 id) => chunkMeshRenderers[id.x + id.y * chunkCount + (chunkCount * chunkCount) * id.z];
 
         private void Start()
         {
             Debug.Log("Generating World...");
-            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
-            stopwatch.Start();
+           // System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+           // stopwatch.Start();
             GenerateWorld();
-            Debug.Log($"Generated world with {chunkCount * chunkCount * 6} chunks @ res {chunkResolution} in {(stopwatch.ElapsedMilliseconds / 1000.0):0.00s}");
+            //Debug.Log($"Generated world with {chunkCount * chunkCount * 6} chunks @ res {chunkResolution} in {(stopwatch.ElapsedMilliseconds / 1000.0):0.00s}");
+        }
+
+        public int GetChunkLOD(float dist)
+        {
+            for (int i = 0; i < chunkLODs.Length - 1; i++)
+            {
+                if (dist < chunkLODs[i].distance)
+                    return i;
+            }
+
+            return chunkLODs.Length - 1;
+        }
+
+        public void SetChunkActive(int3 id, bool active)
+        {
+            GetChunk(id).gameObject.SetActive(active);
+        }
+
+        private List<Mesh> lodMeshes = new List<Mesh>();
+        public void RegenerateChunks(List<WorldChunk> chunks)
+        {
+            Debug.Log($"Regenerating {chunks.Count} chunks");
+
+            Mesh.MeshDataArray meshDataArray = Mesh.AllocateWritableMeshData(chunks.Count);
+            NativeArray<JobHandle> chunkJobs = new NativeArray<JobHandle>(chunks.Count, Allocator.TempJob);
+
+            lodMeshes.Clear();
+
+            for (int i = 0; i < chunks.Count; i++)
+            {
+                WorldChunk chunk = chunks[i];
+                int index = chunk.id.x + chunk.id.y * chunkCount + (chunkCount * chunkCount) * chunk.id.z;
+                
+                float3x3 faceT = GetFaceTransform(chunk.id.z);
+                chunkJobs[i] = GenerateChunk(meshDataArray[i], chunk.id, (ushort)chunkLODs[chunk.lod].resolution, 2f / chunkCount, in faceT);
+                this.chunks[index] = chunk;
+
+                lodMeshes.Add(chunkMeshRenderers[index].GetComponent<MeshFilter>().sharedMesh);
+            }
+
+            JobHandle.CompleteAll(chunkJobs);
+            chunkJobs.Dispose();
+
+            Mesh.ApplyAndDisposeWritableMeshData(meshDataArray, lodMeshes);
         }
 
         [Button("Generate World")]
         private void GenerateWorld()
         {
-            Mesh.MeshDataArray meshDataArray = GenerateWorldMeshes(chunkResolution, chunkCount);
+            int lod = chunkLODs.Length - 1;
+            int chunkResolution = chunkLODs[chunkLODs.Length - 1].resolution;
+            JobHandle worldJobHandle = GenerateWorldMeshes((ushort)chunkResolution, (ushort)chunkCount, out Mesh.MeshDataArray meshDataArray);
+
+            InitializeChunks(chunkCount, lod, out chunks, out Mesh[] chunkMeshes);
+
             GameObject worldChunksParent = new GameObject("WorldChunks");
             worldChunksParent.transform.SetParent(transform, false);
-            CreateWorldChunkObjects(worldChunksParent.transform, chunkPrefab, meshDataArray, chunkCount);
+            chunkMeshRenderers = CreateWorldChunkObjects(worldChunksParent.transform, chunkPrefab, chunkMeshes);
+
+            worldJobHandle.Complete();
+            //apply mesh data 
+            Mesh.ApplyAndDisposeWritableMeshData(meshDataArray, chunkMeshes, MeshUpdateFlags.DontRecalculateBounds);
+
         }
 
-        private static void CreateWorldChunkObjects(Transform parent, MeshFilter chunkPrefab, Mesh.MeshDataArray meshDataArray, int chunkCount)
+        private static void InitializeChunks(int chunkCount, int lod, out WorldChunk[] chunks, out Mesh[] chunkMeshes)
         {
-            Mesh[] meshes = new Mesh[meshDataArray.Length];
             int chunksPerFace = chunkCount * chunkCount;
+            chunks = new WorldChunk[chunksPerFace * 6];
+            chunkMeshes = new Mesh[chunks.Length];
 
             //iterate through each face
             for (int face = 0; face < 6; face++)
@@ -51,85 +142,89 @@ namespace Fab.Geo
                     Mesh m = new Mesh();
                     int3 chunkId = new int3(chunk % chunkCount, chunk / chunkCount, face);
                     m.name = $"WorldChunk_x{chunkId.x}.y{chunkId.y}.f{chunkId.z}";
-                    m.bounds = CalculateChunkBounds(chunkId, 2f / chunkCount);
-                    meshes[face * chunksPerFace + chunk] = m;
+                    Bounds bounds = CalculateChunkBounds(chunkId, 2f / chunkCount);
+                    m.bounds = bounds;
+
+                    int index = face * chunksPerFace + chunk;
+                    chunks[index] = new WorldChunk(chunkId, lod);
+                    chunkMeshes[index] = m;
                 }
-            }
-
-            //apply mesh data 
-            Mesh.ApplyAndDisposeWritableMeshData(meshDataArray, meshes, MeshUpdateFlags.DontRecalculateBounds);
-
-            //instantiate mesh chunk game object for each mesh
-            for (int j = 0; j < meshes.Length; j++)
-            {
-                MeshFilter chunkInst = Instantiate(chunkPrefab, parent);
-                chunkInst.mesh = meshes[j];
-                chunkInst.name = meshes[j].name;
-                chunkInst.gameObject.AddComponent<BoxCollider>();
             }
         }
 
-        private static Mesh.MeshDataArray GenerateWorldMeshes(int chunkResolution, int chunkCount)
+        private static MeshRenderer[] CreateWorldChunkObjects(Transform parent, MeshRenderer chunkPrefab, Mesh[] chunkMeshes)
+        {
+            MeshRenderer[] MeshRenderer = new MeshRenderer[chunkMeshes.Length];
+
+            //instantiate mesh chunk game object for each mesh
+            for (int i = 0; i < chunkMeshes.Length; i++)
+            {
+                MeshRenderer chunkInst = Instantiate(chunkPrefab, parent);
+                chunkInst.GetComponent<MeshFilter>().mesh = chunkMeshes[i];
+                chunkInst.name = chunkMeshes[i].name;
+                MeshRenderer[i] = chunkInst;
+            }
+
+            return MeshRenderer;
+        }
+
+        private static JobHandle GenerateWorldMeshes(ushort chunkResolution, ushort chunkCount, out Mesh.MeshDataArray meshDataArray)
         {
             if (chunkResolution < 1 || chunkResolution > 255)
                 Debug.LogError("Chunk resolution has to be in between 1 and 255");
 
-            chunkResolution = math.clamp(chunkResolution, 1, 255);  
-
-            Mesh.MeshDataArray meshDataArray = Mesh.AllocateWritableMeshData(chunkCount * chunkCount * 6);
-
-            NativeArray<JobHandle> jobs = new NativeArray<JobHandle>(6, Allocator.TempJob);
-
-            for (int i = 0; i < 6; i++)
-                jobs[i] = GenerateFace(i, meshDataArray, (ushort)chunkResolution, (ushort)chunkCount);
-
-            JobHandle.CombineDependencies(jobs).Complete();
-            jobs.Dispose();
-            return meshDataArray;
-        }
-
-        private static JobHandle GenerateFace(int face, Mesh.MeshDataArray meshDataArray, ushort chunkResolution, ushort chunkCount)
-        {
+            chunkResolution = (ushort)math.clamp(chunkResolution, 1, 255);
+            
             float chunkSize = 2f / chunkCount;
-            float3x3 faceTransform = GetFaceTransform(face);
 
-            int chunkBaseIndex = face * chunkCount * chunkCount;
+            meshDataArray = Mesh.AllocateWritableMeshData(chunkCount * chunkCount * 6);
             NativeArray<JobHandle> chunkJobs = new NativeArray<JobHandle>(meshDataArray.Length, Allocator.TempJob);
 
-            //iterate each chunk of the face
-            for (int y = 0; y < chunkCount; y++)
+            //iterate each face
+            for (int i = 0; i < 6; i++)
             {
-                for (int x = 0; x < chunkCount; x++)
+                float3x3 faceTransform = GetFaceTransform(i);
+                int chunkBaseIndex = i * chunkCount * chunkCount;
+
+                //iterate each chunk of the face
+                for (int y = 0; y < chunkCount; y++)
                 {
-                    int index = chunkBaseIndex + x + y * chunkCount;
-                    Mesh.MeshData meshData = meshDataArray[index];
-                    meshData.subMeshCount = 1;
-                    int chunkVertexCount = (chunkResolution + 1) * (chunkResolution + 1);
-
-                    meshData.SetVertexBufferParams(chunkVertexCount,
-                        new VertexAttributeDescriptor(VertexAttribute.Position),
-                        new VertexAttributeDescriptor(VertexAttribute.Normal, stream: 1),
-                        new VertexAttributeDescriptor(VertexAttribute.TexCoord0, dimension: 2, stream: 2));
-
-                    int chunkIndexCount = chunkResolution * chunkResolution * 6;
-                    meshData.SetIndexBufferParams(chunkIndexCount, IndexFormat.UInt16);
-
-                    GenerateWorldChunkJob chunkJob = new GenerateWorldChunkJob()
+                    for (int x = 0; x < chunkCount; x++)
                     {
-                        meshData = meshData,
-                        faceTransform = faceTransform,
-                        chunkId = new int3(x, y, face),
-                        chunkResolution = chunkResolution,
-                        chunkSize = chunkSize
-                    };
-
-                    chunkJobs[index] = chunkJob.Schedule();
+                        int index = chunkBaseIndex + x + y * chunkCount;
+                        chunkJobs[index] = GenerateChunk(meshDataArray[index], new int3(x, y, i), chunkResolution, chunkSize, in faceTransform);
+                    }
                 }
             }
 
             JobHandle combinedJobs = JobHandle.CombineDependencies(chunkJobs);
             chunkJobs.Dispose();
             return combinedJobs;
+        }
+
+        private static JobHandle GenerateChunk(Mesh.MeshData meshData, int3 id, ushort resolution, float size, in float3x3 faceTransform)
+        {
+            meshData.subMeshCount = 1;
+            int chunkVertexCount = (resolution + 1) * (resolution + 1);
+
+            meshData.SetVertexBufferParams(chunkVertexCount,
+                new VertexAttributeDescriptor(VertexAttribute.Position),
+                new VertexAttributeDescriptor(VertexAttribute.Normal, stream: 1),
+                new VertexAttributeDescriptor(VertexAttribute.TexCoord0, dimension: 2, stream: 2));
+
+            int chunkIndexCount = resolution * resolution * 6;
+            meshData.SetIndexBufferParams(chunkIndexCount, IndexFormat.UInt16);
+
+            GenerateWorldChunkJob chunkJob = new GenerateWorldChunkJob()
+            {
+                meshData = meshData,
+                faceTransform = faceTransform,
+                chunkId = id,
+                chunkResolution = resolution,
+                chunkSize = size
+            };
+
+            return chunkJob.Schedule();
         }
 
         private static float3x3 GetFaceTransform(int face)
