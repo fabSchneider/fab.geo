@@ -41,7 +41,7 @@ namespace Fab.Geo
         //[Range(1, 255)]
         //public int chunkResolution = 127;
         [Tooltip("Number of chunks per row/column on each side of the sphere. Must be multiple of 2 and cannot be bigger than the chunk resolution.")]
-        [Range(1, 16)]
+        [Range(1, 32)]
         public int chunkCount = 8;
         [Tooltip("The chunk prefab to instantiate")]
         public MeshRenderer chunkPrefab;

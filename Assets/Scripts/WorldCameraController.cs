@@ -28,16 +28,17 @@ namespace Fab.Geo
         private float panSpeed = 0.1f;
 
         [SerializeField]
-        private float zoomSpeed = 0.1f;
-
-        [SerializeField]
         private Vector2 zoomBounds;
 
-        private float zoomLevel;
+
+        [SerializeField]
+        private AnimationCurve zoomSpeed;
+
+        [SerializeField]
+        private AnimationCurve cameraPitch;
 
         [SerializeField]
         private World world;
-
 
         private void Start()
         {
@@ -45,9 +46,7 @@ namespace Fab.Geo
             panAction = playerInput.actions.FindAction("Pan");
             deltaAction = playerInput.actions.FindAction("Delta");
             zoomAction = playerInput.actions.FindAction("Zoom");
-
-            zoomLevel = transform.localPosition.magnitude;
-            cam.farClipPlane = zoomLevel;
+            cam.farClipPlane = -cam.transform.localPosition.z;
         }
 
         private void Update()
@@ -64,22 +63,41 @@ namespace Fab.Geo
 
         private void Pan(Vector2 delta)
         {
-            transform.RotateAround(Vector3.zero, transform.up, delta.x * panSpeed);
-            transform.RotateAround(Vector3.zero, transform.right, -delta.y * panSpeed);
+
+            Vector3 camLocalPos = cam.transform.localPosition;
+            float lastZoomLevel = -camLocalPos.z;
+            float currPanSpeed = Mathf.Lerp(panSpeed, panSpeed * 0.05f, Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, lastZoomLevel));
+
+            transform.Rotate(Vector3.up, delta.x * currPanSpeed);
+            transform.Rotate(Vector3.right, -delta.y * currPanSpeed);
         }
 
         private void Zoom(float delta)
         {
-            zoomLevel = Mathf.Clamp(zoomLevel + delta * zoomSpeed, zoomBounds.x, zoomBounds.y);
-            transform.localPosition = (transform.localPosition).normalized * zoomLevel;
+            Vector3 camLocalPos = cam.transform.localPosition;
+            float lastZoomLevel = -camLocalPos.z;
+            float lastZoomLevelNorm = Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, lastZoomLevel);
 
+            float currZoomSpeed = zoomSpeed.Evaluate(lastZoomLevelNorm) * 0.1f;
+
+            float zoomLevel = Mathf.Clamp(lastZoomLevel + delta * currZoomSpeed, zoomBounds.x, zoomBounds.y);
+
+
+            float zoomLevelNorm = Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, zoomLevel);
+            Debug.Log(zoomLevelNorm);
+            float pitch = cameraPitch.Evaluate(zoomLevelNorm);
+
+
+            cam.transform.localPosition = new Vector3(camLocalPos.x, camLocalPos.y, -zoomLevel);
+            Vector3 euler = cam.transform.localRotation.eulerAngles;
+            cam.transform.localEulerAngles = new Vector3(-pitch, euler.y, euler.z);
         }
 
         private List<WorldChunk> regenerateChunks = new List<WorldChunk>();
 
         private void CullWorld()
         {
-            float maxDistance = zoomLevel - cam.nearClipPlane;
+            float maxDistance = -cam.transform.localPosition.z - cam.nearClipPlane;
             float distance = 0f;
 
             Vector3 camVector = cam.transform.forward;
