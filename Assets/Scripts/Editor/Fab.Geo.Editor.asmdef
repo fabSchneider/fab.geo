@@ -1,32 +1,15 @@
 {
     "name": "Fab.Geo.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "Fab.Geo.Editor",
     "references": [
         "GUID:d8b63aba1907145bea998dd612889d6b",
-        "GUID:295bf292576904645bc785544eaaf32f"
+        "GUID:295bf292576904645bc785544eaaf32f",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229"
     ],
-    "includePlatforms": [],
-    "excludePlatforms": [
-        "Android",
-        "CloudRendering",
-        "Editor",
-        "GameCoreScarlett",
-        "GameCoreXboxOne",
-        "iOS",
-        "LinuxStandalone64",
-        "Lumin",
-        "macOSStandalone",
-        "PS4",
-        "PS5",
-        "Stadia",
-        "Switch",
-        "tvOS",
-        "WSA",
-        "WebGL",
-        "WindowsStandalone32",
-        "WindowsStandalone64",
-        "XboxOne"
+    "includePlatforms": [
+        "Editor"
     ],
+    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
