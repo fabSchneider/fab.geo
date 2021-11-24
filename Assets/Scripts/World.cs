@@ -83,8 +83,6 @@ namespace Fab.Geo
         private List<Mesh> lodMeshes = new List<Mesh>();
         public void RegenerateChunks(List<WorldChunk> chunks)
         {
-            Debug.Log($"Regenerating {chunks.Count} chunks");
-
             Mesh.MeshDataArray meshDataArray = Mesh.AllocateWritableMeshData(chunks.Count);
             NativeArray<JobHandle> chunkJobs = new NativeArray<JobHandle>(chunks.Count, Allocator.TempJob);
 

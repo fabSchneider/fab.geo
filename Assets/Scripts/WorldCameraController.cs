@@ -82,11 +82,8 @@ namespace Fab.Geo
 
             float zoomLevel = Mathf.Clamp(lastZoomLevel + delta * currZoomSpeed, zoomBounds.x, zoomBounds.y);
 
-
             float zoomLevelNorm = Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, zoomLevel);
-            Debug.Log(zoomLevelNorm);
             float pitch = cameraPitch.Evaluate(zoomLevelNorm);
-
 
             cam.transform.localPosition = new Vector3(camLocalPos.x, camLocalPos.y, -zoomLevel);
             Vector3 euler = cam.transform.localRotation.eulerAngles;
