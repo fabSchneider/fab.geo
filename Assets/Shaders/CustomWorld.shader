@@ -6,23 +6,24 @@ Shader "Custom/World"
 	{
 		// we have removed support for texture tiling/offset,
 		// so make them not be displayed in material inspector
-		[NoScaleOffset] _HeightMap ("Texture", 2D) = "white" {}
-		_SeaLevel ("SeaLevel", Range(0,1)) = 1.0
+		[NoScaleOffset] _Albedo("Albedo", 2D) = "white" {}
+		[NoScaleOffset] _HeightMap ("HeightMap", 2D) = "white" {}
+		_SeaLevel("SeaLevel", Range(0,1)) = 1.0
 		_Height("Height", Float) = 1.0
 		_NormalStrength("NormalStrength", Float) = 1
 	}
-	SubShader
-	{
-		Pass
+		SubShader
 		{
-			Tags 
-			{ 
-				"RenderType" = "Opaque" 
-				"RenderPipeline" = "UniversalPipeline" 
-				"LightMode" = "UniversalForward" 
-			}
-			
-			HLSLPROGRAM
+			Pass
+			{
+				Tags
+				{
+					"RenderType" = "Opaque"
+					"RenderPipeline" = "UniversalPipeline"
+					"LightMode" = "UniversalForward"
+				}
+
+				HLSLPROGRAM
 			// use "vert" function as the vertex shader
 			#pragma vertex vert
 			// use "frag" function as the pixel (fragment) shader
@@ -32,7 +33,8 @@ Shader "Custom/World"
 			#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
 
-			// texture we will sample
+
+			sampler2D _Albedo;
 			sampler2D _HeightMap;
 			float4 _HeightMap_TexelSize;
 			float _SeaLevel;
@@ -85,18 +87,17 @@ Shader "Custom/World"
 			
 
 				// sample texture and return it
+				float3 color = normalize(tex2D(_Albedo, i.uv) + 0.2);
 				float height = tex2D(_HeightMap, i.uv);
-
-				float3 color;
 
 				if(height < _SeaLevel)
 				{
 					normal = i.normal;
-					color = saturate(height + 0.1) * float3(0.4, 0.5, 1);
+					//color = saturate(height + 0.1) * float3(0.4, 0.5, 1);
 				}
 				else
 				{
-					color = float3(height, height, height);
+					//color = float3(height, height, height);
 				}
 
 				float3 lighting = dot(_MainLightPosition.xyz, normal);
