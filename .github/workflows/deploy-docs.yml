@@ -1,9 +1,10 @@
-name: github pages
+name: deploy docs
 
 on:
-  push:
-    branches:
-      - documentation
+  # Will only deploy the docs when a new release is created
+  release:
+    types: [created]
+  workflow_dispatch:
 
 jobs:
   deploy:
