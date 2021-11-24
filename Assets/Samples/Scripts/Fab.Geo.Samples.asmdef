@@ -1,0 +1,17 @@
+{
+    "name": "Fab.Geo.Samples",
+    "rootNamespace": "Fab.Geo.Samples",
+    "references": [
+        "GUID:295bf292576904645bc785544eaaf32f",
+        "GUID:d8b63aba1907145bea998dd612889d6b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
