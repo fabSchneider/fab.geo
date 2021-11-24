@@ -137,6 +137,14 @@ Directory.Build.props
 /[Aa]ssets/Sandbox/
 /[Aa]ssets/Sandbox.meta
 
+#Ignore Generated folders
+/[Aa]ssets/Generated/
+/[Aa]ssets/Generated.meta
+
+#Ignore Samples folders
+/[Aa]ssets/Samples/
+/[Aa]ssets/Samples.meta
+
 #Ignore Plugins folders
 /[Aa]ssets/Plugins/
 /[Aa]ssets/Plugins.meta
