@@ -304,12 +304,23 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/world-0.1.0.jpg",
+      "output": {
+        "resource": {
+          "relative_path": "images/world-0.1.0.jpg"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "YiLVi+N5HhM+emADgIWyAw=="
+          "hash": "Fe94PQ6Q4vXGZfbKN2lJVg=="
         }
       },
       "is_incremental": false,
@@ -349,6 +360,13 @@
           "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 21,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
