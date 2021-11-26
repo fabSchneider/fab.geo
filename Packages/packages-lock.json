@@ -131,6 +131,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "moonsharp": {
+      "version": "https://github.com/k0dep/MoonSharp.git#2.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "54016d620078714e2dda195a9c583f12c5e446fa"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
