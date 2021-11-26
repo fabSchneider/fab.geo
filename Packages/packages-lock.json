@@ -132,11 +132,11 @@
       }
     },
     "moonsharp": {
-      "version": "https://github.com/k0dep/MoonSharp.git#2.0.0",
+      "version": "https://github.com/fabSchneider/moonsharp.git#upm",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "54016d620078714e2dda195a9c583f12c5e446fa"
+      "hash": "fea0883d7e3c11309291f48e40614d7844d5cefa"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
