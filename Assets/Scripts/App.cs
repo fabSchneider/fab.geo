@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using CommandTerminal;
+using UnityEngine.SceneManagement;
 
 namespace Fab.Geo
 {
@@ -20,6 +20,24 @@ namespace Fab.Geo
         {
             Application.targetFrameRate = TargetFrameRate;
             Debug.Log("App initialized");
+        }
+
+
+
+        /// <summary>
+        /// Reloads the currently active scene
+        /// </summary>
+        [RegisterCommand(Help = "Reloads the currently active scene")]
+        public static void Reload()
+        {
+            Scene activeScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(activeScene.buildIndex, LoadSceneMode.Single);
+        }
+
+        private static void FrontCommandReload(CommandArg[] args)
+        {
+            if (Terminal.IssuedError) return;
+            Reload();
         }
     }
 }

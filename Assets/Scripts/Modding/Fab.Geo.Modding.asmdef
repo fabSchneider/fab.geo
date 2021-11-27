@@ -1,12 +1,12 @@
 {
-    "name": "Fab.Geo",
-    "rootNamespace": "Fab.Geo",
+    "name": "Fab.Geo.Modding",
+    "rootNamespace": "Fab.Geo.Modding",
     "references": [
+        "GUID:295bf292576904645bc785544eaaf32f",
         "GUID:d8b63aba1907145bea998dd612889d6b",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:8b7f6e1967d3724498e6c93f135870c3",
         "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
-        "GUID:2665a8d13d1b3f18800f46e256720795",
-        "GUID:04a8fbc9bd2f28441810a437bfa9c588"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

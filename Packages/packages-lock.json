@@ -7,6 +7,13 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.stillwwater.commandterminal": {
+      "version": "https://github.com/fabSchneider/command_terminal.git?path=/CommandTerminal#v1.3.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "0333600160f970e63c802963e5da50195e7e22a7"
+    },
     "com.unity.burst": {
       "version": "1.4.11",
       "depth": 0,
@@ -130,6 +137,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "moonsharp": {
+      "version": "https://github.com/fabSchneider/moonsharp.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "fea0883d7e3c11309291f48e40614d7844d5cefa"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
