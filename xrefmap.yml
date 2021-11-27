@@ -13,6 +13,19 @@ references:
   commentId: T:Fab.Geo.App
   fullName: Fab.Geo.App
   nameWithType: App
+- uid: Fab.Geo.App.Reload
+  name: Reload()
+  href: api/Fab.Geo.App.html#Fab_Geo_App_Reload
+  commentId: M:Fab.Geo.App.Reload
+  fullName: Fab.Geo.App.Reload()
+  nameWithType: App.Reload()
+- uid: Fab.Geo.App.Reload*
+  name: Reload
+  href: api/Fab.Geo.App.html#Fab_Geo_App_Reload_
+  commentId: Overload:Fab.Geo.App.Reload
+  isSpec: "True"
+  fullName: Fab.Geo.App.Reload
+  nameWithType: App.Reload
 - uid: Fab.Geo.ChunkLOD
   name: ChunkLOD
   href: api/Fab.Geo.ChunkLOD.html
@@ -257,6 +270,12 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.Editor.GenerateDistanceField.Generate
   nameWithType: GenerateDistanceField.Generate
+- uid: Fab.Geo.FaceCamera
+  name: FaceCamera
+  href: api/Fab.Geo.FaceCamera.html
+  commentId: T:Fab.Geo.FaceCamera
+  fullName: Fab.Geo.FaceCamera
+  nameWithType: FaceCamera
 - uid: Fab.Geo.GenerateWorldChunkJob
   name: GenerateWorldChunkJob
   href: api/Fab.Geo.GenerateWorldChunkJob.html
@@ -1219,6 +1238,158 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.MeshUtils.GenerateUnitSphere
   nameWithType: MeshUtils.GenerateUnitSphere
+- uid: Fab.Geo.Modding
+  name: Fab.Geo.Modding
+  href: api/Fab.Geo.Modding.html
+  commentId: N:Fab.Geo.Modding
+  fullName: Fab.Geo.Modding
+  nameWithType: Fab.Geo.Modding
+- uid: Fab.Geo.Modding.FeatureManager
+  name: FeatureManager
+  href: api/Fab.Geo.Modding.FeatureManager.html
+  commentId: T:Fab.Geo.Modding.FeatureManager
+  fullName: Fab.Geo.Modding.FeatureManager
+  nameWithType: FeatureManager
+- uid: Fab.Geo.Modding.FeatureManager.AddPoint(System.String,System.Single,System.Single)
+  name: AddPoint(String, Single, Single)
+  href: api/Fab.Geo.Modding.FeatureManager.html#Fab_Geo_Modding_FeatureManager_AddPoint_System_String_System_Single_System_Single_
+  commentId: M:Fab.Geo.Modding.FeatureManager.AddPoint(System.String,System.Single,System.Single)
+  fullName: Fab.Geo.Modding.FeatureManager.AddPoint(System.String, System.Single, System.Single)
+  nameWithType: FeatureManager.AddPoint(String, Single, Single)
+- uid: Fab.Geo.Modding.FeatureManager.AddPoint*
+  name: AddPoint
+  href: api/Fab.Geo.Modding.FeatureManager.html#Fab_Geo_Modding_FeatureManager_AddPoint_
+  commentId: Overload:Fab.Geo.Modding.FeatureManager.AddPoint
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeatureManager.AddPoint
+  nameWithType: FeatureManager.AddPoint
+- uid: Fab.Geo.Modding.FeatureManagerProxy
+  name: FeatureManagerProxy
+  href: api/Fab.Geo.Modding.FeatureManagerProxy.html
+  commentId: T:Fab.Geo.Modding.FeatureManagerProxy
+  fullName: Fab.Geo.Modding.FeatureManagerProxy
+  nameWithType: FeatureManagerProxy
+- uid: Fab.Geo.Modding.FeatureManagerProxy.#ctor(Fab.Geo.Modding.FeatureManager)
+  name: FeatureManagerProxy(FeatureManager)
+  href: api/Fab.Geo.Modding.FeatureManagerProxy.html#Fab_Geo_Modding_FeatureManagerProxy__ctor_Fab_Geo_Modding_FeatureManager_
+  commentId: M:Fab.Geo.Modding.FeatureManagerProxy.#ctor(Fab.Geo.Modding.FeatureManager)
+  fullName: Fab.Geo.Modding.FeatureManagerProxy.FeatureManagerProxy(Fab.Geo.Modding.FeatureManager)
+  nameWithType: FeatureManagerProxy.FeatureManagerProxy(FeatureManager)
+- uid: Fab.Geo.Modding.FeatureManagerProxy.#ctor*
+  name: FeatureManagerProxy
+  href: api/Fab.Geo.Modding.FeatureManagerProxy.html#Fab_Geo_Modding_FeatureManagerProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.FeatureManagerProxy.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeatureManagerProxy.FeatureManagerProxy
+  nameWithType: FeatureManagerProxy.FeatureManagerProxy
+- uid: Fab.Geo.Modding.FeatureManagerProxy.addPoint(System.String,System.Single,System.Single)
+  name: addPoint(String, Single, Single)
+  href: api/Fab.Geo.Modding.FeatureManagerProxy.html#Fab_Geo_Modding_FeatureManagerProxy_addPoint_System_String_System_Single_System_Single_
+  commentId: M:Fab.Geo.Modding.FeatureManagerProxy.addPoint(System.String,System.Single,System.Single)
+  fullName: Fab.Geo.Modding.FeatureManagerProxy.addPoint(System.String, System.Single, System.Single)
+  nameWithType: FeatureManagerProxy.addPoint(String, Single, Single)
+- uid: Fab.Geo.Modding.FeatureManagerProxy.addPoint*
+  name: addPoint
+  href: api/Fab.Geo.Modding.FeatureManagerProxy.html#Fab_Geo_Modding_FeatureManagerProxy_addPoint_
+  commentId: Overload:Fab.Geo.Modding.FeatureManagerProxy.addPoint
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeatureManagerProxy.addPoint
+  nameWithType: FeatureManagerProxy.addPoint
+- uid: Fab.Geo.Modding.FeaturePoint
+  name: FeaturePoint
+  href: api/Fab.Geo.Modding.FeaturePoint.html
+  commentId: T:Fab.Geo.Modding.FeaturePoint
+  fullName: Fab.Geo.Modding.FeaturePoint
+  nameWithType: FeaturePoint
+- uid: Fab.Geo.Modding.FeaturePoint.clicked
+  name: clicked
+  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_clicked
+  commentId: E:Fab.Geo.Modding.FeaturePoint.clicked
+  fullName: Fab.Geo.Modding.FeaturePoint.clicked
+  nameWithType: FeaturePoint.clicked
+- uid: Fab.Geo.Modding.FeaturePoint.OnClick(BaseEventData)
+  name: OnClick(BaseEventData)
+  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_OnClick_BaseEventData_
+  commentId: M:Fab.Geo.Modding.FeaturePoint.OnClick(BaseEventData)
+  fullName: Fab.Geo.Modding.FeaturePoint.OnClick(BaseEventData)
+  nameWithType: FeaturePoint.OnClick(BaseEventData)
+- uid: Fab.Geo.Modding.FeaturePoint.OnClick*
+  name: OnClick
+  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_OnClick_
+  commentId: Overload:Fab.Geo.Modding.FeaturePoint.OnClick
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeaturePoint.OnClick
+  nameWithType: FeaturePoint.OnClick
+- uid: Fab.Geo.Modding.FeaturePoint.textMesh
+  name: textMesh
+  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_textMesh
+  commentId: F:Fab.Geo.Modding.FeaturePoint.textMesh
+  fullName: Fab.Geo.Modding.FeaturePoint.textMesh
+  nameWithType: FeaturePoint.textMesh
+- uid: Fab.Geo.Modding.FeaturePointProxy
+  name: FeaturePointProxy
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html
+  commentId: T:Fab.Geo.Modding.FeaturePointProxy
+  fullName: Fab.Geo.Modding.FeaturePointProxy
+  nameWithType: FeaturePointProxy
+- uid: Fab.Geo.Modding.FeaturePointProxy.#ctor(Fab.Geo.Modding.FeaturePoint)
+  name: FeaturePointProxy(FeaturePoint)
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy__ctor_Fab_Geo_Modding_FeaturePoint_
+  commentId: M:Fab.Geo.Modding.FeaturePointProxy.#ctor(Fab.Geo.Modding.FeaturePoint)
+  fullName: Fab.Geo.Modding.FeaturePointProxy.FeaturePointProxy(Fab.Geo.Modding.FeaturePoint)
+  nameWithType: FeaturePointProxy.FeaturePointProxy(FeaturePoint)
+- uid: Fab.Geo.Modding.FeaturePointProxy.#ctor*
+  name: FeaturePointProxy
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeaturePointProxy.FeaturePointProxy
+  nameWithType: FeaturePointProxy.FeaturePointProxy
+- uid: Fab.Geo.Modding.FeaturePointProxy.addClickListener(Closure)
+  name: addClickListener(Closure)
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_addClickListener_Closure_
+  commentId: M:Fab.Geo.Modding.FeaturePointProxy.addClickListener(Closure)
+  fullName: Fab.Geo.Modding.FeaturePointProxy.addClickListener(Closure)
+  nameWithType: FeaturePointProxy.addClickListener(Closure)
+- uid: Fab.Geo.Modding.FeaturePointProxy.addClickListener*
+  name: addClickListener
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_addClickListener_
+  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.addClickListener
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeaturePointProxy.addClickListener
+  nameWithType: FeaturePointProxy.addClickListener
+- uid: Fab.Geo.Modding.FeaturePointProxy.name
+  name: name
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_name
+  commentId: P:Fab.Geo.Modding.FeaturePointProxy.name
+  fullName: Fab.Geo.Modding.FeaturePointProxy.name
+  nameWithType: FeaturePointProxy.name
+- uid: Fab.Geo.Modding.FeaturePointProxy.name*
+  name: name
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_name_
+  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.name
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeaturePointProxy.name
+  nameWithType: FeaturePointProxy.name
+- uid: Fab.Geo.Modding.FeaturePointProxy.removeClickListener
+  name: removeClickListener()
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_removeClickListener
+  commentId: M:Fab.Geo.Modding.FeaturePointProxy.removeClickListener
+  fullName: Fab.Geo.Modding.FeaturePointProxy.removeClickListener()
+  nameWithType: FeaturePointProxy.removeClickListener()
+- uid: Fab.Geo.Modding.FeaturePointProxy.removeClickListener*
+  name: removeClickListener
+  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_removeClickListener_
+  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.removeClickListener
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeaturePointProxy.removeClickListener
+  nameWithType: FeaturePointProxy.removeClickListener
+- uid: Fab.Geo.Modding.LuaManager
+  name: LuaManager
+  href: api/Fab.Geo.Modding.LuaManager.html
+  commentId: T:Fab.Geo.Modding.LuaManager
+  fullName: Fab.Geo.Modding.LuaManager
+  nameWithType: LuaManager
 - uid: Fab.Geo.World
   name: World
   href: api/Fab.Geo.World.html

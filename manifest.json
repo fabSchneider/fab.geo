@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.App.html",
-          "hash": "thzLKs1BW+9SlNra58HyRg=="
+          "hash": "Dl0GD3Wch7KQGDjAsc/5MA=="
         }
       },
       "is_incremental": false,
@@ -113,6 +113,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.FaceCamera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.FaceCamera.html",
+          "hash": "L10hkyDn1TrYzhYSQvALMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Fab.Geo.GenerateWorldChunkJob.yml",
       "output": {
         ".html": {
@@ -189,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.GeoUtils.html",
-          "hash": "LjI0YVsBCdodN+nyo0Uztw=="
+          "hash": "OM7Z2M8oLQDjZnQ0fiZWxw=="
         }
       },
       "is_incremental": false,
@@ -202,6 +214,78 @@
         ".html": {
           "relative_path": "api/Fab.Geo.MeshUtils.html",
           "hash": "FzXOuLBggcl0ANpXBWRZQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.FeatureManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.FeatureManager.html",
+          "hash": "U9dRAiQ569an2ZTqFwow0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.FeatureManagerProxy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.FeatureManagerProxy.html",
+          "hash": "YWojJEvQV/hy0THFBTC2nw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.FeaturePoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.FeaturePoint.html",
+          "hash": "O0MkLgx8xTMppiIEP2KNdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.FeaturePointProxy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.FeaturePointProxy.html",
+          "hash": "Zc+Zo1Uz6u72cHZf643PGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LuaManager.html",
+          "hash": "ommPAIkEPC8lC2fwdbwSRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.html",
+          "hash": "zyZaXi5UaA6zfEovX0cmzA=="
         }
       },
       "is_incremental": false,
@@ -249,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.html",
-          "hash": "irumo2gCq98LvIe/kSDRmA=="
+          "hash": "Hzvd0fdePYkQKIayIEqQ9Q=="
         }
       },
       "is_incremental": false,
@@ -273,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "Ll5541HPWZUrKXrGJ199Ew=="
+          "hash": "IYH3dsae/6uDAFjVGBctTA=="
         }
       },
       "is_incremental": false,
@@ -292,12 +376,24 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "articles/scripting.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/scripting.html",
+          "hash": "ddVQ4f+fGz0r/7/OMZqyVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "gB8AESyvNru97tzIZofEEg=="
+          "hash": "rcz0xe0w5VcoIbPWxaLcFQ=="
         }
       },
       "is_incremental": false,
@@ -353,13 +449,13 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 3,
+          "total_file_count": 4,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 21,
+          "total_file_count": 28,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
