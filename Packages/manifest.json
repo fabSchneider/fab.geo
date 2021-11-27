@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.dbrizov.naughtyattributes": "2.1.1",
+    "com.stillwwater.commandterminal": "https://github.com/fabSchneider/command_terminal.git?path=/CommandTerminal#v1.3.1",
     "com.unity.burst": "1.4.11",
     "com.unity.ide.visualstudio": "2.0.12",
     "com.unity.ide.vscode": "1.2.4",
