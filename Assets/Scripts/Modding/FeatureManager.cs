@@ -12,7 +12,9 @@ namespace Fab.Geo.Modding
         public FeaturePoint AddPoint(string name, float lat, float lon)
         {
             FeaturePoint inst = Instantiate(pointPrefab, transform);
-            inst.transform.localPosition = GeoUtils.CoordinateToPoint(lat, lon);
+            Vector3 pos = GeoUtils.CoordinateToPoint(lat, lon);
+            //add some altitude so the point is not sunken into the ground
+            inst.transform.localPosition = pos + pos * 0.005f;
             inst.name = name;
             return inst;
         }
