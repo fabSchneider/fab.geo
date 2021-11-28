@@ -1,4 +1,3 @@
-using MoonSharp.Interpreter;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +5,15 @@ namespace Fab.Geo.Modding
 {
     public class FeatureManager : MonoBehaviour
     {
+        private Dictionary<int, Feature> features;
+
         [SerializeField]
         private FeaturePoint pointPrefab;
+
+        private void Awake()
+        {
+            features = new Dictionary<int, Feature>();
+        }
 
         public FeaturePoint AddPoint(string name, float lat, float lon)
         {
@@ -16,25 +22,19 @@ namespace Fab.Geo.Modding
             //add some altitude so the point is not sunken into the ground
             inst.transform.localPosition = pos + pos * 0.005f;
             inst.name = name;
+            features.Add(inst.GetInstanceID(), inst);
             return inst;
         }
-    }
 
-    [MoonSharpUserData]
-    public class FeatureManagerProxy
-    {
-        private FeatureManager manager;
-
-        [MoonSharpHidden]
-        public FeatureManagerProxy(FeatureManager manager)
+        public bool RemoveFeature(int id)
         {
-            this.manager = manager;
-        }
-
-        public FeaturePointProxy addPoint(string name, float lat, float lon)
-        {
-            FeaturePoint fp = manager.AddPoint(name, lat, lon);
-            return new FeaturePointProxy(fp);
+            if (features.TryGetValue(id, out Feature feature))
+            {
+                Destroy(feature.gameObject);
+                features.Remove(id);
+                return true;
+            }
+            return false;
         }
     }
 }
