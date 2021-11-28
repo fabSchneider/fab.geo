@@ -23,5 +23,10 @@ namespace Fab.Geo
         {
             return new Coordinate(f2.x, f2.y);
         }
+
+        public override string ToString()
+        {
+            return $"(Lat: {math.degrees(latitude)} Lon: {math.degrees(longitude)})";
+        }
     }
 }
