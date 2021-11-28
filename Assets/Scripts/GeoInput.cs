@@ -55,6 +55,15 @@ namespace Fab.Geo
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Orbit"",
+                    ""type"": ""Button"",
+                    ""id"": ""4f39a932-6fc3-455d-9949-797c84629fe5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ namespace Fab.Geo
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""435feee9-713b-4d24-badb-9e4124a260ea"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Orbit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -700,6 +720,7 @@ namespace Fab.Geo
             m_Player_Pan = m_Player.FindAction("Pan", throwIfNotFound: true);
             m_Player_Delta = m_Player.FindAction("Delta", throwIfNotFound: true);
             m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
+            m_Player_Orbit = m_Player.FindAction("Orbit", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -774,6 +795,7 @@ namespace Fab.Geo
         private readonly InputAction m_Player_Pan;
         private readonly InputAction m_Player_Delta;
         private readonly InputAction m_Player_Zoom;
+        private readonly InputAction m_Player_Orbit;
         public struct PlayerActions
         {
             private @GeoInput m_Wrapper;
@@ -781,6 +803,7 @@ namespace Fab.Geo
             public InputAction @Pan => m_Wrapper.m_Player_Pan;
             public InputAction @Delta => m_Wrapper.m_Player_Delta;
             public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
+            public InputAction @Orbit => m_Wrapper.m_Player_Orbit;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -799,6 +822,9 @@ namespace Fab.Geo
                     @Zoom.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
                     @Zoom.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
                     @Zoom.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoom;
+                    @Orbit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
+                    @Orbit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
+                    @Orbit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -812,6 +838,9 @@ namespace Fab.Geo
                     @Zoom.started += instance.OnZoom;
                     @Zoom.performed += instance.OnZoom;
                     @Zoom.canceled += instance.OnZoom;
+                    @Orbit.started += instance.OnOrbit;
+                    @Orbit.performed += instance.OnOrbit;
+                    @Orbit.canceled += instance.OnOrbit;
                 }
             }
         }
@@ -971,6 +1000,7 @@ namespace Fab.Geo
             void OnPan(InputAction.CallbackContext context);
             void OnDelta(InputAction.CallbackContext context);
             void OnZoom(InputAction.CallbackContext context);
+            void OnOrbit(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
