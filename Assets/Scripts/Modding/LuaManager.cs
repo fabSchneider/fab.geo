@@ -59,9 +59,14 @@ namespace Fab.Geo.Modding
             Dictionary<string, object> globals = new Dictionary<string, object>();
             FeatureManager featureManager = FindObjectOfType<FeatureManager>();
             if (featureManager)
-            {
                 globals.Add("features", new FeatureManagerProxy(featureManager));
+            
+            UIManager uiManager = FindObjectOfType<UIManager>();
+            if (uiManager)
+            {
+                globals.Add("ui", new UIManagerProxy(uiManager));
             }
+
             return globals;
         }
 
