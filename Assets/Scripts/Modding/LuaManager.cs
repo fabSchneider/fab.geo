@@ -57,6 +57,7 @@ namespace Fab.Geo.Modding
         private static Dictionary<string, object> GetGlobals()
         {
             Dictionary<string, object> globals = new Dictionary<string, object>();
+           
             FeatureManager featureManager = FindObjectOfType<FeatureManager>();
             if (featureManager)
                 globals.Add("features", new FeatureManagerProxy(featureManager));
@@ -65,6 +66,12 @@ namespace Fab.Geo.Modding
             if (uiManager)
             {
                 globals.Add("ui", new UIManagerProxy(uiManager));
+            }
+
+            WorldCameraController cameraController = FindObjectOfType<WorldCameraController>();
+            if (cameraController)
+            {
+                globals.Add("camera", new WorldCameraControllerProxy(cameraController));
             }
 
             return globals;
