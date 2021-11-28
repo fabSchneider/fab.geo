@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
   panSpeed: 0.4
+  orbitSpeed: 0.3
   zoomBounds: {x: 1.012, y: 5}
   zoomSpeed:
     serializedVersion: 2
@@ -311,7 +312,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.23220278
     - serializedVersion: 3
-      time: 0.67207354
+      time: 0.8828696
       value: 0
       inSlope: Infinity
       outSlope: 0.78417873
@@ -322,11 +323,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 79.890305
-      inSlope: 1242.0228
-      outSlope: 1242.0228
+      inSlope: 4510.8647
+      outSlope: 4510.8647
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.10821378
+      inWeight: 0.030296339
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
