@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Fab.Geo
@@ -12,12 +13,14 @@ namespace Fab.Geo
         private static readonly string closeBtnClassName = className + "__close-btn";
         private static readonly string titleClassName = className + "__title";
         private static readonly string textClassName = className + "__text";
+        private static readonly string imgClassName = className + "__img";
 
         private VisualElement root;
         private VisualElement popupRoot;
         private VisualElement popupElement;
         private Label titleLabel;
         private Label textLabel;
+        private Image img;
 
         public Popup(VisualElement root)
         {
@@ -43,6 +46,9 @@ namespace Fab.Geo
             content.AddToClassList(contentClassName);
             textLabel = new Label();
             textLabel.AddToClassList(textClassName);
+            img = new Image();
+            img.AddToClassList(imgClassName);
+            content.Add(img);
             content.Add(textLabel);
 
             VisualElement footer = new VisualElement();
@@ -59,6 +65,11 @@ namespace Fab.Geo
         {
             popupElement.Blur();
             popupRoot.RemoveFromHierarchy();
+            titleLabel.text = null;
+            textLabel.text = null;
+            img.image = null;
+            img.style.maxWidth = StyleKeyword.Null;
+            img.style.maxWidth = StyleKeyword.Null;
         }
 
         public void Show(string title, string text)
@@ -66,6 +77,16 @@ namespace Fab.Geo
             titleLabel.text = title;
             textLabel.text = text;
 
+            root.Add(popupRoot);
+            popupElement.Focus();
+        }
+
+        public void Show(string title, Texture2D image)
+        {
+            titleLabel.text = title;
+            img.image = image;
+            img.style.maxWidth = image.width;
+            img.style.maxHeight = image.height;
             root.Add(popupRoot);
             popupElement.Focus();
         }
