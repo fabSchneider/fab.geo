@@ -198,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714b9a4927c955b40a2f9e569c5a0190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupAsset: {fileID: 9197481963319205126, guid: c33beb2578d39664e90cbd4fc786ac11, type: 3}
 --- !u!114 &231218363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,9 +453,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHeight: 0.7
   SmallTerminalRatio: 0.4
-  ToggleSpeed: 700
-  ToggleHotkey: '`'
-  ToggleFullHotkey: '#`'
+  ToggleSpeed: 1000
+  ToggleHotkey: '-'
+  ToggleFullHotkey: =
   BufferSize: 512
   ConsoleFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   InputCaret: '>'
