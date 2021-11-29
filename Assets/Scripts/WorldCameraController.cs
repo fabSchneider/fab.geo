@@ -70,11 +70,16 @@ namespace Fab.Geo
         }
 
 
+        public Coordinate GetCoordinate()
+        {
+            return GeoUtils.PointToCoordinate(-transform.forward);
+        }
+
         /// <summary>
         /// Sets the camera position to the given coordinate
         /// </summary>
         /// <param name="coordinate"></param>
-        public void SetPosition(Coordinate coordinate)
+        public void SetCoordinate(Coordinate coordinate)
         {
             Vector3 to = GeoUtils.CoordinateToPoint(coordinate);
             transform.rotation = Quaternion.LookRotation(-to);
