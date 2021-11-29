@@ -1,0 +1,98 @@
+:root {
+    --window-color: rgb(212, 212, 212);
+}
+
+VisualElement {
+}
+
+.blocking-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup {
+    width: 300px;
+    height: 150px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: var(--window-color);
+}
+
+.popup__header {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.popup__title {
+    -unity-font-style: bold;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.popup__close-btn {
+    -unity-font-style: bold;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    width: 16px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.popup__content {
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.popup__text {
+}
+
+.popup__footer {
+    align-items: flex-end;
+}
+
+.control-panel {
+    background-color: var(--window-color);
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    max-height: 500px;
+    width: 350px;
+}
+
+.control-panel__content {
+    width: 330px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.control-panel__seperator {
+    height: 1px;
+    background-color: rgba(128, 128, 128, 255);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
