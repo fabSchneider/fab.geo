@@ -1,4 +1,5 @@
 using MoonSharp.Interpreter;
+using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
@@ -20,6 +21,9 @@ namespace Fab.Geo.Modding
             get => feature.name;
             set => feature.SetName(name);
         }
+
+        public float center_lat => Mathf.Rad2Deg * feature.Center.latitude;
+        public float center_lon => Mathf.Rad2Deg * feature.Center.longitude;
 
         public int id => feature.GetInstanceID();
 

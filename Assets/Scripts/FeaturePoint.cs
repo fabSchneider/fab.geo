@@ -8,6 +8,8 @@ namespace Fab.Geo
     {
         public TextMesh textMesh;
 
+        public override Coordinate Center => GeoUtils.PointToCoordinate(transform.localPosition.normalized);
+
         public override void SetName(string name)
         {
             base.SetName(name);
