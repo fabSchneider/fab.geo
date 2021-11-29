@@ -65,7 +65,8 @@ namespace Fab.Geo.Modding
             UIManager uiManager = FindObjectOfType<UIManager>();
             if (uiManager)
             {
-                globals.Add("ui", new UIManagerProxy(uiManager));
+                globals.Add("popup", new PopupProxy(uiManager.Popup));
+                globals.Add("controls", new ControlPanelProxy(uiManager.ControlPanel));
             }
 
             WorldCameraController cameraController = FindObjectOfType<WorldCameraController>();
