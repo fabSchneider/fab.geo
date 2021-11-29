@@ -75,6 +75,12 @@ namespace Fab.Geo.Modding
                 globals.Add("camera", new WorldCameraControllerProxy(cameraController));
             }
 
+            globals.Add("geo", new GeoProxy());
+
+            UserData.RegisterProxyType<TextureProxy, Texture2D>(t => new TextureProxy(t));
+
+            globals.Add("loader", new IOProxy(DataDirectory));
+
             return globals;
         }
 
