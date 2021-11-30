@@ -96,5 +96,15 @@ namespace Fab.Geo
             DropdownField dropdown = new DropdownField(name, choices, value);
             currentParent.Add(dropdown);
         }
+
+        public void AddButton(string name, Action callback)
+        {
+            if (controlPanelElement.parent == null)
+                root.Add(controlPanelElement);
+
+            Button button = new Button(callback);
+            button.text = name;
+            currentParent.Add(button);
+        }
     }
 }

@@ -23,5 +23,7 @@ namespace Fab.Geo.Modding
         public void add_range_slider(string name, float min, float max, float minLimit, float maxLimit) => Source.AddRangeSlider(name, min, max, minLimit, maxLimit);
 
         public void add_choice(string name, List<string> choices, string value) => Source.AddChoice(name, choices, value);
+
+        public void add_button(string name, Closure callback) => Source.AddButton(name, () => callback.Call());
     }
 }
