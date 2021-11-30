@@ -454,8 +454,8 @@ MonoBehaviour:
   MaxHeight: 0.7
   SmallTerminalRatio: 0.4
   ToggleSpeed: 1000
-  ToggleHotkey: '-'
-  ToggleFullHotkey: =
+  ToggleHotkey: =
+  ToggleFullHotkey: '-'
   BufferSize: 512
   ConsoleFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   InputCaret: '>'
