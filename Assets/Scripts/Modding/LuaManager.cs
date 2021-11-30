@@ -29,15 +29,35 @@ namespace Fab.Geo.Modding
         private static readonly string deltaTimeKey = "deltaTime";
 
         private List<Script> loadedScripts = new List<Script>();
+        public IEnumerable<Script> LoadedScripts => loadedScripts;
+
         private Dictionary<Script, Closure> updateFunctions = new Dictionary<Script, Closure>();
 
-        private MoonSharpVsCodeDebugServer debuggerServer;
+        private LuaDebugger debugger;
+
+        public void SetDebugger(LuaDebugger debugger)
+        {
+            if(debugger == null)
+            {
+                this.debugger = null;
+                return;
+            }    
+
+            // don't allow to 'overwrite' an existing debugger
+            if (this.debugger != null)
+                Debug.LogError("Debugger has already been set");
+               
+            this.debugger = debugger;
+
+            //attach all loaded scripts to the debugger
+            foreach (Script script in loadedScripts)
+                debugger.AttachScript(script);
+        }
 
         private void Start()
         {
             UserData.RegisterAssembly();
             Script.GlobalOptions.Platform = new StandardPlatformAccessor();
-
             LoadScripts();
         }
 
@@ -48,6 +68,30 @@ namespace Fab.Geo.Modding
                 func.OwnerScript.Globals[deltaTimeKey] = Time.deltaTime;
                 func.Call();
             }
+        }
+
+        /// <summary>
+        /// Returns the name the script is registered with
+        /// </summary>
+        /// <param name="script"></param>
+        /// <returns></returns>
+        public string GetScriptName(Script script)
+        {
+            if (loadedScripts.Contains(script))
+                return (string)script.Globals[scriptNameKey];
+
+            Debug.LogError("The script is not registered");
+            return null;
+        }
+
+        /// <summary>
+        /// Returns the path the script was loaded from
+        /// </summary>
+        /// <param name="script"></param>
+        /// <returns></returns>
+        public string GetScriptLoadPath(Script script)
+        {
+            return Path.Combine((string)script.Globals[scriptDirKey], (string)script.Globals[scriptNameKey] + ".lua");
         }
 
         /// <summary>
@@ -89,8 +133,8 @@ namespace Fab.Geo.Modding
         /// <param name="script"></param>
         public void UnloadScript(Script script)
         {
-            if (debuggerServer != null)
-                debuggerServer.Detach(script);
+            if (debugger != null)
+                debugger.DetachScript(script);
 
             loadedScripts.Remove(script);
             updateFunctions.Remove(script);
@@ -127,9 +171,9 @@ namespace Fab.Geo.Modding
             script.Globals[scriptDirKey] = ScriptsDirectory + Path.DirectorySeparatorChar;
             script.Globals[dataDirKey] = DataDirectory + Path.DirectorySeparatorChar;
 
-            ////attach to debugger
-            //if (debuggerServer != null)
-            //    debuggerServer.AttachToScript(script, scriptName);
+            //attach to debugger
+            if (debugger != null)
+                debugger.AttachScript(script);
 
             using Stream fileStream = new FileStream(path, FileMode.Open);
 
@@ -217,39 +261,6 @@ namespace Fab.Geo.Modding
                 if (script != null)
                     manager.UnloadScript(script);
             }
-        }
-
-        [RegisterCommand(command_name: "debug_scripts", Help = "Enables the lua script debugger")]
-        private static void Command_Debug_Scripts(CommandArg[] args)
-        {
-            if (Terminal.IssuedError) return;
-
-            LuaManager manager = FindObjectOfType<LuaManager>();
-            if (manager)
-            {
-                if (manager.debuggerServer == null)
-                    manager.debuggerServer = new MoonSharpVsCodeDebugServer(41912);
-                else
-                {
-                    Terminal.Log(TerminalLogType.Error, "Lua Debugger is already enabled");
-                    return;
-                }
-
-                foreach (Script script in manager.loadedScripts)
-                {
-                    string scriptName = (string)script.Globals[scriptNameKey];
-                    manager.debuggerServer.AttachToScript(script, scriptName, FindDebuggerSource);
-                }
-
-                manager.debuggerServer.Start();
-                Debug.Log("Lua debug server started on port 41912");
-            }
-        }
-
-        private static string FindDebuggerSource(SourceCode s)
-        {
-            string path = Path.Combine((string)s.OwnerScript.Globals[scriptDirKey], (string)s.OwnerScript.Globals[scriptNameKey] + ".lua");
-            return path;
         }
 
         #endregion
