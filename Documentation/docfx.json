@@ -29,6 +29,8 @@
         "files": [
           "articles/**.md",
           "articles/**/toc.yml",
+          "scripting/**.md",
+          "scripting/**/toc.yml",
           "toc.yml",
           "*.md"
         ]

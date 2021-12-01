@@ -1,4 +1,6 @@
 - name: Introduction
   href: intro.md
-- name: Scripting
-  href: scripting.md
+- name: Controls
+  href: controls.md
+- name: Commandline
+  href: commands.md
