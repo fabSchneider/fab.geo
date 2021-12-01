@@ -2,6 +2,8 @@
   items:
   - name: Quickstart
     href: quickstart.md 
+  - name: Debugging with VS Code
+    href: debugging.md
 - name: Examples
   items:
   - name: 1. Adding features to the world
