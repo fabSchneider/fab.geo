@@ -135,6 +135,122 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.CityDataCollection.Item
   nameWithType: CityDataCollection.Item
+- uid: Fab.Geo.ControlPanel
+  name: ControlPanel
+  href: api/Fab.Geo.ControlPanel.html
+  commentId: T:Fab.Geo.ControlPanel
+  fullName: Fab.Geo.ControlPanel
+  nameWithType: ControlPanel
+- uid: Fab.Geo.ControlPanel.#ctor(VisualElement)
+  name: ControlPanel(VisualElement)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel__ctor_VisualElement_
+  commentId: M:Fab.Geo.ControlPanel.#ctor(VisualElement)
+  fullName: Fab.Geo.ControlPanel.ControlPanel(VisualElement)
+  nameWithType: ControlPanel.ControlPanel(VisualElement)
+- uid: Fab.Geo.ControlPanel.#ctor*
+  name: ControlPanel
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel__ctor_
+  commentId: Overload:Fab.Geo.ControlPanel.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.ControlPanel
+  nameWithType: ControlPanel.ControlPanel
+- uid: Fab.Geo.ControlPanel.AddButton(System.String,Action)
+  name: AddButton(String, Action)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddButton_System_String_Action_
+  commentId: M:Fab.Geo.ControlPanel.AddButton(System.String,Action)
+  fullName: Fab.Geo.ControlPanel.AddButton(System.String, Action)
+  nameWithType: ControlPanel.AddButton(String, Action)
+- uid: Fab.Geo.ControlPanel.AddButton*
+  name: AddButton
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddButton_
+  commentId: Overload:Fab.Geo.ControlPanel.AddButton
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.AddButton
+  nameWithType: ControlPanel.AddButton
+- uid: Fab.Geo.ControlPanel.AddChoice(System.String,List{System.String},System.String)
+  name: AddChoice(String, List<String>, String)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddChoice_System_String_List_System_String__System_String_
+  commentId: M:Fab.Geo.ControlPanel.AddChoice(System.String,List{System.String},System.String)
+  name.vb: AddChoice(String, List(Of String), String)
+  fullName: Fab.Geo.ControlPanel.AddChoice(System.String, List<System.String>, System.String)
+  fullName.vb: Fab.Geo.ControlPanel.AddChoice(System.String, List(Of System.String), System.String)
+  nameWithType: ControlPanel.AddChoice(String, List<String>, String)
+  nameWithType.vb: ControlPanel.AddChoice(String, List(Of String), String)
+- uid: Fab.Geo.ControlPanel.AddChoice*
+  name: AddChoice
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddChoice_
+  commentId: Overload:Fab.Geo.ControlPanel.AddChoice
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.AddChoice
+  nameWithType: ControlPanel.AddChoice
+- uid: Fab.Geo.ControlPanel.AddRangeSlider(System.String,System.Single,System.Single,System.Single,System.Single)
+  name: AddRangeSlider(String, Single, Single, Single, Single)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddRangeSlider_System_String_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:Fab.Geo.ControlPanel.AddRangeSlider(System.String,System.Single,System.Single,System.Single,System.Single)
+  fullName: Fab.Geo.ControlPanel.AddRangeSlider(System.String, System.Single, System.Single, System.Single, System.Single)
+  nameWithType: ControlPanel.AddRangeSlider(String, Single, Single, Single, Single)
+- uid: Fab.Geo.ControlPanel.AddRangeSlider*
+  name: AddRangeSlider
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddRangeSlider_
+  commentId: Overload:Fab.Geo.ControlPanel.AddRangeSlider
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.AddRangeSlider
+  nameWithType: ControlPanel.AddRangeSlider
+- uid: Fab.Geo.ControlPanel.AddSeperator
+  name: AddSeperator()
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSeperator
+  commentId: M:Fab.Geo.ControlPanel.AddSeperator
+  fullName: Fab.Geo.ControlPanel.AddSeperator()
+  nameWithType: ControlPanel.AddSeperator()
+- uid: Fab.Geo.ControlPanel.AddSeperator*
+  name: AddSeperator
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSeperator_
+  commentId: Overload:Fab.Geo.ControlPanel.AddSeperator
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.AddSeperator
+  nameWithType: ControlPanel.AddSeperator
+- uid: Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,Action{System.Single})
+  name: AddSlider(String, Single, Single, Single, Action<Single>)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSlider_System_String_System_Single_System_Single_System_Single_Action_System_Single__
+  commentId: M:Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,Action{System.Single})
+  name.vb: AddSlider(String, Single, Single, Single, Action(Of Single))
+  fullName: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, Action<System.Single>)
+  fullName.vb: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, Action(Of System.Single))
+  nameWithType: ControlPanel.AddSlider(String, Single, Single, Single, Action<Single>)
+  nameWithType.vb: ControlPanel.AddSlider(String, Single, Single, Single, Action(Of Single))
+- uid: Fab.Geo.ControlPanel.AddSlider*
+  name: AddSlider
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSlider_
+  commentId: Overload:Fab.Geo.ControlPanel.AddSlider
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.AddSlider
+  nameWithType: ControlPanel.AddSlider
+- uid: Fab.Geo.ControlPanel.BeginGroup(System.String,System.Boolean)
+  name: BeginGroup(String, Boolean)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_BeginGroup_System_String_System_Boolean_
+  commentId: M:Fab.Geo.ControlPanel.BeginGroup(System.String,System.Boolean)
+  fullName: Fab.Geo.ControlPanel.BeginGroup(System.String, System.Boolean)
+  nameWithType: ControlPanel.BeginGroup(String, Boolean)
+- uid: Fab.Geo.ControlPanel.BeginGroup*
+  name: BeginGroup
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_BeginGroup_
+  commentId: Overload:Fab.Geo.ControlPanel.BeginGroup
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.BeginGroup
+  nameWithType: ControlPanel.BeginGroup
+- uid: Fab.Geo.ControlPanel.EndGroup
+  name: EndGroup()
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_EndGroup
+  commentId: M:Fab.Geo.ControlPanel.EndGroup
+  fullName: Fab.Geo.ControlPanel.EndGroup()
+  nameWithType: ControlPanel.EndGroup()
+- uid: Fab.Geo.ControlPanel.EndGroup*
+  name: EndGroup
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_EndGroup_
+  commentId: Overload:Fab.Geo.ControlPanel.EndGroup
+  isSpec: "True"
+  fullName: Fab.Geo.ControlPanel.EndGroup
+  nameWithType: ControlPanel.EndGroup
 - uid: Fab.Geo.Coordinate
   name: Coordinate
   href: api/Fab.Geo.Coordinate.html
@@ -194,6 +310,19 @@ references:
   fullName.vb: Fab.Geo.Coordinate.Widening
   nameWithType: Coordinate.Implicit
   nameWithType.vb: Coordinate.Widening
+- uid: Fab.Geo.Coordinate.ToString
+  name: ToString()
+  href: api/Fab.Geo.Coordinate.html#Fab_Geo_Coordinate_ToString
+  commentId: M:Fab.Geo.Coordinate.ToString
+  fullName: Fab.Geo.Coordinate.ToString()
+  nameWithType: Coordinate.ToString()
+- uid: Fab.Geo.Coordinate.ToString*
+  name: ToString
+  href: api/Fab.Geo.Coordinate.html#Fab_Geo_Coordinate_ToString_
+  commentId: Overload:Fab.Geo.Coordinate.ToString
+  isSpec: "True"
+  fullName: Fab.Geo.Coordinate.ToString
+  nameWithType: Coordinate.ToString
 - uid: Fab.Geo.Editor
   name: Fab.Geo.Editor
   href: api/Fab.Geo.Editor.html
@@ -276,6 +405,95 @@ references:
   commentId: T:Fab.Geo.FaceCamera
   fullName: Fab.Geo.FaceCamera
   nameWithType: FaceCamera
+- uid: Fab.Geo.Feature
+  name: Feature
+  href: api/Fab.Geo.Feature.html
+  commentId: T:Fab.Geo.Feature
+  fullName: Fab.Geo.Feature
+  nameWithType: Feature
+- uid: Fab.Geo.Feature.Center
+  name: Center
+  href: api/Fab.Geo.Feature.html#Fab_Geo_Feature_Center
+  commentId: P:Fab.Geo.Feature.Center
+  fullName: Fab.Geo.Feature.Center
+  nameWithType: Feature.Center
+- uid: Fab.Geo.Feature.Center*
+  name: Center
+  href: api/Fab.Geo.Feature.html#Fab_Geo_Feature_Center_
+  commentId: Overload:Fab.Geo.Feature.Center
+  isSpec: "True"
+  fullName: Fab.Geo.Feature.Center
+  nameWithType: Feature.Center
+- uid: Fab.Geo.Feature.clicked
+  name: clicked
+  href: api/Fab.Geo.Feature.html#Fab_Geo_Feature_clicked
+  commentId: E:Fab.Geo.Feature.clicked
+  fullName: Fab.Geo.Feature.clicked
+  nameWithType: Feature.clicked
+- uid: Fab.Geo.Feature.OnClick(BaseEventData)
+  name: OnClick(BaseEventData)
+  href: api/Fab.Geo.Feature.html#Fab_Geo_Feature_OnClick_BaseEventData_
+  commentId: M:Fab.Geo.Feature.OnClick(BaseEventData)
+  fullName: Fab.Geo.Feature.OnClick(BaseEventData)
+  nameWithType: Feature.OnClick(BaseEventData)
+- uid: Fab.Geo.Feature.OnClick*
+  name: OnClick
+  href: api/Fab.Geo.Feature.html#Fab_Geo_Feature_OnClick_
+  commentId: Overload:Fab.Geo.Feature.OnClick
+  isSpec: "True"
+  fullName: Fab.Geo.Feature.OnClick
+  nameWithType: Feature.OnClick
+- uid: Fab.Geo.Feature.SetName(System.String)
+  name: SetName(String)
+  href: api/Fab.Geo.Feature.html#Fab_Geo_Feature_SetName_System_String_
+  commentId: M:Fab.Geo.Feature.SetName(System.String)
+  fullName: Fab.Geo.Feature.SetName(System.String)
+  nameWithType: Feature.SetName(String)
+- uid: Fab.Geo.Feature.SetName*
+  name: SetName
+  href: api/Fab.Geo.Feature.html#Fab_Geo_Feature_SetName_
+  commentId: Overload:Fab.Geo.Feature.SetName
+  isSpec: "True"
+  fullName: Fab.Geo.Feature.SetName
+  nameWithType: Feature.SetName
+- uid: Fab.Geo.FeaturePoint
+  name: FeaturePoint
+  href: api/Fab.Geo.FeaturePoint.html
+  commentId: T:Fab.Geo.FeaturePoint
+  fullName: Fab.Geo.FeaturePoint
+  nameWithType: FeaturePoint
+- uid: Fab.Geo.FeaturePoint.Center
+  name: Center
+  href: api/Fab.Geo.FeaturePoint.html#Fab_Geo_FeaturePoint_Center
+  commentId: P:Fab.Geo.FeaturePoint.Center
+  fullName: Fab.Geo.FeaturePoint.Center
+  nameWithType: FeaturePoint.Center
+- uid: Fab.Geo.FeaturePoint.Center*
+  name: Center
+  href: api/Fab.Geo.FeaturePoint.html#Fab_Geo_FeaturePoint_Center_
+  commentId: Overload:Fab.Geo.FeaturePoint.Center
+  isSpec: "True"
+  fullName: Fab.Geo.FeaturePoint.Center
+  nameWithType: FeaturePoint.Center
+- uid: Fab.Geo.FeaturePoint.SetName(System.String)
+  name: SetName(String)
+  href: api/Fab.Geo.FeaturePoint.html#Fab_Geo_FeaturePoint_SetName_System_String_
+  commentId: M:Fab.Geo.FeaturePoint.SetName(System.String)
+  fullName: Fab.Geo.FeaturePoint.SetName(System.String)
+  nameWithType: FeaturePoint.SetName(String)
+- uid: Fab.Geo.FeaturePoint.SetName*
+  name: SetName
+  href: api/Fab.Geo.FeaturePoint.html#Fab_Geo_FeaturePoint_SetName_
+  commentId: Overload:Fab.Geo.FeaturePoint.SetName
+  isSpec: "True"
+  fullName: Fab.Geo.FeaturePoint.SetName
+  nameWithType: FeaturePoint.SetName
+- uid: Fab.Geo.FeaturePoint.textMesh
+  name: textMesh
+  href: api/Fab.Geo.FeaturePoint.html#Fab_Geo_FeaturePoint_textMesh
+  commentId: F:Fab.Geo.FeaturePoint.textMesh
+  fullName: Fab.Geo.FeaturePoint.textMesh
+  nameWithType: FeaturePoint.textMesh
 - uid: Fab.Geo.GenerateWorldChunkJob
   name: GenerateWorldChunkJob
   href: api/Fab.Geo.GenerateWorldChunkJob.html
@@ -370,6 +588,19 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.GeoInput.bindingMask
   nameWithType: GeoInput.bindingMask
+- uid: Fab.Geo.GeoInput.bindings
+  name: bindings
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_bindings
+  commentId: P:Fab.Geo.GeoInput.bindings
+  fullName: Fab.Geo.GeoInput.bindings
+  nameWithType: GeoInput.bindings
+- uid: Fab.Geo.GeoInput.bindings*
+  name: bindings
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_bindings_
+  commentId: Overload:Fab.Geo.GeoInput.bindings
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.bindings
+  nameWithType: GeoInput.bindings
 - uid: Fab.Geo.GeoInput.Contains(InputAction)
   name: Contains(InputAction)
   href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_Contains_InputAction_
@@ -448,6 +679,35 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.GeoInput.Enable
   nameWithType: GeoInput.Enable
+- uid: Fab.Geo.GeoInput.FindAction(System.String,System.Boolean)
+  name: FindAction(String, Boolean)
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_FindAction_System_String_System_Boolean_
+  commentId: M:Fab.Geo.GeoInput.FindAction(System.String,System.Boolean)
+  fullName: Fab.Geo.GeoInput.FindAction(System.String, System.Boolean)
+  nameWithType: GeoInput.FindAction(String, Boolean)
+- uid: Fab.Geo.GeoInput.FindAction*
+  name: FindAction
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_FindAction_
+  commentId: Overload:Fab.Geo.GeoInput.FindAction
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.FindAction
+  nameWithType: GeoInput.FindAction
+- uid: Fab.Geo.GeoInput.FindBinding(InputBinding,InputAction@)
+  name: FindBinding(InputBinding, out InputAction)
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_FindBinding_InputBinding_InputAction__
+  commentId: M:Fab.Geo.GeoInput.FindBinding(InputBinding,InputAction@)
+  name.vb: FindBinding(InputBinding, ByRef InputAction)
+  fullName: Fab.Geo.GeoInput.FindBinding(InputBinding, out InputAction)
+  fullName.vb: Fab.Geo.GeoInput.FindBinding(InputBinding, ByRef InputAction)
+  nameWithType: GeoInput.FindBinding(InputBinding, out InputAction)
+  nameWithType.vb: GeoInput.FindBinding(InputBinding, ByRef InputAction)
+- uid: Fab.Geo.GeoInput.FindBinding*
+  name: FindBinding
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_FindBinding_
+  commentId: Overload:Fab.Geo.GeoInput.FindBinding
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.FindBinding
+  nameWithType: GeoInput.FindBinding
 - uid: Fab.Geo.GeoInput.GamepadScheme
   name: GamepadScheme
   href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_GamepadScheme
@@ -493,6 +753,19 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.GeoInput.IPlayerActions.OnDelta
   nameWithType: GeoInput.IPlayerActions.OnDelta
+- uid: Fab.Geo.GeoInput.IPlayerActions.OnOrbit(InputAction.CallbackContext)
+  name: OnOrbit(InputAction.CallbackContext)
+  href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnOrbit_InputAction_CallbackContext_
+  commentId: M:Fab.Geo.GeoInput.IPlayerActions.OnOrbit(InputAction.CallbackContext)
+  fullName: Fab.Geo.GeoInput.IPlayerActions.OnOrbit(InputAction.CallbackContext)
+  nameWithType: GeoInput.IPlayerActions.OnOrbit(InputAction.CallbackContext)
+- uid: Fab.Geo.GeoInput.IPlayerActions.OnOrbit*
+  name: OnOrbit
+  href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnOrbit_
+  commentId: Overload:Fab.Geo.GeoInput.IPlayerActions.OnOrbit
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.IPlayerActions.OnOrbit
+  nameWithType: GeoInput.IPlayerActions.OnOrbit
 - uid: Fab.Geo.GeoInput.IPlayerActions.OnPan(InputAction.CallbackContext)
   name: OnPan(InputAction.CallbackContext)
   href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnPan_InputAction_CallbackContext_
@@ -797,6 +1070,19 @@ references:
   fullName.vb: Fab.Geo.GeoInput.PlayerActions.Widening
   nameWithType: GeoInput.PlayerActions.Implicit
   nameWithType.vb: GeoInput.PlayerActions.Widening
+- uid: Fab.Geo.GeoInput.PlayerActions.Orbit
+  name: Orbit
+  href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_Orbit
+  commentId: P:Fab.Geo.GeoInput.PlayerActions.Orbit
+  fullName: Fab.Geo.GeoInput.PlayerActions.Orbit
+  nameWithType: GeoInput.PlayerActions.Orbit
+- uid: Fab.Geo.GeoInput.PlayerActions.Orbit*
+  name: Orbit
+  href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_Orbit_
+  commentId: Overload:Fab.Geo.GeoInput.PlayerActions.Orbit
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.PlayerActions.Orbit
+  nameWithType: GeoInput.PlayerActions.Orbit
 - uid: Fab.Geo.GeoInput.PlayerActions.Pan
   name: Pan
   href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_Pan
@@ -1133,6 +1419,31 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.GeoUtils.CoordinateToPoint
   nameWithType: GeoUtils.CoordinateToPoint
+- uid: Fab.Geo.GeoUtils.Distance(Fab.Geo.Coordinate,Fab.Geo.Coordinate)
+  name: Distance(Coordinate, Coordinate)
+  href: api/Fab.Geo.GeoUtils.html#Fab_Geo_GeoUtils_Distance_Fab_Geo_Coordinate_Fab_Geo_Coordinate_
+  commentId: M:Fab.Geo.GeoUtils.Distance(Fab.Geo.Coordinate,Fab.Geo.Coordinate)
+  fullName: Fab.Geo.GeoUtils.Distance(Fab.Geo.Coordinate, Fab.Geo.Coordinate)
+  nameWithType: GeoUtils.Distance(Coordinate, Coordinate)
+- uid: Fab.Geo.GeoUtils.Distance*
+  name: Distance
+  href: api/Fab.Geo.GeoUtils.html#Fab_Geo_GeoUtils_Distance_
+  commentId: Overload:Fab.Geo.GeoUtils.Distance
+  isSpec: "True"
+  fullName: Fab.Geo.GeoUtils.Distance
+  nameWithType: GeoUtils.Distance
+- uid: Fab.Geo.GeoUtils.EARTH_RADIUS_KM
+  name: EARTH_RADIUS_KM
+  href: api/Fab.Geo.GeoUtils.html#Fab_Geo_GeoUtils_EARTH_RADIUS_KM
+  commentId: F:Fab.Geo.GeoUtils.EARTH_RADIUS_KM
+  fullName: Fab.Geo.GeoUtils.EARTH_RADIUS_KM
+  nameWithType: GeoUtils.EARTH_RADIUS_KM
+- uid: Fab.Geo.GeoUtils.EARTH_RADIUS_MILES
+  name: EARTH_RADIUS_MILES
+  href: api/Fab.Geo.GeoUtils.html#Fab_Geo_GeoUtils_EARTH_RADIUS_MILES
+  commentId: F:Fab.Geo.GeoUtils.EARTH_RADIUS_MILES
+  fullName: Fab.Geo.GeoUtils.EARTH_RADIUS_MILES
+  nameWithType: GeoUtils.EARTH_RADIUS_MILES
 - uid: Fab.Geo.GeoUtils.NormalizeCoordinate(Fab.Geo.Coordinate)
   name: NormalizeCoordinate(Coordinate)
   href: api/Fab.Geo.GeoUtils.html#Fab_Geo_GeoUtils_NormalizeCoordinate_Fab_Geo_Coordinate_
@@ -1244,6 +1555,125 @@ references:
   commentId: N:Fab.Geo.Modding
   fullName: Fab.Geo.Modding
   nameWithType: Fab.Geo.Modding
+- uid: Fab.Geo.Modding.ControlPanelProxy
+  name: ControlPanelProxy
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html
+  commentId: T:Fab.Geo.Modding.ControlPanelProxy
+  fullName: Fab.Geo.Modding.ControlPanelProxy
+  nameWithType: ControlPanelProxy
+- uid: Fab.Geo.Modding.ControlPanelProxy.#ctor(Fab.Geo.ControlPanel)
+  name: ControlPanelProxy(ControlPanel)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy__ctor_Fab_Geo_ControlPanel_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.#ctor(Fab.Geo.ControlPanel)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.ControlPanelProxy(Fab.Geo.ControlPanel)
+  nameWithType: ControlPanelProxy.ControlPanelProxy(ControlPanel)
+- uid: Fab.Geo.Modding.ControlPanelProxy.#ctor*
+  name: ControlPanelProxy
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.ControlPanelProxy
+  nameWithType: ControlPanelProxy.ControlPanelProxy
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_button(System.String,Closure)
+  name: add_button(String, Closure)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_button_System_String_Closure_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_button(System.String,Closure)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_button(System.String, Closure)
+  nameWithType: ControlPanelProxy.add_button(String, Closure)
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_button*
+  name: add_button
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_button_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.add_button
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_button
+  nameWithType: ControlPanelProxy.add_button
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)
+  name: add_choice(String, List<String>, String)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_choice_System_String_List_System_String__System_String_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)
+  name.vb: add_choice(String, List(Of String), String)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, List<System.String>, System.String)
+  fullName.vb: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, List(Of System.String), System.String)
+  nameWithType: ControlPanelProxy.add_choice(String, List<String>, String)
+  nameWithType.vb: ControlPanelProxy.add_choice(String, List(Of String), String)
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_choice*
+  name: add_choice
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_choice_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.add_choice
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_choice
+  nameWithType: ControlPanelProxy.add_choice
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_range_slider(System.String,System.Single,System.Single,System.Single,System.Single)
+  name: add_range_slider(String, Single, Single, Single, Single)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_range_slider_System_String_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_range_slider(System.String,System.Single,System.Single,System.Single,System.Single)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_range_slider(System.String, System.Single, System.Single, System.Single, System.Single)
+  nameWithType: ControlPanelProxy.add_range_slider(String, Single, Single, Single, Single)
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_range_slider*
+  name: add_range_slider
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_range_slider_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.add_range_slider
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_range_slider
+  nameWithType: ControlPanelProxy.add_range_slider
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_seperator
+  name: add_seperator()
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_seperator
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_seperator
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_seperator()
+  nameWithType: ControlPanelProxy.add_seperator()
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_seperator*
+  name: add_seperator
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_seperator_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.add_seperator
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_seperator
+  nameWithType: ControlPanelProxy.add_seperator
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single)
+  name: add_slider(String, Single, Single, Single)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_slider_System_String_System_Single_System_Single_System_Single_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String, System.Single, System.Single, System.Single)
+  nameWithType: ControlPanelProxy.add_slider(String, Single, Single, Single)
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single,Closure)
+  name: add_slider(String, Single, Single, Single, Closure)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_slider_System_String_System_Single_System_Single_System_Single_Closure_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single,Closure)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String, System.Single, System.Single, System.Single, Closure)
+  nameWithType: ControlPanelProxy.add_slider(String, Single, Single, Single, Closure)
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_slider*
+  name: add_slider
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_slider_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.add_slider
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_slider
+  nameWithType: ControlPanelProxy.add_slider
+- uid: Fab.Geo.Modding.ControlPanelProxy.begin_group(System.String,System.Boolean)
+  name: begin_group(String, Boolean)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_begin_group_System_String_System_Boolean_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.begin_group(System.String,System.Boolean)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.begin_group(System.String, System.Boolean)
+  nameWithType: ControlPanelProxy.begin_group(String, Boolean)
+- uid: Fab.Geo.Modding.ControlPanelProxy.begin_group*
+  name: begin_group
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_begin_group_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.begin_group
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.begin_group
+  nameWithType: ControlPanelProxy.begin_group
+- uid: Fab.Geo.Modding.ControlPanelProxy.end_group
+  name: end_group()
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_end_group
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.end_group
+  fullName: Fab.Geo.Modding.ControlPanelProxy.end_group()
+  nameWithType: ControlPanelProxy.end_group()
+- uid: Fab.Geo.Modding.ControlPanelProxy.end_group*
+  name: end_group
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_end_group_
+  commentId: Overload:Fab.Geo.Modding.ControlPanelProxy.end_group
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ControlPanelProxy.end_group
+  nameWithType: ControlPanelProxy.end_group
 - uid: Fab.Geo.Modding.FeatureManager
   name: FeatureManager
   href: api/Fab.Geo.Modding.FeatureManager.html
@@ -1263,6 +1693,19 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.Modding.FeatureManager.AddPoint
   nameWithType: FeatureManager.AddPoint
+- uid: Fab.Geo.Modding.FeatureManager.RemoveFeature(System.Int32)
+  name: RemoveFeature(Int32)
+  href: api/Fab.Geo.Modding.FeatureManager.html#Fab_Geo_Modding_FeatureManager_RemoveFeature_System_Int32_
+  commentId: M:Fab.Geo.Modding.FeatureManager.RemoveFeature(System.Int32)
+  fullName: Fab.Geo.Modding.FeatureManager.RemoveFeature(System.Int32)
+  nameWithType: FeatureManager.RemoveFeature(Int32)
+- uid: Fab.Geo.Modding.FeatureManager.RemoveFeature*
+  name: RemoveFeature
+  href: api/Fab.Geo.Modding.FeatureManager.html#Fab_Geo_Modding_FeatureManager_RemoveFeature_
+  commentId: Overload:Fab.Geo.Modding.FeatureManager.RemoveFeature
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeatureManager.RemoveFeature
+  nameWithType: FeatureManager.RemoveFeature
 - uid: Fab.Geo.Modding.FeatureManagerProxy
   name: FeatureManagerProxy
   href: api/Fab.Geo.Modding.FeatureManagerProxy.html
@@ -1295,101 +1738,614 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.Modding.FeatureManagerProxy.addPoint
   nameWithType: FeatureManagerProxy.addPoint
-- uid: Fab.Geo.Modding.FeaturePoint
-  name: FeaturePoint
-  href: api/Fab.Geo.Modding.FeaturePoint.html
-  commentId: T:Fab.Geo.Modding.FeaturePoint
-  fullName: Fab.Geo.Modding.FeaturePoint
-  nameWithType: FeaturePoint
-- uid: Fab.Geo.Modding.FeaturePoint.clicked
-  name: clicked
-  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_clicked
-  commentId: E:Fab.Geo.Modding.FeaturePoint.clicked
-  fullName: Fab.Geo.Modding.FeaturePoint.clicked
-  nameWithType: FeaturePoint.clicked
-- uid: Fab.Geo.Modding.FeaturePoint.OnClick(BaseEventData)
-  name: OnClick(BaseEventData)
-  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_OnClick_BaseEventData_
-  commentId: M:Fab.Geo.Modding.FeaturePoint.OnClick(BaseEventData)
-  fullName: Fab.Geo.Modding.FeaturePoint.OnClick(BaseEventData)
-  nameWithType: FeaturePoint.OnClick(BaseEventData)
-- uid: Fab.Geo.Modding.FeaturePoint.OnClick*
-  name: OnClick
-  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_OnClick_
-  commentId: Overload:Fab.Geo.Modding.FeaturePoint.OnClick
+- uid: Fab.Geo.Modding.FeatureManagerProxy.removeFeature(System.Int32)
+  name: removeFeature(Int32)
+  href: api/Fab.Geo.Modding.FeatureManagerProxy.html#Fab_Geo_Modding_FeatureManagerProxy_removeFeature_System_Int32_
+  commentId: M:Fab.Geo.Modding.FeatureManagerProxy.removeFeature(System.Int32)
+  fullName: Fab.Geo.Modding.FeatureManagerProxy.removeFeature(System.Int32)
+  nameWithType: FeatureManagerProxy.removeFeature(Int32)
+- uid: Fab.Geo.Modding.FeatureManagerProxy.removeFeature*
+  name: removeFeature
+  href: api/Fab.Geo.Modding.FeatureManagerProxy.html#Fab_Geo_Modding_FeatureManagerProxy_removeFeature_
+  commentId: Overload:Fab.Geo.Modding.FeatureManagerProxy.removeFeature
   isSpec: "True"
-  fullName: Fab.Geo.Modding.FeaturePoint.OnClick
-  nameWithType: FeaturePoint.OnClick
-- uid: Fab.Geo.Modding.FeaturePoint.textMesh
-  name: textMesh
-  href: api/Fab.Geo.Modding.FeaturePoint.html#Fab_Geo_Modding_FeaturePoint_textMesh
-  commentId: F:Fab.Geo.Modding.FeaturePoint.textMesh
-  fullName: Fab.Geo.Modding.FeaturePoint.textMesh
-  nameWithType: FeaturePoint.textMesh
-- uid: Fab.Geo.Modding.FeaturePointProxy
-  name: FeaturePointProxy
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html
-  commentId: T:Fab.Geo.Modding.FeaturePointProxy
-  fullName: Fab.Geo.Modding.FeaturePointProxy
-  nameWithType: FeaturePointProxy
-- uid: Fab.Geo.Modding.FeaturePointProxy.#ctor(Fab.Geo.Modding.FeaturePoint)
-  name: FeaturePointProxy(FeaturePoint)
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy__ctor_Fab_Geo_Modding_FeaturePoint_
-  commentId: M:Fab.Geo.Modding.FeaturePointProxy.#ctor(Fab.Geo.Modding.FeaturePoint)
-  fullName: Fab.Geo.Modding.FeaturePointProxy.FeaturePointProxy(Fab.Geo.Modding.FeaturePoint)
-  nameWithType: FeaturePointProxy.FeaturePointProxy(FeaturePoint)
-- uid: Fab.Geo.Modding.FeaturePointProxy.#ctor*
-  name: FeaturePointProxy
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy__ctor_
-  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.#ctor
+  fullName: Fab.Geo.Modding.FeatureManagerProxy.removeFeature
+  nameWithType: FeatureManagerProxy.removeFeature
+- uid: Fab.Geo.Modding.FeatureProxy
+  name: FeatureProxy
+  href: api/Fab.Geo.Modding.FeatureProxy.html
+  commentId: T:Fab.Geo.Modding.FeatureProxy
+  fullName: Fab.Geo.Modding.FeatureProxy
+  nameWithType: FeatureProxy
+- uid: Fab.Geo.Modding.FeatureProxy.#ctor(Fab.Geo.Feature)
+  name: FeatureProxy(Feature)
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy__ctor_Fab_Geo_Feature_
+  commentId: M:Fab.Geo.Modding.FeatureProxy.#ctor(Fab.Geo.Feature)
+  fullName: Fab.Geo.Modding.FeatureProxy.FeatureProxy(Fab.Geo.Feature)
+  nameWithType: FeatureProxy.FeatureProxy(Feature)
+- uid: Fab.Geo.Modding.FeatureProxy.#ctor*
+  name: FeatureProxy
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.FeatureProxy.#ctor
   isSpec: "True"
-  fullName: Fab.Geo.Modding.FeaturePointProxy.FeaturePointProxy
-  nameWithType: FeaturePointProxy.FeaturePointProxy
-- uid: Fab.Geo.Modding.FeaturePointProxy.addClickListener(Closure)
+  fullName: Fab.Geo.Modding.FeatureProxy.FeatureProxy
+  nameWithType: FeatureProxy.FeatureProxy
+- uid: Fab.Geo.Modding.FeatureProxy.addClickListener(Closure)
   name: addClickListener(Closure)
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_addClickListener_Closure_
-  commentId: M:Fab.Geo.Modding.FeaturePointProxy.addClickListener(Closure)
-  fullName: Fab.Geo.Modding.FeaturePointProxy.addClickListener(Closure)
-  nameWithType: FeaturePointProxy.addClickListener(Closure)
-- uid: Fab.Geo.Modding.FeaturePointProxy.addClickListener*
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_addClickListener_Closure_
+  commentId: M:Fab.Geo.Modding.FeatureProxy.addClickListener(Closure)
+  fullName: Fab.Geo.Modding.FeatureProxy.addClickListener(Closure)
+  nameWithType: FeatureProxy.addClickListener(Closure)
+- uid: Fab.Geo.Modding.FeatureProxy.addClickListener*
   name: addClickListener
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_addClickListener_
-  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.addClickListener
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_addClickListener_
+  commentId: Overload:Fab.Geo.Modding.FeatureProxy.addClickListener
   isSpec: "True"
-  fullName: Fab.Geo.Modding.FeaturePointProxy.addClickListener
-  nameWithType: FeaturePointProxy.addClickListener
-- uid: Fab.Geo.Modding.FeaturePointProxy.name
-  name: name
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_name
-  commentId: P:Fab.Geo.Modding.FeaturePointProxy.name
-  fullName: Fab.Geo.Modding.FeaturePointProxy.name
-  nameWithType: FeaturePointProxy.name
-- uid: Fab.Geo.Modding.FeaturePointProxy.name*
-  name: name
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_name_
-  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.name
+  fullName: Fab.Geo.Modding.FeatureProxy.addClickListener
+  nameWithType: FeatureProxy.addClickListener
+- uid: Fab.Geo.Modding.FeatureProxy.center_lat
+  name: center_lat
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_center_lat
+  commentId: P:Fab.Geo.Modding.FeatureProxy.center_lat
+  fullName: Fab.Geo.Modding.FeatureProxy.center_lat
+  nameWithType: FeatureProxy.center_lat
+- uid: Fab.Geo.Modding.FeatureProxy.center_lat*
+  name: center_lat
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_center_lat_
+  commentId: Overload:Fab.Geo.Modding.FeatureProxy.center_lat
   isSpec: "True"
-  fullName: Fab.Geo.Modding.FeaturePointProxy.name
-  nameWithType: FeaturePointProxy.name
-- uid: Fab.Geo.Modding.FeaturePointProxy.removeClickListener
+  fullName: Fab.Geo.Modding.FeatureProxy.center_lat
+  nameWithType: FeatureProxy.center_lat
+- uid: Fab.Geo.Modding.FeatureProxy.center_lon
+  name: center_lon
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_center_lon
+  commentId: P:Fab.Geo.Modding.FeatureProxy.center_lon
+  fullName: Fab.Geo.Modding.FeatureProxy.center_lon
+  nameWithType: FeatureProxy.center_lon
+- uid: Fab.Geo.Modding.FeatureProxy.center_lon*
+  name: center_lon
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_center_lon_
+  commentId: Overload:Fab.Geo.Modding.FeatureProxy.center_lon
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeatureProxy.center_lon
+  nameWithType: FeatureProxy.center_lon
+- uid: Fab.Geo.Modding.FeatureProxy.id
+  name: id
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_id
+  commentId: P:Fab.Geo.Modding.FeatureProxy.id
+  fullName: Fab.Geo.Modding.FeatureProxy.id
+  nameWithType: FeatureProxy.id
+- uid: Fab.Geo.Modding.FeatureProxy.id*
+  name: id
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_id_
+  commentId: Overload:Fab.Geo.Modding.FeatureProxy.id
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeatureProxy.id
+  nameWithType: FeatureProxy.id
+- uid: Fab.Geo.Modding.FeatureProxy.name
+  name: name
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_name
+  commentId: P:Fab.Geo.Modding.FeatureProxy.name
+  fullName: Fab.Geo.Modding.FeatureProxy.name
+  nameWithType: FeatureProxy.name
+- uid: Fab.Geo.Modding.FeatureProxy.name*
+  name: name
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_name_
+  commentId: Overload:Fab.Geo.Modding.FeatureProxy.name
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.FeatureProxy.name
+  nameWithType: FeatureProxy.name
+- uid: Fab.Geo.Modding.FeatureProxy.removeClickListener
   name: removeClickListener()
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_removeClickListener
-  commentId: M:Fab.Geo.Modding.FeaturePointProxy.removeClickListener
-  fullName: Fab.Geo.Modding.FeaturePointProxy.removeClickListener()
-  nameWithType: FeaturePointProxy.removeClickListener()
-- uid: Fab.Geo.Modding.FeaturePointProxy.removeClickListener*
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_removeClickListener
+  commentId: M:Fab.Geo.Modding.FeatureProxy.removeClickListener
+  fullName: Fab.Geo.Modding.FeatureProxy.removeClickListener()
+  nameWithType: FeatureProxy.removeClickListener()
+- uid: Fab.Geo.Modding.FeatureProxy.removeClickListener*
   name: removeClickListener
-  href: api/Fab.Geo.Modding.FeaturePointProxy.html#Fab_Geo_Modding_FeaturePointProxy_removeClickListener_
-  commentId: Overload:Fab.Geo.Modding.FeaturePointProxy.removeClickListener
+  href: api/Fab.Geo.Modding.FeatureProxy.html#Fab_Geo_Modding_FeatureProxy_removeClickListener_
+  commentId: Overload:Fab.Geo.Modding.FeatureProxy.removeClickListener
   isSpec: "True"
-  fullName: Fab.Geo.Modding.FeaturePointProxy.removeClickListener
-  nameWithType: FeaturePointProxy.removeClickListener
+  fullName: Fab.Geo.Modding.FeatureProxy.removeClickListener
+  nameWithType: FeatureProxy.removeClickListener
+- uid: Fab.Geo.Modding.GeoProxy
+  name: GeoProxy
+  href: api/Fab.Geo.Modding.GeoProxy.html
+  commentId: T:Fab.Geo.Modding.GeoProxy
+  fullName: Fab.Geo.Modding.GeoProxy
+  nameWithType: GeoProxy
+- uid: Fab.Geo.Modding.GeoProxy.distance(System.Single,System.Single,System.Single,System.Single)
+  name: distance(Single, Single, Single, Single)
+  href: api/Fab.Geo.Modding.GeoProxy.html#Fab_Geo_Modding_GeoProxy_distance_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:Fab.Geo.Modding.GeoProxy.distance(System.Single,System.Single,System.Single,System.Single)
+  fullName: Fab.Geo.Modding.GeoProxy.distance(System.Single, System.Single, System.Single, System.Single)
+  nameWithType: GeoProxy.distance(Single, Single, Single, Single)
+- uid: Fab.Geo.Modding.GeoProxy.distance*
+  name: distance
+  href: api/Fab.Geo.Modding.GeoProxy.html#Fab_Geo_Modding_GeoProxy_distance_
+  commentId: Overload:Fab.Geo.Modding.GeoProxy.distance
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.GeoProxy.distance
+  nameWithType: GeoProxy.distance
+- uid: Fab.Geo.Modding.IOProxy
+  name: IOProxy
+  href: api/Fab.Geo.Modding.IOProxy.html
+  commentId: T:Fab.Geo.Modding.IOProxy
+  fullName: Fab.Geo.Modding.IOProxy
+  nameWithType: IOProxy
+- uid: Fab.Geo.Modding.IOProxy.#ctor(System.String)
+  name: IOProxy(String)
+  href: api/Fab.Geo.Modding.IOProxy.html#Fab_Geo_Modding_IOProxy__ctor_System_String_
+  commentId: M:Fab.Geo.Modding.IOProxy.#ctor(System.String)
+  fullName: Fab.Geo.Modding.IOProxy.IOProxy(System.String)
+  nameWithType: IOProxy.IOProxy(String)
+- uid: Fab.Geo.Modding.IOProxy.#ctor*
+  name: IOProxy
+  href: api/Fab.Geo.Modding.IOProxy.html#Fab_Geo_Modding_IOProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.IOProxy.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.IOProxy.IOProxy
+  nameWithType: IOProxy.IOProxy
+- uid: Fab.Geo.Modding.IOProxy.load_image(System.String)
+  name: load_image(String)
+  href: api/Fab.Geo.Modding.IOProxy.html#Fab_Geo_Modding_IOProxy_load_image_System_String_
+  commentId: M:Fab.Geo.Modding.IOProxy.load_image(System.String)
+  fullName: Fab.Geo.Modding.IOProxy.load_image(System.String)
+  nameWithType: IOProxy.load_image(String)
+- uid: Fab.Geo.Modding.IOProxy.load_image*
+  name: load_image
+  href: api/Fab.Geo.Modding.IOProxy.html#Fab_Geo_Modding_IOProxy_load_image_
+  commentId: Overload:Fab.Geo.Modding.IOProxy.load_image
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.IOProxy.load_image
+  nameWithType: IOProxy.load_image
+- uid: Fab.Geo.Modding.LuaDebugger
+  name: LuaDebugger
+  href: api/Fab.Geo.Modding.LuaDebugger.html
+  commentId: T:Fab.Geo.Modding.LuaDebugger
+  fullName: Fab.Geo.Modding.LuaDebugger
+  nameWithType: LuaDebugger
+- uid: Fab.Geo.Modding.LuaDebugger.AttachScript(Script)
+  name: AttachScript(Script)
+  href: api/Fab.Geo.Modding.LuaDebugger.html#Fab_Geo_Modding_LuaDebugger_AttachScript_Script_
+  commentId: M:Fab.Geo.Modding.LuaDebugger.AttachScript(Script)
+  fullName: Fab.Geo.Modding.LuaDebugger.AttachScript(Script)
+  nameWithType: LuaDebugger.AttachScript(Script)
+- uid: Fab.Geo.Modding.LuaDebugger.AttachScript*
+  name: AttachScript
+  href: api/Fab.Geo.Modding.LuaDebugger.html#Fab_Geo_Modding_LuaDebugger_AttachScript_
+  commentId: Overload:Fab.Geo.Modding.LuaDebugger.AttachScript
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaDebugger.AttachScript
+  nameWithType: LuaDebugger.AttachScript
+- uid: Fab.Geo.Modding.LuaDebugger.DetachScript(Script)
+  name: DetachScript(Script)
+  href: api/Fab.Geo.Modding.LuaDebugger.html#Fab_Geo_Modding_LuaDebugger_DetachScript_Script_
+  commentId: M:Fab.Geo.Modding.LuaDebugger.DetachScript(Script)
+  fullName: Fab.Geo.Modding.LuaDebugger.DetachScript(Script)
+  nameWithType: LuaDebugger.DetachScript(Script)
+- uid: Fab.Geo.Modding.LuaDebugger.DetachScript*
+  name: DetachScript
+  href: api/Fab.Geo.Modding.LuaDebugger.html#Fab_Geo_Modding_LuaDebugger_DetachScript_
+  commentId: Overload:Fab.Geo.Modding.LuaDebugger.DetachScript
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaDebugger.DetachScript
+  nameWithType: LuaDebugger.DetachScript
+- uid: Fab.Geo.Modding.LuaGUI
+  name: LuaGUI
+  href: api/Fab.Geo.Modding.LuaGUI.html
+  commentId: T:Fab.Geo.Modding.LuaGUI
+  fullName: Fab.Geo.Modding.LuaGUI
+  nameWithType: LuaGUI
+- uid: Fab.Geo.Modding.LuaGUI.windowRect
+  name: windowRect
+  href: api/Fab.Geo.Modding.LuaGUI.html#Fab_Geo_Modding_LuaGUI_windowRect
+  commentId: F:Fab.Geo.Modding.LuaGUI.windowRect
+  fullName: Fab.Geo.Modding.LuaGUI.windowRect
+  nameWithType: LuaGUI.windowRect
 - uid: Fab.Geo.Modding.LuaManager
   name: LuaManager
   href: api/Fab.Geo.Modding.LuaManager.html
   commentId: T:Fab.Geo.Modding.LuaManager
   fullName: Fab.Geo.Modding.LuaManager
   nameWithType: LuaManager
+- uid: Fab.Geo.Modding.LuaManager.GetAllLoadedScripts
+  name: GetAllLoadedScripts()
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_GetAllLoadedScripts
+  commentId: M:Fab.Geo.Modding.LuaManager.GetAllLoadedScripts
+  fullName: Fab.Geo.Modding.LuaManager.GetAllLoadedScripts()
+  nameWithType: LuaManager.GetAllLoadedScripts()
+- uid: Fab.Geo.Modding.LuaManager.GetAllLoadedScripts*
+  name: GetAllLoadedScripts
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_GetAllLoadedScripts_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.GetAllLoadedScripts
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.GetAllLoadedScripts
+  nameWithType: LuaManager.GetAllLoadedScripts
+- uid: Fab.Geo.Modding.LuaManager.GetScriptLoadPath(Script)
+  name: GetScriptLoadPath(Script)
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_GetScriptLoadPath_Script_
+  commentId: M:Fab.Geo.Modding.LuaManager.GetScriptLoadPath(Script)
+  fullName: Fab.Geo.Modding.LuaManager.GetScriptLoadPath(Script)
+  nameWithType: LuaManager.GetScriptLoadPath(Script)
+- uid: Fab.Geo.Modding.LuaManager.GetScriptLoadPath*
+  name: GetScriptLoadPath
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_GetScriptLoadPath_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.GetScriptLoadPath
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.GetScriptLoadPath
+  nameWithType: LuaManager.GetScriptLoadPath
+- uid: Fab.Geo.Modding.LuaManager.GetScriptName(Script)
+  name: GetScriptName(Script)
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_GetScriptName_Script_
+  commentId: M:Fab.Geo.Modding.LuaManager.GetScriptName(Script)
+  fullName: Fab.Geo.Modding.LuaManager.GetScriptName(Script)
+  nameWithType: LuaManager.GetScriptName(Script)
+- uid: Fab.Geo.Modding.LuaManager.GetScriptName*
+  name: GetScriptName
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_GetScriptName_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.GetScriptName
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.GetScriptName
+  nameWithType: LuaManager.GetScriptName
+- uid: Fab.Geo.Modding.LuaManager.LoadedScripts
+  name: LoadedScripts
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_LoadedScripts
+  commentId: P:Fab.Geo.Modding.LuaManager.LoadedScripts
+  fullName: Fab.Geo.Modding.LuaManager.LoadedScripts
+  nameWithType: LuaManager.LoadedScripts
+- uid: Fab.Geo.Modding.LuaManager.LoadedScripts*
+  name: LoadedScripts
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_LoadedScripts_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.LoadedScripts
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.LoadedScripts
+  nameWithType: LuaManager.LoadedScripts
+- uid: Fab.Geo.Modding.LuaManager.LoadScripts
+  name: LoadScripts()
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_LoadScripts
+  commentId: M:Fab.Geo.Modding.LuaManager.LoadScripts
+  fullName: Fab.Geo.Modding.LuaManager.LoadScripts()
+  nameWithType: LuaManager.LoadScripts()
+- uid: Fab.Geo.Modding.LuaManager.LoadScripts*
+  name: LoadScripts
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_LoadScripts_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.LoadScripts
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.LoadScripts
+  nameWithType: LuaManager.LoadScripts
+- uid: Fab.Geo.Modding.LuaManager.SetDebugger(Fab.Geo.Modding.LuaDebugger)
+  name: SetDebugger(LuaDebugger)
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_SetDebugger_Fab_Geo_Modding_LuaDebugger_
+  commentId: M:Fab.Geo.Modding.LuaManager.SetDebugger(Fab.Geo.Modding.LuaDebugger)
+  fullName: Fab.Geo.Modding.LuaManager.SetDebugger(Fab.Geo.Modding.LuaDebugger)
+  nameWithType: LuaManager.SetDebugger(LuaDebugger)
+- uid: Fab.Geo.Modding.LuaManager.SetDebugger*
+  name: SetDebugger
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_SetDebugger_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.SetDebugger
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.SetDebugger
+  nameWithType: LuaManager.SetDebugger
+- uid: Fab.Geo.Modding.LuaManager.UnloadAllScripts
+  name: UnloadAllScripts()
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_UnloadAllScripts
+  commentId: M:Fab.Geo.Modding.LuaManager.UnloadAllScripts
+  fullName: Fab.Geo.Modding.LuaManager.UnloadAllScripts()
+  nameWithType: LuaManager.UnloadAllScripts()
+- uid: Fab.Geo.Modding.LuaManager.UnloadAllScripts*
+  name: UnloadAllScripts
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_UnloadAllScripts_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.UnloadAllScripts
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.UnloadAllScripts
+  nameWithType: LuaManager.UnloadAllScripts
+- uid: Fab.Geo.Modding.LuaManager.UnloadScript(Script)
+  name: UnloadScript(Script)
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_UnloadScript_Script_
+  commentId: M:Fab.Geo.Modding.LuaManager.UnloadScript(Script)
+  fullName: Fab.Geo.Modding.LuaManager.UnloadScript(Script)
+  nameWithType: LuaManager.UnloadScript(Script)
+- uid: Fab.Geo.Modding.LuaManager.UnloadScript*
+  name: UnloadScript
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_UnloadScript_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.UnloadScript
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.UnloadScript
+  nameWithType: LuaManager.UnloadScript
+- uid: Fab.Geo.Modding.PopupProxy
+  name: PopupProxy
+  href: api/Fab.Geo.Modding.PopupProxy.html
+  commentId: T:Fab.Geo.Modding.PopupProxy
+  fullName: Fab.Geo.Modding.PopupProxy
+  nameWithType: PopupProxy
+- uid: Fab.Geo.Modding.PopupProxy.#ctor(Fab.Geo.Popup)
+  name: PopupProxy(Popup)
+  href: api/Fab.Geo.Modding.PopupProxy.html#Fab_Geo_Modding_PopupProxy__ctor_Fab_Geo_Popup_
+  commentId: M:Fab.Geo.Modding.PopupProxy.#ctor(Fab.Geo.Popup)
+  fullName: Fab.Geo.Modding.PopupProxy.PopupProxy(Fab.Geo.Popup)
+  nameWithType: PopupProxy.PopupProxy(Popup)
+- uid: Fab.Geo.Modding.PopupProxy.#ctor*
+  name: PopupProxy
+  href: api/Fab.Geo.Modding.PopupProxy.html#Fab_Geo_Modding_PopupProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.PopupProxy.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.PopupProxy.PopupProxy
+  nameWithType: PopupProxy.PopupProxy
+- uid: Fab.Geo.Modding.PopupProxy.show(System.String,Fab.Geo.Modding.TextureProxy)
+  name: show(String, TextureProxy)
+  href: api/Fab.Geo.Modding.PopupProxy.html#Fab_Geo_Modding_PopupProxy_show_System_String_Fab_Geo_Modding_TextureProxy_
+  commentId: M:Fab.Geo.Modding.PopupProxy.show(System.String,Fab.Geo.Modding.TextureProxy)
+  fullName: Fab.Geo.Modding.PopupProxy.show(System.String, Fab.Geo.Modding.TextureProxy)
+  nameWithType: PopupProxy.show(String, TextureProxy)
+- uid: Fab.Geo.Modding.PopupProxy.show(System.String,System.String)
+  name: show(String, String)
+  href: api/Fab.Geo.Modding.PopupProxy.html#Fab_Geo_Modding_PopupProxy_show_System_String_System_String_
+  commentId: M:Fab.Geo.Modding.PopupProxy.show(System.String,System.String)
+  fullName: Fab.Geo.Modding.PopupProxy.show(System.String, System.String)
+  nameWithType: PopupProxy.show(String, String)
+- uid: Fab.Geo.Modding.PopupProxy.show*
+  name: show
+  href: api/Fab.Geo.Modding.PopupProxy.html#Fab_Geo_Modding_PopupProxy_show_
+  commentId: Overload:Fab.Geo.Modding.PopupProxy.show
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.PopupProxy.show
+  nameWithType: PopupProxy.show
+- uid: Fab.Geo.Modding.ProxyBase`1
+  name: ProxyBase<T>
+  href: api/Fab.Geo.Modding.ProxyBase-1.html
+  commentId: T:Fab.Geo.Modding.ProxyBase`1
+  name.vb: ProxyBase(Of T)
+  fullName: Fab.Geo.Modding.ProxyBase<T>
+  fullName.vb: Fab.Geo.Modding.ProxyBase(Of T)
+  nameWithType: ProxyBase<T>
+  nameWithType.vb: ProxyBase(Of T)
+- uid: Fab.Geo.Modding.ProxyBase`1.#ctor(`0)
+  name: ProxyBase(T)
+  href: api/Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1__ctor__0_
+  commentId: M:Fab.Geo.Modding.ProxyBase`1.#ctor(`0)
+  fullName: Fab.Geo.Modding.ProxyBase<T>.ProxyBase(T)
+  fullName.vb: Fab.Geo.Modding.ProxyBase(Of T).ProxyBase(T)
+  nameWithType: ProxyBase<T>.ProxyBase(T)
+  nameWithType.vb: ProxyBase(Of T).ProxyBase(T)
+- uid: Fab.Geo.Modding.ProxyBase`1.#ctor*
+  name: ProxyBase
+  href: api/Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1__ctor_
+  commentId: Overload:Fab.Geo.Modding.ProxyBase`1.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ProxyBase<T>.ProxyBase
+  fullName.vb: Fab.Geo.Modding.ProxyBase(Of T).ProxyBase
+  nameWithType: ProxyBase<T>.ProxyBase
+  nameWithType.vb: ProxyBase(Of T).ProxyBase
+- uid: Fab.Geo.Modding.ProxyBase`1.Source
+  name: Source
+  href: api/Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1_Source
+  commentId: P:Fab.Geo.Modding.ProxyBase`1.Source
+  fullName: Fab.Geo.Modding.ProxyBase<T>.Source
+  fullName.vb: Fab.Geo.Modding.ProxyBase(Of T).Source
+  nameWithType: ProxyBase<T>.Source
+  nameWithType.vb: ProxyBase(Of T).Source
+- uid: Fab.Geo.Modding.ProxyBase`1.Source*
+  name: Source
+  href: api/Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1_Source_
+  commentId: Overload:Fab.Geo.Modding.ProxyBase`1.Source
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.ProxyBase<T>.Source
+  fullName.vb: Fab.Geo.Modding.ProxyBase(Of T).Source
+  nameWithType: ProxyBase<T>.Source
+  nameWithType.vb: ProxyBase(Of T).Source
+- uid: Fab.Geo.Modding.TextureProxy
+  name: TextureProxy
+  href: api/Fab.Geo.Modding.TextureProxy.html
+  commentId: T:Fab.Geo.Modding.TextureProxy
+  fullName: Fab.Geo.Modding.TextureProxy
+  nameWithType: TextureProxy
+- uid: Fab.Geo.Modding.TextureProxy.#ctor(Texture2D)
+  name: TextureProxy(Texture2D)
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy__ctor_Texture2D_
+  commentId: M:Fab.Geo.Modding.TextureProxy.#ctor(Texture2D)
+  fullName: Fab.Geo.Modding.TextureProxy.TextureProxy(Texture2D)
+  nameWithType: TextureProxy.TextureProxy(Texture2D)
+- uid: Fab.Geo.Modding.TextureProxy.#ctor*
+  name: TextureProxy
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.TextureProxy.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.TextureProxy.TextureProxy
+  nameWithType: TextureProxy.TextureProxy
+- uid: Fab.Geo.Modding.TextureProxy.height
+  name: height
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_height
+  commentId: P:Fab.Geo.Modding.TextureProxy.height
+  fullName: Fab.Geo.Modding.TextureProxy.height
+  nameWithType: TextureProxy.height
+- uid: Fab.Geo.Modding.TextureProxy.height*
+  name: height
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_height_
+  commentId: Overload:Fab.Geo.Modding.TextureProxy.height
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.TextureProxy.height
+  nameWithType: TextureProxy.height
+- uid: Fab.Geo.Modding.TextureProxy.name
+  name: name
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_name
+  commentId: P:Fab.Geo.Modding.TextureProxy.name
+  fullName: Fab.Geo.Modding.TextureProxy.name
+  nameWithType: TextureProxy.name
+- uid: Fab.Geo.Modding.TextureProxy.name*
+  name: name
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_name_
+  commentId: Overload:Fab.Geo.Modding.TextureProxy.name
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.TextureProxy.name
+  nameWithType: TextureProxy.name
+- uid: Fab.Geo.Modding.TextureProxy.Texture
+  name: Texture
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_Texture
+  commentId: P:Fab.Geo.Modding.TextureProxy.Texture
+  fullName: Fab.Geo.Modding.TextureProxy.Texture
+  nameWithType: TextureProxy.Texture
+- uid: Fab.Geo.Modding.TextureProxy.Texture*
+  name: Texture
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_Texture_
+  commentId: Overload:Fab.Geo.Modding.TextureProxy.Texture
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.TextureProxy.Texture
+  nameWithType: TextureProxy.Texture
+- uid: Fab.Geo.Modding.TextureProxy.width
+  name: width
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_width
+  commentId: P:Fab.Geo.Modding.TextureProxy.width
+  fullName: Fab.Geo.Modding.TextureProxy.width
+  nameWithType: TextureProxy.width
+- uid: Fab.Geo.Modding.TextureProxy.width*
+  name: width
+  href: api/Fab.Geo.Modding.TextureProxy.html#Fab_Geo_Modding_TextureProxy_width_
+  commentId: Overload:Fab.Geo.Modding.TextureProxy.width
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.TextureProxy.width
+  nameWithType: TextureProxy.width
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy
+  name: WorldCameraControllerProxy
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html
+  commentId: T:Fab.Geo.Modding.WorldCameraControllerProxy
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy
+  nameWithType: WorldCameraControllerProxy
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.#ctor(Fab.Geo.WorldCameraController)
+  name: WorldCameraControllerProxy(WorldCameraController)
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy__ctor_Fab_Geo_WorldCameraController_
+  commentId: M:Fab.Geo.Modding.WorldCameraControllerProxy.#ctor(Fab.Geo.WorldCameraController)
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.WorldCameraControllerProxy(Fab.Geo.WorldCameraController)
+  nameWithType: WorldCameraControllerProxy.WorldCameraControllerProxy(WorldCameraController)
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.#ctor*
+  name: WorldCameraControllerProxy
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy__ctor_
+  commentId: Overload:Fab.Geo.Modding.WorldCameraControllerProxy.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.WorldCameraControllerProxy
+  nameWithType: WorldCameraControllerProxy.WorldCameraControllerProxy
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.get_coord
+  name: get_coord()
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy_get_coord
+  commentId: M:Fab.Geo.Modding.WorldCameraControllerProxy.get_coord
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.get_coord()
+  nameWithType: WorldCameraControllerProxy.get_coord()
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.get_coord*
+  name: get_coord
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy_get_coord_
+  commentId: Overload:Fab.Geo.Modding.WorldCameraControllerProxy.get_coord
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.get_coord
+  nameWithType: WorldCameraControllerProxy.get_coord
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.set_coord(System.Single,System.Single)
+  name: set_coord(Single, Single)
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy_set_coord_System_Single_System_Single_
+  commentId: M:Fab.Geo.Modding.WorldCameraControllerProxy.set_coord(System.Single,System.Single)
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.set_coord(System.Single, System.Single)
+  nameWithType: WorldCameraControllerProxy.set_coord(Single, Single)
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.set_coord*
+  name: set_coord
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy_set_coord_
+  commentId: Overload:Fab.Geo.Modding.WorldCameraControllerProxy.set_coord
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.set_coord
+  nameWithType: WorldCameraControllerProxy.set_coord
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom(System.Single)
+  name: set_zoom(Single)
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy_set_zoom_System_Single_
+  commentId: M:Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom(System.Single)
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom(System.Single)
+  nameWithType: WorldCameraControllerProxy.set_zoom(Single)
+- uid: Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom*
+  name: set_zoom
+  href: api/Fab.Geo.Modding.WorldCameraControllerProxy.html#Fab_Geo_Modding_WorldCameraControllerProxy_set_zoom_
+  commentId: Overload:Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom
+  nameWithType: WorldCameraControllerProxy.set_zoom
+- uid: Fab.Geo.Popup
+  name: Popup
+  href: api/Fab.Geo.Popup.html
+  commentId: T:Fab.Geo.Popup
+  fullName: Fab.Geo.Popup
+  nameWithType: Popup
+- uid: Fab.Geo.Popup.#ctor(VisualElement)
+  name: Popup(VisualElement)
+  href: api/Fab.Geo.Popup.html#Fab_Geo_Popup__ctor_VisualElement_
+  commentId: M:Fab.Geo.Popup.#ctor(VisualElement)
+  fullName: Fab.Geo.Popup.Popup(VisualElement)
+  nameWithType: Popup.Popup(VisualElement)
+- uid: Fab.Geo.Popup.#ctor*
+  name: Popup
+  href: api/Fab.Geo.Popup.html#Fab_Geo_Popup__ctor_
+  commentId: Overload:Fab.Geo.Popup.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Popup.Popup
+  nameWithType: Popup.Popup
+- uid: Fab.Geo.Popup.Close
+  name: Close()
+  href: api/Fab.Geo.Popup.html#Fab_Geo_Popup_Close
+  commentId: M:Fab.Geo.Popup.Close
+  fullName: Fab.Geo.Popup.Close()
+  nameWithType: Popup.Close()
+- uid: Fab.Geo.Popup.Close*
+  name: Close
+  href: api/Fab.Geo.Popup.html#Fab_Geo_Popup_Close_
+  commentId: Overload:Fab.Geo.Popup.Close
+  isSpec: "True"
+  fullName: Fab.Geo.Popup.Close
+  nameWithType: Popup.Close
+- uid: Fab.Geo.Popup.Show(System.String,System.String)
+  name: Show(String, String)
+  href: api/Fab.Geo.Popup.html#Fab_Geo_Popup_Show_System_String_System_String_
+  commentId: M:Fab.Geo.Popup.Show(System.String,System.String)
+  fullName: Fab.Geo.Popup.Show(System.String, System.String)
+  nameWithType: Popup.Show(String, String)
+- uid: Fab.Geo.Popup.Show(System.String,Texture2D)
+  name: Show(String, Texture2D)
+  href: api/Fab.Geo.Popup.html#Fab_Geo_Popup_Show_System_String_Texture2D_
+  commentId: M:Fab.Geo.Popup.Show(System.String,Texture2D)
+  fullName: Fab.Geo.Popup.Show(System.String, Texture2D)
+  nameWithType: Popup.Show(String, Texture2D)
+- uid: Fab.Geo.Popup.Show*
+  name: Show
+  href: api/Fab.Geo.Popup.html#Fab_Geo_Popup_Show_
+  commentId: Overload:Fab.Geo.Popup.Show
+  isSpec: "True"
+  fullName: Fab.Geo.Popup.Show
+  nameWithType: Popup.Show
+- uid: Fab.Geo.UIManager
+  name: UIManager
+  href: api/Fab.Geo.UIManager.html
+  commentId: T:Fab.Geo.UIManager
+  fullName: Fab.Geo.UIManager
+  nameWithType: UIManager
+- uid: Fab.Geo.UIManager.ControlPanel
+  name: ControlPanel
+  href: api/Fab.Geo.UIManager.html#Fab_Geo_UIManager_ControlPanel
+  commentId: P:Fab.Geo.UIManager.ControlPanel
+  fullName: Fab.Geo.UIManager.ControlPanel
+  nameWithType: UIManager.ControlPanel
+- uid: Fab.Geo.UIManager.ControlPanel*
+  name: ControlPanel
+  href: api/Fab.Geo.UIManager.html#Fab_Geo_UIManager_ControlPanel_
+  commentId: Overload:Fab.Geo.UIManager.ControlPanel
+  isSpec: "True"
+  fullName: Fab.Geo.UIManager.ControlPanel
+  nameWithType: UIManager.ControlPanel
+- uid: Fab.Geo.UIManager.Popup
+  name: Popup
+  href: api/Fab.Geo.UIManager.html#Fab_Geo_UIManager_Popup
+  commentId: P:Fab.Geo.UIManager.Popup
+  fullName: Fab.Geo.UIManager.Popup
+  nameWithType: UIManager.Popup
+- uid: Fab.Geo.UIManager.Popup*
+  name: Popup
+  href: api/Fab.Geo.UIManager.html#Fab_Geo_UIManager_Popup_
+  commentId: Overload:Fab.Geo.UIManager.Popup
+  isSpec: "True"
+  fullName: Fab.Geo.UIManager.Popup
+  nameWithType: UIManager.Popup
 - uid: Fab.Geo.World
   name: World
   href: api/Fab.Geo.World.html
@@ -1482,6 +2438,45 @@ references:
   commentId: T:Fab.Geo.WorldCameraController
   fullName: Fab.Geo.WorldCameraController
   nameWithType: WorldCameraController
+- uid: Fab.Geo.WorldCameraController.GetCoordinate
+  name: GetCoordinate()
+  href: api/Fab.Geo.WorldCameraController.html#Fab_Geo_WorldCameraController_GetCoordinate
+  commentId: M:Fab.Geo.WorldCameraController.GetCoordinate
+  fullName: Fab.Geo.WorldCameraController.GetCoordinate()
+  nameWithType: WorldCameraController.GetCoordinate()
+- uid: Fab.Geo.WorldCameraController.GetCoordinate*
+  name: GetCoordinate
+  href: api/Fab.Geo.WorldCameraController.html#Fab_Geo_WorldCameraController_GetCoordinate_
+  commentId: Overload:Fab.Geo.WorldCameraController.GetCoordinate
+  isSpec: "True"
+  fullName: Fab.Geo.WorldCameraController.GetCoordinate
+  nameWithType: WorldCameraController.GetCoordinate
+- uid: Fab.Geo.WorldCameraController.SetCoordinate(Fab.Geo.Coordinate)
+  name: SetCoordinate(Coordinate)
+  href: api/Fab.Geo.WorldCameraController.html#Fab_Geo_WorldCameraController_SetCoordinate_Fab_Geo_Coordinate_
+  commentId: M:Fab.Geo.WorldCameraController.SetCoordinate(Fab.Geo.Coordinate)
+  fullName: Fab.Geo.WorldCameraController.SetCoordinate(Fab.Geo.Coordinate)
+  nameWithType: WorldCameraController.SetCoordinate(Coordinate)
+- uid: Fab.Geo.WorldCameraController.SetCoordinate*
+  name: SetCoordinate
+  href: api/Fab.Geo.WorldCameraController.html#Fab_Geo_WorldCameraController_SetCoordinate_
+  commentId: Overload:Fab.Geo.WorldCameraController.SetCoordinate
+  isSpec: "True"
+  fullName: Fab.Geo.WorldCameraController.SetCoordinate
+  nameWithType: WorldCameraController.SetCoordinate
+- uid: Fab.Geo.WorldCameraController.SetZoom(System.Single)
+  name: SetZoom(Single)
+  href: api/Fab.Geo.WorldCameraController.html#Fab_Geo_WorldCameraController_SetZoom_System_Single_
+  commentId: M:Fab.Geo.WorldCameraController.SetZoom(System.Single)
+  fullName: Fab.Geo.WorldCameraController.SetZoom(System.Single)
+  nameWithType: WorldCameraController.SetZoom(Single)
+- uid: Fab.Geo.WorldCameraController.SetZoom*
+  name: SetZoom
+  href: api/Fab.Geo.WorldCameraController.html#Fab_Geo_WorldCameraController_SetZoom_
+  commentId: Overload:Fab.Geo.WorldCameraController.SetZoom
+  isSpec: "True"
+  fullName: Fab.Geo.WorldCameraController.SetZoom
+  nameWithType: WorldCameraController.SetZoom
 - uid: Fab.Geo.WorldChunk
   name: WorldChunk
   href: api/Fab.Geo.WorldChunk.html

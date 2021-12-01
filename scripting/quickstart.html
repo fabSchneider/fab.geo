@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Custom Scripting </title>
+    <title>Getting started with FabGeo scripting </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Custom Scripting ">
+    <meta name="title" content="Getting started with FabGeo scripting ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,7 +67,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="custom-scripting">Custom Scripting</h1>
+<h1 id="getting-started-with-fabgeo-scripting">Getting started with FabGeo scripting</h1>
 
 <p>FabGeo supports modding with <strong>Lua scripting</strong>. Script files with the <code>.lua</code> extension in the ``Documents/FabGeo/Scripts/` folder are loaded after the application has started.</p>
 <p>FabGeo is using a custom fork of <a href="https://www.moonsharp.org/">MoonSharp</a>, a Lua unterpreter written in C#. It's syntax is mostly the same to standard Lua with a few exceptions you can check out <a href="https://www.moonsharp.org/moonluadifferences.html">here</a>.</p>
@@ -83,98 +83,20 @@ end
 --This line of code will execute immediatly once the script is loaded.
 print(&quot;Hello world&quot;)
 </code></pre>
-<h2 id="initialization">Initialization</h2>
+<h2 id="the-init-function">The init function</h2>
 <p>Define an <code>init</code> function to run code when the world has been created. From here you have access to different modules you can use to manipulate the world, add information and much more.</p>
-<pre><code>--The init function will be automatically called after the world has been created
+<pre><code>-- The init function will be automatically called after the world has been created
 function init()
     print(&quot;Initialize this script here!&quot;)
 end
 </code></pre>
-<h2 id="example">Example</h2>
-<p>In this example we are adding features to the world based on a custom dataset. First we are loading a <code>.geojson</code> file using the <a href="https://www.tutorialspoint.com/lua/lua_file_io.htm">io module</a>. We are then picking out the relevant data and use that data to add point features to the world using the <code>feature</code> class inside the <code>init</code> function. Last we are adding a click listener to each feature to print the name of the feature to the console.</p>
-<pre><code>--We run the code in the init function 
---This ensures that all the neccessary modules have already been intialized.
-function init()
-
-    --workingDir is a global variable that holds the folder path of this script file. 
-    --We have placed the capitals.geojson file alongside this script
-    --and are loading it in with the help of the io module
-    file = io.open(workingDir .. &quot;capitals.geojson&quot;)
-    
-    content = file:read( &quot;*all&quot; )
-    
-    --once we have read the content of the file we should close it again
-    file:close()
-    
-    --we use the json module to parse the content to a dataTable  
-    data = json.parse(content)
-
-    --we then pick out the relevant data and iterate through each feature
-    capitals = data[&quot;features&quot;];
-
-    for _, c in next, capitals do
-        name = c[&quot;properties&quot;][&quot;city&quot;]
-        if name != nil and name != '' then
-            coord = c[&quot;geometry&quot;][&quot;coordinates&quot;]
-
-            --we use the feature class to add a point to the world
-            pt = features.addPoint(name, coord[2], coord[1])
-
-            --we also add a click listener 
-            --which will execute the on click method every time it is clicked
-            pt.addClickListener(onClick)
-        end
-    end
+<h2 id="the-update-function">The update function</h2>
+<p>Define an <code>update</code> function to run code that executes on every frame.</p>
+<pre><code>-- The update function will be called every frame
+-- and print the elapsed time since the last frame to the console
+function update()
+    print(deltaTime)
 end
-
-function onClick(pt)   
-    print(pt.name)
-end
-</code></pre>
-<p>This is the content of the example <code>capitals.geojson</code> file containing three cities with coordinates:</p>
-<pre><code>{
-    &quot;type&quot;: &quot;FeatureCollection&quot;,
-    &quot;features&quot;: [{
-        &quot;properties&quot;: {
-            &quot;country&quot;: &quot;Germany&quot;,
-            &quot;city&quot;: &quot;Berlin&quot;,
-            &quot;tld&quot;: &quot;de&quot;,
-            &quot;iso3&quot;: &quot;DEU&quot;,
-            &quot;iso2&quot;: &quot;DE&quot;
-        },
-        &quot;geometry&quot;: {
-            &quot;coordinates&quot;: [13.24, 52.31],
-            &quot;type&quot;: &quot;Point&quot;
-        },
-        &quot;id&quot;: &quot;DE&quot;
-    }, {
-        &quot;properties&quot;: {
-            &quot;country&quot;: &quot;Yemen&quot;,
-            &quot;city&quot;: &quot;Sanaa&quot;,
-            &quot;tld&quot;: &quot;ye&quot;,
-            &quot;iso3&quot;: &quot;YEM&quot;,
-            &quot;iso2&quot;: &quot;YE&quot;
-        },
-        &quot;geometry&quot;: {
-            &quot;coordinates&quot;: [44.12, 15.21],
-            &quot;type&quot;: &quot;Point&quot;
-        },
-        &quot;id&quot;: &quot;YE&quot;
-    }, {
-        &quot;properties&quot;: {
-            &quot;country&quot;: &quot;Algeria&quot;,
-            &quot;city&quot;: &quot;Algiers&quot;,
-            &quot;tld&quot;: &quot;dz&quot;,
-            &quot;iso3&quot;: &quot;DZA&quot;,
-            &quot;iso2&quot;: &quot;DZ&quot;
-        },
-        &quot;geometry&quot;: {
-            &quot;coordinates&quot;: [3.03, 36.45],
-            &quot;type&quot;: &quot;Point&quot;
-        },
-        &quot;id&quot;: &quot;DZ&quot;
-    }]
-}
 </code></pre>
 </article>
           </div>
@@ -184,7 +106,7 @@ end
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/fabSchneider/fab.geo/blob/master/Documentation/articles/scripting.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/fabSchneider/fab.geo/blob/master/Documentation/scripting/quickstart.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

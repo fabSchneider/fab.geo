@@ -86,6 +86,224 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class LuaManager : MonoBehaviour</code></pre>
   </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_LoadedScripts_" data-uid="Fab.Geo.Modding.LuaManager.LoadedScripts*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_LoadedScripts" data-uid="Fab.Geo.Modding.LuaManager.LoadedScripts">LoadedScripts</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Script&gt; LoadedScripts { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Script</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_GetAllLoadedScripts_" data-uid="Fab.Geo.Modding.LuaManager.GetAllLoadedScripts*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_GetAllLoadedScripts" data-uid="Fab.Geo.Modding.LuaManager.GetAllLoadedScripts">GetAllLoadedScripts()</h4>
+  <div class="markdown level1 summary"><p>Lists all loaded scripts</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string[] GetAllLoadedScripts()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_GetScriptLoadPath_" data-uid="Fab.Geo.Modding.LuaManager.GetScriptLoadPath*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_GetScriptLoadPath_Script_" data-uid="Fab.Geo.Modding.LuaManager.GetScriptLoadPath(Script)">GetScriptLoadPath(Script)</h4>
+  <div class="markdown level1 summary"><p>Returns the path the script was loaded from</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetScriptLoadPath(Script script)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Script</span></td>
+        <td><span class="parametername">script</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_GetScriptName_" data-uid="Fab.Geo.Modding.LuaManager.GetScriptName*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_GetScriptName_Script_" data-uid="Fab.Geo.Modding.LuaManager.GetScriptName(Script)">GetScriptName(Script)</h4>
+  <div class="markdown level1 summary"><p>Returns the name the script is registered with</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetScriptName(Script script)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Script</span></td>
+        <td><span class="parametername">script</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_LoadScripts_" data-uid="Fab.Geo.Modding.LuaManager.LoadScripts*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_LoadScripts" data-uid="Fab.Geo.Modding.LuaManager.LoadScripts">LoadScripts()</h4>
+  <div class="markdown level1 summary"><p>(Re)loads all scripts found in the scripts directory</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadScripts()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_SetDebugger_" data-uid="Fab.Geo.Modding.LuaManager.SetDebugger*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_SetDebugger_Fab_Geo_Modding_LuaDebugger_" data-uid="Fab.Geo.Modding.LuaManager.SetDebugger(Fab.Geo.Modding.LuaDebugger)">SetDebugger(LuaDebugger)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDebugger(LuaDebugger debugger)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Modding.LuaDebugger.html">LuaDebugger</a></td>
+        <td><span class="parametername">debugger</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_UnloadAllScripts_" data-uid="Fab.Geo.Modding.LuaManager.UnloadAllScripts*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_UnloadAllScripts" data-uid="Fab.Geo.Modding.LuaManager.UnloadAllScripts">UnloadAllScripts()</h4>
+  <div class="markdown level1 summary"><p>Unloads all loaded scripts</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnloadAllScripts()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_LuaManager_UnloadScript_" data-uid="Fab.Geo.Modding.LuaManager.UnloadScript*"></a>
+  <h4 id="Fab_Geo_Modding_LuaManager_UnloadScript_Script_" data-uid="Fab.Geo.Modding.LuaManager.UnloadScript(Script)">UnloadScript(Script)</h4>
+  <div class="markdown level1 summary"><p>Unloads the specified script</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnloadScript(Script script)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Script</span></td>
+        <td><span class="parametername">script</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           

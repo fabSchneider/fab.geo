@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class FeatureManagerProxy
+    <title>Class TextureProxy
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class FeatureManagerProxy
+    <meta name="title" content="Class TextureProxy
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,20 +68,24 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.FeatureManagerProxy">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.TextureProxy">
   
   
-  <h1 id="Fab_Geo_Modding_FeatureManagerProxy" data-uid="Fab.Geo.Modding.FeatureManagerProxy" class="text-break">Class FeatureManagerProxy
+  <h1 id="Fab_Geo_Modding_TextureProxy" data-uid="Fab.Geo.Modding.TextureProxy" class="text-break">Class TextureProxy
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">FeatureManagerProxy</span></div>
+    <div class="level1"><a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html">ProxyBase</a>&lt;<span class="xref">Texture2D</span>&gt;</div>
+    <div class="level2"><span class="xref">TextureProxy</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1_Source">ProxyBase&lt;Texture2D&gt;.Source</a>
+    </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
@@ -106,21 +110,21 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Modding_FeatureManagerProxy_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_TextureProxy_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class FeatureManagerProxy</code></pre>
+    <pre><code class="lang-csharp hljs">public class TextureProxy : ProxyBase&lt;Texture2D&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="Fab_Geo_Modding_FeatureManagerProxy__ctor_" data-uid="Fab.Geo.Modding.FeatureManagerProxy.#ctor*"></a>
-  <h4 id="Fab_Geo_Modding_FeatureManagerProxy__ctor_Fab_Geo_Modding_FeatureManager_" data-uid="Fab.Geo.Modding.FeatureManagerProxy.#ctor(Fab.Geo.Modding.FeatureManager)">FeatureManagerProxy(FeatureManager)</h4>
+  <a id="Fab_Geo_Modding_TextureProxy__ctor_" data-uid="Fab.Geo.Modding.TextureProxy.#ctor*"></a>
+  <h4 id="Fab_Geo_Modding_TextureProxy__ctor_Texture2D_" data-uid="Fab.Geo.Modding.TextureProxy.#ctor(Texture2D)">TextureProxy(Texture2D)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FeatureManagerProxy(FeatureManager manager)</code></pre>
+    <pre><code class="lang-csharp hljs">public TextureProxy(Texture2D source)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -133,94 +137,50 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Modding.FeatureManager.html">FeatureManager</a></td>
-        <td><span class="parametername">manager</span></td>
+        <td><span class="xref">Texture2D</span></td>
+        <td><span class="parametername">source</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
+  <h3 id="properties">Properties
   </h3>
   
   
-  <a id="Fab_Geo_Modding_FeatureManagerProxy_addPoint_" data-uid="Fab.Geo.Modding.FeatureManagerProxy.addPoint*"></a>
-  <h4 id="Fab_Geo_Modding_FeatureManagerProxy_addPoint_System_String_System_Single_System_Single_" data-uid="Fab.Geo.Modding.FeatureManagerProxy.addPoint(System.String,System.Single,System.Single)">addPoint(String, Single, Single)</h4>
+  <a id="Fab_Geo_Modding_TextureProxy_height_" data-uid="Fab.Geo.Modding.TextureProxy.height*"></a>
+  <h4 id="Fab_Geo_Modding_TextureProxy_height" data-uid="Fab.Geo.Modding.TextureProxy.height">height</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FeatureProxy addPoint(string name, float lat, float lon)</code></pre>
+    <pre><code class="lang-csharp hljs">public int height { get; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lat</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lon</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Modding.FeatureProxy.html">FeatureProxy</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_Modding_FeatureManagerProxy_removeFeature_" data-uid="Fab.Geo.Modding.FeatureManagerProxy.removeFeature*"></a>
-  <h4 id="Fab_Geo_Modding_FeatureManagerProxy_removeFeature_System_Int32_" data-uid="Fab.Geo.Modding.FeatureManagerProxy.removeFeature(System.Int32)">removeFeature(Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool removeFeature(int id)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">id</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
+  
+  
+  <a id="Fab_Geo_Modding_TextureProxy_name_" data-uid="Fab.Geo.Modding.TextureProxy.name*"></a>
+  <h4 id="Fab_Geo_Modding_TextureProxy_name" data-uid="Fab.Geo.Modding.TextureProxy.name">name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string name { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -230,7 +190,57 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_TextureProxy_Texture_" data-uid="Fab.Geo.Modding.TextureProxy.Texture*"></a>
+  <h4 id="Fab_Geo_Modding_TextureProxy_Texture" data-uid="Fab.Geo.Modding.TextureProxy.Texture">Texture</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Texture2D Texture { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Texture2D</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_TextureProxy_width_" data-uid="Fab.Geo.Modding.TextureProxy.width*"></a>
+  <h4 id="Fab_Geo_Modding_TextureProxy_width" data-uid="Fab.Geo.Modding.TextureProxy.width">width</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int width { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
         <td></td>
       </tr>
     </tbody>

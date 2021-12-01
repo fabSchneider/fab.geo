@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class GeoUtils
+    <title>Class ControlPanelProxy
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class GeoUtils
+    <meta name="title" content="Class ControlPanelProxy
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,21 +68,24 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.GeoUtils">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.ControlPanelProxy">
   
   
-  <h1 id="Fab_Geo_GeoUtils" data-uid="Fab.Geo.GeoUtils" class="text-break">Class GeoUtils
+  <h1 id="Fab_Geo_Modding_ControlPanelProxy" data-uid="Fab.Geo.Modding.ControlPanelProxy" class="text-break">Class ControlPanelProxy
   </h1>
-  <div class="markdown level0 summary"><p>Utility functions for geography</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">GeoUtils</span></div>
+    <div class="level1"><a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html">ProxyBase</a>&lt;<a class="xref" href="Fab.Geo.ControlPanel.html">ControlPanel</a>&gt;</div>
+    <div class="level2"><span class="xref">ControlPanelProxy</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1_Source">ProxyBase&lt;ControlPanel&gt;.Source</a>
+    </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
@@ -105,58 +108,37 @@
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.html">Fab.Geo</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_GeoUtils_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_ControlPanelProxy_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class GeoUtils</code></pre>
+    <pre><code class="lang-csharp hljs">public class ControlPanelProxy : ProxyBase&lt;ControlPanel&gt;</code></pre>
   </div>
-  <h3 id="fields">Fields
+  <h3 id="constructors">Constructors
   </h3>
   
   
-  <h4 id="Fab_Geo_GeoUtils_EARTH_RADIUS_KM" data-uid="Fab.Geo.GeoUtils.EARTH_RADIUS_KM">EARTH_RADIUS_KM</h4>
+  <a id="Fab_Geo_Modding_ControlPanelProxy__ctor_" data-uid="Fab.Geo.Modding.ControlPanelProxy.#ctor*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy__ctor_Fab_Geo_ControlPanel_" data-uid="Fab.Geo.Modding.ControlPanelProxy.#ctor(Fab.Geo.ControlPanel)">ControlPanelProxy(ControlPanel)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const int EARTH_RADIUS_KM = 6371</code></pre>
+    <pre><code class="lang-csharp hljs">public ControlPanelProxy(ControlPanel source)</code></pre>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="Fab_Geo_GeoUtils_EARTH_RADIUS_MILES" data-uid="Fab.Geo.GeoUtils.EARTH_RADIUS_MILES">EARTH_RADIUS_MILES</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const int EARTH_RADIUS_MILES = 3960</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="Fab.Geo.ControlPanel.html">ControlPanel</a></td>
+        <td><span class="parametername">source</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -165,14 +147,13 @@
   </h3>
   
   
-  <a id="Fab_Geo_GeoUtils_CoordinateToPoint_" data-uid="Fab.Geo.GeoUtils.CoordinateToPoint*"></a>
-  <h4 id="Fab_Geo_GeoUtils_CoordinateToPoint_Fab_Geo_Coordinate_" data-uid="Fab.Geo.GeoUtils.CoordinateToPoint(Fab.Geo.Coordinate)">CoordinateToPoint(Coordinate)</h4>
-  <div class="markdown level1 summary"><p>Calculates a point on a unit sphere from latitude and longitude (in radians)</p>
-</div>
+  <a id="Fab_Geo_Modding_ControlPanelProxy_add_button_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_button*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_button_System_String_Closure_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_button(System.String,Closure)">add_button(String, Closure)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float3 CoordinateToPoint(Coordinate coordinate)</code></pre>
+    <pre><code class="lang-csharp hljs">public void add_button(string name, Closure callback)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -185,37 +166,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">coordinate</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">float3</span></td>
+        <td><span class="xref">Closure</span></td>
+        <td><span class="parametername">callback</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_GeoUtils_CoordinateToPoint_" data-uid="Fab.Geo.GeoUtils.CoordinateToPoint*"></a>
-  <h4 id="Fab_Geo_GeoUtils_CoordinateToPoint_System_Single_System_Single_" data-uid="Fab.Geo.GeoUtils.CoordinateToPoint(System.Single,System.Single)">CoordinateToPoint(Single, Single)</h4>
-  <div class="markdown level1 summary"><p>Calculates a point on a unit sphere from latitude and longitude</p>
-</div>
+  <a id="Fab_Geo_Modding_ControlPanelProxy_add_choice_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_choice*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_choice_System_String_List_System_String__System_String_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)">add_choice(String, List&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float3 CoordinateToPoint(float lat, float lon)</code></pre>
+    <pre><code class="lang-csharp hljs">public void add_choice(string name, List&lt;string&gt; choices, string value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -228,42 +198,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lat</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lon</span></td>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">choices</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">float3</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_GeoUtils_Distance_" data-uid="Fab.Geo.GeoUtils.Distance*"></a>
-  <h4 id="Fab_Geo_GeoUtils_Distance_Fab_Geo_Coordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.GeoUtils.Distance(Fab.Geo.Coordinate,Fab.Geo.Coordinate)">Distance(Coordinate, Coordinate)</h4>
-  <div class="markdown level1 summary"><p>Calculates the distance in km between two coordinates</p>
-</div>
+  <a id="Fab_Geo_Modding_ControlPanelProxy_add_range_slider_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_range_slider*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_range_slider_System_String_System_Single_System_Single_System_Single_System_Single_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_range_slider(System.String,System.Single,System.Single,System.Single,System.Single)">add_range_slider(String, Single, Single, Single, Single)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float Distance(Coordinate coord1, Coordinate coord2)</code></pre>
+    <pre><code class="lang-csharp hljs">public void add_range_slider(string name, float min, float max, float minLimit, float maxLimit)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -276,133 +235,51 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">coord1</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">coord2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_GeoUtils_NormalizeCoordinate_" data-uid="Fab.Geo.GeoUtils.NormalizeCoordinate*"></a>
-  <h4 id="Fab_Geo_GeoUtils_NormalizeCoordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.GeoUtils.NormalizeCoordinate(Fab.Geo.Coordinate)">NormalizeCoordinate(Coordinate)</h4>
-  <div class="markdown level1 summary"><p>Maps longitude and latitude into the interval [0, 1]</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float2 NormalizeCoordinate(Coordinate coordinate)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">coordinate</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">float2</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_GeoUtils_NormalizeCoordinate_" data-uid="Fab.Geo.GeoUtils.NormalizeCoordinate*"></a>
-  <h4 id="Fab_Geo_GeoUtils_NormalizeCoordinate_System_Single_System_Single_" data-uid="Fab.Geo.GeoUtils.NormalizeCoordinate(System.Single,System.Single)">NormalizeCoordinate(Single, Single)</h4>
-  <div class="markdown level1 summary"><p>Maps longitude and latitude into the interval [0, 1]</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float2 NormalizeCoordinate(float lat, float lon)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lat</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lon</span></td>
+        <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
-        <td><span class="xref">float2</span></td>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">minLimit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">maxLimit</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_GeoUtils_PointOnCubeToPointOnSphere_" data-uid="Fab.Geo.GeoUtils.PointOnCubeToPointOnSphere*"></a>
-  <h4 id="Fab_Geo_GeoUtils_PointOnCubeToPointOnSphere_float3_" data-uid="Fab.Geo.GeoUtils.PointOnCubeToPointOnSphere(float3)">PointOnCubeToPointOnSphere(float3)</h4>
-  <div class="markdown level1 summary"><p>Calculates a point on a unit sphere from a point on a cube</p>
-</div>
+  <a id="Fab_Geo_Modding_ControlPanelProxy_add_seperator_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_seperator*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_seperator" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_seperator">add_seperator()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float3 PointOnCubeToPointOnSphere(float3 p)</code></pre>
+    <pre><code class="lang-csharp hljs">public void add_seperator()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_ControlPanelProxy_add_slider_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_slider_System_String_System_Single_System_Single_System_Single_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single)">add_slider(String, Single, Single, Single)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void add_slider(string name, float min, float max, float value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -415,37 +292,36 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float3</span></td>
-        <td><span class="parametername">p</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
-        <td><span class="xref">float3</span></td>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_GeoUtils_PointToCoordinate_" data-uid="Fab.Geo.GeoUtils.PointToCoordinate*"></a>
-  <h4 id="Fab_Geo_GeoUtils_PointToCoordinate_float3_" data-uid="Fab.Geo.GeoUtils.PointToCoordinate(float3)">PointToCoordinate(float3)</h4>
-  <div class="markdown level1 summary"><p>Calculates latitude and longitude (in radians) from a point on a unit sphere</p>
-</div>
+  <a id="Fab_Geo_Modding_ControlPanelProxy_add_slider_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_slider_System_String_System_Single_System_Single_System_Single_Closure_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single,Closure)">add_slider(String, Single, Single, Single, Closure)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Coordinate PointToCoordinate(float3 pointOnUnitSphere)</code></pre>
+    <pre><code class="lang-csharp hljs">public void add_slider(string name, float min, float max, float value, Closure callback)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -458,27 +334,74 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float3</span></td>
-        <td><span class="parametername">pointOnUnitSphere</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Closure</span></td>
+        <td><span class="parametername">callback</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
+  
+  
+  <a id="Fab_Geo_Modding_ControlPanelProxy_begin_group_" data-uid="Fab.Geo.Modding.ControlPanelProxy.begin_group*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_begin_group_System_String_System_Boolean_" data-uid="Fab.Geo.Modding.ControlPanelProxy.begin_group(System.String,System.Boolean)">begin_group(String, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void begin_group(string name, bool expanded = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">expanded</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Fab_Geo_Modding_ControlPanelProxy_end_group_" data-uid="Fab.Geo.Modding.ControlPanelProxy.end_group*"></a>
+  <h4 id="Fab_Geo_Modding_ControlPanelProxy_end_group" data-uid="Fab.Geo.Modding.ControlPanelProxy.end_group">end_group()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void end_group()</code></pre>
+  </div>
 </article>
           </div>
           
