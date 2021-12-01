@@ -15,8 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Lua: vscode debugger support
 - Control panel ui with the ability to add a range of controls to it during runtime
 - Camera orbit control
-- Feature manager with basic support to add features (points) to the world
-- Integrated command terminal with reload command to reload the whole world and scripts without the need to restart
 
 ### Changed
  - Camera controller's `SetPosition(...)` method has been renamed to `SetCoord(...)`
