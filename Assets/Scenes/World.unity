@@ -454,8 +454,8 @@ MonoBehaviour:
   MaxHeight: 0.7
   SmallTerminalRatio: 0.4
   ToggleSpeed: 1000
-  ToggleHotkey: =
-  ToggleFullHotkey: '-'
+  ToggleHotkey: '`'
+  ToggleFullHotkey: =
   BufferSize: 512
   ConsoleFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   InputCaret: '>'
@@ -495,6 +495,7 @@ GameObject:
   - component: {fileID: 680215388}
   - component: {fileID: 680215387}
   - component: {fileID: 680215389}
+  - component: {fileID: 680215390}
   m_Layer: 0
   m_Name: LuaManager
   m_TagString: Untagged
@@ -542,6 +543,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   port: 41912
+--- !u!114 &680215390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680215386}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea88429131063604d846c06e46745dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowRect:
+    serializedVersion: 2
+    x: 20
+    y: 20
+    width: 200
+    height: 300
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
