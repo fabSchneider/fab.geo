@@ -13,5 +13,10 @@ namespace Fab.Geo.Modding
         {
             Source.Show(title, text);
         }
+
+        public void show(string title, TextureProxy image)
+        {
+            Source.Show(title, image.Texture);
+        }
     }
 }

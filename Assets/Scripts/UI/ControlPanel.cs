@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -66,13 +67,15 @@ namespace Fab.Geo
             currentParent = currentParent.parent;
         }
 
-        public void AddSlider(string name, float min, float max, float value)
+        public void AddSlider(string name, float min, float max, float value, Action<float> callback = null)
         {
             if (controlPanelElement.parent == null)
                 root.Add(controlPanelElement);
 
             Slider slider = new Slider(name, min, max);
             slider.value = value;
+            if(callback != null)
+                slider.RegisterCallback<ChangeEvent<float>>(evt => callback(evt.newValue));
             currentParent.Add(slider);
         }
 
@@ -92,6 +95,16 @@ namespace Fab.Geo
 
             DropdownField dropdown = new DropdownField(name, choices, value);
             currentParent.Add(dropdown);
+        }
+
+        public void AddButton(string name, Action callback)
+        {
+            if (controlPanelElement.parent == null)
+                root.Add(controlPanelElement);
+
+            Button button = new Button(callback);
+            button.text = name;
+            currentParent.Add(button);
         }
     }
 }

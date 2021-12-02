@@ -7,6 +7,10 @@ namespace Fab.Geo
     /// </summary>
     public static class GeoUtils
     {
+        public const int EARTH_RADIUS_KM = 6371;
+        public const int EARTH_RADIUS_MILES = 3960;
+
+
         /// <summary>
         /// Calculates latitude and longitude (in radians) from a point on a unit sphere
         /// </summary>
@@ -93,6 +97,24 @@ namespace Fab.Geo
             float z = p.z * math.sqrt(1f - (x2 + y2) / 2f + (x2 * y2) / 3f);
 
             return new float3(x, y, z);
+        }
+
+        /// <summary>
+        /// Calculates the distance in km between two coordinates
+        /// </summary>
+        /// <param name="coord1"></param>
+        /// <param name="coord2"></param>
+        /// <returns></returns>
+        public static float Distance(Coordinate coord1, Coordinate coord2)
+        {
+            float dLat = coord2.latitude - coord1.latitude;
+            float dLon = coord2.longitude - coord1.longitude;
+
+            float a = math.sin(dLat / 2f) * math.sin(dLat / 2f) +
+                math.cos(coord1.latitude) * math.cos(coord2.latitude) *
+                math.sin(dLon / 2) * math.sin(dLon / 2);
+            float c = 2 * math.asin(math.min(1, math.sqrt(a)));
+            return EARTH_RADIUS_KM * c;
         }
     }
 }

@@ -1,6 +1,7 @@
 using MoonSharp.Interpreter;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Fab.Geo.Modding
@@ -16,12 +17,18 @@ namespace Fab.Geo.Modding
             this.controller = controller;
         }
 
-        public void setPosition(float lat, float lon)
+        public void set_coord(float lat, float lon)
         {
-            controller.SetPosition(new Coordinate(Mathf.Deg2Rad * lon, Mathf.Deg2Rad * lat));
+            controller.SetCoordinate(new Coordinate(Mathf.Deg2Rad * lon, Mathf.Deg2Rad * lat));
         }
 
-        public void setZoom(float zoom)
+        public float[] get_coord()
+        {
+            Coordinate coord = controller.GetCoordinate();
+            return new float[] { math.degrees(coord.longitude), math.degrees(coord.latitude) };
+        }
+
+        public void set_zoom(float zoom)
         {
             controller.SetZoom(zoom);
         }
