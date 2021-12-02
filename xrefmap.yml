@@ -154,11 +154,11 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.ControlPanel.ControlPanel
   nameWithType: ControlPanel.ControlPanel
-- uid: Fab.Geo.ControlPanel.AddButton(System.String,Action)
+- uid: Fab.Geo.ControlPanel.AddButton(System.String,System.Action)
   name: AddButton(String, Action)
-  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddButton_System_String_Action_
-  commentId: M:Fab.Geo.ControlPanel.AddButton(System.String,Action)
-  fullName: Fab.Geo.ControlPanel.AddButton(System.String, Action)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddButton_System_String_System_Action_
+  commentId: M:Fab.Geo.ControlPanel.AddButton(System.String,System.Action)
+  fullName: Fab.Geo.ControlPanel.AddButton(System.String, System.Action)
   nameWithType: ControlPanel.AddButton(String, Action)
 - uid: Fab.Geo.ControlPanel.AddButton*
   name: AddButton
@@ -167,13 +167,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.ControlPanel.AddButton
   nameWithType: ControlPanel.AddButton
-- uid: Fab.Geo.ControlPanel.AddChoice(System.String,List{System.String},System.String)
+- uid: Fab.Geo.ControlPanel.AddChoice(System.String,System.Collections.Generic.List{System.String},System.String)
   name: AddChoice(String, List<String>, String)
-  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddChoice_System_String_List_System_String__System_String_
-  commentId: M:Fab.Geo.ControlPanel.AddChoice(System.String,List{System.String},System.String)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddChoice_System_String_System_Collections_Generic_List_System_String__System_String_
+  commentId: M:Fab.Geo.ControlPanel.AddChoice(System.String,System.Collections.Generic.List{System.String},System.String)
   name.vb: AddChoice(String, List(Of String), String)
-  fullName: Fab.Geo.ControlPanel.AddChoice(System.String, List<System.String>, System.String)
-  fullName.vb: Fab.Geo.ControlPanel.AddChoice(System.String, List(Of System.String), System.String)
+  fullName: Fab.Geo.ControlPanel.AddChoice(System.String, System.Collections.Generic.List<System.String>, System.String)
+  fullName.vb: Fab.Geo.ControlPanel.AddChoice(System.String, System.Collections.Generic.List(Of System.String), System.String)
   nameWithType: ControlPanel.AddChoice(String, List<String>, String)
   nameWithType.vb: ControlPanel.AddChoice(String, List(Of String), String)
 - uid: Fab.Geo.ControlPanel.AddChoice*
@@ -209,13 +209,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.ControlPanel.AddSeperator
   nameWithType: ControlPanel.AddSeperator
-- uid: Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,Action{System.Single})
+- uid: Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,System.Action{System.Single})
   name: AddSlider(String, Single, Single, Single, Action<Single>)
-  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSlider_System_String_System_Single_System_Single_System_Single_Action_System_Single__
-  commentId: M:Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,Action{System.Single})
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSlider_System_String_System_Single_System_Single_System_Single_System_Action_System_Single__
+  commentId: M:Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,System.Action{System.Single})
   name.vb: AddSlider(String, Single, Single, Single, Action(Of Single))
-  fullName: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, Action<System.Single>)
-  fullName.vb: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, Action(Of System.Single))
+  fullName: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, System.Action<System.Single>)
+  fullName.vb: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, System.Action(Of System.Single))
   nameWithType: ControlPanel.AddSlider(String, Single, Single, Single, Action<Single>)
   nameWithType.vb: ControlPanel.AddSlider(String, Single, Single, Single, Action(Of Single))
 - uid: Fab.Geo.ControlPanel.AddSlider*
@@ -1122,6 +1122,23 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.GeoInput.PlayerActions.Zoom
   nameWithType: GeoInput.PlayerActions.Zoom
+- uid: Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Fab.Geo.GeoInput.System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: GeoInput.IEnumerable.GetEnumerator()
+  nameWithType.vb: GeoInput.System.Collections.IEnumerable.GetEnumerator()
+- uid: Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Fab.Geo.GeoInput.System.Collections.IEnumerable.GetEnumerator
+  nameWithType: GeoInput.IEnumerable.GetEnumerator
+  nameWithType.vb: GeoInput.System.Collections.IEnumerable.GetEnumerator
 - uid: Fab.Geo.GeoInput.TouchScheme
   name: TouchScheme
   href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_TouchScheme
@@ -1587,13 +1604,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.Modding.ControlPanelProxy.add_button
   nameWithType: ControlPanelProxy.add_button
-- uid: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,System.Collections.Generic.List{System.String},System.String)
   name: add_choice(String, List<String>, String)
-  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_choice_System_String_List_System_String__System_String_
-  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_choice_System_String_System_Collections_Generic_List_System_String__System_String_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,System.Collections.Generic.List{System.String},System.String)
   name.vb: add_choice(String, List(Of String), String)
-  fullName: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, List<System.String>, System.String)
-  fullName.vb: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, List(Of System.String), System.String)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, System.Collections.Generic.List<System.String>, System.String)
+  fullName.vb: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, System.Collections.Generic.List(Of System.String), System.String)
   nameWithType: ControlPanelProxy.add_choice(String, List<String>, String)
   nameWithType.vb: ControlPanelProxy.add_choice(String, List(Of String), String)
 - uid: Fab.Geo.Modding.ControlPanelProxy.add_choice*
@@ -2403,13 +2420,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.World.GetChunkLOD
   nameWithType: World.GetChunkLOD
-- uid: Fab.Geo.World.RegenerateChunks(List{Fab.Geo.WorldChunk})
+- uid: Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List{Fab.Geo.WorldChunk})
   name: RegenerateChunks(List<WorldChunk>)
-  href: api/Fab.Geo.World.html#Fab_Geo_World_RegenerateChunks_List_Fab_Geo_WorldChunk__
-  commentId: M:Fab.Geo.World.RegenerateChunks(List{Fab.Geo.WorldChunk})
+  href: api/Fab.Geo.World.html#Fab_Geo_World_RegenerateChunks_System_Collections_Generic_List_Fab_Geo_WorldChunk__
+  commentId: M:Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List{Fab.Geo.WorldChunk})
   name.vb: RegenerateChunks(List(Of WorldChunk))
-  fullName: Fab.Geo.World.RegenerateChunks(List<Fab.Geo.WorldChunk>)
-  fullName.vb: Fab.Geo.World.RegenerateChunks(List(Of Fab.Geo.WorldChunk))
+  fullName: Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List<Fab.Geo.WorldChunk>)
+  fullName.vb: Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List(Of Fab.Geo.WorldChunk))
   nameWithType: World.RegenerateChunks(List<WorldChunk>)
   nameWithType.vb: World.RegenerateChunks(List(Of WorldChunk))
 - uid: Fab.Geo.World.RegenerateChunks*
