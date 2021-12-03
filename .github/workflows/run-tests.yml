@@ -1,4 +1,4 @@
-name: Run Tests
+name: run tests
 
 on:
   pull_request:
@@ -16,7 +16,7 @@ jobs:
         projectPath:
           - .
         testMode:
-          #- playmode
+          - playmode
           - editmode
     steps:
       - name: Checkout repository
