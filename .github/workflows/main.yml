@@ -16,7 +16,7 @@ jobs:
         projectPath:
           - .
         testMode:
-          - playmode
+          #- playmode
           - editmode
     steps:
       - name: Checkout repository
