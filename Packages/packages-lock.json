@@ -7,12 +7,12 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
-    "com.stillwwater.commandterminal": {
-      "version": "https://github.com/fabSchneider/command_terminal.git?path=/CommandTerminal#v1.3.1",
+    "com.fabschneider.commandterminal": {
+      "version": "https://github.com/fabSchneider/command_terminal.git?path=/CommandTerminal#v1.4.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0333600160f970e63c802963e5da50195e7e22a7"
+      "hash": "1ff83a9485ff39c72b7924c61932632fce4a9419"
     },
     "com.unity.burst": {
       "version": "1.6.0",
