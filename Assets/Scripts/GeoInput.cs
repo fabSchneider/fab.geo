@@ -64,6 +64,24 @@ namespace Fab.Geo
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenTerminal"",
+                    ""type"": ""Button"",
+                    ""id"": ""38629782-3dfc-44d2-8ddf-3835104be193"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenTerminalFull"",
+                    ""type"": ""Button"",
+                    ""id"": ""4f5a522b-195a-4d05-b35e-184f1b5945ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +150,72 @@ namespace Fab.Geo
                     ""action"": ""Orbit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""4e369620-c89b-4818-bd30-1f3058f93c90"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenTerminalFull"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""88a511d1-f4d2-45c3-aca2-5fb5a0906d0b"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenTerminalFull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""0249f2dd-b5d2-42c4-a232-4c798c1703c2"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenTerminalFull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""25171ce6-2c91-4038-9bc6-620036edafd3"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenTerminal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""f27d87fd-6ad1-4873-a979-a22547f9b604"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenTerminal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""91ea139f-e9fc-4e00-825b-cdd4f8af0561"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenTerminal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -721,6 +805,8 @@ namespace Fab.Geo
             m_Player_Delta = m_Player.FindAction("Delta", throwIfNotFound: true);
             m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
             m_Player_Orbit = m_Player.FindAction("Orbit", throwIfNotFound: true);
+            m_Player_OpenTerminal = m_Player.FindAction("OpenTerminal", throwIfNotFound: true);
+            m_Player_OpenTerminalFull = m_Player.FindAction("OpenTerminalFull", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -796,6 +882,8 @@ namespace Fab.Geo
         private readonly InputAction m_Player_Delta;
         private readonly InputAction m_Player_Zoom;
         private readonly InputAction m_Player_Orbit;
+        private readonly InputAction m_Player_OpenTerminal;
+        private readonly InputAction m_Player_OpenTerminalFull;
         public struct PlayerActions
         {
             private @GeoInput m_Wrapper;
@@ -804,6 +892,8 @@ namespace Fab.Geo
             public InputAction @Delta => m_Wrapper.m_Player_Delta;
             public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
             public InputAction @Orbit => m_Wrapper.m_Player_Orbit;
+            public InputAction @OpenTerminal => m_Wrapper.m_Player_OpenTerminal;
+            public InputAction @OpenTerminalFull => m_Wrapper.m_Player_OpenTerminalFull;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -825,6 +915,12 @@ namespace Fab.Geo
                     @Orbit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
                     @Orbit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
                     @Orbit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOrbit;
+                    @OpenTerminal.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTerminal;
+                    @OpenTerminal.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTerminal;
+                    @OpenTerminal.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTerminal;
+                    @OpenTerminalFull.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTerminalFull;
+                    @OpenTerminalFull.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTerminalFull;
+                    @OpenTerminalFull.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenTerminalFull;
                 }
                 m_Wrapper.m_PlayerActionsCallbackInterface = instance;
                 if (instance != null)
@@ -841,6 +937,12 @@ namespace Fab.Geo
                     @Orbit.started += instance.OnOrbit;
                     @Orbit.performed += instance.OnOrbit;
                     @Orbit.canceled += instance.OnOrbit;
+                    @OpenTerminal.started += instance.OnOpenTerminal;
+                    @OpenTerminal.performed += instance.OnOpenTerminal;
+                    @OpenTerminal.canceled += instance.OnOpenTerminal;
+                    @OpenTerminalFull.started += instance.OnOpenTerminalFull;
+                    @OpenTerminalFull.performed += instance.OnOpenTerminalFull;
+                    @OpenTerminalFull.canceled += instance.OnOpenTerminalFull;
                 }
             }
         }
@@ -1001,6 +1103,8 @@ namespace Fab.Geo
             void OnDelta(InputAction.CallbackContext context);
             void OnZoom(InputAction.CallbackContext context);
             void OnOrbit(InputAction.CallbackContext context);
+            void OnOpenTerminal(InputAction.CallbackContext context);
+            void OnOpenTerminalFull(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {

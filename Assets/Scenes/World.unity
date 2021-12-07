@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 491756119}
   - component: {fileID: 491756118}
   m_Layer: 0
-  m_Name: CommandTerminal
+  m_Name: Terminal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,8 +454,8 @@ MonoBehaviour:
   MaxHeight: 0.7
   SmallTerminalRatio: 0.4
   ToggleSpeed: 1000
-  ToggleHotkey: '`'
-  ToggleFullHotkey: =
+  ToggleHotkey: {fileID: -1264415292966281373, guid: 4a33c11f2c8a4b34ba8110e6643d9e42, type: 3}
+  ToggleFullHotkey: {fileID: 9207065824717077271, guid: 4a33c11f2c8a4b34ba8110e6643d9e42, type: 3}
   BufferSize: 512
   ConsoleFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   InputCaret: '>'
