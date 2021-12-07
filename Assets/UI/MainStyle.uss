@@ -86,10 +86,10 @@ VisualElement {
 .control-panel {
     background-color: var(--window-color);
     position: absolute;
-    left: 20px;
-    bottom: 20px;
+    bottom: 60px;
     max-height: 500px;
     width: 350px;
+    right: 10px;
 }
 
 .control-panel__content {

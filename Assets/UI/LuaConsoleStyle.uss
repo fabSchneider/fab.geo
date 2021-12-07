@@ -1,0 +1,58 @@
+.lua-console {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.lua-console__text-field {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-left-color: rgba(135, 135, 135, 255);
+    border-right-color: rgba(135, 135, 135, 255);
+    border-top-color: rgba(135, 135, 135, 255);
+    border-bottom-color: rgba(135, 135, 135, 255);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: rgba(63, 63, 63, 255);
+}
+
+.lua-console__text-field #unity-text-input {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(176, 176, 176, 255);
+    border-left-color: rgba(41, 41, 41, 255);
+    border-right-color: rgba(41, 41, 41, 255);
+    border-top-color: rgba(41, 41, 41, 255);
+    border-bottom-color: rgba(41, 41, 41, 255);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 1px;
+    border-bottom-width: 0;
+}
+
+.lua-console__history {
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.lua-console__history-item {
+    color: rgba(207, 207, 207, 255);
+    margin-left: 4px;
+    margin-right: 0;
+    margin-top: 2px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 2px;
+}
