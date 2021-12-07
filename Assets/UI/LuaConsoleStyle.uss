@@ -36,6 +36,7 @@
     border-right-width: 0;
     border-top-width: 1px;
     border-bottom-width: 0;
+    --unity-cursor-color: rgba(255, 255, 255, 255);
 }
 
 .lua-console__history {

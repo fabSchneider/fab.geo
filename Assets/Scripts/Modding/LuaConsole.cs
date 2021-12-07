@@ -1,4 +1,6 @@
 using MoonSharp.Interpreter;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,55 +9,61 @@ namespace Fab.Geo.Modding
     [RequireComponent(typeof(UIDocument))]
     public class LuaConsole : MonoBehaviour
     {
-        private static readonly string className = "lua-console";
-        private static readonly string textFieldClassName = className + "__text-field";
-        private static readonly string historyClassName = className + "__history";
-        private static readonly string historyItemClassName = className + "__history-item";
-
         private LuaManager manager;
-        private UIDocument doc;
-        private TextField consoleTextField;
-        private VisualElement consoleHistory;
-
         private Script script;
+
+        private LuaConsoleHistory history;
+        public LuaConsoleHistory History => history;
 
         [SerializeField]
         [Tooltip("Maximum number of items in the history.")]
         private int maxHistoryEntries = 24;
 
-        private void Start()
+        public int MaxHistoryEntries => maxHistoryEntries;
+
+        private void Awake()
         {
             manager = FindObjectOfType<LuaManager>();
-
             script = manager.CreateScript("live-script");
-
-            doc = GetComponent<UIDocument>();
-            consoleTextField = doc.rootVisualElement.Q<TextField>(className: textFieldClassName);
-            consoleTextField.RegisterValueChangedCallback(OnTextFieldChange);
-            consoleHistory = doc.rootVisualElement.Q(className: historyClassName);
+            history = new LuaConsoleHistory(maxHistoryEntries);
         }
 
-        private void OnTextFieldChange(ChangeEvent<string> evt)
+        public void Execute(string code)
         {
-            string consoleLine = evt.newValue;
-            consoleTextField.SetValueWithoutNotify(string.Empty);
-            consoleTextField.Focus();
+            script.DoString(code);
+            history.Add(code);
+        }
+    }
 
-            script.DoString(consoleLine);
+    public class LuaConsoleHistory : IReadOnlyList<string>
+    {
 
-            if (consoleHistory.childCount >= maxHistoryEntries && consoleHistory.childCount > 0)
-                consoleHistory.RemoveAt(0);
+        private int maxEntries;
+        public int MaxEntries => maxEntries;
 
-            VisualElement historyItem = CreateHistoryItem(consoleLine);
-            consoleHistory.Add(historyItem);
+        public LuaConsoleHistory(int maxEntries)
+        {
+            this.maxEntries = maxEntries;
+            history = new List<string>(maxEntries);
         }
 
+        private List<string> history;
+        public string this[int index] => history[index];
+        public int Count => history.Count;
+        public IEnumerator<string> GetEnumerator() => history.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => history.GetEnumerator();
 
-        private VisualElement CreateHistoryItem(string content)
+        public void Clear()
         {
-            Label label = new Label(content);
-            label.AddToClassList(historyItemClassName);
-            return label;
+            history.Clear();
+        }
+
+        public void Add(string entry)
+        {
+            if (history.Count > 0 && history.Count >= maxEntries)
+                history.RemoveAt(0);
+
+            history.Add(entry);
         }
     }
 }
