@@ -3,6 +3,7 @@
     <Style src="project://database/Assets/UI/MainStyle.uss?fileID=7433441132597879392&amp;guid=146a25247199e0b4ebe55f9e33bfffcc&amp;type=3#MainStyle" />
     <ui:VisualElement class="lua-console">
         <ui:VisualElement class="lua-console__history" />
+        <ui:Label text="error message" display-tooltip-when-elided="true" class="lua-console__error-msg" style="display: none;" />
         <ui:TextField picking-mode="Ignore" text="type lua code here" multiline="false" is-delayed="true" class="lua-console__text-field" />
     </ui:VisualElement>
 </ui:UXML>

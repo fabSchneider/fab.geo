@@ -894,6 +894,7 @@ GameObject:
   - component: {fileID: 1565602073}
   - component: {fileID: 1565602072}
   - component: {fileID: 1565602074}
+  - component: {fileID: 1565602075}
   m_Layer: 5
   m_Name: LuaConsole
   m_TagString: Untagged
@@ -945,3 +946,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHistoryEntries: 24
+--- !u!114 &1565602075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565602071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed04db982c4c1c46a05cf46c2301a9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,8 +12,8 @@ namespace Fab.Geo.Modding
         private LuaManager manager;
         private Script script;
 
-        private LuaConsoleHistory history;
-        public LuaConsoleHistory History => history;
+        private History history;
+        public History ConsoleHistory => history;
 
         [SerializeField]
         [Tooltip("Maximum number of items in the history.")]
@@ -21,49 +21,92 @@ namespace Fab.Geo.Modding
 
         public int MaxHistoryEntries => maxHistoryEntries;
 
+        private string printOutput;
+
         private void Awake()
         {
             manager = FindObjectOfType<LuaManager>();
             script = manager.CreateScript("live-script");
-            history = new LuaConsoleHistory(maxHistoryEntries);
+            script.Options.DebugPrint = print => printOutput = print;
+            history = new History(maxHistoryEntries);
         }
 
-        public void Execute(string code)
+        public Result Execute(string code)
         {
-            script.DoString(code);
-            history.Add(code);
-        }
-    }
+            try
+            {
+                DynValue returnVal = script.DoString(code);
+                if (returnVal.IsNotNil())
+                {
+                    printOutput = returnVal.ToPrintString();
+                }
+            }
+            catch (System.Exception e)
+            {
+                //try getting a variable from the code
+                DynValue val = script.Globals.Get(code);
+                if(val != null && val.IsNotNil())
+                    printOutput = val.ToPrintString();
+                else
+                    return new Result() { success = false, errorMsg = e.Message };
+            }
 
-    public class LuaConsoleHistory : IReadOnlyList<string>
-    {
-
-        private int maxEntries;
-        public int MaxEntries => maxEntries;
-
-        public LuaConsoleHistory(int maxEntries)
-        {
-            this.maxEntries = maxEntries;
-            history = new List<string>(maxEntries);
-        }
-
-        private List<string> history;
-        public string this[int index] => history[index];
-        public int Count => history.Count;
-        public IEnumerator<string> GetEnumerator() => history.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => history.GetEnumerator();
-
-        public void Clear()
-        {
-            history.Clear();
+            history.Add(code, printOutput);
+            printOutput = null;
+            return new Result() { success = true };
         }
 
-        public void Add(string entry)
-        {
-            if (history.Count > 0 && history.Count >= maxEntries)
-                history.RemoveAt(0);
 
-            history.Add(entry);
+        public class History : IReadOnlyList<HistoryEntry>
+        {
+
+            private int maxEntries;
+            public int MaxEntries => maxEntries;
+
+            public History(int maxEntries)
+            {
+                this.maxEntries = maxEntries;
+                codeHistory = new List<HistoryEntry>(maxEntries);
+            }
+            private List<HistoryEntry> codeHistory;
+            public HistoryEntry this[int index] => codeHistory[index];
+            public int Count => codeHistory.Count;
+            public IEnumerator<HistoryEntry> GetEnumerator() => codeHistory.GetEnumerator();
+            IEnumerator IEnumerable.GetEnumerator() => codeHistory.GetEnumerator();
+
+            public void Clear()
+            {
+                codeHistory.Clear();
+            }
+
+            public void Add(string code, string output)
+            {
+                if (codeHistory.Count > 0 && codeHistory.Count >= maxEntries)
+                    codeHistory.RemoveAt(0);
+
+                codeHistory.Add(new HistoryEntry(code, output));
+            }
+        }
+
+        public struct Result
+        {
+            public bool success;
+            public string errorMsg;
+        }
+
+        public class HistoryEntry
+        {
+            private string code;
+
+            private string print;
+            public string Code { get => code; }
+            public string Print { get => print; }
+
+            public HistoryEntry(string code, string print)
+            {
+                this.code = code;
+                this.print = print;
+            }
         }
     }
 }
