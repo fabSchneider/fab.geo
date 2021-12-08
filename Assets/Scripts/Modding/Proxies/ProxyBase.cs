@@ -1,6 +1,4 @@
 using MoonSharp.Interpreter;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Fab.Geo.Modding
@@ -8,13 +6,23 @@ namespace Fab.Geo.Modding
     [MoonSharpUserData]
     public class ProxyBase<T>
     {
-        private T source;
-        protected T Source => source;
+        private T value;
 
         [MoonSharpHidden]
-        public ProxyBase(T source)
+        public T Value => value;
+
+        [MoonSharpHidden]
+        public ProxyBase(T value)
         {
-            this.source = source;
+            this.value = value;
+        }
+
+        public bool IsNull()
+        {
+            if (value is Object obj)
+                return !obj;
+
+            return value == null;
         }
     }
 }

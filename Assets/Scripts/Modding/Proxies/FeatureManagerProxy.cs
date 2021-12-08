@@ -13,15 +13,20 @@ namespace Fab.Geo.Modding
             this.manager = manager;
         }
 
-        public FeatureProxy addPoint(string name, float lat, float lon)
+        public FeatureProxy add_point(string name, float lat = 0, float lon = 0)
         {
             FeaturePoint fp = manager.AddPoint(name, lat, lon);
             return new FeatureProxy(fp);
         }
 
-        public bool removeFeature(int id)
+        public bool remove(FeatureProxy feature)
         {
-            return manager.RemoveFeature(id);
+            return manager.RemoveFeature(feature.Value);
+        }
+
+        public override string ToString()
+        {
+            return "features";
         }
     }
 }

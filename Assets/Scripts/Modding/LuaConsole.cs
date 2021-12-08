@@ -44,11 +44,15 @@ namespace Fab.Geo.Modding
             catch (System.Exception e)
             {
                 //try getting a variable from the code
-                DynValue val = script.Globals.Get(code);
-                if(val != null && val.IsNotNil())
+               
+                DynValue val = script.Globals.RawGet(code);
+                if (val != null)
                     printOutput = val.ToPrintString();
                 else
+                {
+                    Debug.LogException(e);
                     return new Result() { success = false, errorMsg = e.Message };
+                }
             }
 
             history.Add(code, printOutput);

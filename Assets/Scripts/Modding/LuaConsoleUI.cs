@@ -49,9 +49,10 @@ namespace Fab.Geo.Modding
 
         private void OnTextFieldSubmit(NavigationSubmitEvent evt)
         {
+            consoleTextField.Focus();
             string code = consoleTextField.text;
-
-
+            if (string.IsNullOrWhiteSpace(code))
+                return;
 
             LuaConsole.Result res = console.Execute(code);
             if (res.success)
@@ -66,7 +67,7 @@ namespace Fab.Geo.Modding
                 errorMsg.style.display = DisplayStyle.Flex;
             }
 
-            consoleTextField.Focus();
+
         }
 
         private void OnTextFieldKeyDown(KeyDownEvent evt)

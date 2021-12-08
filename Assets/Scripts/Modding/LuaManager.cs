@@ -228,7 +228,10 @@ namespace Fab.Geo.Modding
 
             FeatureManager featureManager = FindObjectOfType<FeatureManager>();
             if (featureManager)
-                globals.Add("features", new FeatureManagerProxy(featureManager));
+            {
+                FeatureManagerProxy proxy = new FeatureManagerProxy(featureManager);
+                globals.Add(proxy.ToString(), proxy);
+            }
 
             UIManager uiManager = FindObjectOfType<UIManager>();
             if (uiManager)

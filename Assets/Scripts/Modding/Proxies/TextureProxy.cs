@@ -8,11 +8,11 @@ namespace Fab.Geo.Modding
     {
         [MoonSharpHidden]
         public TextureProxy(Texture2D source) : base(source) {}
-        public string name => Source.name;
-        public int width => Source.width;
-        public int height => Source.height;
+        public string name => Value.name;
+        public int width => Value.width;
+        public int height => Value.height;
 
         [MoonSharpHidden]
-        public Texture2D Texture => Source;
+        public Texture2D Texture => Value;
     }
 }

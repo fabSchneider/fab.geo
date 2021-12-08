@@ -7,16 +7,16 @@ namespace Fab.Geo.Modding
     public class PopupProxy : ProxyBase<Popup>
     {
         [MoonSharpHidden]
-        public PopupProxy(Popup source) : base(source){}
+        public PopupProxy(Popup value) : base(value){}
 
-        public void show(string title, string text)
+        public void show(string title, string text = null)
         {
-            Source.Show(title, text);
+            Value.Show(title, text);
         }
 
         public void show(string title, TextureProxy image)
         {
-            Source.Show(title, image.Texture);
+            Value.Show(title, image.Texture);
         }
     }
 }
