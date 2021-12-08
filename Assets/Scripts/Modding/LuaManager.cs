@@ -29,6 +29,7 @@ namespace Fab.Geo.Modding
         private static readonly string deltaTimeKey = "deltaTime";
 
         private List<Script> loadedScripts = new List<Script>();
+
         public IEnumerable<Script> LoadedScripts => loadedScripts;
 
         private Dictionary<Script, Closure> updateFunctions = new Dictionary<Script, Closure>();
@@ -54,10 +55,14 @@ namespace Fab.Geo.Modding
                 debugger.AttachScript(script);
         }
 
-        private void Start()
+        private void Awake()
         {
             UserData.RegisterAssembly();
             Script.GlobalOptions.Platform = new StandardPlatformAccessor();
+        }
+
+        private void Start()
+        {
             LoadScripts();
         }
 
@@ -192,6 +197,29 @@ namespace Fab.Geo.Modding
             Closure initFunc = script.Globals.Get(initFuncKey).Function;
             if (initFunc != null)
                 initFunc.Call();
+        }
+
+        public Script CreateScript(string scriptName)
+        {
+            Script script = new Script();
+            Dictionary<string, object> globals = GetGlobals();
+
+            //set globals
+            foreach (var global in globals)
+                script.Globals[global.Key] = global.Value;
+
+            script.Options.DebugPrint = s => Debug.Log(s);
+
+            //add constants
+            script.Globals[scriptNameKey] = Path.GetFileNameWithoutExtension(scriptName);
+            script.Globals[scriptDirKey] = ScriptsDirectory + Path.DirectorySeparatorChar;
+            script.Globals[dataDirKey] = DataDirectory + Path.DirectorySeparatorChar;
+
+            //attach to debugger
+            if (debugger != null)
+                debugger.AttachScript(script);
+
+            return script;
         }
 
         private static Dictionary<string, object> GetGlobals()
