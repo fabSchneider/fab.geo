@@ -27,14 +27,16 @@ namespace Fab.Geo.Modding
                 {
                     case FeaturePoint:
                         return "point";
+                    case FeatureLine:
+                        return "line";
                     default:
                         return "undefined";
                 }
             }
         }
 
-        public float center_lat => Mathf.Rad2Deg * Value.Center.latitude;
-        public float center_lon => Mathf.Rad2Deg * Value.Center.longitude;
+        public float center_lat => Mathf.Rad2Deg * Value.Geometry[0].latitude;
+        public float center_lon => Mathf.Rad2Deg * Value.Geometry[0].longitude;
 
         public void on_click(Closure action)
         {
@@ -55,7 +57,7 @@ namespace Fab.Geo.Modding
             if (IsNull())
                 return "nil";
 
-            return $"feature {{type: {type}, name:{name}}}";
+            return $"feature {{type: {type}, name: {name}}}";
         }
     }
 }

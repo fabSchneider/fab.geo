@@ -7,8 +7,7 @@ namespace Fab.Geo
     public class FeaturePoint : Feature
     {
         public TextMesh textMesh;
-
-        public override Coordinate Center => GeoUtils.PointToCoordinate(transform.localPosition.normalized);
+        public override Coordinate[] Geometry => new Coordinate[] { GeoUtils.PointToCoordinate(transform.localPosition.normalized) };
 
         public override void SetName(string name)
         {

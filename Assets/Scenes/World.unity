@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointPrefab: {fileID: -3555459622683893852, guid: 06542919cf3173b46b5e525d2b34b931, type: 3}
+  linePrefab: {fileID: 3372693483474276949, guid: 3f4b6cf75d96776418206581382dce86, type: 3}
 --- !u!1 &231218361
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094cbbd27665b294bb148fda455f211d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  luaModules: []
 --- !u!4 &680215388
 Transform:
   m_ObjectHideFlags: 0
