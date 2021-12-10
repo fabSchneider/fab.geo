@@ -516,7 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 094cbbd27665b294bb148fda455f211d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  luaModules: []
+  luaModules:
+  - {fileID: 4900000, guid: bc8d7760ce0d7364db24c7bd1d55e4ae, type: 3}
 --- !u!4 &680215388
 Transform:
   m_ObjectHideFlags: 0
