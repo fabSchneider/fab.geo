@@ -47,7 +47,7 @@ namespace Fab.Geo.Modding
                
                 DynValue val = script.Globals.RawGet(code);
                 if (val != null)
-                    printOutput = val.ToPrintString();
+                    script.DoString($"print({code})");
                 else
                 {
                     Debug.LogException(e);
