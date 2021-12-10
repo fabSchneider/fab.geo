@@ -12,5 +12,10 @@ namespace Fab.Geo.Modding
                 new Coordinate(math.radians(lon_1), math.radians(lat_1)), 
                 new Coordinate(math.radians(lon_2), math.radians(lat_2)));
         }
+
+        public float distance(Coordinate coord1, Coordinate coord2)
+        {
+            return GeoUtils.Distance(coord1, coord2);
+        }
     }
 }
