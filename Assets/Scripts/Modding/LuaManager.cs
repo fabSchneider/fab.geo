@@ -9,6 +9,7 @@ using MoonSharp.VsCodeDebugger;
 using CommandTerminal;
 using System.Linq;
 using MoonSharp.Interpreter.Debugging;
+using MoonSharp.Interpreter.Loaders;
 
 namespace Fab.Geo.Modding
 {
@@ -31,6 +32,8 @@ namespace Fab.Geo.Modding
         private List<Script> loadedScripts = new List<Script>();
 
         public IEnumerable<Script> LoadedScripts => loadedScripts;
+
+        public TextAsset[] luaModules;
 
         private Dictionary<Script, Closure> updateFunctions = new Dictionary<Script, Closure>();
 
@@ -58,6 +61,7 @@ namespace Fab.Geo.Modding
         private void Awake()
         {
             UserData.RegisterAssembly();
+            ClrConversion.RegisterConverters();
             Script.GlobalOptions.Platform = new StandardPlatformAccessor();
         }
 
@@ -161,24 +165,10 @@ namespace Fab.Geo.Modding
 
         private void LoadScript(string path, Dictionary<string, object> globals)
         {
-            Script script = new Script();
-
-            //set globals
-            foreach (var global in globals)
-                script.Globals[global.Key] = global.Value;
-
-            script.Options.DebugPrint = s => Debug.Log(s);
-
             string scriptName = Path.GetFileNameWithoutExtension(path);
-
-            //add constants
-            script.Globals[scriptNameKey] = Path.GetFileNameWithoutExtension(path);
-            script.Globals[scriptDirKey] = ScriptsDirectory + Path.DirectorySeparatorChar;
-            script.Globals[dataDirKey] = DataDirectory + Path.DirectorySeparatorChar;
-
-            //attach to debugger
-            if (debugger != null)
-                debugger.AttachScript(script);
+            Script script = CreateScript(scriptName);
+          
+            script.Options.DebugPrint = s => Debug.Log(s);
 
             using Stream fileStream = new FileStream(path, FileMode.Open);
 
@@ -199,9 +189,22 @@ namespace Fab.Geo.Modding
                 initFunc.Call();
         }
 
+        /// <summary>
+        /// Creates a script with the given script name
+        /// </summary>
+        /// <param name="scriptName"></param>
+        /// <returns></returns>
         public Script CreateScript(string scriptName)
         {
             Script script = new Script();
+
+            //set script loader
+            UnityAssetsScriptLoader scriptLoader = new UnityAssetsScriptLoader();
+
+            //we need to set the module path to '?' for it tor load the resource correctly
+            scriptLoader.ModulePaths = new string[] { "?" };
+            script.Options.ScriptLoader = scriptLoader;
+
             Dictionary<string, object> globals = GetGlobals();
 
             //set globals
@@ -214,6 +217,8 @@ namespace Fab.Geo.Modding
             script.Globals[scriptNameKey] = Path.GetFileNameWithoutExtension(scriptName);
             script.Globals[scriptDirKey] = ScriptsDirectory + Path.DirectorySeparatorChar;
             script.Globals[dataDirKey] = DataDirectory + Path.DirectorySeparatorChar;
+
+
 
             //attach to debugger
             if (debugger != null)
@@ -250,9 +255,18 @@ namespace Fab.Geo.Modding
 
             UserData.RegisterProxyType<TextureProxy, Texture2D>(t => new TextureProxy(t));
 
-            globals.Add("loader", new IOProxy(DataDirectory));
+            globals.Add("loader", new IOProxy(DataDirectory));          
 
             return globals;
+        }
+
+        private void LoadModulesForScript(Script script)
+        {
+            //load all modules
+            for (int i = 0; i < luaModules.Length; i++)
+            {
+                script.RequireModule(luaModules[i].name);
+            }
         }
 
         #region Commands
