@@ -20,12 +20,21 @@ namespace Fab.Geo.Modding
             return new FeatureProxy(fp);
         }
 
-        public FeatureProxy add_line(string name, float lat1 = 0, float lon1 = 0, float lat2 = 0, float lon2 = 0)
+        public FeatureProxy add_line(string name, float lat_1 = 0, float lon_1 = 0, float lat_2 = 0, float lon_2 = 0)
         {
             FeatureLine fl = manager.AddLine(
                 name, 
-                new Coordinate(math.radians(lon1), math.radians(lat1)),
-                new Coordinate(math.radians(lon2), math.radians(lat2)));
+                new Coordinate(math.radians(lon_1), math.radians(lat_1)),
+                new Coordinate(math.radians(lon_2), math.radians(lat_2)));
+            return new FeatureProxy(fl);
+        }
+
+        public FeatureProxy add_line(string name, FeatureProxy feature_1, FeatureProxy feature_2)
+        {
+            FeatureLine fl = manager.AddLine(
+                name,
+                new Coordinate(math.radians(feature_1.center_lon), math.radians(feature_1.center_lat)),
+                new Coordinate(math.radians(feature_2.center_lon), math.radians(feature_2.center_lat)));
             return new FeatureProxy(fl);
         }
 
