@@ -14,5 +14,13 @@ namespace Fab.Geo.Modding
 
         [MoonSharpHidden]
         public Texture2D Texture => Value;
+
+        public override string ToString()
+        {
+            if (IsNull())
+                return "nil";
+
+            return $"image {{name: {name}, width: {width}, height: {height}}}";
+        }
     }
 }
