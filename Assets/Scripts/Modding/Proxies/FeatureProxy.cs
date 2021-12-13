@@ -8,6 +8,9 @@ namespace Fab.Geo.Modding
     [MoonSharpUserData]
     public class FeatureProxy : ProxyBase<Feature>
     {
+        public override string Name => "feature";
+        public override string Description => "A feature object";
+
         private Closure clickEvent;
 
         [MoonSharpHidden]
@@ -45,7 +48,6 @@ namespace Fab.Geo.Modding
             if (action != null)
                 Value.clicked += OnClick;
         }
-
 
         private void OnClick()
         {

@@ -4,48 +4,47 @@ using Unity.Mathematics;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
-    public class FeatureManagerProxy
+    public class FeatureManagerProxy : ProxyBase<FeatureManager>
     {
-        private FeatureManager manager;
+        public override string Name => "features";
+        public override string Description => "Module for adding features (points, lines...) to the world";
 
         [MoonSharpHidden]
-        public FeatureManagerProxy(FeatureManager manager)
-        {
-            this.manager = manager;
-        }
+        public FeatureManagerProxy(FeatureManager value) : base(value) { }
 
-        public FeatureProxy add_point(string name, float lat = 0, float lon = 0)
+        [LuaHelpInfo("Adds a point at the given coordinates")]
+        public FeatureProxy add_point(string name, Coordinate coord)
         {
-            FeaturePoint fp = manager.AddPoint(name, new Coordinate(math.radians(lon), math.radians(lat)));
+            FeaturePoint fp = Value.AddPoint(name, coord);
             return new FeatureProxy(fp);
         }
 
-        public FeatureProxy add_line(string name, float lat_1 = 0, float lon_1 = 0, float lat_2 = 0, float lon_2 = 0)
+        [LuaHelpInfo("Adds a line between two coordinates")]
+        public FeatureProxy add_line(string name, Coordinate coord1, Coordinate coord2)
         {
-            FeatureLine fl = manager.AddLine(
-                name, 
-                new Coordinate(math.radians(lon_1), math.radians(lat_1)),
-                new Coordinate(math.radians(lon_2), math.radians(lat_2)));
+            FeatureLine fl = Value.AddLine(name, coord1, coord2);
             return new FeatureProxy(fl);
         }
 
+        [LuaHelpInfo("Adds a line between two features")]
         public FeatureProxy add_line(string name, FeatureProxy feature_1, FeatureProxy feature_2)
         {
-            FeatureLine fl = manager.AddLine(
+            FeatureLine fl = Value.AddLine(
                 name,
                 new Coordinate(math.radians(feature_1.center_lon), math.radians(feature_1.center_lat)),
                 new Coordinate(math.radians(feature_2.center_lon), math.radians(feature_2.center_lat)));
             return new FeatureProxy(fl);
         }
 
+        [LuaHelpInfo("Removes a feature from the world")]
         public bool remove(FeatureProxy feature)
         {
-            return manager.RemoveFeature(feature.Value);
+            return Value.RemoveFeature(feature.Value);
         }
 
         public override string ToString()
         {
-            return "features";
+            return Name;
         }
     }
 }

@@ -7,30 +7,25 @@ using UnityEngine;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
-    public class WorldCameraControllerProxy
+    public class WorldCameraControllerProxy : ProxyBase<WorldCameraController>
     {
-        private WorldCameraController controller;
+        public override string Name => "camera";
+        public override string Description => "Module for controlling the world camera";
 
         [MoonSharpHidden]
-        public WorldCameraControllerProxy(WorldCameraController controller)
+        public WorldCameraControllerProxy(WorldCameraController value) : base(value) { }
+
+        [LuaHelpInfo("Gets/Sets the camera's position in coordinates")]
+        public Coordinate coord
         {
-            this.controller = controller;
+            get => Value.GetCoordinate();
+            set => Value.SetCoordinate(value);
         }
 
-        public void set_coord(float lat, float lon)
-        {
-            controller.SetCoordinate(new Coordinate(Mathf.Deg2Rad * lon, Mathf.Deg2Rad * lat));
-        }
-
-        public float[] get_coord()
-        {
-            Coordinate coord = controller.GetCoordinate();
-            return new float[] { math.degrees(coord.longitude), math.degrees(coord.latitude) };
-        }
-
+        [LuaHelpInfo("Sets the camera's zoom level [0-1]")]
         public void set_zoom(float zoom)
         {
-            controller.SetZoom(zoom);
+            Value.SetZoom(zoom);
         }
     }
 }

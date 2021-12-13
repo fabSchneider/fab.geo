@@ -80,6 +80,16 @@
     padding-bottom: 0;
 }
 
+.history-entry__image {
+    max-height: 128px;
+    max-width: 128px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.history-entry__image--hidden {
+    display: none;
+}
+
 .history-entry__print {
     margin-top: 2px;
     margin-bottom: 2px;

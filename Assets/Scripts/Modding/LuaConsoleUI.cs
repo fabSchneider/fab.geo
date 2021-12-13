@@ -120,7 +120,7 @@ namespace Fab.Geo.Modding
             foreach (var entry in console.ConsoleHistory)
             {
                 HistoryEntryElement entryElement = historyEntryPool.GetPooled();
-                entryElement.Set(entry.Code, entry.Print);
+                entryElement.Set(entry.Code, entry.Print, entry.image);
                 entryElement.SetSelected(false);
                 consoleHistory.Add(entryElement);
             }
@@ -134,25 +134,32 @@ namespace Fab.Geo.Modding
         private static readonly string className = "history-entry";
         private static readonly string selectedClassName = className + "--selected";
         private static readonly string codeClassName = "history-entry__code";
+        private static readonly string imgClassName = "history-entry__image";
+        private static readonly string imageHiddenClassName = imgClassName + "--hidden";
         private static readonly string printClassName = "history-entry__print";
         private static readonly string printHiddenClassName = printClassName + "--hidden";
 
         private Label codeText;
         private Label printText;
+        private Image img;
 
         public HistoryEntryElement()
         {
             AddToClassList(className);
             codeText = new Label();
             codeText.AddToClassList(codeClassName);
+            img = new Image();
+            img.AddToClassList(imgClassName);
             printText = new Label();
+            printText.enableRichText = true;
             printText.AddToClassList(printClassName);
 
             Add(codeText);
+            Add(img);
             Add(printText);
         }
 
-        public void Set(string code, string print)
+        public void Set(string code, string print, Texture2D image)
         {
             codeText.text = code;
 
@@ -167,12 +174,23 @@ namespace Fab.Geo.Modding
                 printText.RemoveFromClassList(printHiddenClassName);
             }
 
+            if (image)
+            {
+                img.image = image;
+                img.RemoveFromClassList(imageHiddenClassName);
+            }
+            else
+            {
+                img.image = null;
+                img.AddToClassList(imageHiddenClassName);
+            }
         }
 
         public void Reset()
         {
             codeText.text = string.Empty;
             printText.text = string.Empty;
+            img.image = null;
         }
 
         public void SetSelected(bool selected)

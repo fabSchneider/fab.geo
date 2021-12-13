@@ -6,6 +6,9 @@ namespace Fab.Geo.Modding
     [MoonSharpUserData]
     public class TextureProxy : ProxyBase<Texture2D>
     {
+        public override string Name => "image";
+        public override string Description => "A image object";
+
         [MoonSharpHidden]
         public TextureProxy(Texture2D source) : base(source) {}
         public string name => Value.name;

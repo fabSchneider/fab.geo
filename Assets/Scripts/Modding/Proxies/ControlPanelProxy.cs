@@ -7,6 +7,9 @@ namespace Fab.Geo.Modding
     [MoonSharpUserData]
     public class ControlPanelProxy : ProxyBase<ControlPanel>
     {
+        public override string Name => "controls";
+        public override string Description => "Module for adding controls to the control panel";
+
         [MoonSharpHidden]
         public ControlPanelProxy(ControlPanel source) : base(source) { }
 

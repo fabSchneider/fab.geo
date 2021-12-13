@@ -1,4 +1,5 @@
 using MoonSharp.Interpreter;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,14 +22,35 @@ namespace Fab.Geo.Modding
 
         public int MaxHistoryEntries => maxHistoryEntries;
 
-        private string printOutput;
+        private List<string> printOutput = new List<string>();
+        private Texture2D imageOutput;
 
-        private void Awake()
+        private void Start()
         {
             manager = FindObjectOfType<LuaManager>();
             script = manager.CreateScript("live-script");
-            script.Options.DebugPrint = print => printOutput = print;
+            script.Globals["help"] = (Action<DynValue>)help;
+            script.Globals["list"] = (Action)list;
+
+            script.Options.DebugPrint = print => printOutput.Add(print);
             history = new History(maxHistoryEntries);
+        }
+
+        private void help(DynValue value)
+        {
+            object obj = value.ToObject();
+            if (obj is ProxyBase proxyBase)
+                printOutput.Add(proxyBase.GetFullDescription());
+            else
+                printOutput.Add("No help information available");
+        }
+
+        private void list()
+        {
+            foreach (var proxy in manager.Proxies)
+            {
+                printOutput.Add($"{proxy.Name.PadRight(18, ' ')} \t<i>{proxy.Description}</i>");
+            }
         }
 
         public Result Execute(string code)
@@ -38,16 +60,23 @@ namespace Fab.Geo.Modding
                 DynValue returnVal = script.DoString(code);
                 if (returnVal.IsNotNil())
                 {
-                    printOutput = returnVal.ToPrintString();
+                    printOutput.Add(returnVal.ToPrintString());
                 }
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 //try getting a variable from the code
-               
                 DynValue val = script.Globals.RawGet(code);
+
                 if (val != null)
+                {
+                    object obj = val.ToObject();
+
+                    if (obj is TextureProxy tex)
+                        imageOutput = tex.Value;
+
                     script.DoString($"print({code})");
+                }
                 else
                 {
                     Debug.LogException(e);
@@ -55,8 +84,9 @@ namespace Fab.Geo.Modding
                 }
             }
 
-            history.Add(code, printOutput);
-            printOutput = null;
+            history.Add(code, string.Join('\n', printOutput), imageOutput);
+            printOutput.Clear();
+            imageOutput = null;
             return new Result() { success = true };
         }
 
@@ -83,12 +113,12 @@ namespace Fab.Geo.Modding
                 codeHistory.Clear();
             }
 
-            public void Add(string code, string output)
+            public void Add(string code, string output, Texture2D image)
             {
                 if (codeHistory.Count > 0 && codeHistory.Count >= maxEntries)
                     codeHistory.RemoveAt(0);
 
-                codeHistory.Add(new HistoryEntry(code, output));
+                codeHistory.Add(new HistoryEntry(code, output, image));
             }
         }
 
@@ -103,13 +133,18 @@ namespace Fab.Geo.Modding
             private string code;
 
             private string print;
+
+            public Texture2D image;
+
             public string Code { get => code; }
             public string Print { get => print; }
+            public Texture2D Image { get => image; }
 
-            public HistoryEntry(string code, string print)
+            public HistoryEntry(string code, string print, Texture2D image = null)
             {
                 this.code = code;
                 this.print = print;
+                this.image = image;
             }
         }
     }
