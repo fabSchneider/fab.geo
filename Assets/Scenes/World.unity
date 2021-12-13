@@ -518,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   luaModules:
   - {fileID: 4900000, guid: bc8d7760ce0d7364db24c7bd1d55e4ae, type: 3}
+  - {fileID: 4900000, guid: 0d8d9d52c21d61a479d68f43d17d50fb, type: 3}
 --- !u!4 &680215388
 Transform:
   m_ObjectHideFlags: 0

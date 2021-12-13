@@ -14,7 +14,7 @@ namespace Fab.Geo.Modding
                 {
                     DynValue lon = DynValue.NewNumber(Mathf.Rad2Deg * coordinate.longitude);
                     DynValue lat = DynValue.NewNumber(Mathf.Rad2Deg * coordinate.latitude);
-                    return script.Call(script.Globals.Get("Coordinate"), lon, lat);
+                    return script.Call(script.Globals.Get("Coord"), lon, lat);
                 }
             );
 
