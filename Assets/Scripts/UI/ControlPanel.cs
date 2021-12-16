@@ -18,7 +18,6 @@ namespace Fab.Geo
 
         private VisualElement currentParent;
 
-
         public ControlPanel(VisualElement root)
         {
             this.root = root;
@@ -37,26 +36,39 @@ namespace Fab.Geo
             currentParent = controlPanelContent;
         }
 
+        /// <summary>
+        /// Shows the control panel
+        /// </summary>
+        public void Show()
+        {
+            root.Add(controlPanelElement);
+        }
+
+        /// <summary>
+        /// Hides the control panel
+        /// </summary>
+        public void Hide()
+        {
+            root.Remove(controlPanelElement);
+        }
+
         public void AddSeperator()
         {
-            if (controlPanelElement.parent == null)
-                root.Add(controlPanelElement);
-
             VisualElement seperator = new VisualElement();
             seperator.AddToClassList(seperatorClassName);
             controlPanelContent.Add(seperator);
+            Show();
         }
 
         public void BeginGroup(string name, bool expanded = true)
         {
-            if (controlPanelElement.parent == null)
-                root.Add(controlPanelElement);
-
             Foldout foldout = new Foldout();
             foldout.text = name;
             foldout.value = expanded;
             currentParent.Add(foldout);
             currentParent = foldout;
+
+            Show();
         }
 
         public void EndGroup()
@@ -69,42 +81,38 @@ namespace Fab.Geo
 
         public void AddSlider(string name, float min, float max, float value, Action<float> callback = null)
         {
-            if (controlPanelElement.parent == null)
-                root.Add(controlPanelElement);
-
             Slider slider = new Slider(name, min, max);
             slider.value = value;
-            if(callback != null)
+            if (callback != null)
                 slider.RegisterCallback<ChangeEvent<float>>(evt => callback(evt.newValue));
             currentParent.Add(slider);
+
+            Show();
         }
 
         public void AddRangeSlider(string name, float min, float max, float minLimit, float maxLimit)
         {
-            if (controlPanelElement.parent == null)
-                root.Add(controlPanelElement);
-
             MinMaxSlider rangeSlider = new MinMaxSlider(min, max, minLimit, maxLimit);
             currentParent.Add(rangeSlider);
+
+            Show();
         }
 
         public void AddChoice(string name, List<string> choices, string value)
         {
-            if (controlPanelElement.parent == null)
-                root.Add(controlPanelElement);
-
             DropdownField dropdown = new DropdownField(name, choices, value);
             currentParent.Add(dropdown);
+
+            Show();
         }
 
         public void AddButton(string name, Action callback)
         {
-            if (controlPanelElement.parent == null)
-                root.Add(controlPanelElement);
-
             Button button = new Button(callback);
             button.text = name;
             currentParent.Add(button);
+
+            Show();
         }
     }
 }
