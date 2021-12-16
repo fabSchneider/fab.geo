@@ -23,7 +23,7 @@ namespace Fab.Geo.Modding
             if (IsNull())
                 return "nil";
 
-            return $"image {{name: {name}, width: {width}, height: {height}}}";
+            return $"image {{ name: {name}, width: {width}, height: {height} }}";
         }
     }
 }

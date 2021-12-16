@@ -54,14 +54,5 @@ namespace Fab.Geo.Modding
 
             throw new ArgumentException($"Loading failed. The file extension \"{ext}\" is not supported");
         }
-
-        public string GetHelpInformation()
-        {
-            return "Module for loading image and text.\n\n" +
-                "Properties\n" +
-                "\t<b>data_dir</b> <i>returns the directory path that data can be loaded from (read only)</i>\n\n" +
-                "Methods:\n" +
-                "\t<b>load</b>(file) - <i>loads a text (txt, json, geojson) or image file (jpg, png) from the data path</i>";
-        }
     }
 }

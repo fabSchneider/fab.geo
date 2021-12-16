@@ -31,14 +31,15 @@ namespace Fab.Geo.Modding
         {
             FeatureLine fl = Value.AddLine(
                 name,
-                new Coordinate(math.radians(feature_1.center_lon), math.radians(feature_1.center_lat)),
-                new Coordinate(math.radians(feature_2.center_lon), math.radians(feature_2.center_lat)));
+                feature_1.center, feature_2.center);
             return new FeatureProxy(fl);
         }
 
         [LuaHelpInfo("Removes a feature from the world")]
         public bool remove(FeatureProxy feature)
         {
+            if (feature == null || feature.IsNull())
+                return false;
             return Value.RemoveFeature(feature.Value);
         }
 

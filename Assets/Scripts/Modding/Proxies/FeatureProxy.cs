@@ -38,8 +38,7 @@ namespace Fab.Geo.Modding
             }
         }
 
-        public float center_lat => Mathf.Rad2Deg * Value.Geometry[0].latitude;
-        public float center_lon => Mathf.Rad2Deg * Value.Geometry[0].longitude;
+        public Coordinate center => Value.Geometry[0];
 
         public void on_click(Closure action)
         {
@@ -59,7 +58,7 @@ namespace Fab.Geo.Modding
             if (IsNull())
                 return "nil";
 
-            return $"feature {{type: {type}, name: {name}}}";
+            return $"feature {{ type: {type}, name: {name} }}";
         }
     }
 }
