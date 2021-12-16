@@ -11,12 +11,13 @@ namespace Fab.Geo.Modding
         private static readonly string className = "lua-console";
         private static readonly string textFieldClassName = className + "__text-field";
         private static readonly string historyClassName = className + "__history";
+        private static readonly string historyContainerName = "history-container";
         private static readonly string errorMsgClassName = className + "__error-msg";
 
         private LuaConsole console;
         private UIDocument doc;
         private TextField consoleTextField;
-        private VisualElement consoleHistory;
+        private ScrollView consoleHistory;
         private Label errorMsg;
 
         private ObjectPool<HistoryEntryElement> historyEntryPool;
@@ -36,7 +37,7 @@ namespace Fab.Geo.Modding
             consoleTextField.RegisterCallback<KeyDownEvent>(OnTextFieldKeyDown);
             consoleTextField.RegisterCallback<NavigationSubmitEvent>(OnTextFieldSubmit);
 
-            consoleHistory = doc.rootVisualElement.Q(className: historyClassName);
+            consoleHistory = doc.rootVisualElement.Q<ScrollView>(name: historyContainerName);
             historyEntryPool = new ObjectPool<HistoryEntryElement>(
                 console.ConsoleHistory.MaxEntries,
                 false,
