@@ -29,31 +29,32 @@ namespace Fab.Geo.Modding
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(Description);
-            sb.AppendLine("\nMethods:");
+            sb.AppendLine("\n<b>Methods:</b>\n");
             
             var methods = GetType().GetMethods(BindingFlags.Public | BindingFlags.Instance)
                                     .Where(m => Attribute.IsDefined(m, typeof(LuaHelpInfoAttribute)));
             
             foreach (MethodInfo m in methods)
             {
-                sb.AppendLine(string.Format("  <b>{0}</b> ( {1} )",
+                sb.AppendLine(string.Format("<b>{0}</b> ( {1} )",
                     m.Name,
                     string.Join(" , ", m.GetParameters().Select(p => p.Name))).PadRight(32, ' '));
 
                 LuaHelpInfoAttribute helpInfo = m.GetCustomAttribute<LuaHelpInfoAttribute>();
-                sb.AppendLine($"  <i>{helpInfo.Info}</i>");
+                sb.AppendLine($"  <i>{helpInfo.Info}</i>\n");
             }
 
-            sb.AppendLine("\nProperties:");
             var properies = GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                        .Where(p => Attribute.IsDefined(p, typeof(LuaHelpInfoAttribute)));
+            .Where(p => Attribute.IsDefined(p, typeof(LuaHelpInfoAttribute)));
+
+            sb.AppendLine("\n<b>Properties:</b>\n");
 
             foreach (PropertyInfo p in properies)
             {
-                sb.AppendLine($"  <b>{p.Name}</b>");
+                sb.AppendLine($"<b>{p.Name}</b>");
 
                 LuaHelpInfoAttribute helpInfo = p.GetCustomAttribute<LuaHelpInfoAttribute>();
-                sb.AppendLine($"  <i>{helpInfo.Info}</i>");
+                sb.AppendLine($"  <i>{helpInfo.Info}</i>\n");
             }
 
             return sb.ToString();
