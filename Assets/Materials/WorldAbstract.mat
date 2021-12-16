@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WorldAbstract
+  m_Shader: {fileID: -6465566751694194690, guid: 13847a60b1863774fbea38dd58ca79c7, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _HeightMap:
+        m_Texture: {fileID: 2800000, guid: 1c3139d6c1c42ed4dadd0ba091319c0e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LandMask:
+        m_Texture: {fileID: 2800000, guid: 6762c87b110ecb342b4dd405e075a226, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OverlayMap:
+        m_Texture: {fileID: 2800000, guid: 743d52333cd1652498d2b88b007701df, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _HeightScale: 0.011
+    - _HeightStrength: 1.23
+    - _LandSmoothness: 0.2
+    - _NormalStrength: -20
+    - _OverlayScale: 0.008
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _WaterSmoothness: 0.5
+    m_Colors:
+    - _LandColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 0}
+    - _OverlayColor1: {r: 0, g: 0, b: 0.207685, a: 0}
+    - _OverlayColor2: {r: 1, g: 0, b: 0.20784315, a: 1}
+    - _WaterColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &6319431909014188535
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

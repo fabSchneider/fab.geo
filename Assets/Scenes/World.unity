@@ -950,6 +950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHistoryEntries: 24
+  maxPrintOutputLength: 1024
 --- !u!114 &1565602075
 MonoBehaviour:
   m_ObjectHideFlags: 0
