@@ -20,9 +20,14 @@ namespace Fab.Geo.Modding
         [Tooltip("Maximum number of items in the history.")]
         private int maxHistoryEntries = 24;
 
+        [SerializeField]
+        [Tooltip("Maximum character length after which a print output will be cut.")]
+        private int maxPrintOutputLength = 1024;
+
         public int MaxHistoryEntries => maxHistoryEntries;
 
         private List<string> printOutput = new List<string>();
+
         private Texture2D imageOutput;
 
         private void Start()
@@ -32,24 +37,37 @@ namespace Fab.Geo.Modding
             script.Globals["help"] = (Action<DynValue>)help;
             script.Globals["list"] = (Action)list;
 
-            script.Options.DebugPrint = print => printOutput.Add(print);
+            script.Options.DebugPrint = print => AddToPrintOutput(print);
             history = new History(maxHistoryEntries);
+        }
+
+        private void AddToPrintOutput(string output, bool trim = true)
+        {
+            if (trim && output.Length > maxPrintOutputLength)
+            {
+                //trim excess print output and add a message informing about the cut
+                string cut = output.Substring(0, maxPrintOutputLength);
+                cut += $"\n ... ";
+                printOutput.Add(cut);
+            }
+            else
+                printOutput.Add(output);
         }
 
         private void help(DynValue value)
         {
             object obj = value.ToObject();
             if (obj is ProxyBase proxyBase)
-                printOutput.Add(proxyBase.GetFullDescription());
+                AddToPrintOutput(proxyBase.GetFullDescription(), false);
             else
-                printOutput.Add("No help information available");
+                AddToPrintOutput("No help information available", false);
         }
 
         private void list()
         {
             foreach (var proxy in manager.Proxies)
             {
-                printOutput.Add($"{proxy.Name.PadRight(18, ' ')} \t<i>{proxy.Description}</i>");
+                AddToPrintOutput($"{proxy.Name.PadRight(18, ' ')} \t<i>{proxy.Description}</i>\n", false);
             }
         }
 
@@ -60,7 +78,7 @@ namespace Fab.Geo.Modding
                 DynValue returnVal = script.DoString(code);
                 if (returnVal.IsNotNil())
                 {
-                    printOutput.Add(returnVal.ToPrintString());
+                    AddToPrintOutput(returnVal.ToPrintString());
                 }
             }
             catch (Exception e)
