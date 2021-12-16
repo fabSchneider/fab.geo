@@ -11,6 +11,9 @@ namespace Fab.Geo
 
         private Coordinate coordA, coordB;
 
+        [SerializeField]
+        private float zOffset = 0.005f;
+
         public override Coordinate[] Geometry => new Coordinate[] { coordA, coordB };
 
         void Awake()
@@ -23,8 +26,8 @@ namespace Fab.Geo
             this.coordA = coordA;
             this.coordB = coordB;
 
-            Vector3 pA = GeoUtils.CoordinateToPoint(coordA) * 1.01f;
-            Vector3 pB = GeoUtils.CoordinateToPoint(coordB) * 1.01f;
+            Vector3 pA = GeoUtils.CoordinateToPoint(coordA) * (1 + zOffset);
+            Vector3 pB = GeoUtils.CoordinateToPoint(coordB) * (1 + zOffset);
 
             float distance = GeoUtils.Distance(coordA, coordB);
             int divs = (int)(distance / 200);
