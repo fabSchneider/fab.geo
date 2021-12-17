@@ -1,6 +1,250 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: Fab.Common
+  name: Fab.Common
+  href: api/Fab.Common.html
+  commentId: N:Fab.Common
+  fullName: Fab.Common
+  nameWithType: Fab.Common
+- uid: Fab.Common.ObjectPool`1
+  name: ObjectPool<T>
+  href: api/Fab.Common.ObjectPool-1.html
+  commentId: T:Fab.Common.ObjectPool`1
+  name.vb: ObjectPool(Of T)
+  fullName: Fab.Common.ObjectPool<T>
+  fullName.vb: Fab.Common.ObjectPool(Of T)
+  nameWithType: ObjectPool<T>
+  nameWithType.vb: ObjectPool(Of T)
+- uid: Fab.Common.ObjectPool`1.#ctor
+  name: ObjectPool()
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1__ctor
+  commentId: M:Fab.Common.ObjectPool`1.#ctor
+  fullName: Fab.Common.ObjectPool<T>.ObjectPool()
+  fullName.vb: Fab.Common.ObjectPool(Of T).ObjectPool()
+  nameWithType: ObjectPool<T>.ObjectPool()
+  nameWithType.vb: ObjectPool(Of T).ObjectPool()
+- uid: Fab.Common.ObjectPool`1.#ctor(System.Int32,System.Boolean,Func{`0},Action{`0})
+  name: ObjectPool(Int32, Boolean, Func<T>, Action<T>)
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1__ctor_System_Int32_System_Boolean_Func__0__Action__0__
+  commentId: M:Fab.Common.ObjectPool`1.#ctor(System.Int32,System.Boolean,Func{`0},Action{`0})
+  name.vb: ObjectPool(Int32, Boolean, Func(Of T), Action(Of T))
+  fullName: Fab.Common.ObjectPool<T>.ObjectPool(System.Int32, System.Boolean, Func<T>, Action<T>)
+  fullName.vb: Fab.Common.ObjectPool(Of T).ObjectPool(System.Int32, System.Boolean, Func(Of T), Action(Of T))
+  nameWithType: ObjectPool<T>.ObjectPool(Int32, Boolean, Func<T>, Action<T>)
+  nameWithType.vb: ObjectPool(Of T).ObjectPool(Int32, Boolean, Func(Of T), Action(Of T))
+- uid: Fab.Common.ObjectPool`1.#ctor*
+  name: ObjectPool
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1__ctor_
+  commentId: Overload:Fab.Common.ObjectPool`1.#ctor
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.ObjectPool
+  fullName.vb: Fab.Common.ObjectPool(Of T).ObjectPool
+  nameWithType: ObjectPool<T>.ObjectPool
+  nameWithType.vb: ObjectPool(Of T).ObjectPool
+- uid: Fab.Common.ObjectPool`1.addInstance
+  name: addInstance
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_addInstance
+  commentId: F:Fab.Common.ObjectPool`1.addInstance
+  fullName: Fab.Common.ObjectPool<T>.addInstance
+  fullName.vb: Fab.Common.ObjectPool(Of T).addInstance
+  nameWithType: ObjectPool<T>.addInstance
+  nameWithType.vb: ObjectPool(Of T).addInstance
+- uid: Fab.Common.ObjectPool`1.AddPoolInstance
+  name: AddPoolInstance()
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_AddPoolInstance
+  commentId: M:Fab.Common.ObjectPool`1.AddPoolInstance
+  fullName: Fab.Common.ObjectPool<T>.AddPoolInstance()
+  fullName.vb: Fab.Common.ObjectPool(Of T).AddPoolInstance()
+  nameWithType: ObjectPool<T>.AddPoolInstance()
+  nameWithType.vb: ObjectPool(Of T).AddPoolInstance()
+- uid: Fab.Common.ObjectPool`1.AddPoolInstance*
+  name: AddPoolInstance
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_AddPoolInstance_
+  commentId: Overload:Fab.Common.ObjectPool`1.AddPoolInstance
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.AddPoolInstance
+  fullName.vb: Fab.Common.ObjectPool(Of T).AddPoolInstance
+  nameWithType: ObjectPool<T>.AddPoolInstance
+  nameWithType.vb: ObjectPool(Of T).AddPoolInstance
+- uid: Fab.Common.ObjectPool`1.autoExpand
+  name: autoExpand
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_autoExpand
+  commentId: F:Fab.Common.ObjectPool`1.autoExpand
+  fullName: Fab.Common.ObjectPool<T>.autoExpand
+  fullName.vb: Fab.Common.ObjectPool(Of T).autoExpand
+  nameWithType: ObjectPool<T>.autoExpand
+  nameWithType.vb: ObjectPool(Of T).autoExpand
+- uid: Fab.Common.ObjectPool`1.AutoExpand
+  name: AutoExpand
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_AutoExpand
+  commentId: P:Fab.Common.ObjectPool`1.AutoExpand
+  fullName: Fab.Common.ObjectPool<T>.AutoExpand
+  fullName.vb: Fab.Common.ObjectPool(Of T).AutoExpand
+  nameWithType: ObjectPool<T>.AutoExpand
+  nameWithType.vb: ObjectPool(Of T).AutoExpand
+- uid: Fab.Common.ObjectPool`1.AutoExpand*
+  name: AutoExpand
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_AutoExpand_
+  commentId: Overload:Fab.Common.ObjectPool`1.AutoExpand
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.AutoExpand
+  fullName.vb: Fab.Common.ObjectPool(Of T).AutoExpand
+  nameWithType: ObjectPool<T>.AutoExpand
+  nameWithType.vb: ObjectPool(Of T).AutoExpand
+- uid: Fab.Common.ObjectPool`1.Available
+  name: Available
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_Available
+  commentId: P:Fab.Common.ObjectPool`1.Available
+  fullName: Fab.Common.ObjectPool<T>.Available
+  fullName.vb: Fab.Common.ObjectPool(Of T).Available
+  nameWithType: ObjectPool<T>.Available
+  nameWithType.vb: ObjectPool(Of T).Available
+- uid: Fab.Common.ObjectPool`1.Available*
+  name: Available
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_Available_
+  commentId: Overload:Fab.Common.ObjectPool`1.Available
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.Available
+  fullName.vb: Fab.Common.ObjectPool(Of T).Available
+  nameWithType: ObjectPool<T>.Available
+  nameWithType.vb: ObjectPool(Of T).Available
+- uid: Fab.Common.ObjectPool`1.EnsurePoolMinimumSize(System.Int32)
+  name: EnsurePoolMinimumSize(Int32)
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_EnsurePoolMinimumSize_System_Int32_
+  commentId: M:Fab.Common.ObjectPool`1.EnsurePoolMinimumSize(System.Int32)
+  fullName: Fab.Common.ObjectPool<T>.EnsurePoolMinimumSize(System.Int32)
+  fullName.vb: Fab.Common.ObjectPool(Of T).EnsurePoolMinimumSize(System.Int32)
+  nameWithType: ObjectPool<T>.EnsurePoolMinimumSize(Int32)
+  nameWithType.vb: ObjectPool(Of T).EnsurePoolMinimumSize(Int32)
+- uid: Fab.Common.ObjectPool`1.EnsurePoolMinimumSize*
+  name: EnsurePoolMinimumSize
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_EnsurePoolMinimumSize_
+  commentId: Overload:Fab.Common.ObjectPool`1.EnsurePoolMinimumSize
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.EnsurePoolMinimumSize
+  fullName.vb: Fab.Common.ObjectPool(Of T).EnsurePoolMinimumSize
+  nameWithType: ObjectPool<T>.EnsurePoolMinimumSize
+  nameWithType.vb: ObjectPool(Of T).EnsurePoolMinimumSize
+- uid: Fab.Common.ObjectPool`1.GetPooled
+  name: GetPooled()
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_GetPooled
+  commentId: M:Fab.Common.ObjectPool`1.GetPooled
+  fullName: Fab.Common.ObjectPool<T>.GetPooled()
+  fullName.vb: Fab.Common.ObjectPool(Of T).GetPooled()
+  nameWithType: ObjectPool<T>.GetPooled()
+  nameWithType.vb: ObjectPool(Of T).GetPooled()
+- uid: Fab.Common.ObjectPool`1.GetPooled*
+  name: GetPooled
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_GetPooled_
+  commentId: Overload:Fab.Common.ObjectPool`1.GetPooled
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.GetPooled
+  fullName.vb: Fab.Common.ObjectPool(Of T).GetPooled
+  nameWithType: ObjectPool<T>.GetPooled
+  nameWithType.vb: ObjectPool(Of T).GetPooled
+- uid: Fab.Common.ObjectPool`1.inUse
+  name: inUse
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_inUse
+  commentId: F:Fab.Common.ObjectPool`1.inUse
+  fullName: Fab.Common.ObjectPool<T>.inUse
+  fullName.vb: Fab.Common.ObjectPool(Of T).inUse
+  nameWithType: ObjectPool<T>.inUse
+  nameWithType.vb: ObjectPool(Of T).inUse
+- uid: Fab.Common.ObjectPool`1.pooled
+  name: pooled
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_pooled
+  commentId: F:Fab.Common.ObjectPool`1.pooled
+  fullName: Fab.Common.ObjectPool<T>.pooled
+  fullName.vb: Fab.Common.ObjectPool(Of T).pooled
+  nameWithType: ObjectPool<T>.pooled
+  nameWithType.vb: ObjectPool(Of T).pooled
+- uid: Fab.Common.ObjectPool`1.poolSize
+  name: poolSize
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_poolSize
+  commentId: F:Fab.Common.ObjectPool`1.poolSize
+  fullName: Fab.Common.ObjectPool<T>.poolSize
+  fullName.vb: Fab.Common.ObjectPool(Of T).poolSize
+  nameWithType: ObjectPool<T>.poolSize
+  nameWithType.vb: ObjectPool(Of T).poolSize
+- uid: Fab.Common.ObjectPool`1.PoolSize
+  name: PoolSize
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_PoolSize
+  commentId: P:Fab.Common.ObjectPool`1.PoolSize
+  fullName: Fab.Common.ObjectPool<T>.PoolSize
+  fullName.vb: Fab.Common.ObjectPool(Of T).PoolSize
+  nameWithType: ObjectPool<T>.PoolSize
+  nameWithType.vb: ObjectPool(Of T).PoolSize
+- uid: Fab.Common.ObjectPool`1.PoolSize*
+  name: PoolSize
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_PoolSize_
+  commentId: Overload:Fab.Common.ObjectPool`1.PoolSize
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.PoolSize
+  fullName.vb: Fab.Common.ObjectPool(Of T).PoolSize
+  nameWithType: ObjectPool<T>.PoolSize
+  nameWithType.vb: ObjectPool(Of T).PoolSize
+- uid: Fab.Common.ObjectPool`1.resetInstance
+  name: resetInstance
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_resetInstance
+  commentId: F:Fab.Common.ObjectPool`1.resetInstance
+  fullName: Fab.Common.ObjectPool<T>.resetInstance
+  fullName.vb: Fab.Common.ObjectPool(Of T).resetInstance
+  nameWithType: ObjectPool<T>.resetInstance
+  nameWithType.vb: ObjectPool(Of T).resetInstance
+- uid: Fab.Common.ObjectPool`1.ResetPoolInstance(`0)
+  name: ResetPoolInstance(T)
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_ResetPoolInstance__0_
+  commentId: M:Fab.Common.ObjectPool`1.ResetPoolInstance(`0)
+  fullName: Fab.Common.ObjectPool<T>.ResetPoolInstance(T)
+  fullName.vb: Fab.Common.ObjectPool(Of T).ResetPoolInstance(T)
+  nameWithType: ObjectPool<T>.ResetPoolInstance(T)
+  nameWithType.vb: ObjectPool(Of T).ResetPoolInstance(T)
+- uid: Fab.Common.ObjectPool`1.ResetPoolInstance*
+  name: ResetPoolInstance
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_ResetPoolInstance_
+  commentId: Overload:Fab.Common.ObjectPool`1.ResetPoolInstance
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.ResetPoolInstance
+  fullName.vb: Fab.Common.ObjectPool(Of T).ResetPoolInstance
+  nameWithType: ObjectPool<T>.ResetPoolInstance
+  nameWithType.vb: ObjectPool(Of T).ResetPoolInstance
+- uid: Fab.Common.ObjectPool`1.ReturnToPool(`0)
+  name: ReturnToPool(T)
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_ReturnToPool__0_
+  commentId: M:Fab.Common.ObjectPool`1.ReturnToPool(`0)
+  fullName: Fab.Common.ObjectPool<T>.ReturnToPool(T)
+  fullName.vb: Fab.Common.ObjectPool(Of T).ReturnToPool(T)
+  nameWithType: ObjectPool<T>.ReturnToPool(T)
+  nameWithType.vb: ObjectPool(Of T).ReturnToPool(T)
+- uid: Fab.Common.ObjectPool`1.ReturnToPool*
+  name: ReturnToPool
+  href: api/Fab.Common.ObjectPool-1.html#Fab_Common_ObjectPool_1_ReturnToPool_
+  commentId: Overload:Fab.Common.ObjectPool`1.ReturnToPool
+  isSpec: "True"
+  fullName: Fab.Common.ObjectPool<T>.ReturnToPool
+  fullName.vb: Fab.Common.ObjectPool(Of T).ReturnToPool
+  nameWithType: ObjectPool<T>.ReturnToPool
+  nameWithType.vb: ObjectPool(Of T).ReturnToPool
+- uid: Fab.Common.PoolExhaustedException
+  name: PoolExhaustedException
+  href: api/Fab.Common.PoolExhaustedException.html
+  commentId: T:Fab.Common.PoolExhaustedException
+  fullName: Fab.Common.PoolExhaustedException
+  nameWithType: PoolExhaustedException
+- uid: Fab.Common.PoolExhaustedException.#ctor
+  name: PoolExhaustedException()
+  href: api/Fab.Common.PoolExhaustedException.html#Fab_Common_PoolExhaustedException__ctor
+  commentId: M:Fab.Common.PoolExhaustedException.#ctor
+  fullName: Fab.Common.PoolExhaustedException.PoolExhaustedException()
+  nameWithType: PoolExhaustedException.PoolExhaustedException()
+- uid: Fab.Common.PoolExhaustedException.#ctor*
+  name: PoolExhaustedException
+  href: api/Fab.Common.PoolExhaustedException.html#Fab_Common_PoolExhaustedException__ctor_
+  commentId: Overload:Fab.Common.PoolExhaustedException.#ctor
+  isSpec: "True"
+  fullName: Fab.Common.PoolExhaustedException.PoolExhaustedException
+  nameWithType: PoolExhaustedException.PoolExhaustedException
 - uid: Fab.Geo
   name: Fab.Geo
   href: api/Fab.Geo.html
@@ -154,11 +398,11 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.ControlPanel.ControlPanel
   nameWithType: ControlPanel.ControlPanel
-- uid: Fab.Geo.ControlPanel.AddButton(System.String,System.Action)
+- uid: Fab.Geo.ControlPanel.AddButton(System.String,Action)
   name: AddButton(String, Action)
-  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddButton_System_String_System_Action_
-  commentId: M:Fab.Geo.ControlPanel.AddButton(System.String,System.Action)
-  fullName: Fab.Geo.ControlPanel.AddButton(System.String, System.Action)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddButton_System_String_Action_
+  commentId: M:Fab.Geo.ControlPanel.AddButton(System.String,Action)
+  fullName: Fab.Geo.ControlPanel.AddButton(System.String, Action)
   nameWithType: ControlPanel.AddButton(String, Action)
 - uid: Fab.Geo.ControlPanel.AddButton*
   name: AddButton
@@ -167,13 +411,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.ControlPanel.AddButton
   nameWithType: ControlPanel.AddButton
-- uid: Fab.Geo.ControlPanel.AddChoice(System.String,System.Collections.Generic.List{System.String},System.String)
+- uid: Fab.Geo.ControlPanel.AddChoice(System.String,List{System.String},System.String)
   name: AddChoice(String, List<String>, String)
-  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddChoice_System_String_System_Collections_Generic_List_System_String__System_String_
-  commentId: M:Fab.Geo.ControlPanel.AddChoice(System.String,System.Collections.Generic.List{System.String},System.String)
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddChoice_System_String_List_System_String__System_String_
+  commentId: M:Fab.Geo.ControlPanel.AddChoice(System.String,List{System.String},System.String)
   name.vb: AddChoice(String, List(Of String), String)
-  fullName: Fab.Geo.ControlPanel.AddChoice(System.String, System.Collections.Generic.List<System.String>, System.String)
-  fullName.vb: Fab.Geo.ControlPanel.AddChoice(System.String, System.Collections.Generic.List(Of System.String), System.String)
+  fullName: Fab.Geo.ControlPanel.AddChoice(System.String, List<System.String>, System.String)
+  fullName.vb: Fab.Geo.ControlPanel.AddChoice(System.String, List(Of System.String), System.String)
   nameWithType: ControlPanel.AddChoice(String, List<String>, String)
   nameWithType.vb: ControlPanel.AddChoice(String, List(Of String), String)
 - uid: Fab.Geo.ControlPanel.AddChoice*
@@ -209,13 +453,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.ControlPanel.AddSeperator
   nameWithType: ControlPanel.AddSeperator
-- uid: Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,System.Action{System.Single})
+- uid: Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,Action{System.Single})
   name: AddSlider(String, Single, Single, Single, Action<Single>)
-  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSlider_System_String_System_Single_System_Single_System_Single_System_Action_System_Single__
-  commentId: M:Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,System.Action{System.Single})
+  href: api/Fab.Geo.ControlPanel.html#Fab_Geo_ControlPanel_AddSlider_System_String_System_Single_System_Single_System_Single_Action_System_Single__
+  commentId: M:Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,Action{System.Single})
   name.vb: AddSlider(String, Single, Single, Single, Action(Of Single))
-  fullName: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, System.Action<System.Single>)
-  fullName.vb: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, System.Action(Of System.Single))
+  fullName: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, Action<System.Single>)
+  fullName.vb: Fab.Geo.ControlPanel.AddSlider(System.String, System.Single, System.Single, System.Single, Action(Of System.Single))
   nameWithType: ControlPanel.AddSlider(String, Single, Single, Single, Action<Single>)
   nameWithType.vb: ControlPanel.AddSlider(String, Single, Single, Single, Action(Of Single))
 - uid: Fab.Geo.ControlPanel.AddSlider*
@@ -753,6 +997,32 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.GeoInput.IPlayerActions.OnDelta
   nameWithType: GeoInput.IPlayerActions.OnDelta
+- uid: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminal(InputAction.CallbackContext)
+  name: OnOpenTerminal(InputAction.CallbackContext)
+  href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnOpenTerminal_InputAction_CallbackContext_
+  commentId: M:Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminal(InputAction.CallbackContext)
+  fullName: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminal(InputAction.CallbackContext)
+  nameWithType: GeoInput.IPlayerActions.OnOpenTerminal(InputAction.CallbackContext)
+- uid: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminal*
+  name: OnOpenTerminal
+  href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnOpenTerminal_
+  commentId: Overload:Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminal
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminal
+  nameWithType: GeoInput.IPlayerActions.OnOpenTerminal
+- uid: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminalFull(InputAction.CallbackContext)
+  name: OnOpenTerminalFull(InputAction.CallbackContext)
+  href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnOpenTerminalFull_InputAction_CallbackContext_
+  commentId: M:Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminalFull(InputAction.CallbackContext)
+  fullName: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminalFull(InputAction.CallbackContext)
+  nameWithType: GeoInput.IPlayerActions.OnOpenTerminalFull(InputAction.CallbackContext)
+- uid: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminalFull*
+  name: OnOpenTerminalFull
+  href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnOpenTerminalFull_
+  commentId: Overload:Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminalFull
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.IPlayerActions.OnOpenTerminalFull
+  nameWithType: GeoInput.IPlayerActions.OnOpenTerminalFull
 - uid: Fab.Geo.GeoInput.IPlayerActions.OnOrbit(InputAction.CallbackContext)
   name: OnOrbit(InputAction.CallbackContext)
   href: api/Fab.Geo.GeoInput.IPlayerActions.html#Fab_Geo_GeoInput_IPlayerActions_OnOrbit_InputAction_CallbackContext_
@@ -1070,6 +1340,32 @@ references:
   fullName.vb: Fab.Geo.GeoInput.PlayerActions.Widening
   nameWithType: GeoInput.PlayerActions.Implicit
   nameWithType.vb: GeoInput.PlayerActions.Widening
+- uid: Fab.Geo.GeoInput.PlayerActions.OpenTerminal
+  name: OpenTerminal
+  href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_OpenTerminal
+  commentId: P:Fab.Geo.GeoInput.PlayerActions.OpenTerminal
+  fullName: Fab.Geo.GeoInput.PlayerActions.OpenTerminal
+  nameWithType: GeoInput.PlayerActions.OpenTerminal
+- uid: Fab.Geo.GeoInput.PlayerActions.OpenTerminal*
+  name: OpenTerminal
+  href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_OpenTerminal_
+  commentId: Overload:Fab.Geo.GeoInput.PlayerActions.OpenTerminal
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.PlayerActions.OpenTerminal
+  nameWithType: GeoInput.PlayerActions.OpenTerminal
+- uid: Fab.Geo.GeoInput.PlayerActions.OpenTerminalFull
+  name: OpenTerminalFull
+  href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_OpenTerminalFull
+  commentId: P:Fab.Geo.GeoInput.PlayerActions.OpenTerminalFull
+  fullName: Fab.Geo.GeoInput.PlayerActions.OpenTerminalFull
+  nameWithType: GeoInput.PlayerActions.OpenTerminalFull
+- uid: Fab.Geo.GeoInput.PlayerActions.OpenTerminalFull*
+  name: OpenTerminalFull
+  href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_OpenTerminalFull_
+  commentId: Overload:Fab.Geo.GeoInput.PlayerActions.OpenTerminalFull
+  isSpec: "True"
+  fullName: Fab.Geo.GeoInput.PlayerActions.OpenTerminalFull
+  nameWithType: GeoInput.PlayerActions.OpenTerminalFull
 - uid: Fab.Geo.GeoInput.PlayerActions.Orbit
   name: Orbit
   href: api/Fab.Geo.GeoInput.PlayerActions.html#Fab_Geo_GeoInput_PlayerActions_Orbit
@@ -1122,23 +1418,6 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.GeoInput.PlayerActions.Zoom
   nameWithType: GeoInput.PlayerActions.Zoom
-- uid: Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator
-  name: IEnumerable.GetEnumerator()
-  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_System_Collections_IEnumerable_GetEnumerator
-  commentId: M:Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator
-  name.vb: System.Collections.IEnumerable.GetEnumerator()
-  fullName: Fab.Geo.GeoInput.System.Collections.IEnumerable.GetEnumerator()
-  nameWithType: GeoInput.IEnumerable.GetEnumerator()
-  nameWithType.vb: GeoInput.System.Collections.IEnumerable.GetEnumerator()
-- uid: Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator*
-  name: IEnumerable.GetEnumerator
-  href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_System_Collections_IEnumerable_GetEnumerator_
-  commentId: Overload:Fab.Geo.GeoInput.System#Collections#IEnumerable#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.IEnumerable.GetEnumerator
-  fullName: Fab.Geo.GeoInput.System.Collections.IEnumerable.GetEnumerator
-  nameWithType: GeoInput.IEnumerable.GetEnumerator
-  nameWithType.vb: GeoInput.System.Collections.IEnumerable.GetEnumerator
 - uid: Fab.Geo.GeoInput.TouchScheme
   name: TouchScheme
   href: api/Fab.Geo.GeoInput.html#Fab_Geo_GeoInput_TouchScheme
@@ -1604,13 +1883,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.Modding.ControlPanelProxy.add_button
   nameWithType: ControlPanelProxy.add_button
-- uid: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,System.Collections.Generic.List{System.String},System.String)
+- uid: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)
   name: add_choice(String, List<String>, String)
-  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_choice_System_String_System_Collections_Generic_List_System_String__System_String_
-  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,System.Collections.Generic.List{System.String},System.String)
+  href: api/Fab.Geo.Modding.ControlPanelProxy.html#Fab_Geo_Modding_ControlPanelProxy_add_choice_System_String_List_System_String__System_String_
+  commentId: M:Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)
   name.vb: add_choice(String, List(Of String), String)
-  fullName: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, System.Collections.Generic.List<System.String>, System.String)
-  fullName.vb: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, System.Collections.Generic.List(Of System.String), System.String)
+  fullName: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, List<System.String>, System.String)
+  fullName.vb: Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String, List(Of System.String), System.String)
   nameWithType: ControlPanelProxy.add_choice(String, List<String>, String)
   nameWithType.vb: ControlPanelProxy.add_choice(String, List(Of String), String)
 - uid: Fab.Geo.Modding.ControlPanelProxy.add_choice*
@@ -1884,6 +2163,64 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.Modding.GeoProxy.distance
   nameWithType: GeoProxy.distance
+- uid: Fab.Geo.Modding.HistoryEntryElement
+  name: HistoryEntryElement
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html
+  commentId: T:Fab.Geo.Modding.HistoryEntryElement
+  fullName: Fab.Geo.Modding.HistoryEntryElement
+  nameWithType: HistoryEntryElement
+- uid: Fab.Geo.Modding.HistoryEntryElement.#ctor
+  name: HistoryEntryElement()
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement__ctor
+  commentId: M:Fab.Geo.Modding.HistoryEntryElement.#ctor
+  fullName: Fab.Geo.Modding.HistoryEntryElement.HistoryEntryElement()
+  nameWithType: HistoryEntryElement.HistoryEntryElement()
+- uid: Fab.Geo.Modding.HistoryEntryElement.#ctor*
+  name: HistoryEntryElement
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement__ctor_
+  commentId: Overload:Fab.Geo.Modding.HistoryEntryElement.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.HistoryEntryElement.HistoryEntryElement
+  nameWithType: HistoryEntryElement.HistoryEntryElement
+- uid: Fab.Geo.Modding.HistoryEntryElement.Reset
+  name: Reset()
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement_Reset
+  commentId: M:Fab.Geo.Modding.HistoryEntryElement.Reset
+  fullName: Fab.Geo.Modding.HistoryEntryElement.Reset()
+  nameWithType: HistoryEntryElement.Reset()
+- uid: Fab.Geo.Modding.HistoryEntryElement.Reset*
+  name: Reset
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement_Reset_
+  commentId: Overload:Fab.Geo.Modding.HistoryEntryElement.Reset
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.HistoryEntryElement.Reset
+  nameWithType: HistoryEntryElement.Reset
+- uid: Fab.Geo.Modding.HistoryEntryElement.Set(System.String,System.String)
+  name: Set(String, String)
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement_Set_System_String_System_String_
+  commentId: M:Fab.Geo.Modding.HistoryEntryElement.Set(System.String,System.String)
+  fullName: Fab.Geo.Modding.HistoryEntryElement.Set(System.String, System.String)
+  nameWithType: HistoryEntryElement.Set(String, String)
+- uid: Fab.Geo.Modding.HistoryEntryElement.Set*
+  name: Set
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement_Set_
+  commentId: Overload:Fab.Geo.Modding.HistoryEntryElement.Set
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.HistoryEntryElement.Set
+  nameWithType: HistoryEntryElement.Set
+- uid: Fab.Geo.Modding.HistoryEntryElement.SetSelected(System.Boolean)
+  name: SetSelected(Boolean)
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement_SetSelected_System_Boolean_
+  commentId: M:Fab.Geo.Modding.HistoryEntryElement.SetSelected(System.Boolean)
+  fullName: Fab.Geo.Modding.HistoryEntryElement.SetSelected(System.Boolean)
+  nameWithType: HistoryEntryElement.SetSelected(Boolean)
+- uid: Fab.Geo.Modding.HistoryEntryElement.SetSelected*
+  name: SetSelected
+  href: api/Fab.Geo.Modding.HistoryEntryElement.html#Fab_Geo_Modding_HistoryEntryElement_SetSelected_
+  commentId: Overload:Fab.Geo.Modding.HistoryEntryElement.SetSelected
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.HistoryEntryElement.SetSelected
+  nameWithType: HistoryEntryElement.SetSelected
 - uid: Fab.Geo.Modding.IOProxy
   name: IOProxy
   href: api/Fab.Geo.Modding.IOProxy.html
@@ -1916,6 +2253,220 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.Modding.IOProxy.load_image
   nameWithType: IOProxy.load_image
+- uid: Fab.Geo.Modding.LuaConsole
+  name: LuaConsole
+  href: api/Fab.Geo.Modding.LuaConsole.html
+  commentId: T:Fab.Geo.Modding.LuaConsole
+  fullName: Fab.Geo.Modding.LuaConsole
+  nameWithType: LuaConsole
+- uid: Fab.Geo.Modding.LuaConsole.ConsoleHistory
+  name: ConsoleHistory
+  href: api/Fab.Geo.Modding.LuaConsole.html#Fab_Geo_Modding_LuaConsole_ConsoleHistory
+  commentId: P:Fab.Geo.Modding.LuaConsole.ConsoleHistory
+  fullName: Fab.Geo.Modding.LuaConsole.ConsoleHistory
+  nameWithType: LuaConsole.ConsoleHistory
+- uid: Fab.Geo.Modding.LuaConsole.ConsoleHistory*
+  name: ConsoleHistory
+  href: api/Fab.Geo.Modding.LuaConsole.html#Fab_Geo_Modding_LuaConsole_ConsoleHistory_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.ConsoleHistory
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.ConsoleHistory
+  nameWithType: LuaConsole.ConsoleHistory
+- uid: Fab.Geo.Modding.LuaConsole.Execute(System.String)
+  name: Execute(String)
+  href: api/Fab.Geo.Modding.LuaConsole.html#Fab_Geo_Modding_LuaConsole_Execute_System_String_
+  commentId: M:Fab.Geo.Modding.LuaConsole.Execute(System.String)
+  fullName: Fab.Geo.Modding.LuaConsole.Execute(System.String)
+  nameWithType: LuaConsole.Execute(String)
+- uid: Fab.Geo.Modding.LuaConsole.Execute*
+  name: Execute
+  href: api/Fab.Geo.Modding.LuaConsole.html#Fab_Geo_Modding_LuaConsole_Execute_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.Execute
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.Execute
+  nameWithType: LuaConsole.Execute
+- uid: Fab.Geo.Modding.LuaConsole.History
+  name: LuaConsole.History
+  href: api/Fab.Geo.Modding.LuaConsole.History.html
+  commentId: T:Fab.Geo.Modding.LuaConsole.History
+  fullName: Fab.Geo.Modding.LuaConsole.History
+  nameWithType: LuaConsole.History
+- uid: Fab.Geo.Modding.LuaConsole.History.#ctor(System.Int32)
+  name: History(Int32)
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History__ctor_System_Int32_
+  commentId: M:Fab.Geo.Modding.LuaConsole.History.#ctor(System.Int32)
+  fullName: Fab.Geo.Modding.LuaConsole.History.History(System.Int32)
+  nameWithType: LuaConsole.History.History(Int32)
+- uid: Fab.Geo.Modding.LuaConsole.History.#ctor*
+  name: History
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History__ctor_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.History.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.History.History
+  nameWithType: LuaConsole.History.History
+- uid: Fab.Geo.Modding.LuaConsole.History.Add(System.String,System.String)
+  name: Add(String, String)
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Add_System_String_System_String_
+  commentId: M:Fab.Geo.Modding.LuaConsole.History.Add(System.String,System.String)
+  fullName: Fab.Geo.Modding.LuaConsole.History.Add(System.String, System.String)
+  nameWithType: LuaConsole.History.Add(String, String)
+- uid: Fab.Geo.Modding.LuaConsole.History.Add*
+  name: Add
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Add_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.History.Add
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.History.Add
+  nameWithType: LuaConsole.History.Add
+- uid: Fab.Geo.Modding.LuaConsole.History.Clear
+  name: Clear()
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Clear
+  commentId: M:Fab.Geo.Modding.LuaConsole.History.Clear
+  fullName: Fab.Geo.Modding.LuaConsole.History.Clear()
+  nameWithType: LuaConsole.History.Clear()
+- uid: Fab.Geo.Modding.LuaConsole.History.Clear*
+  name: Clear
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Clear_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.History.Clear
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.History.Clear
+  nameWithType: LuaConsole.History.Clear
+- uid: Fab.Geo.Modding.LuaConsole.History.Count
+  name: Count
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Count
+  commentId: P:Fab.Geo.Modding.LuaConsole.History.Count
+  fullName: Fab.Geo.Modding.LuaConsole.History.Count
+  nameWithType: LuaConsole.History.Count
+- uid: Fab.Geo.Modding.LuaConsole.History.Count*
+  name: Count
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Count_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.History.Count
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.History.Count
+  nameWithType: LuaConsole.History.Count
+- uid: Fab.Geo.Modding.LuaConsole.History.GetEnumerator
+  name: GetEnumerator()
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_GetEnumerator
+  commentId: M:Fab.Geo.Modding.LuaConsole.History.GetEnumerator
+  fullName: Fab.Geo.Modding.LuaConsole.History.GetEnumerator()
+  nameWithType: LuaConsole.History.GetEnumerator()
+- uid: Fab.Geo.Modding.LuaConsole.History.GetEnumerator*
+  name: GetEnumerator
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_GetEnumerator_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.History.GetEnumerator
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.History.GetEnumerator
+  nameWithType: LuaConsole.History.GetEnumerator
+- uid: Fab.Geo.Modding.LuaConsole.History.Item(System.Int32)
+  name: Item[Int32]
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Item_System_Int32_
+  commentId: P:Fab.Geo.Modding.LuaConsole.History.Item(System.Int32)
+  name.vb: Item(Int32)
+  fullName: Fab.Geo.Modding.LuaConsole.History.Item[System.Int32]
+  fullName.vb: Fab.Geo.Modding.LuaConsole.History.Item(System.Int32)
+  nameWithType: LuaConsole.History.Item[Int32]
+  nameWithType.vb: LuaConsole.History.Item(Int32)
+- uid: Fab.Geo.Modding.LuaConsole.History.Item*
+  name: Item
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_Item_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.History.Item
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.History.Item
+  nameWithType: LuaConsole.History.Item
+- uid: Fab.Geo.Modding.LuaConsole.History.MaxEntries
+  name: MaxEntries
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_MaxEntries
+  commentId: P:Fab.Geo.Modding.LuaConsole.History.MaxEntries
+  fullName: Fab.Geo.Modding.LuaConsole.History.MaxEntries
+  nameWithType: LuaConsole.History.MaxEntries
+- uid: Fab.Geo.Modding.LuaConsole.History.MaxEntries*
+  name: MaxEntries
+  href: api/Fab.Geo.Modding.LuaConsole.History.html#Fab_Geo_Modding_LuaConsole_History_MaxEntries_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.History.MaxEntries
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.History.MaxEntries
+  nameWithType: LuaConsole.History.MaxEntries
+- uid: Fab.Geo.Modding.LuaConsole.HistoryEntry
+  name: LuaConsole.HistoryEntry
+  href: api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html
+  commentId: T:Fab.Geo.Modding.LuaConsole.HistoryEntry
+  fullName: Fab.Geo.Modding.LuaConsole.HistoryEntry
+  nameWithType: LuaConsole.HistoryEntry
+- uid: Fab.Geo.Modding.LuaConsole.HistoryEntry.#ctor(System.String,System.String)
+  name: HistoryEntry(String, String)
+  href: api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html#Fab_Geo_Modding_LuaConsole_HistoryEntry__ctor_System_String_System_String_
+  commentId: M:Fab.Geo.Modding.LuaConsole.HistoryEntry.#ctor(System.String,System.String)
+  fullName: Fab.Geo.Modding.LuaConsole.HistoryEntry.HistoryEntry(System.String, System.String)
+  nameWithType: LuaConsole.HistoryEntry.HistoryEntry(String, String)
+- uid: Fab.Geo.Modding.LuaConsole.HistoryEntry.#ctor*
+  name: HistoryEntry
+  href: api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html#Fab_Geo_Modding_LuaConsole_HistoryEntry__ctor_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.HistoryEntry.#ctor
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.HistoryEntry.HistoryEntry
+  nameWithType: LuaConsole.HistoryEntry.HistoryEntry
+- uid: Fab.Geo.Modding.LuaConsole.HistoryEntry.Code
+  name: Code
+  href: api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html#Fab_Geo_Modding_LuaConsole_HistoryEntry_Code
+  commentId: P:Fab.Geo.Modding.LuaConsole.HistoryEntry.Code
+  fullName: Fab.Geo.Modding.LuaConsole.HistoryEntry.Code
+  nameWithType: LuaConsole.HistoryEntry.Code
+- uid: Fab.Geo.Modding.LuaConsole.HistoryEntry.Code*
+  name: Code
+  href: api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html#Fab_Geo_Modding_LuaConsole_HistoryEntry_Code_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.HistoryEntry.Code
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.HistoryEntry.Code
+  nameWithType: LuaConsole.HistoryEntry.Code
+- uid: Fab.Geo.Modding.LuaConsole.HistoryEntry.Print
+  name: Print
+  href: api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html#Fab_Geo_Modding_LuaConsole_HistoryEntry_Print
+  commentId: P:Fab.Geo.Modding.LuaConsole.HistoryEntry.Print
+  fullName: Fab.Geo.Modding.LuaConsole.HistoryEntry.Print
+  nameWithType: LuaConsole.HistoryEntry.Print
+- uid: Fab.Geo.Modding.LuaConsole.HistoryEntry.Print*
+  name: Print
+  href: api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html#Fab_Geo_Modding_LuaConsole_HistoryEntry_Print_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.HistoryEntry.Print
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.HistoryEntry.Print
+  nameWithType: LuaConsole.HistoryEntry.Print
+- uid: Fab.Geo.Modding.LuaConsole.MaxHistoryEntries
+  name: MaxHistoryEntries
+  href: api/Fab.Geo.Modding.LuaConsole.html#Fab_Geo_Modding_LuaConsole_MaxHistoryEntries
+  commentId: P:Fab.Geo.Modding.LuaConsole.MaxHistoryEntries
+  fullName: Fab.Geo.Modding.LuaConsole.MaxHistoryEntries
+  nameWithType: LuaConsole.MaxHistoryEntries
+- uid: Fab.Geo.Modding.LuaConsole.MaxHistoryEntries*
+  name: MaxHistoryEntries
+  href: api/Fab.Geo.Modding.LuaConsole.html#Fab_Geo_Modding_LuaConsole_MaxHistoryEntries_
+  commentId: Overload:Fab.Geo.Modding.LuaConsole.MaxHistoryEntries
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaConsole.MaxHistoryEntries
+  nameWithType: LuaConsole.MaxHistoryEntries
+- uid: Fab.Geo.Modding.LuaConsole.Result
+  name: LuaConsole.Result
+  href: api/Fab.Geo.Modding.LuaConsole.Result.html
+  commentId: T:Fab.Geo.Modding.LuaConsole.Result
+  fullName: Fab.Geo.Modding.LuaConsole.Result
+  nameWithType: LuaConsole.Result
+- uid: Fab.Geo.Modding.LuaConsole.Result.errorMsg
+  name: errorMsg
+  href: api/Fab.Geo.Modding.LuaConsole.Result.html#Fab_Geo_Modding_LuaConsole_Result_errorMsg
+  commentId: F:Fab.Geo.Modding.LuaConsole.Result.errorMsg
+  fullName: Fab.Geo.Modding.LuaConsole.Result.errorMsg
+  nameWithType: LuaConsole.Result.errorMsg
+- uid: Fab.Geo.Modding.LuaConsole.Result.success
+  name: success
+  href: api/Fab.Geo.Modding.LuaConsole.Result.html#Fab_Geo_Modding_LuaConsole_Result_success
+  commentId: F:Fab.Geo.Modding.LuaConsole.Result.success
+  fullName: Fab.Geo.Modding.LuaConsole.Result.success
+  nameWithType: LuaConsole.Result.success
+- uid: Fab.Geo.Modding.LuaConsoleUI
+  name: LuaConsoleUI
+  href: api/Fab.Geo.Modding.LuaConsoleUI.html
+  commentId: T:Fab.Geo.Modding.LuaConsoleUI
+  fullName: Fab.Geo.Modding.LuaConsoleUI
+  nameWithType: LuaConsoleUI
 - uid: Fab.Geo.Modding.LuaDebugger
   name: LuaDebugger
   href: api/Fab.Geo.Modding.LuaDebugger.html
@@ -1966,6 +2517,19 @@ references:
   commentId: T:Fab.Geo.Modding.LuaManager
   fullName: Fab.Geo.Modding.LuaManager
   nameWithType: LuaManager
+- uid: Fab.Geo.Modding.LuaManager.CreateScript(System.String)
+  name: CreateScript(String)
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_CreateScript_System_String_
+  commentId: M:Fab.Geo.Modding.LuaManager.CreateScript(System.String)
+  fullName: Fab.Geo.Modding.LuaManager.CreateScript(System.String)
+  nameWithType: LuaManager.CreateScript(String)
+- uid: Fab.Geo.Modding.LuaManager.CreateScript*
+  name: CreateScript
+  href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_CreateScript_
+  commentId: Overload:Fab.Geo.Modding.LuaManager.CreateScript
+  isSpec: "True"
+  fullName: Fab.Geo.Modding.LuaManager.CreateScript
+  nameWithType: LuaManager.CreateScript
 - uid: Fab.Geo.Modding.LuaManager.GetAllLoadedScripts
   name: GetAllLoadedScripts()
   href: api/Fab.Geo.Modding.LuaManager.html#Fab_Geo_Modding_LuaManager_GetAllLoadedScripts
@@ -2420,13 +2984,13 @@ references:
   isSpec: "True"
   fullName: Fab.Geo.World.GetChunkLOD
   nameWithType: World.GetChunkLOD
-- uid: Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List{Fab.Geo.WorldChunk})
+- uid: Fab.Geo.World.RegenerateChunks(List{Fab.Geo.WorldChunk})
   name: RegenerateChunks(List<WorldChunk>)
-  href: api/Fab.Geo.World.html#Fab_Geo_World_RegenerateChunks_System_Collections_Generic_List_Fab_Geo_WorldChunk__
-  commentId: M:Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List{Fab.Geo.WorldChunk})
+  href: api/Fab.Geo.World.html#Fab_Geo_World_RegenerateChunks_List_Fab_Geo_WorldChunk__
+  commentId: M:Fab.Geo.World.RegenerateChunks(List{Fab.Geo.WorldChunk})
   name.vb: RegenerateChunks(List(Of WorldChunk))
-  fullName: Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List<Fab.Geo.WorldChunk>)
-  fullName.vb: Fab.Geo.World.RegenerateChunks(System.Collections.Generic.List(Of Fab.Geo.WorldChunk))
+  fullName: Fab.Geo.World.RegenerateChunks(List<Fab.Geo.WorldChunk>)
+  fullName.vb: Fab.Geo.World.RegenerateChunks(List(Of Fab.Geo.WorldChunk))
   nameWithType: World.RegenerateChunks(List<WorldChunk>)
   nameWithType.vb: World.RegenerateChunks(List(Of WorldChunk))
 - uid: Fab.Geo.World.RegenerateChunks*
