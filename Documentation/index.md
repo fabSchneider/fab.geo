@@ -6,4 +6,4 @@ Check out the [scripting section](scripting/quickstart.md) for infos on how to m
 
 Check out the [API documentation](api/index.md) for developer information of the C# unity project.
 
-![Intro Image](images/world-0.1.0.jpg)
+![Intro Image](images/world01-0.4.0.png)
