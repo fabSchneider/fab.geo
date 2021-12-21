@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using NaughtyAttributes;
 
-namespace Fab.Geo
+namespace Fab.Geo.UI
 {
     [RequireComponent(typeof(UIDocument))]
     public class UIManager : MonoBehaviour

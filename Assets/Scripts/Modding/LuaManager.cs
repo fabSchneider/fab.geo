@@ -10,6 +10,7 @@ using CommandTerminal;
 using System.Linq;
 using MoonSharp.Interpreter.Debugging;
 using MoonSharp.Interpreter.Loaders;
+using Fab.Geo.UI;
 
 namespace Fab.Geo.Modding
 {

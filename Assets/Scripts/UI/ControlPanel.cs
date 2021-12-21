@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Fab.Geo
+namespace Fab.Geo.UI
 {
     public class ControlPanel
     {
