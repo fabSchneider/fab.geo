@@ -32,6 +32,14 @@ namespace Fab.Geo
         private float orbitSpeed = 0.1f;
 
         [SerializeField]
+        private float orbitPitchSpeed = 0.1f;
+
+        [SerializeField]
+        private float minPitch = -90f;
+        [SerializeField]
+        private float maxPitch = 0f;
+
+        [SerializeField]
         private Vector2 zoomBounds;
 
 
@@ -43,6 +51,10 @@ namespace Fab.Geo
 
         [SerializeField]
         private World world;
+
+        private bool controlEnabled = true;
+
+        public bool ControlEnabled { get => controlEnabled; set => controlEnabled = value; }
 
         private void Start()
         {
@@ -56,14 +68,17 @@ namespace Fab.Geo
 
         private void Update()
         {
-            if (panAction.ReadValue<float>() > 0f && deltaAction.triggered)
-                Pan(deltaAction.ReadValue<Vector2>());
+            if (controlEnabled)
+            {
+                if (panAction.ReadValue<float>() > 0f && deltaAction.triggered)
+                    Pan(deltaAction.ReadValue<Vector2>());
 
-            if (orbitAction.ReadValue<float>() > 0f && deltaAction.triggered)
-                Orbit(deltaAction.ReadValue<Vector2>());
+                if (orbitAction.ReadValue<float>() > 0f && deltaAction.triggered)
+                    Orbit(deltaAction.ReadValue<Vector2>());
 
-            if (zoomAction.triggered)
-                Zoom(zoomAction.ReadValue<Vector2>().y);
+                if (zoomAction.triggered)
+                    Zoom(zoomAction.ReadValue<Vector2>().y);
+            }
 
             if (world)
                 CullWorld();
@@ -93,13 +108,13 @@ namespace Fab.Geo
         /// <param name="zoomLevel"></param>
         public void SetZoom(float zoomLevel)
         {
-            float pitch = cameraPitch.Evaluate(zoomLevel);
+            //float pitch = cameraPitch.Evaluate(zoomLevel);
 
             Vector3 camLocalPos = cam.transform.localPosition;
 
             cam.transform.localPosition = new Vector3(camLocalPos.x, camLocalPos.y, -Mathf.Lerp(zoomBounds.y, zoomBounds.x, zoomLevel));
-            Vector3 euler = cam.transform.localRotation.eulerAngles;
-            cam.transform.localEulerAngles = new Vector3(-pitch, euler.y, euler.z);
+            //Vector3 euler = cam.transform.localRotation.eulerAngles;
+            //cam.transform.localEulerAngles = new Vector3(-pitch, euler.y, euler.z);
         }
 
         private void Pan(Vector2 delta)
@@ -117,6 +132,12 @@ namespace Fab.Geo
         private void Orbit(Vector2 delta)
         {
             transform.rotation *= Quaternion.AngleAxis(delta.x * orbitSpeed, cam.transform.localPosition.normalized);
+
+            Vector3 euler = cam.transform.localRotation.eulerAngles;
+            float pitch = euler.x - delta.y * orbitPitchSpeed;
+            //Debug.Log(pitch);
+            //pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+            cam.transform.localEulerAngles = new Vector3(pitch, euler.y, euler.z);
         }
 
         private void Zoom(float delta)

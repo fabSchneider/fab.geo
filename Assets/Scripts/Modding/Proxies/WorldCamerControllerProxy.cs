@@ -1,8 +1,4 @@
 using MoonSharp.Interpreter;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
@@ -27,5 +23,11 @@ namespace Fab.Geo.Modding
         {
             Value.SetZoom(zoom);
         }
+
+        [LuaHelpInfo("Enables the camera's input control")]
+        public void enable_control() => Value.ControlEnabled = true;
+
+        [LuaHelpInfo("Disables the camera's input control")]
+        public void disable_control() => Value.ControlEnabled = false;
     }
 }
