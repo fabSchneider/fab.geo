@@ -16,7 +16,7 @@ namespace Fab.Geo.UI
         private VisualElement controlPanelElement;
         private VisualElement controlPanelContent;
 
-        private VisualElement currentParent;
+        private VisualElementHierachyBuilder hierachyBuilder;
 
         public ControlPanel(VisualElement root)
         {
@@ -33,7 +33,15 @@ namespace Fab.Geo.UI
             scrollView.Add(controlPanelContent);
             controlPanelElement.Add(scrollView);
 
-            currentParent = controlPanelContent;
+            hierachyBuilder = new VisualElementHierachyBuilder(controlPanelContent, CreateGroup);
+        }
+
+        private VisualElement CreateGroup(string name)
+        {
+            Foldout foldout = new Foldout();
+            foldout.text = name;
+            foldout.value = true;
+            return foldout;
         }
 
         /// <summary>
@@ -52,65 +60,111 @@ namespace Fab.Geo.UI
             root.Remove(controlPanelElement);
         }
 
-        public void AddSeperator()
+        /// <summary>
+        /// Removes all controls and hides the panel
+        /// </summary>
+        public void ClearAndHide()
+        {
+            hierachyBuilder.RemoveAll();
+            Hide();
+        }
+
+        /// <summary>
+        /// Removes a control at the given path
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns>Returns true if the element was found and removed</returns>
+        public bool RemoveControl(string path)
+        {
+
+            if (hierachyBuilder.RemoveElement(path))
+            {
+                //hide the control panel if no control left
+                if (controlPanelContent.childCount == 0)
+                    Hide();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Adds a separator to the panel
+        /// </summary>
+        /// <param name="path"></param>
+        public void AddSeparator(string path)
         {
             VisualElement seperator = new VisualElement();
             seperator.AddToClassList(seperatorClassName);
-            controlPanelContent.Add(seperator);
-            Show();
-        }
-
-        public void BeginGroup(string name, bool expanded = true)
-        {
-            Foldout foldout = new Foldout();
-            foldout.text = name;
-            foldout.value = expanded;
-            currentParent.Add(foldout);
-            currentParent = foldout;
+            hierachyBuilder.AddToHierachy(seperator, path);
 
             Show();
         }
 
-        public void EndGroup()
+        /// <summary>
+        /// Adds a slider to the panel
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="value"></param>
+        /// <param name="callback"></param>
+        public void AddSlider(string path, float min, float max, float value, Action<float> callback = null)
         {
-            if (currentParent == controlPanelContent)
-                return;
-
-            currentParent = currentParent.parent;
-        }
-
-        public void AddSlider(string name, float min, float max, float value, Action<float> callback = null)
-        {
+            string name = hierachyBuilder.GetName(path);
             Slider slider = new Slider(name, min, max);
             slider.value = value;
             if (callback != null)
                 slider.RegisterCallback<ChangeEvent<float>>(evt => callback(evt.newValue));
-            currentParent.Add(slider);
+            hierachyBuilder.AddToHierachy(slider, path);
 
             Show();
         }
 
-        public void AddRangeSlider(string name, float min, float max, float minLimit, float maxLimit)
+        /// <summary>
+        /// Adds a ranged slider to the panel
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="minLimit"></param>
+        /// <param name="maxLimit"></param>
+        public void AddRangeSlider(string path, float min, float max, float minLimit, float maxLimit)
         {
+            string name = hierachyBuilder.GetName(path);
             MinMaxSlider rangeSlider = new MinMaxSlider(min, max, minLimit, maxLimit);
-            currentParent.Add(rangeSlider);
+            hierachyBuilder.AddToHierachy(rangeSlider, path);
 
             Show();
         }
 
-        public void AddChoice(string name, List<string> choices, string value)
+        /// <summary>
+        /// Adds a choice dropdown to the panel
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="choices"></param>
+        /// <param name="value"></param>
+        public void AddChoice(string path, List<string> choices, string value)
         {
+            string name = hierachyBuilder.GetName(path);
             DropdownField dropdown = new DropdownField(name, choices, value);
-            currentParent.Add(dropdown);
+            hierachyBuilder.AddToHierachy(dropdown, path);
 
             Show();
         }
 
-        public void AddButton(string name, Action callback)
+        /// <summary>
+        /// Adds a button to the panel
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="callback"></param>
+        public void AddButton(string path, Action callback)
         {
+            string name = hierachyBuilder.GetName(path);
             Button button = new Button(callback);
             button.text = name;
-            currentParent.Add(button);
+            hierachyBuilder.AddToHierachy(button, path);
 
             Show();
         }
