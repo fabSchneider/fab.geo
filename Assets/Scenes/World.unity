@@ -265,6 +265,9 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   panSpeed: 0.4
   orbitSpeed: 0.3
+  orbitPitchSpeed: 0.1
+  minPitch: -60
+  maxPitch: 0
   zoomBounds: {x: 1.012, y: 5}
   zoomSpeed:
     serializedVersion: 2
