@@ -1,4 +1,7 @@
 using MoonSharp.Interpreter;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 
 namespace Fab.Geo.Modding
@@ -33,6 +36,26 @@ namespace Fab.Geo.Modding
                 name,
                 feature_1.center, feature_2.center);
             return new FeatureProxy(fl);
+        }
+
+        [LuaHelpInfo("Gets the first feature with the given name")]
+        public FeatureProxy get(string name)
+        {
+            Feature feature = Value.GetFeature(name);
+            if (feature == null)
+                throw new ArgumentException("No feature with that name found");
+
+            return new FeatureProxy(feature);
+        }
+
+        [LuaHelpInfo("Gets all feature with the given name")]
+        public FeatureProxy[] get_all(string name)
+        {
+            IEnumerable<Feature> features = Value.GetFeatures(name);
+            if (features == null)
+                throw new ArgumentException("No feature with that name found");
+
+            return features.Select(f => new FeatureProxy(f)).ToArray();
         }
 
         [LuaHelpInfo("Removes a feature from the world")]
