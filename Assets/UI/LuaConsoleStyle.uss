@@ -87,7 +87,7 @@
 
 .history-entry__image {
     max-height: 256px;
-    max-width: 256px;
+    max-width: 350px;
     -unity-background-scale-mode: scale-to-fit;
 }
 
