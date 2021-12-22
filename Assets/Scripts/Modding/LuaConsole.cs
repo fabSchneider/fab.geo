@@ -30,6 +30,11 @@ namespace Fab.Geo.Modding
 
         private Texture2D imageOutput;
 
+        private void Awake()
+        {
+            history = new History(maxHistoryEntries);
+        }
+
         private void Start()
         {
             manager = FindObjectOfType<LuaManager>();
@@ -38,7 +43,6 @@ namespace Fab.Geo.Modding
             script.Globals["list"] = (Action)list;
 
             script.Options.DebugPrint = print => AddToPrintOutput(print);
-            history = new History(maxHistoryEntries);
         }
 
         private void AddToPrintOutput(string output, bool trim = true)

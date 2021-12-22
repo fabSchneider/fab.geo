@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WorldAbstract
-  m_Shader: {fileID: -6465566751694194690, guid: 13847a60b1863774fbea38dd58ca79c7, type: 3}
+  m_Name: Add
+  m_Shader: {fileID: -6465566751694194690, guid: 2eb7bea26111dc7479088f446f120d98, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,16 +19,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _HeightMap:
-        m_Texture: {fileID: 2800000, guid: 1c3139d6c1c42ed4dadd0ba091319c0e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _LandMask:
-        m_Texture: {fileID: 2800000, guid: 6762c87b110ecb342b4dd405e075a226, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OverlayMap:
+    - _Tex1:
         m_Texture: {fileID: 2800000, guid: e112077463394f24db7d4d80b2f47d09, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex2:
+        m_Texture: {fileID: 2800000, guid: d099f446a5695114fbe3f7fb7e216196, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -45,22 +41,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _HeightScale: 0.011
-    - _HeightStrength: 1.23
-    - _LandSmoothness: 0.2
-    - _NormalStrength: -20
-    - _OverlayExp: 2
-    - _OverlayScale: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WaterSmoothness: 0.5
-    m_Colors:
-    - _LandColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 0}
-    - _OverlayColor1: {r: 0.38155133, g: 0.38155133, b: 1, a: 0}
-    - _OverlayColor2: {r: 1, g: 0, b: 0.20784315, a: 1}
-    - _WaterColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0}
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &6319431909014188535
+--- !u!114 &1641279833535722701
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
