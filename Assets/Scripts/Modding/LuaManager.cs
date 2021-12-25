@@ -262,6 +262,9 @@ namespace Fab.Geo.Modding
 
             IOProxy ioProxy = new IOProxy(DataDirectory);
             globals.Add(ioProxy.Name, ioProxy);
+
+            RandomProxy randProxy = new RandomProxy();
+            globals.Add(randProxy.Name, randProxy);
         }
 
         private void LoadLuaModulesForScript(Script script)
