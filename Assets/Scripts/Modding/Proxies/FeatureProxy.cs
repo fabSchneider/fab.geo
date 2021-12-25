@@ -55,7 +55,7 @@ namespace Fab.Geo.Modding
 
         public override string ToString()
         {
-            if (IsNull())
+            if (IsNil())
                 return "nil";
 
             return $"feature {{ type: {type}, name: {name} }}";

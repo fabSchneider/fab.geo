@@ -19,11 +19,24 @@ namespace Fab.Geo.Modding
         }
     }
 
-    public abstract class ProxyBase
+    public abstract class ProxyBase 
     {
         public abstract string Name { get; }
 
         public abstract string Description { get; }
+
+        /// <summary>
+        /// Returns true if the underlaying value of the proxy is null. 
+        /// Use this instead of a simple null check to make it compatible with unity objects
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool IsNil()
+        {
+            //returns false by default as the base class does
+            //not require to represent any object but the behaviour can be 
+            //overwritten by classes inherting from this class
+            return false;
+        }
 
         public virtual string GetFullDescription()
         {
@@ -62,10 +75,9 @@ namespace Fab.Geo.Modding
     }
 
     [MoonSharpUserData]
-    public abstract class ProxyBase<T> : ProxyBase
+    public abstract class ProxyBase<T> : ProxyBase where T : class
     {
-
-        private T value;
+        protected T value;
 
         [MoonSharpHidden]
         public T Value => value;
@@ -76,12 +88,32 @@ namespace Fab.Geo.Modding
             this.value = value;
         }
 
-        public bool IsNull()
+        /// <summary>
+        /// Returns true if the underlaying value of the proxy is null. 
+        /// Use this instead of a simple null check to make it compatible with unity objects
+        /// </summary>
+        /// <returns></returns>
+        [MoonSharpHidden]
+        public override bool IsNil()
         {
             if (value is UnityEngine.Object obj)
                 return !obj;
 
             return value == null;
+        }
+
+        /// <summary>
+        /// Throws if the underlaying value of the proxy is null. 
+        /// Use this instead of a simple null check to make it compatible with unity objects
+        /// </summary>
+        /// <exception cref="NullReferenceException"></exception>
+        protected void ThrowIfNil()
+        {
+            if (value is UnityEngine.Object obj && !obj)
+                throw new NullReferenceException($"{Name} is nil");
+
+            if(value == null)
+                throw new NullReferenceException($"{Name} is nil");
         }
     }
 }

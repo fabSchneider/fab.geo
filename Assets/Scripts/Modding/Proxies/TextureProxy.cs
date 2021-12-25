@@ -7,7 +7,7 @@ namespace Fab.Geo.Modding
     public class TextureProxy : ProxyBase<Texture2D>
     {
         public override string Name => "image";
-        public override string Description => "A image object";
+        public override string Description => "Ans image object";
 
         [MoonSharpHidden]
         public TextureProxy(Texture2D source) : base(source) {}
@@ -20,7 +20,7 @@ namespace Fab.Geo.Modding
 
         public override string ToString()
         {
-            if (IsNull())
+            if (IsNil())
                 return "nil";
 
             return $"image {{ name: {name}, width: {width}, height: {height} }}";

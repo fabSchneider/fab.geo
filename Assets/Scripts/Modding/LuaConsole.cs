@@ -61,8 +61,13 @@ namespace Fab.Geo.Modding
         private void help(DynValue value)
         {
             object obj = value.ToObject();
-            if (obj is ProxyBase proxyBase)
-                AddToPrintOutput(proxyBase.GetFullDescription(), false);
+            if (obj is ProxyBase proxy)
+            {
+                if (proxy.IsNil())
+                    AddToPrintOutput("Nil", false);
+                else
+                    AddToPrintOutput(proxy.GetFullDescription(), false);
+            }
             else
                 AddToPrintOutput("No help information available", false);
         }

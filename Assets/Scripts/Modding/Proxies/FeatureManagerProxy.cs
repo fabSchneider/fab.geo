@@ -61,7 +61,7 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("Removes a feature from the world")]
         public bool remove(FeatureProxy feature)
         {
-            if (feature == null || feature.IsNull())
+            if (feature == null || feature.IsNil())
                 return false;
             return Value.RemoveFeature(feature.Value);
         }
