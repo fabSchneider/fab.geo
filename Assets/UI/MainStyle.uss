@@ -28,10 +28,10 @@ VisualElement {
     background-color: var(--window-color);
     min-height: 150px;
     min-width: 300px;
-    border-left-color: rgb(106, 106, 106);
-    border-right-color: rgb(106, 106, 106);
-    border-top-color: rgb(106, 106, 106);
-    border-bottom-color: rgb(106, 106, 106);
+    border-left-color: var(--window-border-color);
+    border-right-color: var(--window-border-color);
+    border-top-color: var(--window-border-color);
+    border-bottom-color: var(--window-border-color);
     border-left-width: 1px;
     border-right-width: 1px;
     border-top-width: 1px;
@@ -97,6 +97,14 @@ VisualElement {
     max-height: 500px;
     width: 350px;
     right: 10px;
+    border-left-color: var(--window-border-color);
+    border-right-color: var(--window-border-color);
+    border-top-color: var(--window-border-color);
+    border-bottom-color: var(--window-border-color);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
 }
 
 .control-panel__content {
@@ -210,4 +218,26 @@ VisualElement {
     border-bottom-width: 0;
 }
 
+.unity-button {
+    background-color: var(--window-color);
+    border-left-color: var(--window-border-color);
+    border-right-color: var(--window-border-color);
+    border-top-color: var(--window-border-color);
+    border-bottom-color: var(--window-border-color);
+}
 
+.unity-button:hover {
+    background-color: rgba(48, 48, 48, 255);
+    border-left-color: rgba(135, 135, 135, 255);
+    border-right-color: rgba(135, 135, 135, 255);
+    border-top-color: rgba(135, 135, 135, 255);
+    border-bottom-color: rgba(135, 135, 135, 255);
+}
+
+.unity-button:active {
+    background-color: rgba(91, 91, 91, 255);
+    border-left-color: rgba(200, 200, 200, 255);
+    border-right-color: rgba(200, 200, 200, 255);
+    border-top-color: rgba(200, 200, 200, 255);
+    border-bottom-color: rgba(200, 200, 200, 255);
+}
