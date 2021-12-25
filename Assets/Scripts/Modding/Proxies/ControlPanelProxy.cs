@@ -1,6 +1,9 @@
 using Fab.Geo.UI;
 using MoonSharp.Interpreter;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.UIElements;
 
 namespace Fab.Geo.Modding
 {
@@ -10,8 +13,13 @@ namespace Fab.Geo.Modding
         public override string Name => "controls";
         public override string Description => "Module for adding controls to the control panel";
 
+        private List<ControlProxy> controlProxies;
+
         [MoonSharpHidden]
-        public ControlPanelProxy(ControlPanel source) : base(source) { }
+        public ControlPanelProxy(ControlPanel source) : base(source)
+        {
+            controlProxies = new List<ControlProxy>();
+        }
 
         [LuaHelpInfo("Shows the control panel")]
         public void show() => Value.Show();
@@ -19,28 +27,108 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("Hides the control panel")]
         public void hide() => Value.Hide();
 
-        [LuaHelpInfo("Removes all controls from the panel")]
-        public void remove_all() => Value.ClearAndHide();
+        [LuaHelpInfo("Gets the control at the given path from the panel")]
+        public ControlProxy get(string path)
+        {
+            return GetControlProxy(path);
+        }
 
-        [LuaHelpInfo("Removes a control from the panel")]
-        public void remove(string path) => Value.RemoveControl(path);
+        [LuaHelpInfo("Removes the control at the given path from the panel")]
+        public void remove(ControlProxy control)
+        {
+            if (controlProxies.Remove(control))
+            {
+                Value.RemoveControl(control.path);
+                control.Dispose();
+            }
+
+        }
+
+        [LuaHelpInfo("Removes all controls from the panel")]
+        public void remove_all()
+        {
+            Value.ClearAndHide();
+
+            foreach (var control in controlProxies)
+                control.Dispose();
+            controlProxies.Clear();
+        }
 
         [LuaHelpInfo("Adds a separator to the control panel")]
-        public void add_separator(string path) => Value.AddSeparator(path);
+        public ControlProxy add_separator(string path)
+        {
+            VisualElement s = Value.AddSeparator(path);
+            SeparatorProxy proxy = GetControlProxy<SeparatorProxy>(path);
+            if (proxy == null)
+            {
+                proxy = new SeparatorProxy(s, this, path);
+                controlProxies.Add(proxy);
+
+            }
+            return proxy;
+        }
 
         [LuaHelpInfo("Adds a slider to the control panel")]
-        public void add_slider(string path, float min, float max, float value) => Value.AddSlider(path, min, max, value);
+        public ControlProxy add_slider(string path, float min, float max, float value)
+        {
+            Slider s = Value.AddSlider(path, min, max, value);
+            SliderProxy proxy = GetControlProxy<SliderProxy>(path);
+            if (proxy == null)
+            {
+                proxy = new SliderProxy(s, this, path);
+                controlProxies.Add(proxy);
+            }
+            return proxy;
 
-        [LuaHelpInfo("Adds a slider to the control panel. You can pass in a function that will be called when the value changes")]
-        public void add_slider(string path, float min, float max, float value, Closure on_value_change) => Value.AddSlider(path, min, max, value, v => on_value_change.Call(v));
+        }
 
         [LuaHelpInfo("Adds a ranged slider to the control panel.")]
-        public void add_range_slider(string path, float min, float max, float minLimit, float maxLimit) => Value.AddRangeSlider(path, min, max, minLimit, maxLimit);
+        public ControlProxy add_range_slider(string path, float min, float max, float minLimit, float maxLimit)
+        {
+            MinMaxSlider s = Value.AddRangeSlider(path, min, max, minLimit, maxLimit);
+            SliderProxy proxy = GetControlProxy<SliderProxy>(path);
+            if (proxy == null)
+            {
+                proxy = new SliderProxy(s, this, path);
+                controlProxies.Add(proxy);
+            }
+            return proxy;
+        }
 
         [LuaHelpInfo("Adds a choice field to the control panel")]
-        public void add_choice(string path, List<string> choices, string value) => Value.AddChoice(path, choices, value);
+        public ControlProxy add_choice(string path, List<string> choices, string value)
+        {
+            DropdownField d = Value.AddChoice(path, choices, value);
+            ChoiceProxy proxy = GetControlProxy<ChoiceProxy>(path);
+            if (proxy == null)
+            {
+                proxy = new ChoiceProxy(d, this, path);
+                controlProxies.Add(proxy);
+            }
+            return proxy;
+        }
 
         [LuaHelpInfo("Adds a button to the control panel. You can pass in a function that will be called when the button was pressed")]
-        public void add_button(string path, Closure on_press) => Value.AddButton(path, () => on_press.Call());
+        public ControlProxy add_button(string path)
+        {
+            Button b = Value.AddButton(path, null);
+            ButtonProxy proxy = GetControlProxy<ButtonProxy>(path);
+            if (proxy == null)
+            {
+                proxy = new ButtonProxy(b, this, path);
+                controlProxies.Add(proxy);
+            }
+            return proxy;
+        }
+
+        private ControlProxy GetControlProxy(string path)
+        {
+            return controlProxies.FirstOrDefault(c => c.path == path);
+        }
+
+        private T GetControlProxy<T>(string path) where T : ControlProxy
+        {
+            return controlProxies.OfType<T>().FirstOrDefault(c => c.path == path);
+        }
     }
 }

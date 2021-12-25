@@ -70,6 +70,16 @@ namespace Fab.Geo.UI
         }
 
         /// <summary>
+        /// Gets the control at the given path
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public VisualElement GetControl(string path)
+        {
+           return hierachyBuilder.GetElementAtPath(path);
+        }
+
+        /// <summary>
         /// Removes a control at the given path
         /// </summary>
         /// <param name="path"></param>
@@ -93,13 +103,14 @@ namespace Fab.Geo.UI
         /// Adds a separator to the panel
         /// </summary>
         /// <param name="path"></param>
-        public void AddSeparator(string path)
+        public VisualElement AddSeparator(string path)
         {
-            VisualElement seperator = new VisualElement();
-            seperator.AddToClassList(seperatorClassName);
-            hierachyBuilder.AddToHierachy(seperator, path);
+            VisualElement separator = new VisualElement();
+            separator.AddToClassList(seperatorClassName);
+            hierachyBuilder.AddToHierachy(separator, path);
 
             Show();
+            return separator;
         }
 
         /// <summary>
@@ -110,16 +121,15 @@ namespace Fab.Geo.UI
         /// <param name="max"></param>
         /// <param name="value"></param>
         /// <param name="callback"></param>
-        public void AddSlider(string path, float min, float max, float value, Action<float> callback = null)
+        public Slider AddSlider(string path, float min, float max, float value)
         {
             string name = hierachyBuilder.GetName(path);
             Slider slider = new Slider(name, min, max);
             slider.value = value;
-            if (callback != null)
-                slider.RegisterCallback<ChangeEvent<float>>(evt => callback(evt.newValue));
             hierachyBuilder.AddToHierachy(slider, path);
 
             Show();
+            return slider;
         }
 
         /// <summary>
@@ -130,13 +140,14 @@ namespace Fab.Geo.UI
         /// <param name="max"></param>
         /// <param name="minLimit"></param>
         /// <param name="maxLimit"></param>
-        public void AddRangeSlider(string path, float min, float max, float minLimit, float maxLimit)
+        public MinMaxSlider AddRangeSlider(string path, float min, float max, float minLimit, float maxLimit)
         {
             string name = hierachyBuilder.GetName(path);
             MinMaxSlider rangeSlider = new MinMaxSlider(min, max, minLimit, maxLimit);
             hierachyBuilder.AddToHierachy(rangeSlider, path);
 
             Show();
+            return rangeSlider;
         }
 
         /// <summary>
@@ -145,13 +156,23 @@ namespace Fab.Geo.UI
         /// <param name="path"></param>
         /// <param name="choices"></param>
         /// <param name="value"></param>
-        public void AddChoice(string path, List<string> choices, string value)
+        public DropdownField AddChoice(string path, List<string> choices, string value)
         {
+            if (choices == null || choices.Count == 0)
+            {
+                choices = new List<string>() { string.Empty };
+                value = string.Empty;
+            }
+
+            if (value == null || !choices.Contains(value))
+                value = choices[0];
+
             string name = hierachyBuilder.GetName(path);
             DropdownField dropdown = new DropdownField(name, choices, value);
             hierachyBuilder.AddToHierachy(dropdown, path);
 
             Show();
+            return dropdown;
         }
 
         /// <summary>
@@ -159,7 +180,7 @@ namespace Fab.Geo.UI
         /// </summary>
         /// <param name="path"></param>
         /// <param name="callback"></param>
-        public void AddButton(string path, Action callback)
+        public Button AddButton(string path, Action callback)
         {
             string name = hierachyBuilder.GetName(path);
             Button button = new Button(callback);
@@ -167,6 +188,7 @@ namespace Fab.Geo.UI
             hierachyBuilder.AddToHierachy(button, path);
 
             Show();
+            return button;
         }
     }
 }
