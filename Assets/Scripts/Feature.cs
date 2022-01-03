@@ -8,7 +8,7 @@ namespace Fab.Geo
     {
         public event Action clicked;
 
-        public abstract Coordinate Center { get; }
+        public abstract Coordinate[] Geometry { get; }
 
         public virtual void SetName(string name)
         {

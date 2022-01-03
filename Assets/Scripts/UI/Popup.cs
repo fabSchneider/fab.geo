@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Fab.Geo
+namespace Fab.Geo.UI
 {
     public class Popup
     {
@@ -37,7 +37,7 @@ namespace Fab.Geo
             titleLabel = new Label();
             titleLabel.AddToClassList(titleClassName);
             Button closeButton = new Button(Close);
-            closeButton.text = "x";
+            closeButton.text = "";
             closeButton.AddToClassList(closeBtnClassName);
             header.Add(titleLabel);
             header.Add(closeButton);
@@ -75,7 +75,9 @@ namespace Fab.Geo
         public void Show(string title, string text)
         {
             titleLabel.text = title;
+            img.style.display = DisplayStyle.None;
             textLabel.text = text;
+            textLabel.style.display = DisplayStyle.Flex;
 
             root.Add(popupRoot);
             popupElement.Focus();
@@ -84,9 +86,11 @@ namespace Fab.Geo
         public void Show(string title, Texture2D image)
         {
             titleLabel.text = title;
+            textLabel.style.display = DisplayStyle.None;
             img.image = image;
             img.style.maxWidth = image.width;
             img.style.maxHeight = image.height;
+            img.style.display = DisplayStyle.Flex;
             root.Add(popupRoot);
             popupElement.Focus();
         }

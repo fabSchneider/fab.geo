@@ -1,22 +1,27 @@
+using Fab.Geo.UI;
 using MoonSharp.Interpreter;
-using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
     public class PopupProxy : ProxyBase<Popup>
     {
-        [MoonSharpHidden]
-        public PopupProxy(Popup source) : base(source){}
+        public override string Name => "popup";
+        public override string Description => "Module to show popups on the screen";
 
-        public void show(string title, string text)
+        [MoonSharpHidden]
+        public PopupProxy(Popup value) : base(value){}
+
+        [LuaHelpInfo("Shows a popup with some text")]
+        public void show(string title, string text = null)
         {
-            Source.Show(title, text);
+            Value.Show(title, text);
         }
 
+        [LuaHelpInfo("Shows a popup with an image")]
         public void show(string title, TextureProxy image)
         {
-            Source.Show(title, image.Texture);
+            Value.Show(title, image.Texture);
         }
     }
 }

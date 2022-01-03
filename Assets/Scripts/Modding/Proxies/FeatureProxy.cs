@@ -1,48 +1,64 @@
 using MoonSharp.Interpreter;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
-    public class FeatureProxy
+    public class FeatureProxy : ProxyBase<Feature>
     {
-        private Feature feature;
+        public override string Name => "feature";
+        public override string Description => "A feature object";
 
         private Closure clickEvent;
 
         [MoonSharpHidden]
-        public FeatureProxy(Feature feature)
-        {
-            this.feature = feature;
-        }
+        public FeatureProxy(Feature value) : base(value) { }
 
         public string name
         {
-            get => feature.name;
-            set => feature.SetName(name);
+            get => Value.name;
+            set => Value.SetName(name);
         }
 
-        public float center_lat => Mathf.Rad2Deg * feature.Center.latitude;
-        public float center_lon => Mathf.Rad2Deg * feature.Center.longitude;
+        public string type
+        {
+            get
+            {
+                switch (Value)
+                {
+                    case FeaturePoint:
+                        return "point";
+                    case FeatureLine:
+                        return "line";
+                    default:
+                        return "undefined";
+                }
+            }
+        }
 
-        public int id => feature.GetInstanceID();
+        public Coordinate center => Value.Geometry[0];
+
+        public void on_click(Closure action)
+        {
+            clickEvent = action;
+            Value.clicked -= OnClick;
+            if (action != null)
+                Value.clicked += OnClick;
+        }
 
         private void OnClick()
         {
             clickEvent.Call(this);
         }
 
-        public void addClickListener(Closure action)
+        public override string ToString()
         {
-            clickEvent = action;
-            feature.clicked -= OnClick;
-            feature.clicked += OnClick;
-        }
+            if (IsNil())
+                return "nil";
 
-        public void removeClickListener()
-        {
-            clickEvent = null;
-            feature.clicked -= OnClick;
+            return $"feature {{ type: {type}, name: {name} }}";
         }
     }
 }

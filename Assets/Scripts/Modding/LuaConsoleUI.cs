@@ -11,12 +11,13 @@ namespace Fab.Geo.Modding
         private static readonly string className = "lua-console";
         private static readonly string textFieldClassName = className + "__text-field";
         private static readonly string historyClassName = className + "__history";
+        private static readonly string historyContainerName = "history-container";
         private static readonly string errorMsgClassName = className + "__error-msg";
 
         private LuaConsole console;
         private UIDocument doc;
         private TextField consoleTextField;
-        private VisualElement consoleHistory;
+        private ScrollView consoleHistory;
         private Label errorMsg;
 
         private ObjectPool<HistoryEntryElement> historyEntryPool;
@@ -36,7 +37,7 @@ namespace Fab.Geo.Modding
             consoleTextField.RegisterCallback<KeyDownEvent>(OnTextFieldKeyDown);
             consoleTextField.RegisterCallback<NavigationSubmitEvent>(OnTextFieldSubmit);
 
-            consoleHistory = doc.rootVisualElement.Q(className: historyClassName);
+            consoleHistory = doc.rootVisualElement.Q<ScrollView>(name: historyContainerName);
             historyEntryPool = new ObjectPool<HistoryEntryElement>(
                 console.ConsoleHistory.MaxEntries,
                 false,
@@ -49,9 +50,10 @@ namespace Fab.Geo.Modding
 
         private void OnTextFieldSubmit(NavigationSubmitEvent evt)
         {
+            consoleTextField.Focus();
             string code = consoleTextField.text;
-
-
+            if (string.IsNullOrWhiteSpace(code))
+                return;
 
             LuaConsole.Result res = console.Execute(code);
             if (res.success)
@@ -66,7 +68,7 @@ namespace Fab.Geo.Modding
                 errorMsg.style.display = DisplayStyle.Flex;
             }
 
-            consoleTextField.Focus();
+
         }
 
         private void OnTextFieldKeyDown(KeyDownEvent evt)
@@ -119,7 +121,7 @@ namespace Fab.Geo.Modding
             foreach (var entry in console.ConsoleHistory)
             {
                 HistoryEntryElement entryElement = historyEntryPool.GetPooled();
-                entryElement.Set(entry.Code, entry.Print);
+                entryElement.Set(entry.Code, entry.Print, entry.image);
                 entryElement.SetSelected(false);
                 consoleHistory.Add(entryElement);
             }
@@ -133,25 +135,32 @@ namespace Fab.Geo.Modding
         private static readonly string className = "history-entry";
         private static readonly string selectedClassName = className + "--selected";
         private static readonly string codeClassName = "history-entry__code";
+        private static readonly string imgClassName = "history-entry__image";
+        private static readonly string imageHiddenClassName = imgClassName + "--hidden";
         private static readonly string printClassName = "history-entry__print";
         private static readonly string printHiddenClassName = printClassName + "--hidden";
 
         private Label codeText;
         private Label printText;
+        private Image img;
 
         public HistoryEntryElement()
         {
             AddToClassList(className);
             codeText = new Label();
             codeText.AddToClassList(codeClassName);
+            img = new Image();
+            img.AddToClassList(imgClassName);
             printText = new Label();
+            printText.enableRichText = true;
             printText.AddToClassList(printClassName);
 
             Add(codeText);
+            Add(img);
             Add(printText);
         }
 
-        public void Set(string code, string print)
+        public void Set(string code, string print, Texture2D image)
         {
             codeText.text = code;
 
@@ -166,12 +175,23 @@ namespace Fab.Geo.Modding
                 printText.RemoveFromClassList(printHiddenClassName);
             }
 
+            if (image)
+            {
+                img.image = image;
+                img.RemoveFromClassList(imageHiddenClassName);
+            }
+            else
+            {
+                img.image = null;
+                img.AddToClassList(imageHiddenClassName);
+            }
         }
 
         public void Reset()
         {
             codeText.text = string.Empty;
             printText.text = string.Empty;
+            img.image = null;
         }
 
         public void SetSelected(bool selected)

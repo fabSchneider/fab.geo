@@ -9,6 +9,8 @@ using MoonSharp.VsCodeDebugger;
 using CommandTerminal;
 using System.Linq;
 using MoonSharp.Interpreter.Debugging;
+using MoonSharp.Interpreter.Loaders;
+using Fab.Geo.UI;
 
 namespace Fab.Geo.Modding
 {
@@ -32,9 +34,14 @@ namespace Fab.Geo.Modding
 
         public IEnumerable<Script> LoadedScripts => loadedScripts;
 
+        public TextAsset[] luaModules;
+
         private Dictionary<Script, Closure> updateFunctions = new Dictionary<Script, Closure>();
 
         private LuaDebugger debugger;
+
+        private Dictionary<string, object> globals;
+        public IEnumerable<ProxyBase> Proxies => globals.Values.OfType<ProxyBase>();
 
         public void SetDebugger(LuaDebugger debugger)
         {
@@ -58,11 +65,13 @@ namespace Fab.Geo.Modding
         private void Awake()
         {
             UserData.RegisterAssembly();
+            ClrConversion.RegisterConverters();
             Script.GlobalOptions.Platform = new StandardPlatformAccessor();
         }
 
         private void Start()
         {
+            GetGlobals();
             LoadScripts();
         }
 
@@ -115,10 +124,8 @@ namespace Fab.Geo.Modding
 
             UnloadAllScripts();
 
-            Dictionary<string, object> globals = GetGlobals();
-
             foreach (string scriptPath in files)
-                LoadScript(scriptPath, globals);
+                LoadScript(scriptPath);
 
             Debug.Log($"Loaded {loadedScripts.Count} scripts");
         }
@@ -159,26 +166,12 @@ namespace Fab.Geo.Modding
         }
 
 
-        private void LoadScript(string path, Dictionary<string, object> globals)
+        private void LoadScript(string path)
         {
-            Script script = new Script();
-
-            //set globals
-            foreach (var global in globals)
-                script.Globals[global.Key] = global.Value;
-
-            script.Options.DebugPrint = s => Debug.Log(s);
-
             string scriptName = Path.GetFileNameWithoutExtension(path);
-
-            //add constants
-            script.Globals[scriptNameKey] = Path.GetFileNameWithoutExtension(path);
-            script.Globals[scriptDirKey] = ScriptsDirectory + Path.DirectorySeparatorChar;
-            script.Globals[dataDirKey] = DataDirectory + Path.DirectorySeparatorChar;
-
-            //attach to debugger
-            if (debugger != null)
-                debugger.AttachScript(script);
+            Script script = CreateScript(scriptName);
+          
+            script.Options.DebugPrint = s => Debug.Log(s);
 
             using Stream fileStream = new FileStream(path, FileMode.Open);
 
@@ -199,10 +192,21 @@ namespace Fab.Geo.Modding
                 initFunc.Call();
         }
 
+        /// <summary>
+        /// Creates a script with the given script name
+        /// </summary>
+        /// <param name="scriptName"></param>
+        /// <returns></returns>
         public Script CreateScript(string scriptName)
         {
-            Script script = new Script();
-            Dictionary<string, object> globals = GetGlobals();
+            Script script = new Script(CoreModules.Preset_SoftSandbox | CoreModules.LoadMethods);
+
+            //set script loader
+            UnityAssetsScriptLoader scriptLoader = new UnityAssetsScriptLoader();
+
+            //we need to set the module path to '?' for it tor load the resource correctly
+            scriptLoader.ModulePaths = new string[] { "?" };
+            script.Options.ScriptLoader = scriptLoader;
 
             //set globals
             foreach (var global in globals)
@@ -219,37 +223,57 @@ namespace Fab.Geo.Modding
             if (debugger != null)
                 debugger.AttachScript(script);
 
+            LoadLuaModulesForScript(script);
+
             return script;
         }
 
-        private static Dictionary<string, object> GetGlobals()
+        private void GetGlobals()
         {
-            Dictionary<string, object> globals = new Dictionary<string, object>();
+            globals = new Dictionary<string, object>();
 
             FeatureManager featureManager = FindObjectOfType<FeatureManager>();
             if (featureManager)
-                globals.Add("features", new FeatureManagerProxy(featureManager));
+            {
+                FeatureManagerProxy proxy = new FeatureManagerProxy(featureManager);
+                globals.Add(proxy.Name, proxy);
+            }
 
             UIManager uiManager = FindObjectOfType<UIManager>();
             if (uiManager)
             {
-                globals.Add("popup", new PopupProxy(uiManager.Popup));
-                globals.Add("controls", new ControlPanelProxy(uiManager.ControlPanel));
+                PopupProxy popupProxy = new PopupProxy(uiManager.Popup);
+                globals.Add(popupProxy.Name, popupProxy);
+                ControlPanelProxy controlProxy = new ControlPanelProxy(uiManager.ControlPanel);
+                globals.Add(controlProxy.Name, controlProxy);
             }
 
             WorldCameraController cameraController = FindObjectOfType<WorldCameraController>();
             if (cameraController)
             {
-                globals.Add("camera", new WorldCameraControllerProxy(cameraController));
+                WorldCameraControllerProxy proxy = new WorldCameraControllerProxy(cameraController);
+                globals.Add(proxy.Name, proxy);
             }
 
-            globals.Add("geo", new GeoProxy());
+            GeoProxy geoProxy = new GeoProxy();
+            globals.Add(geoProxy.Name, geoProxy);
 
             UserData.RegisterProxyType<TextureProxy, Texture2D>(t => new TextureProxy(t));
 
-            globals.Add("loader", new IOProxy(DataDirectory));
+            IOProxy ioProxy = new IOProxy(DataDirectory);
+            globals.Add(ioProxy.Name, ioProxy);
 
-            return globals;
+            RandomProxy randProxy = new RandomProxy();
+            globals.Add(randProxy.Name, randProxy);
+        }
+
+        private void LoadLuaModulesForScript(Script script)
+        {
+            //load all modules
+            for (int i = 0; i < luaModules.Length; i++)
+            {
+                script.DoString($"require \'{luaModules[i].name}\'");
+            }
         }
 
         #region Commands

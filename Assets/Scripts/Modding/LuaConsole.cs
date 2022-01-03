@@ -1,4 +1,5 @@
 using MoonSharp.Interpreter;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,16 +20,64 @@ namespace Fab.Geo.Modding
         [Tooltip("Maximum number of items in the history.")]
         private int maxHistoryEntries = 24;
 
+        [SerializeField]
+        [Tooltip("Maximum character length after which a print output will be cut.")]
+        private int maxPrintOutputLength = 1024;
+
         public int MaxHistoryEntries => maxHistoryEntries;
 
-        private string printOutput;
+        private List<string> printOutput = new List<string>();
+
+        private Texture2D imageOutput;
 
         private void Awake()
         {
+            history = new History(maxHistoryEntries);
+        }
+
+        private void Start()
+        {
             manager = FindObjectOfType<LuaManager>();
             script = manager.CreateScript("live-script");
-            script.Options.DebugPrint = print => printOutput = print;
-            history = new History(maxHistoryEntries);
+            script.Globals["help"] = (Action<DynValue>)help;
+            script.Globals["list"] = (Action)list;
+
+            script.Options.DebugPrint = print => AddToPrintOutput(print);
+        }
+
+        private void AddToPrintOutput(string output, bool trim = true)
+        {
+            if (trim && output.Length > maxPrintOutputLength)
+            {
+                //trim excess print output and add a message informing about the cut
+                string cut = output.Substring(0, maxPrintOutputLength);
+                cut += $"\n ... ";
+                printOutput.Add(cut);
+            }
+            else
+                printOutput.Add(output);
+        }
+
+        private void help(DynValue value)
+        {
+            object obj = value.ToObject();
+            if (obj is ProxyBase proxy)
+            {
+                if (proxy.IsNil())
+                    AddToPrintOutput("Nil", false);
+                else
+                    AddToPrintOutput(proxy.GetFullDescription(), false);
+            }
+            else
+                AddToPrintOutput("No help information available", false);
+        }
+
+        private void list()
+        {
+            foreach (var proxy in manager.Proxies)
+            {
+                AddToPrintOutput($"{proxy.Name.PadRight(18, ' ')} \t<i>{proxy.Description}</i>\n", false);
+            }
         }
 
         public Result Execute(string code)
@@ -38,21 +87,33 @@ namespace Fab.Geo.Modding
                 DynValue returnVal = script.DoString(code);
                 if (returnVal.IsNotNil())
                 {
-                    printOutput = returnVal.ToPrintString();
+                    AddToPrintOutput(returnVal.ToPrintString());
                 }
             }
-            catch (System.Exception e)
+            catch (Exception e)
             {
                 //try getting a variable from the code
-                DynValue val = script.Globals.Get(code);
-                if(val != null && val.IsNotNil())
-                    printOutput = val.ToPrintString();
+                DynValue val = script.Globals.RawGet(code);
+
+                if (val != null)
+                {
+                    object obj = val.ToObject();
+
+                    if (obj is TextureProxy tex)
+                        imageOutput = tex.Value;
+
+                    script.DoString($"print({code})");
+                }
                 else
+                {
+                    Debug.LogException(e);
                     return new Result() { success = false, errorMsg = e.Message };
+                }
             }
 
-            history.Add(code, printOutput);
-            printOutput = null;
+            history.Add(code, string.Join('\n', printOutput), imageOutput);
+            printOutput.Clear();
+            imageOutput = null;
             return new Result() { success = true };
         }
 
@@ -79,12 +140,12 @@ namespace Fab.Geo.Modding
                 codeHistory.Clear();
             }
 
-            public void Add(string code, string output)
+            public void Add(string code, string output, Texture2D image)
             {
                 if (codeHistory.Count > 0 && codeHistory.Count >= maxEntries)
                     codeHistory.RemoveAt(0);
 
-                codeHistory.Add(new HistoryEntry(code, output));
+                codeHistory.Add(new HistoryEntry(code, output, image));
             }
         }
 
@@ -99,13 +160,18 @@ namespace Fab.Geo.Modding
             private string code;
 
             private string print;
+
+            public Texture2D image;
+
             public string Code { get => code; }
             public string Print { get => print; }
+            public Texture2D Image { get => image; }
 
-            public HistoryEntry(string code, string print)
+            public HistoryEntry(string code, string print, Texture2D image = null)
             {
                 this.code = code;
                 this.print = print;
+                this.image = image;
             }
         }
     }

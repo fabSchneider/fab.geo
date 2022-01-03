@@ -129,6 +129,39 @@
                 },
                 {
                     "name": "One Modifier",
+                    "id": "60593551-1cf5-44f3-9368-58edf4f66b72",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Orbit",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "2b5c6208-b334-4c52-8dec-d7a675f0b370",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Orbit",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "905078bd-72b3-4eeb-9afc-742f399d664d",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Orbit",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
                     "id": "4e369620-c89b-4818-bd30-1f3058f93c90",
                     "path": "OneModifier",
                     "interactions": "",
@@ -174,7 +207,7 @@
                 {
                     "name": "modifier",
                     "id": "f27d87fd-6ad1-4873-a979-a22547f9b604",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/ctrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",

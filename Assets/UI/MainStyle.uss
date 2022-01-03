@@ -1,5 +1,10 @@
 :root {
-    --window-color: rgb(212, 212, 212);
+    --window-color: rgb(34, 34, 34);
+    --window-border-color: rgb(100, 100, 100);
+    -unity-font-definition: url('project://database/Assets/Fonts/CASKAYDIA%20COVE%20NERD%20FONT%20COMPLETE%20MONO%20SDF.asset?fileID=11400000&guid=6aeb3814440f7f149b83439e65e51e46&type=2#CASKAYDIA COVE NERD FONT COMPLETE MONO SDF');
+    --scroller-color: rgb(140, 140, 140);
+    --scroller-size: 14px;
+    color: rgb(210, 210, 210);
 }
 
 VisualElement {
@@ -16,17 +21,17 @@ VisualElement {
 }
 
 .popup {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     background-color: var(--window-color);
     min-height: 150px;
     min-width: 300px;
-    border-left-color: rgb(106, 106, 106);
-    border-right-color: rgb(106, 106, 106);
-    border-top-color: rgb(106, 106, 106);
-    border-bottom-color: rgb(106, 106, 106);
+    border-left-color: var(--window-border-color);
+    border-right-color: var(--window-border-color);
+    border-top-color: var(--window-border-color);
+    border-bottom-color: var(--window-border-color);
     border-left-width: 1px;
     border-right-width: 1px;
     border-top-width: 1px;
@@ -38,6 +43,7 @@ VisualElement {
 .popup__header {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .popup__title {
@@ -53,13 +59,12 @@ VisualElement {
 }
 
 .popup__close-btn {
-    -unity-font-style: bold;
+    -unity-font-style: normal;
     background-color: rgba(0, 0, 0, 0);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    width: 16px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
@@ -68,6 +73,8 @@ VisualElement {
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
+    font-size: 28px;
+    height: 20px;
 }
 
 .popup__content {
@@ -90,6 +97,14 @@ VisualElement {
     max-height: 500px;
     width: 350px;
     right: 10px;
+    border-left-color: var(--window-border-color);
+    border-right-color: var(--window-border-color);
+    border-top-color: var(--window-border-color);
+    border-bottom-color: var(--window-border-color);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
 }
 
 .control-panel__content {
@@ -111,4 +126,118 @@ VisualElement {
     -unity-background-scale-mode: scale-to-fit;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.unity-scroll-view--vertical-flipped {
+}
+
+.unity-scroll-view--vertical-flipped #unity-content-and-vertical-scroll-container {
+    flex-direction: row-reverse;
+}
+
+.unity-scroll-view .unity-repeat-button {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: var(--scroller-color);
+}
+
+.unity-scroll-view .unity-base-slider__tracker {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.unity-scroll-view .unity-base-slider__dragger {
+    background-color: var(--scroller-color);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.unity-scroller--vertical .unity-base-slider__dragger {
+    left: 2px;
+    width: 10px;
+    min-width: 10px;
+}
+
+.unity-scroller--horizontal .unity-base-slider__dragger {
+    top: 2px;
+    height: 10px;
+    min-height: 10px;
+}
+
+.unity-scroller--vertical {
+    width: var(--scroller-size);
+}
+
+.unity-scroller--horizontal {
+    height: var(--scroller-size);
+}
+
+.unity-scroller > .unity-scroller__low-button {
+    width: var(--scroller-size);
+    min-width: var(--scroller-size);
+    height: var(--scroller-size);
+    min-height: var(--scroller-size);
+}
+
+.unity-scroller > .unity-scroller__high-button {
+    width: var(--scroller-size);
+    min-width: var(--scroller-size);
+    height: var(--scroller-size);
+    min-height: var(--scroller-size);
+}
+
+.unity-scroller--vertical > .unity-scroller__slider {
+    width: var(--scroller-size);
+    min-width: var(--scroller-size);
+    margin-top: var(--scroller-size);
+    margin-bottom: var(--scroller-size);
+}
+
+.unity-scroller--vertical #unity-tracker {
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+.unity-scroller--horizontal > .unity-scroller__slider {
+    height: var(--scroller-size);
+    min-height: var(--scroller-size);
+    margin-left: var(--scroller-size);
+    margin-right: var(--scroller-size);
+}
+
+.unity-scroller--horizontal #unity-tracker {
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.unity-button {
+    background-color: var(--window-color);
+    border-left-color: var(--window-border-color);
+    border-right-color: var(--window-border-color);
+    border-top-color: var(--window-border-color);
+    border-bottom-color: var(--window-border-color);
+}
+
+.unity-button:hover {
+    background-color: rgba(48, 48, 48, 255);
+    border-left-color: rgba(135, 135, 135, 255);
+    border-right-color: rgba(135, 135, 135, 255);
+    border-top-color: rgba(135, 135, 135, 255);
+    border-bottom-color: rgba(135, 135, 135, 255);
+}
+
+.unity-button:active {
+    background-color: rgba(91, 91, 91, 255);
+    border-left-color: rgba(200, 200, 200, 255);
+    border-right-color: rgba(200, 200, 200, 255);
+    border-top-color: rgba(200, 200, 200, 255);
+    border-bottom-color: rgba(200, 200, 200, 255);
 }

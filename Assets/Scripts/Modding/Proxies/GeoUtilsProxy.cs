@@ -4,13 +4,15 @@ using Unity.Mathematics;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
-    public class GeoProxy
+    public class GeoProxy : ProxyBase
     {
-        public float distance(float lat_1, float lon_1, float lat_2, float lon_2)
+        public override string Name => "geo";
+        public override string Description => "Module for geo operations";
+
+        [LuaHelpInfo("Calculates the distance in kilometer between two coordinates")]
+        public float distance(Coordinate coord1, Coordinate coord2)
         {
-            return GeoUtils.Distance(
-                new Coordinate(math.radians(lon_1), math.radians(lat_1)), 
-                new Coordinate(math.radians(lon_2), math.radians(lat_2)));
+            return GeoUtils.Distance(coord1, coord2);
         }
     }
 }

@@ -4,6 +4,7 @@
     bottom: 0;
     right: 0;
     align-items: flex-start;
+    max-height: 100%;
 }
 
 .lua-console__text-field {
@@ -11,10 +12,10 @@
     margin-right: 10px;
     margin-top: 0;
     margin-bottom: 10px;
-    border-left-color: rgb(135, 135, 135);
-    border-right-color: rgb(135, 135, 135);
-    border-top-color: rgb(135, 135, 135);
-    border-bottom-color: rgb(135, 135, 135);
+    border-left-color: var(--window-border-color);
+    border-right-color: var(--window-border-color);
+    border-top-color: var(--window-border-color);
+    border-bottom-color: var(--window-border-color);
     border-left-width: 1px;
     border-right-width: 1px;
     border-top-width: 1px;
@@ -23,7 +24,7 @@
     border-bottom-left-radius: 14px;
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
-    background-color: rgb(63, 63, 63);
+    background-color: var(--window-color);
     flex-grow: 1;
 }
 
@@ -51,6 +52,9 @@
     margin-top: 0;
     margin-bottom: 4px;
     flex-grow: 1;
+    align-items: flex-start;
+    max-width: 60%;
+    min-width: 200px;
 }
 
 .history-entry {
@@ -58,16 +62,16 @@
     margin-left: 4px;
     margin-right: 0;
     margin-top: 2px;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-left: 4px;
+    padding-right: 4px;
     margin-bottom: 2px;
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
     border-left-width: 2px;
+    background-color: rgba(87, 87, 87, 0.35);
+    padding-top: 4px;
 }
 
 .history-entry__code {
@@ -78,17 +82,25 @@
     padding-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+    flex-wrap: wrap;
+}
+
+.history-entry__image {
+    max-height: 256px;
+    max-width: 350px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.history-entry__image--hidden {
+    display: none;
 }
 
 .history-entry__print {
     margin-top: 2px;
     margin-bottom: 2px;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
     margin-left: 12px;
     font-size: 11px;
+    white-space: normal;
 }
 
 .history-entry__print--hidden {
