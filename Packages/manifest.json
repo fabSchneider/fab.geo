@@ -12,7 +12,7 @@
     "com.unity.timeline": "1.6.3",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "0.1.21-preview",
     "com.unity.ugui": "1.0.0",
-    "moonsharp": "https://github.com/fabSchneider/moonsharp.git#upm",
+    "moonsharp": "https://github.com/fabSchneider/moonsharp.git#v2.0.0-upm.533e8b0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
