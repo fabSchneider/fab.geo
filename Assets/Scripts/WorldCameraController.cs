@@ -16,6 +16,8 @@ namespace Fab.Geo
             new Vector3(0, 1, 1)
         };
 
+        private List<WorldChunk> regenerateChunks = new List<WorldChunk>();
+
         [SerializeField]
         private Camera cam;
 
@@ -33,11 +35,6 @@ namespace Fab.Geo
 
         [SerializeField]
         private float orbitPitchSpeed = 0.1f;
-
-        [SerializeField]
-        private float minPitch = -90f;
-        [SerializeField]
-        private float maxPitch = 0f;
 
         [SerializeField]
         private Vector2 zoomBounds;
@@ -58,11 +55,6 @@ namespace Fab.Geo
 
         private void Start()
         {
-            playerInput = GetComponent<PlayerInput>();
-            panAction = playerInput.actions.FindAction("Pan");
-            orbitAction = playerInput.actions.FindAction("Orbit");
-            deltaAction = playerInput.actions.FindAction("Delta");
-            zoomAction = playerInput.actions.FindAction("Zoom");
             cam.farClipPlane = -cam.transform.localPosition.z;
         }
 
@@ -70,6 +62,15 @@ namespace Fab.Geo
         {
             if (controlEnabled)
             {
+                if(playerInput == null)
+                {
+                    playerInput = GetComponent<PlayerInput>();
+                    panAction = playerInput.actions.FindAction("Pan");
+                    orbitAction = playerInput.actions.FindAction("Orbit");
+                    deltaAction = playerInput.actions.FindAction("Delta");
+                    zoomAction = playerInput.actions.FindAction("Zoom");
+                }
+
                 if (panAction.ReadValue<float>() > 0f && deltaAction.triggered)
                     Pan(deltaAction.ReadValue<Vector2>());
 
@@ -108,18 +109,59 @@ namespace Fab.Geo
         /// <param name="zoomLevel"></param>
         public void SetZoom(float zoomLevel)
         {
-            //float pitch = cameraPitch.Evaluate(zoomLevel);
-
             Vector3 camLocalPos = cam.transform.localPosition;
-
             cam.transform.localPosition = new Vector3(camLocalPos.x, camLocalPos.y, -Mathf.Lerp(zoomBounds.y, zoomBounds.x, zoomLevel));
-            //Vector3 euler = cam.transform.localRotation.eulerAngles;
-            //cam.transform.localEulerAngles = new Vector3(-pitch, euler.y, euler.z);
+        }
+
+        Coroutine animationRoutine;
+
+        /// <summary>
+        /// Moves the camera from one coordinate to the next in a list of coordinates
+        /// </summary>
+        /// <param name="coords"></param>
+        /// <param name="speed"></param>
+        /// <param name="loop"></param>
+        public void Animate(IReadOnlyList<Coordinate> coords, float speed, bool loop)
+        {
+            if (animationRoutine != null)
+                StopCoroutine(animationRoutine);
+
+            animationRoutine = StartCoroutine(AnimateCoroutine(coords, speed, loop));          
+        }
+
+        IEnumerator AnimateCoroutine(IReadOnlyList<Coordinate> coords, float speed, bool loop)
+        {
+            if (coords != null && coords.Count > 0)
+            {
+                int i = 0;
+                while (true)
+                {
+                    Coordinate coord = coords[i];
+                    Vector3 target = GeoUtils.CoordinateToPoint(coord);
+                    Vector3 current = GeoUtils.CoordinateToPoint(GetCoordinate());
+
+                    while (current != target)
+                    {
+                        current = Vector3.MoveTowards(current, target, Time.deltaTime * speed);
+                        SetCoordinate(GeoUtils.PointToCoordinate(current));
+                        yield return null;
+                    }
+
+                    i++;
+
+                    if (i == coords.Count)
+                    {
+                        if (loop)
+                            i = 0;
+                        else
+                            break;
+                    }
+                }
+            }
         }
 
         private void Pan(Vector2 delta)
         {
-
             Vector3 camLocalPos = cam.transform.localPosition;
             float lastZoomLevel = -camLocalPos.z;
             float currPanSpeed = Mathf.Lerp(panSpeed, panSpeed * 0.05f, Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, lastZoomLevel));
@@ -135,8 +177,6 @@ namespace Fab.Geo
 
             Vector3 euler = cam.transform.localRotation.eulerAngles;
             float pitch = euler.x - delta.y * orbitPitchSpeed;
-            //Debug.Log(pitch);
-            //pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
             cam.transform.localEulerAngles = new Vector3(pitch, euler.y, euler.z);
         }
 
@@ -153,8 +193,6 @@ namespace Fab.Geo
             float zoomLevelNorm = Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, zoomLevel);
             SetZoom(zoomLevelNorm);
         }
-
-        private List<WorldChunk> regenerateChunks = new List<WorldChunk>();
 
         private void CullWorld()
         {

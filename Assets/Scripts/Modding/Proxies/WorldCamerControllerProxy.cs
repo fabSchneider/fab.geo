@@ -1,4 +1,7 @@
 using MoonSharp.Interpreter;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
@@ -29,5 +32,11 @@ namespace Fab.Geo.Modding
 
         [LuaHelpInfo("Disables the camera's input control")]
         public void disable_control() => Value.ControlEnabled = false;
+        
+        [LuaHelpInfo("Moves the camera from one coordinate to the next in a list of coordinates")]
+        public void animate(Coordinate[] coords, float speed, bool loop = false)
+        {
+            Value.Animate(coords, speed, loop);
+        }    
     }
 }
