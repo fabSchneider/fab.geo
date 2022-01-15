@@ -271,6 +271,9 @@ namespace Fab.Geo.Modding
             {
                 RecordProxy recordProxy = new RecordProxy(inputHandler);
                 globals.Add(recordProxy.Name, recordProxy);
+
+                WorldProxy worldProxy = new WorldProxy(inputHandler);
+                globals.Add(worldProxy.Name, worldProxy);
             }
         }
 

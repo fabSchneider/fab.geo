@@ -28,14 +28,14 @@ namespace Fab.Geo.Modding
         public void start(Table to)
         {
             recordTable = to;
-            worldInput.OnClick += WorldInput_OnClick;
+            worldInput.clicked += WorldInput_OnClick;
         }
 
         [LuaHelpInfo("Stops recording clicks")]
         public void stop()
         {
             recordTable = null;
-            worldInput.OnClick -= WorldInput_OnClick;
+            worldInput.clicked -= WorldInput_OnClick;
         }
 
         private void WorldInput_OnClick(Coordinate coord)
