@@ -8,10 +8,10 @@ using UnityEngine.UIElements;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module for adding controls to the control panel")]
     public class ControlPanelProxy : ProxyBase<ControlPanel>
     {
         public override string Name => "controls";
-        public override string Description => "Module for adding controls to the control panel";
 
         private List<ControlProxy> controlProxies;
 

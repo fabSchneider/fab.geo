@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     public abstract class ControlProxy : ProxyBase<VisualElement>, IDisposable
     {
         protected string controlPath;
@@ -50,7 +49,7 @@ namespace Fab.Geo.Modding
         }
     }
 
-    [MoonSharpUserData]
+    [LuaHelpInfo("A button control")]
     public class ButtonProxy : ControlProxy
     {
         private Closure onClick;
@@ -59,8 +58,6 @@ namespace Fab.Geo.Modding
         public ButtonProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path) { }
 
         public override string Name => "button";
-
-        public override string Description => "A button control";
 
         [LuaHelpInfo("Add a function to be executed when the button is clicked")]
         public void on_click(Closure callback)
@@ -89,6 +86,7 @@ namespace Fab.Geo.Modding
     }
 
     [MoonSharpUserData]
+    [LuaHelpInfo("A slider control")]
     public class SliderProxy : ControlProxy
     {
         private Closure onValueChange;
@@ -102,9 +100,6 @@ namespace Fab.Geo.Modding
         }
 
         public override string Name => "slider";
-
-        public override string Description => "A slider control";
-
 
         [LuaHelpInfo("Add a function to be executed when the value of this slider changes")]
         public void on_change(Closure callback)
@@ -131,6 +126,7 @@ namespace Fab.Geo.Modding
     }
 
     [MoonSharpUserData]
+    [LuaHelpInfo("A seperator")]
     public class SeparatorProxy : ControlProxy
     {
         public SeparatorProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
@@ -138,11 +134,10 @@ namespace Fab.Geo.Modding
         }
 
         public override string Name => "separator";
-
-        public override string Description => "A separator";
     }
 
     [MoonSharpUserData]
+    [LuaHelpInfo("A choice control")]
     public class ChoiceProxy : ControlProxy
     {
         private Closure onValueChange;
@@ -156,8 +151,6 @@ namespace Fab.Geo.Modding
         }
 
         public override string Name => "choice";
-
-        public override string Description => "A choice control";
 
         [LuaHelpInfo("Add a function to be executed when the selected choice changes")]
         public void on_change(Closure callback)

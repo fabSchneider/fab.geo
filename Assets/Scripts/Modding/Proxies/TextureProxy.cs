@@ -4,10 +4,10 @@ using UnityEngine;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("An image object")]
     public class TextureProxy : ProxyBase<Texture2D>
     {
         public override string Name => "image";
-        public override string Description => "Ans image object";
 
         [MoonSharpHidden]
         public TextureProxy(Texture2D source) : base(source) {}

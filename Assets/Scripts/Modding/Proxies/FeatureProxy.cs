@@ -6,13 +6,11 @@ using UnityEngine;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("A feature object")]
     public class FeatureProxy : ProxyBase<Feature>
     {
         [MoonSharpHidden]
         public override string Name => "feature";
-
-        [MoonSharpHidden]
-        public override string Description => "A feature object";
 
         private Closure clickEvent;
 

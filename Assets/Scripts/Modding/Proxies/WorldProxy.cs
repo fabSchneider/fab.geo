@@ -7,11 +7,10 @@ using UnityEngine;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module for interacting with the world")]
     public class WorldProxy : ProxyBase<WorldInputHandler>
     {
         public override string Name => "world";
-
-        public override string Description => "Module for interacting with the world";
        
         private Closure clickEvent;
 

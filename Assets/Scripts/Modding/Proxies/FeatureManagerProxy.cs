@@ -7,10 +7,10 @@ using Unity.Mathematics;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module for adding features (points, lines...) to the world")]
     public class FeatureManagerProxy : ProxyBase<FeatureManager>
     {
         public override string Name => "features";
-        public override string Description => "Module for adding features (points, lines...) to the world";
 
         [MoonSharpHidden]
         public FeatureManagerProxy(FeatureManager value) : base(value) { }

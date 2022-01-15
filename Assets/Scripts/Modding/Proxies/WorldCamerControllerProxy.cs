@@ -6,10 +6,10 @@ using UnityEngine;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module for controlling the world camera")]
     public class WorldCameraControllerProxy : ProxyBase<WorldCameraController>
     {
         public override string Name => "camera";
-        public override string Description => "Module for controlling the world camera";
 
         [MoonSharpHidden]
         public WorldCameraControllerProxy(WorldCameraController value) : base(value) { }

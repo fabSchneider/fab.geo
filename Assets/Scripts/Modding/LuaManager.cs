@@ -232,6 +232,11 @@ namespace Fab.Geo.Modding
         {
             globals = new Dictionary<string, object>();
 
+            foreach (var t in UserData.GetRegisteredTypes())
+            {
+                Debug.Log(t.Name);
+            }
+
             FeatureManager featureManager = FindObjectOfType<FeatureManager>();
             if (featureManager)
             {

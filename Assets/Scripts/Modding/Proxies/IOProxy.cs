@@ -7,12 +7,12 @@ using UnityEngine;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module for loading image and text")]
     public class IOProxy : ProxyBase
     {
         private static readonly HashSet<string> imageExtensions = new HashSet<string>() { ".jpg", ".jpeg", ".png" };
         private static readonly HashSet<string> textExtensions = new HashSet<string>() { ".txt", ".json", ".geojson" };
         public override string Name => "io";
-        public override string Description => "Module for loading image and text";
 
         private string dataDirectory;
 

@@ -4,10 +4,10 @@ using MoonSharp.Interpreter;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module to show popups on the screen")]
     public class PopupProxy : ProxyBase<Popup>
     {
         public override string Name => "popup";
-        public override string Description => "Module to show popups on the screen";
 
         [MoonSharpHidden]
         public PopupProxy(Popup value) : base(value){}

@@ -4,6 +4,7 @@ using Unity.Mathematics;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module for generating random numbers and more")]
     public class RandomProxy : ProxyBase
     {
 
@@ -16,8 +17,6 @@ namespace Fab.Geo.Modding
         }
 
         public override string Name => "random";
-
-        public override string Description => "Module for generating random numbers and more";
 
         [LuaHelpInfo("Sets the seed of the random generator")]
         public void set_seed(uint seed)

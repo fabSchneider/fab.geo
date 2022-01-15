@@ -7,11 +7,10 @@ namespace Fab.Geo.Modding
 {
     // NOTE: Not really a proxy as it does not stand in for anything. Should maybe rename later
     [MoonSharpUserData]
+    [LuaHelpInfo("Module to record coordinates from mouse inpute")]
     public class RecordProxy : ProxyBase
     {
         public override string Name => "record";
-
-        public override string Description => "Module to record coordinates from mouse input";
 
         WorldInputHandler worldInput;
 
