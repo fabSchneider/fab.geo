@@ -45,16 +45,16 @@ namespace Fab.Geo.Modding
 
         public void SetDebugger(LuaDebugger debugger)
         {
-            if(debugger == null)
+            if (debugger == null)
             {
                 this.debugger = null;
                 return;
-            }    
+            }
 
             // don't allow to 'overwrite' an existing debugger
             if (this.debugger != null)
                 Debug.LogError("Debugger has already been set");
-               
+
             this.debugger = debugger;
 
             //attach all loaded scripts to the debugger
@@ -170,7 +170,7 @@ namespace Fab.Geo.Modding
         {
             string scriptName = Path.GetFileNameWithoutExtension(path);
             Script script = CreateScript(scriptName);
-          
+
             script.Options.DebugPrint = s => Debug.Log(s);
 
             using Stream fileStream = new FileStream(path, FileMode.Open);
@@ -265,6 +265,13 @@ namespace Fab.Geo.Modding
 
             RandomProxy randProxy = new RandomProxy();
             globals.Add(randProxy.Name, randProxy);
+
+            WorldInputHandler inputHandler = FindObjectOfType<WorldInputHandler>();
+            if (inputHandler)
+            {
+                RecordProxy recordProxy = new RecordProxy(inputHandler);
+                globals.Add(recordProxy.Name, recordProxy);
+            }
         }
 
         private void LoadLuaModulesForScript(Script script)
