@@ -8,7 +8,10 @@ namespace Fab.Geo.Modding
     [MoonSharpUserData]
     public class FeatureProxy : ProxyBase<Feature>
     {
+        [MoonSharpHidden]
         public override string Name => "feature";
+
+        [MoonSharpHidden]
         public override string Description => "A feature object";
 
         private Closure clickEvent;
@@ -16,12 +19,14 @@ namespace Fab.Geo.Modding
         [MoonSharpHidden]
         public FeatureProxy(Feature value) : base(value) { }
 
+        [LuaHelpInfo("The name of the feature")]
         public string name
         {
             get => Value.name;
             set => Value.SetName(name);
         }
 
+        [LuaHelpInfo("The type of the feature")]
         public string type
         {
             get
@@ -38,8 +43,10 @@ namespace Fab.Geo.Modding
             }
         }
 
-        public Coordinate center => Value.Geometry[0];
+        [LuaHelpInfo("Returns the geometry of the feature as a list of coordinates")]
+        public Coordinate[] geometry => Value.Geometry;
 
+        [LuaHelpInfo("Event function that is called when the feature is clicked")]
         public void on_click(Closure action)
         {
             clickEvent = action;
@@ -48,17 +55,25 @@ namespace Fab.Geo.Modding
                 Value.clicked += OnClick;
         }
 
-        private void OnClick()
+        [LuaHelpInfo("Removes this feature")]
+        public void remove()
         {
-            clickEvent.Call(this);
+            Value.Remove();
         }
 
+
+        [MoonSharpHidden]
         public override string ToString()
         {
             if (IsNil())
                 return "nil";
 
             return $"feature {{ type: {type}, name: {name} }}";
+        }
+
+        private void OnClick()
+        {
+            clickEvent.Call(this);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Fab.Geo.Modding
         {
             FeatureLine fl = Value.AddLine(
                 name,
-                feature_1.center, feature_2.center);
+                feature_1.geometry[0], feature_2.geometry[0]);
             return new FeatureProxy(fl);
         }
 

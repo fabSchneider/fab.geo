@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Fab.Geo.Modding
+namespace Fab.Geo
 {
     public class FeatureManager : MonoBehaviour
     {
