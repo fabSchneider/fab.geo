@@ -1,4 +1,5 @@
 using MoonSharp.Interpreter;
+using MoonSharp.Interpreter.Interop;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -66,8 +67,6 @@ namespace Fab.Geo.Modding
 
         private void help(DynValue value)
         {
-            Debug.Log(value.Type);
-
             switch (value.Type)
             {
                 case DataType.Nil:
