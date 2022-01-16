@@ -49,8 +49,8 @@ Material:
     - _HeightStrength: 1.23
     - _LandSmoothness: 0.2
     - _NormalStrength: -20
-    - _OverlayExp: 2
-    - _OverlayScale: 1
+    - _OverlayExp: 5
+    - _OverlayScale: 0.81
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WaterSmoothness: 0.5
