@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace Fab.Geo
 {
-    public abstract class Feature : MonoBehaviour
+    public abstract class Feature : MonoBehaviour, IPointerClickHandler
     {
 
         public event Action clicked;
@@ -31,6 +31,12 @@ namespace Fab.Geo
                 manager.RemoveFeature(this);
             else
                 Destroy(gameObject);
+        }
+
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+                clicked?.Invoke();
         }
     }
 }

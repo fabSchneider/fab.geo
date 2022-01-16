@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3372693483474277290}
   - component: {fileID: 3372693483474276949}
   - component: {fileID: 3372693483474276948}
+  - component: {fileID: 3112890201645498431}
   m_Layer: 0
   m_Name: FeatureLine
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10382038939d48e47a25eb695c2dcd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zOffset: 0.008
+  zOffset: 0.005
 --- !u!120 &3372693483474276948
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +67,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9082aa628abbff842b15e84cf13d92ca, type: 2}
+  - {fileID: 2100000, guid: 5a75567135c482d41a4a8a3fd27084b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +93,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.0015
+    widthMultiplier: 0.005
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -139,9 +140,23 @@ LineRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 0
-    textureMode: 0
+    alignment: 1
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!64 &3112890201645498431
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372693483474276951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
