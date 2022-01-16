@@ -1,5 +1,7 @@
 using MoonSharp.Interpreter;
 using Unity.Mathematics;
+using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 namespace Fab.Geo.Modding
 {
@@ -45,6 +47,12 @@ namespace Fab.Geo.Modding
         public Coordinate coord()
         {
             return new Coordinate(rand.NextFloat(-math.PI, math.PI), rand.NextFloat(-2 * math.PI, 2 * math.PI));
+        }
+
+        [LuaHelpInfo("returns a color with a random hue")]
+        public Color color(float saturation = 1f, float brightness = 1f)
+        {
+            return Color.HSVToRGB(rand.NextFloat(), saturation, brightness);
         }
     }
 }

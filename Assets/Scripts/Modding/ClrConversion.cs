@@ -47,6 +47,26 @@ namespace Fab.Geo.Modding
                     return script.Call(script.Globals.Get("Vector"), x, y, z);
                 }
             );
+
+            Script.GlobalOptions.CustomConverters.SetScriptToClrCustomConversion(DataType.Table, typeof(Color),
+                dynVal => {
+                    Table table = dynVal.Table;
+                    float r = (float)table.Get("r").CastToNumber();
+                    float g = (float)table.Get("g").CastToNumber();
+                    float b = (float)table.Get("b").CastToNumber();
+                    float a = (float)table.Get("a").CastToNumber();
+                    return new Color(r, g, b, a);
+                }
+            );
+            Script.GlobalOptions.CustomConverters.SetClrToScriptCustomConversion<Color>(
+                (script, color) => {
+                    DynValue r = DynValue.NewNumber(color.r);
+                    DynValue g = DynValue.NewNumber(color.g);
+                    DynValue b = DynValue.NewNumber(color.b);
+                    DynValue a = DynValue.NewNumber(color.a);
+                    return script.Call(script.Globals.Get("Color"), r, g, b, a);
+                }
+            );
         }
     }
 }
