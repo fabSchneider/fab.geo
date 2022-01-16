@@ -10,7 +10,7 @@ namespace Fab.Geo.Modding
     [LuaHelpInfo("Module to record coordinates from mouse inpute")]
     public class RecordProxy : ProxyBase
     {
-        public override string Name => "record";
+        public override string Name => "rec";
 
         WorldInputHandler worldInput;
 
@@ -24,7 +24,7 @@ namespace Fab.Geo.Modding
 
 
         [LuaHelpInfo("Starts recording clicks on the globe and appends the coordinate at the click position to the supplied table")]
-        public void start(Table to)
+        public void to(Table to)
         {
             recordTable = to;
             worldInput.clicked += WorldInput_OnClick;
