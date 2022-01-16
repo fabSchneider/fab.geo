@@ -10,6 +10,8 @@ namespace Fab.Geo
         private FeaturePoint pointPrefab;
         [SerializeField]
         private FeatureLine linePrefab;
+        [SerializeField]
+        private FeaturePolyline polylinePrefab;
 
         private Dictionary<string, List<Feature>> features;
 
@@ -58,6 +60,15 @@ namespace Fab.Geo
             FeatureLine inst = Instantiate(linePrefab, transform);
             inst.name = name;
             inst.SetEndpoints(a, b);
+            AddFeature(inst);
+            return inst;
+        }
+
+        public FeaturePolyline AddPolyline(string name, ICollection<Coordinate> coords, bool closed)
+        {
+            FeaturePolyline inst = Instantiate(polylinePrefab, transform);
+            inst.name = name;
+            inst.SetPoints(coords, closed);
             AddFeature(inst);
             return inst;
         }

@@ -64,7 +64,7 @@ namespace Fab.Geo
 
             Vector3[] pts = new Vector3[2 + divs];
 
-            Vector3 startPoint = transform.worldToLocalMatrix.MultiplyVector(pA) * (1 + zOffset);
+            Vector3 startPoint = transform.worldToLocalMatrix.MultiplyVector(pA);
             float angleIncrement = angle / (pts.Length - 1);
 
             pts[0] = startPoint;

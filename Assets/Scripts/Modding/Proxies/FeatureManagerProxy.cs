@@ -16,25 +16,32 @@ namespace Fab.Geo.Modding
         public FeatureManagerProxy(FeatureManager value) : base(value) { }
 
         [LuaHelpInfo("Adds a point at the given coordinates")]
-        public FeatureProxy add_point(string name, Coordinate coord)
+        public FeatureProxy point(string name, Coordinate coord)
         {
             FeaturePoint fp = Value.AddPoint(name, coord);
             return new FeatureProxy(fp);
         }
 
         [LuaHelpInfo("Adds a line between two coordinates")]
-        public FeatureProxy add_line(string name, Coordinate coord1, Coordinate coord2)
+        public FeatureProxy line(string name, Coordinate coord1, Coordinate coord2)
         {
-            FeatureLine fl = Value.AddLine(name, coord1, coord2);
+            Feature fl = Value.AddLine(name, coord1, coord2);
             return new FeatureProxy(fl);
         }
 
         [LuaHelpInfo("Adds a line between two features")]
-        public FeatureProxy add_line(string name, FeatureProxy feature_1, FeatureProxy feature_2)
+        public FeatureProxy line(string name, FeatureProxy feature_1, FeatureProxy feature_2)
         {
-            FeatureLine fl = Value.AddLine(
+            Feature fl = Value.AddLine(
                 name,
                 feature_1.geometry[0], feature_2.geometry[0]);
+            return new FeatureProxy(fl);
+        }
+
+        [LuaHelpInfo("Adds a polyline through a list of coordinates")]
+        public FeatureProxy polyline(string name, ICollection<Coordinate> coords, bool closed = false)
+        {
+            Feature fl = Value.AddPolyline(name, coords, closed);
             return new FeatureProxy(fl);
         }
 

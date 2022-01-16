@@ -6,8 +6,6 @@ namespace Fab.Geo
 {
     public abstract class Feature : MonoBehaviour, IPointerClickHandler
     {
-
-
         public event Action clicked;
 
         public abstract Coordinate[] Geometry { get; }

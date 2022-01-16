@@ -35,6 +35,8 @@ namespace Fab.Geo.Modding
                         return "point";
                     case FeatureLine:
                         return "line";
+                    case FeaturePolyline:
+                        return "polyline";
                     default:
                         return "undefined";
                 }
