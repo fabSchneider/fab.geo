@@ -49,6 +49,7 @@ namespace Fab.Geo.Modding
         }
     }
 
+    [MoonSharpUserData]
     [LuaHelpInfo("A button control")]
     public class ButtonProxy : ControlProxy
     {
