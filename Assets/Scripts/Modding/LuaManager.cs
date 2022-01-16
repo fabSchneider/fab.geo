@@ -232,10 +232,10 @@ namespace Fab.Geo.Modding
         {
             globals = new Dictionary<string, object>();
 
-            foreach (var t in UserData.GetRegisteredTypes())
-            {
-                Debug.Log(t.Name);
-            }
+            //foreach (var t in UserData.GetRegisteredTypes())
+            //{
+            //    Debug.Log(t.Name);
+            //}
 
             FeatureManager featureManager = FindObjectOfType<FeatureManager>();
             if (featureManager)
@@ -268,7 +268,16 @@ namespace Fab.Geo.Modding
             IOProxy ioProxy = new IOProxy(DataDirectory);
             globals.Add(ioProxy.Name, ioProxy);
 
-            RandomProxy randProxy = new RandomProxy();
+            DateTime now = DateTime.UtcNow;
+            uint seed =
+                (uint)now.Year * (uint)31557600 +
+                (uint)now.Month * (uint)2629800 +
+                (uint)now.Day * (uint)86400 +
+                (uint)now.Hour * (uint)3600 +
+                (uint)now.Minute * (uint)60 +
+                (uint)now.Second;
+
+            RandomProxy randProxy = new RandomProxy(seed);
             globals.Add(randProxy.Name, randProxy);
 
             WorldInputHandler inputHandler = FindObjectOfType<WorldInputHandler>();
