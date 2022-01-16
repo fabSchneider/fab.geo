@@ -7,7 +7,6 @@ namespace Fab.Geo.Modding
     [LuaHelpInfo("Module for generating random numbers and more")]
     public class RandomProxy : ProxyBase
     {
-
         private Random rand;
 
         [MoonSharpHidden]
@@ -24,16 +23,22 @@ namespace Fab.Geo.Modding
             rand = new Random(seed);
         }
 
-        [LuaHelpInfo("returns a random number between 0 and 1")]
+        [LuaHelpInfo("returns a random number between 0 [inclusive] and 1 (exclusive)")]
         public float number()
         {
             return rand.NextFloat();
         }
 
-        [LuaHelpInfo("returns a random number between min and max")]
+        [LuaHelpInfo("returns a random number between min [inclusive] and max (exclusive)")]
         public float number(float min, float max)
         {
             return rand.NextFloat(min, max);
+        }
+
+        [LuaHelpInfo("returns a random whole number between min [inclusive] and max (exclusive)")]
+        public float whole_number(int min, int max)
+        {
+            return rand.NextInt(min, max);
         }
 
         [LuaHelpInfo("returns a random coordinate")]
