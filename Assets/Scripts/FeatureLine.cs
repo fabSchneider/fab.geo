@@ -23,8 +23,9 @@ namespace Fab.Geo
 
         public override Coordinate[] Geometry => new Coordinate[] { coordA, coordB };
 
-        void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             lr = GetComponent<LineRenderer>();
             mc = GetComponent<MeshCollider>();
             collisionMesh = new Mesh();
@@ -62,10 +63,10 @@ namespace Fab.Geo
             transform.rotation = Quaternion.LookRotation(Quaternion.AngleAxis(angle / 2f, axis) * -pA, axis);
 
             Vector3[] pts = new Vector3[2 + divs];
-           
+
             Vector3 startPoint = transform.worldToLocalMatrix.MultiplyVector(pA) * (1 + zOffset);
-            float angleIncrement = angle / (pts.Length - 1);       
-            
+            float angleIncrement = angle / (pts.Length - 1);
+
             pts[0] = startPoint;
             for (int i = 1; i < pts.Length; i++)
                 pts[i] = Quaternion.AngleAxis(angleIncrement * i, Vector3.up) * startPoint;

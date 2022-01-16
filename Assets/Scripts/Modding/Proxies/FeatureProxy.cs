@@ -24,7 +24,7 @@ namespace Fab.Geo.Modding
             set => Value.SetName(name);
         }
 
-        [LuaHelpInfo("The type of the feature")]
+        [LuaHelpInfo("The type of the feature (readonly)")]
         public string type
         {
             get
@@ -41,7 +41,14 @@ namespace Fab.Geo.Modding
             }
         }
 
-        [LuaHelpInfo("Returns the geometry of the feature as a list of coordinates")]
+        [LuaHelpInfo("The main color of this feature")]
+        public Color color
+        {
+            get => Value.GetColor();
+            set => Value.SetColor(value);
+        }
+
+        [LuaHelpInfo("The geometry of the feature as a list of coordinates (readonly)")]
         public Coordinate[] geometry => Value.Geometry;
 
         [LuaHelpInfo("Event function that is called when the feature is clicked")]
@@ -59,6 +66,11 @@ namespace Fab.Geo.Modding
             Value.Remove();
         }
 
+        [LuaHelpInfo("Resets this features style to its default state")]
+        public void reset_style()
+        {
+            Value.ResetStyle();
+        }
 
         [MoonSharpHidden]
         public override string ToString()
