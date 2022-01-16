@@ -12,9 +12,9 @@ namespace Fab.Geo.Modding
         private Random rand;
 
         [MoonSharpHidden]
-        public RandomProxy() 
+        public RandomProxy(uint seed) 
         {
-            rand.InitState();
+            rand.InitState(seed);
         }
 
         public override string Name => "random";
