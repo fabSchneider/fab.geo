@@ -1,9 +1,5 @@
 using MoonSharp.Interpreter;
 using System;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
@@ -22,6 +18,11 @@ namespace Fab.Geo.Modding
             //not require to represent any object but the behaviour can be 
             //overwritten by classes inherting from this class
             return false;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 

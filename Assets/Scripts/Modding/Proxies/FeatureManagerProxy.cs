@@ -72,10 +72,5 @@ namespace Fab.Geo.Modding
                 return false;
             return Value.RemoveFeature(feature.Value);
         }
-
-        public override string ToString()
-        {
-            return Name;
-        }
     }
 }
