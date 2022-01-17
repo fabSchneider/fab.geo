@@ -72,5 +72,11 @@ namespace Fab.Geo.Modding
                 return false;
             return Value.RemoveFeature(feature.Value);
         }
+
+        [LuaHelpInfo("Removes all features from the world")]
+        public void remove_all()
+        {
+            Value.RemoveAllFeatures();
+        }
     }
 }
