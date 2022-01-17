@@ -84,10 +84,13 @@ VisualElement {
 }
 
 .popup__text {
+    -unity-text-align: upper-center;
 }
 
 .popup__footer {
     align-items: flex-end;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .control-panel {
@@ -256,13 +259,13 @@ VisualElement {
     padding-top: 4px;
     padding-bottom: 4px;
     font-size: 24px;
-    color: rgba(153, 153, 153, 255);
+    color: rgb(153, 153, 153);
 }
 
 #reload-btn:hover {
-    color: rgba(204, 204, 204, 255);
+    color: rgb(204, 204, 204);
 }
 
 #reload-btn:active {
-    color: rgba(255, 255, 255, 255);
+    color: rgb(255, 255, 255);
 }
