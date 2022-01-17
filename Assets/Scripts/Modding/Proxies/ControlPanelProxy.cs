@@ -8,10 +8,10 @@ using UnityEngine.UIElements;
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module for adding controls to the control panel")]
     public class ControlPanelProxy : ProxyBase<ControlPanel>
     {
         public override string Name => "controls";
-        public override string Description => "Module for adding controls to the control panel";
 
         private List<ControlProxy> controlProxies;
 
@@ -54,8 +54,22 @@ namespace Fab.Geo.Modding
             controlProxies.Clear();
         }
 
+        [LuaHelpInfo("Adds a label to the control panel")]
+        public ControlProxy label(string path, string text)
+        {
+            VisualElement l = Value.AddLabel(path, text);
+            LabelProxy proxy = GetControlProxy<LabelProxy>(path);
+            if (proxy == null)
+            {
+                proxy = new LabelProxy(l, this, path);
+                controlProxies.Add(proxy);
+
+            }
+            return proxy;
+        }
+
         [LuaHelpInfo("Adds a separator to the control panel")]
-        public ControlProxy add_separator(string path)
+        public ControlProxy separator(string path)
         {
             VisualElement s = Value.AddSeparator(path);
             SeparatorProxy proxy = GetControlProxy<SeparatorProxy>(path);
@@ -69,7 +83,7 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a slider to the control panel")]
-        public ControlProxy add_slider(string path, float min, float max, float value)
+        public ControlProxy slider(string path, float min, float max, float value)
         {
             Slider s = Value.AddSlider(path, min, max, value);
             SliderProxy proxy = GetControlProxy<SliderProxy>(path);
@@ -83,7 +97,7 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a ranged slider to the control panel.")]
-        public ControlProxy add_range_slider(string path, float min, float max, float minLimit, float maxLimit)
+        public ControlProxy range(string path, float min, float max, float minLimit, float maxLimit)
         {
             MinMaxSlider s = Value.AddRangeSlider(path, min, max, minLimit, maxLimit);
             SliderProxy proxy = GetControlProxy<SliderProxy>(path);
@@ -96,7 +110,7 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a choice field to the control panel")]
-        public ControlProxy add_choice(string path, List<string> choices, string value)
+        public ControlProxy choice(string path, List<string> choices, string value)
         {
             DropdownField d = Value.AddChoice(path, choices, value);
             ChoiceProxy proxy = GetControlProxy<ChoiceProxy>(path);
@@ -109,13 +123,17 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a button to the control panel. You can pass in a function that will be called when the button was pressed")]
-        public ControlProxy add_button(string path)
+        public ControlProxy button(string path, string text, Closure on_click)
         {
             Button b = Value.AddButton(path, null);
             ButtonProxy proxy = GetControlProxy<ButtonProxy>(path);
             if (proxy == null)
             {
                 proxy = new ButtonProxy(b, this, path);
+                if (text != null)
+                    ((Button)proxy.Value).text = text;
+                if(on_click != null)
+                    proxy.on_click(on_click);
                 controlProxies.Add(proxy);
             }
             return proxy;

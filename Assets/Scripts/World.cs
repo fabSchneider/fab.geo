@@ -5,9 +5,7 @@ using UnityEngine.Rendering;
 using NaughtyAttributes;
 using Unity.Collections;
 using Unity.Burst;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.EventSystems;
 
 namespace Fab.Geo
 {
@@ -38,9 +36,6 @@ namespace Fab.Geo
 
     public class World : MonoBehaviour
     {
-        //[Tooltip("Mesh resolution of the generated chunks. Number relates to the number of quads for each row/column of the chunk.")]
-        //[Range(1, 255)]
-        //public int chunkResolution = 127;
         [Tooltip("Number of chunks per row/column on each side of the sphere. Must be multiple of 2 and cannot be bigger than the chunk resolution.")]
         [Range(1, 32)]
         public int chunkCount = 8;

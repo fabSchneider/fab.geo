@@ -1,7 +1,9 @@
 using MoonSharp.Interpreter;
+using MoonSharp.Interpreter.Interop;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,6 +17,9 @@ namespace Fab.Geo.Modding
 
         private History history;
         public History ConsoleHistory => history;
+
+        private LuaHelpInfoExtractor luaHelpInfo;
+        private LuaHelpInfoFormatter luaHelpInfoFormatter;
 
         [SerializeField]
         [Tooltip("Maximum number of items in the history.")]
@@ -33,6 +38,8 @@ namespace Fab.Geo.Modding
         private void Awake()
         {
             history = new History(maxHistoryEntries);
+            luaHelpInfo = new LuaHelpInfoExtractor();
+            luaHelpInfoFormatter = new LuaHelpInfoFormatter();
         }
 
         private void Start()
@@ -60,23 +67,43 @@ namespace Fab.Geo.Modding
 
         private void help(DynValue value)
         {
-            object obj = value.ToObject();
-            if (obj is ProxyBase proxy)
+            switch (value.Type)
             {
-                if (proxy.IsNil())
+                case DataType.Nil:
                     AddToPrintOutput("Nil", false);
-                else
-                    AddToPrintOutput(proxy.GetFullDescription(), false);
+                    break;
+                case DataType.Void:
+                    AddToPrintOutput("Type <b>help(<i>module</i>)</b> to show help information for that module." + Environment.NewLine + 
+                        "Type <b>list()</b> to get a list of all avaolable modules.", false);
+                    break;
+                case DataType.UserData:
+                    object obj = value.ToObject();
+                    if (obj is ProxyBase proxy && proxy.IsNil())
+                    {
+                        AddToPrintOutput("Nil", false);
+                    }
+                    else
+                    {
+                        LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(obj.GetType());
+                        string formatted = luaHelpInfoFormatter.Format(helpInfo);
+                        AddToPrintOutput(formatted, false);
+                    }
+                    break;
+                case DataType.ClrFunction:
+                    break;
+                default:
+                    AddToPrintOutput("No help information available", false);
+                    break;
             }
-            else
-                AddToPrintOutput("No help information available", false);
         }
 
+        [LuaHelpInfo("Lists all available modules")]
         private void list()
         {
-            foreach (var proxy in manager.Proxies)
+            foreach (ProxyBase proxy in manager.Proxies)
             {
-                AddToPrintOutput($"{proxy.Name.PadRight(18, ' ')} \t<i>{proxy.Description}</i>\n", false);
+                LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(proxy.GetType());
+                AddToPrintOutput($"{proxy.Name.PadRight(8, ' ')} <i>{helpInfo.description}</i>" + Environment.NewLine, false);
             }
         }
 

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Fab.Geo.UI
@@ -21,6 +23,8 @@ namespace Fab.Geo.UI
         private Label titleLabel;
         private Label textLabel;
         private Image img;
+        private List<Button> buttons;
+        private VisualElement footer;
 
         public Popup(VisualElement root)
         {
@@ -51,8 +55,10 @@ namespace Fab.Geo.UI
             content.Add(img);
             content.Add(textLabel);
 
-            VisualElement footer = new VisualElement();
+            footer = new VisualElement();
             footer.AddToClassList(footerClassName);
+
+            buttons = new List<Button>();
 
             popupElement.Add(header);
             popupElement.Add(content);
@@ -61,19 +67,32 @@ namespace Fab.Geo.UI
             popupRoot.Add(popupElement);
         }
 
+        public bool IsOpen => popupRoot.parent != null;
+
         public void Close()
         {
-            popupElement.Blur();
+            if (!IsOpen)
+                return;
+
+            popupRoot.Blur();
             popupRoot.RemoveFromHierarchy();
             titleLabel.text = null;
             textLabel.text = null;
             img.image = null;
             img.style.maxWidth = StyleKeyword.Null;
             img.style.maxWidth = StyleKeyword.Null;
+
+            foreach (Button b in buttons)
+                b.RemoveFromHierarchy();
+
+            buttons.Clear();
         }
 
         public void Show(string title, string text)
         {
+            if (IsOpen)
+                Close();
+
             titleLabel.text = title;
             img.style.display = DisplayStyle.None;
             textLabel.text = text;
@@ -85,6 +104,9 @@ namespace Fab.Geo.UI
 
         public void Show(string title, Texture2D image)
         {
+            if (IsOpen)
+                Close();
+
             titleLabel.text = title;
             textLabel.style.display = DisplayStyle.None;
             img.image = image;
@@ -93,6 +115,14 @@ namespace Fab.Geo.UI
             img.style.display = DisplayStyle.Flex;
             root.Add(popupRoot);
             popupElement.Focus();
+        }
+
+        public void AddButton(string text, Action onClick)
+        {
+            Button btn = new Button(onClick);
+            btn.text = text;
+            footer.Add(btn);
+            buttons.Add(btn);
         }
     }
 }

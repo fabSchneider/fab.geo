@@ -45,16 +45,16 @@ namespace Fab.Geo.Modding
 
         public void SetDebugger(LuaDebugger debugger)
         {
-            if(debugger == null)
+            if (debugger == null)
             {
                 this.debugger = null;
                 return;
-            }    
+            }
 
             // don't allow to 'overwrite' an existing debugger
             if (this.debugger != null)
                 Debug.LogError("Debugger has already been set");
-               
+
             this.debugger = debugger;
 
             //attach all loaded scripts to the debugger
@@ -170,7 +170,7 @@ namespace Fab.Geo.Modding
         {
             string scriptName = Path.GetFileNameWithoutExtension(path);
             Script script = CreateScript(scriptName);
-          
+
             script.Options.DebugPrint = s => Debug.Log(s);
 
             using Stream fileStream = new FileStream(path, FileMode.Open);
@@ -232,6 +232,11 @@ namespace Fab.Geo.Modding
         {
             globals = new Dictionary<string, object>();
 
+            //foreach (var t in UserData.GetRegisteredTypes())
+            //{
+            //    Debug.Log(t.Name);
+            //}
+
             FeatureManager featureManager = FindObjectOfType<FeatureManager>();
             if (featureManager)
             {
@@ -263,8 +268,27 @@ namespace Fab.Geo.Modding
             IOProxy ioProxy = new IOProxy(DataDirectory);
             globals.Add(ioProxy.Name, ioProxy);
 
-            RandomProxy randProxy = new RandomProxy();
+            DateTime now = DateTime.UtcNow;
+            uint seed =
+                (uint)now.Year * (uint)31557600 +
+                (uint)now.Month * (uint)2629800 +
+                (uint)now.Day * (uint)86400 +
+                (uint)now.Hour * (uint)3600 +
+                (uint)now.Minute * (uint)60 +
+                (uint)now.Second;
+
+            RandomProxy randProxy = new RandomProxy(seed);
             globals.Add(randProxy.Name, randProxy);
+
+            WorldInputHandler inputHandler = FindObjectOfType<WorldInputHandler>();
+            if (inputHandler)
+            {
+                RecordProxy recordProxy = new RecordProxy(inputHandler);
+                globals.Add(recordProxy.Name, recordProxy);
+
+                WorldProxy worldProxy = new WorldProxy(inputHandler);
+                globals.Add(worldProxy.Name, worldProxy);
+            }
         }
 
         private void LoadLuaModulesForScript(Script script)

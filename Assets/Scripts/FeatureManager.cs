@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Fab.Geo.Modding
+namespace Fab.Geo
 {
     public class FeatureManager : MonoBehaviour
     {
@@ -10,6 +10,8 @@ namespace Fab.Geo.Modding
         private FeaturePoint pointPrefab;
         [SerializeField]
         private FeatureLine linePrefab;
+        [SerializeField]
+        private FeaturePolyline polylinePrefab;
 
         private Dictionary<string, List<Feature>> features;
 
@@ -62,6 +64,15 @@ namespace Fab.Geo.Modding
             return inst;
         }
 
+        public FeaturePolyline AddPolyline(string name, ICollection<Coordinate> coords, bool closed)
+        {
+            FeaturePolyline inst = Instantiate(polylinePrefab, transform);
+            inst.name = name;
+            inst.SetPoints(coords, closed);
+            AddFeature(inst);
+            return inst;
+        }
+
         public bool RemoveFeature(Feature feature)
         {
             if (features.TryGetValue(feature.name, out List<Feature> list))
@@ -75,17 +86,26 @@ namespace Fab.Geo.Modding
             return false;
         }
 
-        private void AddFeature(Feature feature)
+        public void RemoveAllFeatures()
         {
-            if(features.TryGetValue(feature.name, out List<Feature> list))
-            {
-                if (!list.Contains(feature))
-                    list.Add(feature);
-            }
-            else
-            {
-                features.Add(feature.name, new List<Feature>() { feature });
-            }
+            foreach (var featureList in features.Values)
+                foreach (var feature in featureList)
+                    Destroy(feature.gameObject);
+
+            features.Clear();
+        }
+
+    private void AddFeature(Feature feature)
+    {
+        if (features.TryGetValue(feature.name, out List<Feature> list))
+        {
+            if (!list.Contains(feature))
+                list.Add(feature);
+        }
+        else
+        {
+            features.Add(feature.name, new List<Feature>() { feature });
         }
     }
+}
 }

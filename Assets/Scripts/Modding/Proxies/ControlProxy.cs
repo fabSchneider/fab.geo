@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     public abstract class ControlProxy : ProxyBase<VisualElement>, IDisposable
     {
         protected string controlPath;
@@ -17,6 +16,13 @@ namespace Fab.Geo.Modding
                 ThrowIfNil();
                 return controlPath;
             }
+        }
+
+        [LuaHelpInfo("The enabled state of the control")]
+        public bool enabled
+        {
+            get => Value.enabledSelf;
+            set => Value.SetEnabled(value);
         }
 
         private ControlPanelProxy panel;
@@ -35,6 +41,26 @@ namespace Fab.Geo.Modding
             panel.remove(this);
         }
 
+        [LuaHelpInfo("Moves the control up in the hierachy")]
+        public void move_up()
+        {
+            int index = Value.parent.IndexOf(Value);
+            if (index == 0)
+                return;
+
+            Value.PlaceBehind(Value.parent.ElementAt(index - 1));
+        }
+
+        [LuaHelpInfo("Moves the control down in the hierachy")]
+        public void move_down()
+        {
+            int index = Value.parent.IndexOf(Value);
+            if (index == Value.parent.childCount - 1)
+                return;
+
+            Value.PlaceInFront(Value.parent.ElementAt(index + 1));
+        }
+
         public virtual void Dispose()
         {
             value = null;
@@ -51,6 +77,7 @@ namespace Fab.Geo.Modding
     }
 
     [MoonSharpUserData]
+    [LuaHelpInfo("A button control")]
     public class ButtonProxy : ControlProxy
     {
         private Closure onClick;
@@ -58,9 +85,15 @@ namespace Fab.Geo.Modding
         [MoonSharpHidden]
         public ButtonProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path) { }
 
+        [MoonSharpHidden]
         public override string Name => "button";
 
-        public override string Description => "A button control";
+        [LuaHelpInfo("The text of the button")]
+        public string text
+        {
+            get => ((Button)Value).text;
+            set => ((Button)Value).text = value;
+        }
 
         [LuaHelpInfo("Add a function to be executed when the button is clicked")]
         public void on_click(Closure callback)
@@ -89,6 +122,7 @@ namespace Fab.Geo.Modding
     }
 
     [MoonSharpUserData]
+    [LuaHelpInfo("A slider control")]
     public class SliderProxy : ControlProxy
     {
         private Closure onValueChange;
@@ -101,10 +135,8 @@ namespace Fab.Geo.Modding
         {
         }
 
+        [MoonSharpHidden]
         public override string Name => "slider";
-
-        public override string Description => "A slider control";
-
 
         [LuaHelpInfo("Add a function to be executed when the value of this slider changes")]
         public void on_change(Closure callback)
@@ -131,18 +163,60 @@ namespace Fab.Geo.Modding
     }
 
     [MoonSharpUserData]
+    [LuaHelpInfo("A seperator")]
     public class SeparatorProxy : ControlProxy
     {
         public SeparatorProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
         {
         }
 
+        [MoonSharpHidden]
         public override string Name => "separator";
-
-        public override string Description => "A separator";
     }
 
     [MoonSharpUserData]
+    [LuaHelpInfo("A label")]
+    public class LabelProxy : ControlProxy
+    {
+        [LuaHelpInfo("The text of the label")]
+        public string text
+        {
+            get => ((Label)Value).text;
+            set => ((Label)Value).text = value;
+        }
+
+        [LuaHelpInfo("The text size of the label")]
+        public float size
+        {
+            get => ((Label)Value).style.fontSize.value.value;
+            set => ((Label)Value).style.fontSize = new Length(value, LengthUnit.Pixel);
+        }
+
+        [LuaHelpInfo("Sets texts boldness of the label")]
+        public bool bold
+        {
+            get => ((Label)Value).style.unityFontStyleAndWeight.value == UnityEngine.FontStyle.Bold;
+            set => ((Label)Value).style.unityFontStyleAndWeight = value ? UnityEngine.FontStyle.Bold : UnityEngine.FontStyle.Normal;
+        }
+
+        [LuaHelpInfo("Sets the text alignment to centered")]
+        public bool center
+        {
+            get => ((Label)Value).style.unityTextAlign.value == UnityEngine.TextAnchor.UpperCenter;
+            set => ((Label)Value).style.unityTextAlign = value ? UnityEngine.TextAnchor.UpperCenter : UnityEngine.TextAnchor.UpperLeft;
+        }
+
+        [MoonSharpHidden]
+        public LabelProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
+        {
+        }
+
+        [MoonSharpHidden]
+        public override string Name => "label";
+    }
+
+    [MoonSharpUserData]
+    [LuaHelpInfo("A choice control")]
     public class ChoiceProxy : ControlProxy
     {
         private Closure onValueChange;
@@ -155,9 +229,8 @@ namespace Fab.Geo.Modding
         {
         }
 
+        [MoonSharpHidden]
         public override string Name => "choice";
-
-        public override string Description => "A choice control";
 
         [LuaHelpInfo("Add a function to be executed when the selected choice changes")]
         public void on_change(Closure callback)

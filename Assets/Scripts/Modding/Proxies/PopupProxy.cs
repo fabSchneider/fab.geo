@@ -1,13 +1,14 @@
 using Fab.Geo.UI;
 using MoonSharp.Interpreter;
+using System.Collections.Generic;
 
 namespace Fab.Geo.Modding
 {
     [MoonSharpUserData]
+    [LuaHelpInfo("Module to show popups on the screen")]
     public class PopupProxy : ProxyBase<Popup>
     {
         public override string Name => "popup";
-        public override string Description => "Module to show popups on the screen";
 
         [MoonSharpHidden]
         public PopupProxy(Popup value) : base(value){}
@@ -22,6 +23,19 @@ namespace Fab.Geo.Modding
         public void show(string title, TextureProxy image)
         {
             Value.Show(title, image.Texture);
+        }
+
+        [LuaHelpInfo("Closes any open popup")]
+        public void close()
+        {
+            Value.Close();
+        }
+
+        [LuaHelpInfo("Adds a button to the popup")]
+        public PopupProxy button(string text, Closure on_click)
+        { 
+            Value.AddButton(text, () => on_click.Call());
+            return this;
         }
     }
 }
