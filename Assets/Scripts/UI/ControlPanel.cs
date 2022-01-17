@@ -100,6 +100,26 @@ namespace Fab.Geo.UI
         }
 
         /// <summary>
+        /// Adds a label to the panel
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="text">The text of the label. If null the last item of the path is used instead</param>
+        /// <returns></returns>
+        public VisualElement AddLabel(string path, string text = null)
+        {
+            Label label = new Label();
+
+            hierachyBuilder.AddToHierachy(label, path);
+
+            if (text == null)
+                label.text = hierachyBuilder.GetName(path);
+            else
+                label.text = text;
+            Show();
+            return label;
+        }
+
+        /// <summary>
         /// Adds a separator to the panel
         /// </summary>
         /// <param name="path"></param>

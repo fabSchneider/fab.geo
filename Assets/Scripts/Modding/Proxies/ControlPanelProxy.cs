@@ -54,6 +54,20 @@ namespace Fab.Geo.Modding
             controlProxies.Clear();
         }
 
+        [LuaHelpInfo("Adds a label to the control panel")]
+        public ControlProxy label(string path, string text)
+        {
+            VisualElement l = Value.AddLabel(path, text);
+            LabelProxy proxy = GetControlProxy<LabelProxy>(path);
+            if (proxy == null)
+            {
+                proxy = new LabelProxy(l, this, path);
+                controlProxies.Add(proxy);
+
+            }
+            return proxy;
+        }
+
         [LuaHelpInfo("Adds a separator to the control panel")]
         public ControlProxy separator(string path)
         {

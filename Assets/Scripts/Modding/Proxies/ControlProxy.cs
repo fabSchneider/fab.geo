@@ -34,6 +34,26 @@ namespace Fab.Geo.Modding
             panel.remove(this);
         }
 
+        [LuaHelpInfo("Moves the control up in the hierachy")]
+        public void move_up()
+        {
+            int index = Value.parent.IndexOf(Value);
+            if (index == 0)
+                return;
+
+            Value.PlaceBehind(Value.parent.ElementAt(index - 1));
+        }
+
+        [LuaHelpInfo("Moves the control down in the hierachy")]
+        public void move_down()
+        {
+            int index = Value.parent.IndexOf(Value);
+            if (index == Value.parent.childCount - 1)
+                return;
+
+            Value.PlaceInFront(Value.parent.ElementAt(index + 1));
+        }
+
         public virtual void Dispose()
         {
             value = null;
@@ -58,6 +78,7 @@ namespace Fab.Geo.Modding
         [MoonSharpHidden]
         public ButtonProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path) { }
 
+        [MoonSharpHidden]
         public override string Name => "button";
 
         [LuaHelpInfo("Add a function to be executed when the button is clicked")]
@@ -100,6 +121,7 @@ namespace Fab.Geo.Modding
         {
         }
 
+        [MoonSharpHidden]
         public override string Name => "slider";
 
         [LuaHelpInfo("Add a function to be executed when the value of this slider changes")]
@@ -134,7 +156,49 @@ namespace Fab.Geo.Modding
         {
         }
 
+        [MoonSharpHidden]
         public override string Name => "separator";
+    }
+
+    [MoonSharpUserData]
+    [LuaHelpInfo("A label")]
+    public class LabelProxy : ControlProxy
+    {
+        [LuaHelpInfo("The text of the label")]
+        public string text
+        {
+            get => ((Label)Value).text;
+            set => ((Label)Value).text = value;
+        }
+
+        [LuaHelpInfo("The text size of the label")]
+        public float size
+        {
+            get => ((Label)Value).style.fontSize.value.value;
+            set => ((Label)Value).style.fontSize = new Length(value, LengthUnit.Pixel);
+        }
+
+        [LuaHelpInfo("Sets texts boldness of the label")]
+        public bool bold
+        {
+            get => ((Label)Value).style.unityFontStyleAndWeight.value == UnityEngine.FontStyle.Bold;
+            set => ((Label)Value).style.unityFontStyleAndWeight = value ? UnityEngine.FontStyle.Bold : UnityEngine.FontStyle.Normal;
+        }
+
+        [LuaHelpInfo("Sets the text alignment to centered")]
+        public bool center
+        {
+            get => ((Label)Value).style.unityTextAlign.value == UnityEngine.TextAnchor.UpperCenter;
+            set => ((Label)Value).style.unityTextAlign = value ? UnityEngine.TextAnchor.UpperCenter : UnityEngine.TextAnchor.UpperLeft;
+        }
+
+        [MoonSharpHidden]
+        public LabelProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
+        {
+        }
+
+        [MoonSharpHidden]
+        public override string Name => "label";
     }
 
     [MoonSharpUserData]
@@ -151,6 +215,7 @@ namespace Fab.Geo.Modding
         {
         }
 
+        [MoonSharpHidden]
         public override string Name => "choice";
 
         [LuaHelpInfo("Add a function to be executed when the selected choice changes")]
