@@ -4,12 +4,9 @@
 -- Compatible with Fab.Geo version 0.4.0
 -- Author: Fabian Schneider
 
-capitals = nil
 
 function init()
     
-    capitals = load_capitals_data()
-
     popup
         .button("Play 5", function() start_game(5) end)
         .button("Play 20", function() start_game(20) end)
@@ -65,6 +62,8 @@ function start_game(rounds)
 
     controls.hide()
 
+    local capitals = load_capitals_data()
+
     if(rounds < 1) then
         rounds = #capitals
     else
@@ -74,8 +73,9 @@ function start_game(rounds)
     local objectives = {}
 
     for i = 1, rounds do
-        next = random.whole_number(1, #capitals + 1)
-        table.insert(objectives, capitals[next])
+        local next = random.whole_number(1, #capitals + 1)
+        local objective = table.remove(capitals, next) 
+        table.insert(objectives, objective)
     end
 
     game_state = {
