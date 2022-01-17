@@ -123,13 +123,17 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a button to the control panel. You can pass in a function that will be called when the button was pressed")]
-        public ControlProxy button(string path)
+        public ControlProxy button(string path, string text, Closure on_click)
         {
             Button b = Value.AddButton(path, null);
             ButtonProxy proxy = GetControlProxy<ButtonProxy>(path);
             if (proxy == null)
             {
                 proxy = new ButtonProxy(b, this, path);
+                if (text != null)
+                    ((Button)proxy.Value).text = text;
+                if(on_click != null)
+                    proxy.on_click(on_click);
                 controlProxies.Add(proxy);
             }
             return proxy;

@@ -88,6 +88,13 @@ namespace Fab.Geo.Modding
         [MoonSharpHidden]
         public override string Name => "button";
 
+        [LuaHelpInfo("The text of the button")]
+        public string text
+        {
+            get => ((Button)Value).text;
+            set => ((Button)Value).text = value;
+        }
+
         [LuaHelpInfo("Add a function to be executed when the button is clicked")]
         public void on_click(Closure callback)
         {
