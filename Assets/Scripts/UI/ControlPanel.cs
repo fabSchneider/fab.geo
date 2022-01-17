@@ -57,7 +57,7 @@ namespace Fab.Geo.UI
         /// </summary>
         public void Hide()
         {
-            root.Remove(controlPanelElement);
+            controlPanelElement.RemoveFromHierarchy();
         }
 
         /// <summary>
