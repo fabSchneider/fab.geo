@@ -3,6 +3,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.4.0] - 2022-01-17
+### Added
+- Lua: Interactive lua console with history and preview of variable data
+- Lua: Texture objects
+- Lua: Vector, Coordinate and Color module
+- Lua: Show/hide methods for the control panel
+- Lua: help and list methods for lua console
+- Lua: Random module
+- Lua: Record module
+- Lua: World module
+- Feature get method
+- Feature line
+- Feature color properties
+- Feature polyline
+- World atmosphere and better graphics
+- Camera control can be enabled/disabled
+- Jump Flooding Distance compute shader
+- Nil checks for proxy objects
+- World clicks can now be add listeners to
+- Reload button to reload the whole scene and all scripts
+- Various new controls for the control panel
+- Camera animate method
+
+### Changed
+- Font to Cascadia Nerd Font
+- Terminal hotkey to `Ctrl + T`
+- Controls are now added to the control panel using a path string
+
+### Fixed
+- Disabled buttons still applying hover effect
+- Fix feature point setting name not setting text
+
+
 ## [0.3.0] - 2021-12-01
 ### Added
 - Lua: update function
