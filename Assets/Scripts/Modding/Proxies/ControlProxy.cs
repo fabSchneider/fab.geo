@@ -18,6 +18,13 @@ namespace Fab.Geo.Modding
             }
         }
 
+        [LuaHelpInfo("The enabled state of the control")]
+        public bool enabled
+        {
+            get => Value.enabledSelf;
+            set => Value.SetEnabled(value);
+        }
+
         private ControlPanelProxy panel;
 
         [MoonSharpHidden]
