@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,6 +49,9 @@ namespace Fab.Geo
 
         [SerializeField]
         private World world;
+
+
+        public event Action onAnimationFinished;
 
         private bool controlEnabled = true;
 
@@ -149,7 +153,6 @@ namespace Fab.Geo
                         SetCoordinate(GeoUtils.PointToCoordinate(current));
                         yield return null;
                     }
-
                     i++;
 
                     if (i == coords.Count)
@@ -160,6 +163,8 @@ namespace Fab.Geo
                             break;
                     }
                 }
+
+                onAnimationFinished?.Invoke();
             }
         }
 
