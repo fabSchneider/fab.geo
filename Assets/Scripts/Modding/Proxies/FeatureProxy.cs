@@ -21,7 +21,7 @@ namespace Fab.Geo.Modding
         public string name
         {
             get => Value.name;
-            set => Value.SetName(name);
+            set => Value.SetName(value);
         }
 
         [LuaHelpInfo("The type of the feature (readonly)")]
