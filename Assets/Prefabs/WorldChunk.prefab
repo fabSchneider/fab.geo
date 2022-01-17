@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3255405620649838617}
   - component: {fileID: 9107175321929364756}
   - component: {fileID: 5985422108095710154}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WorldChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}

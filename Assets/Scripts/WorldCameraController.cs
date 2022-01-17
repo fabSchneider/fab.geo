@@ -53,8 +53,11 @@ namespace Fab.Geo
 
         public bool ControlEnabled { get => controlEnabled; set => controlEnabled = value; }
 
+        private int worldLayerMask;
+
         private void Start()
         {
+            worldLayerMask = LayerMask.GetMask("World");
             cam.farClipPlane = -cam.transform.localPosition.z;
         }
 
@@ -205,7 +208,7 @@ namespace Fab.Geo
             {
                 Ray ray = cam.ViewportPointToRay(camViewRays[i]);
 
-                if (!Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+                if (!Physics.Raycast(ray, out RaycastHit hit, maxDistance, worldLayerMask))
                 {
                     distance = maxDistance;
                     break;

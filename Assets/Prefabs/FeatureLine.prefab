@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3372693483474276949}
   - component: {fileID: 3372693483474276948}
   - component: {fileID: 3112890201645498431}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FeatureLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10382038939d48e47a25eb695c2dcd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zOffset: 0.01
+  zOffset: 0.007
 --- !u!120 &3372693483474276948
 LineRenderer:
   m_ObjectHideFlags: 0

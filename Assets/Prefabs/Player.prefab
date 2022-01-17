@@ -44,14 +44,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9825486, b: 0.9192872, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.85
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_MaxRayIntersections: 0
 --- !u!1 &7856592490295406574
 GameObject:
@@ -333,8 +333,6 @@ MonoBehaviour:
   panSpeed: 0.4
   orbitSpeed: 0.3
   orbitPitchSpeed: 0.1
-  minPitch: -90
-  maxPitch: 0
   zoomBounds: {x: 1.012, y: 5}
   zoomSpeed:
     serializedVersion: 2

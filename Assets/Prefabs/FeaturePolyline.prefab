@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -7988631698761506544}
   - component: {fileID: 1997970869264669250}
   - component: {fileID: 2181769807689730089}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FeaturePolyline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
