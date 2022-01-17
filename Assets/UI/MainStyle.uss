@@ -229,7 +229,7 @@ VisualElement {
     border-bottom-color: var(--window-border-color);
 }
 
-.unity-button:hover {
+.unity-button:hover:enabled {
     background-color: rgb(48, 48, 48);
     border-left-color: rgb(135, 135, 135);
     border-right-color: rgb(135, 135, 135);
