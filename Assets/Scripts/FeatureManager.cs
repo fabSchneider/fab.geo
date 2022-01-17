@@ -86,17 +86,26 @@ namespace Fab.Geo
             return false;
         }
 
-        private void AddFeature(Feature feature)
+        public void RemoveAllFeatures()
         {
-            if(features.TryGetValue(feature.name, out List<Feature> list))
-            {
-                if (!list.Contains(feature))
-                    list.Add(feature);
-            }
-            else
-            {
-                features.Add(feature.name, new List<Feature>() { feature });
-            }
+            foreach (var featureList in features.Values)
+                foreach (var feature in featureList)
+                    Destroy(feature.gameObject);
+
+            features.Clear();
+        }
+
+    private void AddFeature(Feature feature)
+    {
+        if (features.TryGetValue(feature.name, out List<Feature> list))
+        {
+            if (!list.Contains(feature))
+                list.Add(feature);
+        }
+        else
+        {
+            features.Add(feature.name, new List<Feature>() { feature });
         }
     }
+}
 }
