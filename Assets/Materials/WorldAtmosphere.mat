@@ -46,18 +46,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FadeEnd: 1.2
-    - _FadeStart: 1.3
+    - _FadeEnd: 1.01
+    - _FadeStart: 1.1
     - _Falloff: 4.23
-    - _InnerFalloff: 2.16
+    - _InnerFalloff: 1.51
     - _InnerFalloffPower: 2.46
     - _Off: 2
-    - _Offset: 1.57
-    - _OuterFalloffPower: 1.48
+    - _Offset: 1.19
+    - _OuterFalloffPower: 1.96
     - _Power: 0.66
     - _QueueControl: 1
     - _QueueOffset: -7
     - _Shift: -0.04
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.35686275}
+    - _BaseColor: {r: 0.7400419, g: 0.75550574, b: 1, a: 0.35686275}
   m_BuildTextureStacks: []

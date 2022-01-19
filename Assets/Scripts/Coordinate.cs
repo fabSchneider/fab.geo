@@ -5,7 +5,7 @@ using Unity.Mathematics;
 namespace Fab.Geo
 {
     [System.Serializable]
-    public struct Coordinate : IEquatable<Coordinate>, IFormattable
+    public struct Coordinate : IEquatable<Coordinate>
     {
         public float longitude;
         public float latitude;
@@ -43,12 +43,6 @@ namespace Fab.Geo
         public override string ToString()
         {
             return string.Format("(Lon: {0} Lat: {1})", math.degrees(longitude), math.degrees(latitude));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public string ToString(string format, IFormatProvider formatProvider)
-        {
-            return string.Format("(Lon: {0} Lat: {1})", longitude.ToString(format, formatProvider), latitude.ToString(format, formatProvider));
         }
     }
 }

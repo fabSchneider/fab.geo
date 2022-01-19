@@ -7,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 namespace Fab.Geo
 {
     [RequireComponent(typeof(Camera))]
-    public class CameraDofController : MonoBehaviour
+    public class CameraPostProcessController : MonoBehaviour
     {
         [SerializeField]
         private VolumeProfile volumeProfile;
@@ -16,6 +16,15 @@ namespace Fab.Geo
         private int worldLayerMask;
         private Camera cam;
 
+        [SerializeField]
+        private Color environmentSpaceColor = Color.black;
+        [SerializeField]
+        private Color environmentSkyColor = Color.white;
+
+        [SerializeField]
+        private float backgroundBlendStart = 1.1f;
+        [SerializeField]
+        private float backgroundBlendEnd = 1.05f;
 
         // Start is called before the first frame update
         void Start()
@@ -42,6 +51,10 @@ namespace Fab.Geo
             {
                 dofComponent.focusDistance.value = hit.distance;
             }
+
+            float blend = Mathf.InverseLerp(backgroundBlendEnd, backgroundBlendStart, cam.transform.localPosition.magnitude);
+            blend = Mathf.Clamp01(blend);
+            cam.backgroundColor = Color.Lerp(environmentSkyColor, environmentSpaceColor, blend);
         }
 
         private void OnDrawGizmos()

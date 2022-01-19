@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb4b772797da9440885e8bd939e9560, type: 3}
   m_Name: ColorCurves
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   master:
     m_OverrideState: 1
     m_Value:
@@ -26,8 +26,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 0
           value: 0
-          inSlope: 0
-          outSlope: 3.0986283
+          inSlope: 1.5595875
+          outSlope: 1.5595875
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0.1824316
-          outSlope: 0
+          inSlope: 0.5792221
+          outSlope: 0.5792221
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
@@ -161,8 +161,8 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.07626804
-          value: 0.3292308
+          time: 0.07589185
+          value: 0.41737902
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -170,8 +170,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.32617548
-          value: 0.66384614
+          time: 0.3212906
+          value: 0.45584053
           inSlope: 0.5067538
           outSlope: 0.5067538
           tangentMode: 0
@@ -179,8 +179,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.6834506
-          value: 0.61769235
+          time: 0.69347876
+          value: 0.54558414
           inSlope: -0.62330747
           outSlope: -0.62330747
           tangentMode: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
   m_Name: LiftGammaGain
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   lift:
     m_OverrideState: 0
     m_Value: {x: 0.9685072, y: 1, z: 0.90405905, w: 0}

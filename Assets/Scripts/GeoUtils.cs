@@ -82,6 +82,18 @@ namespace Fab.Geo
         }
 
         /// <summary>
+        /// Maps a normalized coordinate to longitude and latitude
+        /// </summary>
+        /// <param name="coordinate"></param>
+        /// <returns></returns>
+        public static Coordinate NormalizedToCoordinate(float2 normalized)
+        {
+            return new Coordinate(
+                normalized.x  * math.PI * 2 - math.PI,
+                normalized.y * math.PI - math.PI / 2);
+        }
+
+        /// <summary>
         /// Calculates a point on a unit sphere from a point on a cube
         /// </summary>
         /// <param name="p"></param>

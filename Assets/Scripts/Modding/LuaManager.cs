@@ -289,6 +289,9 @@ namespace Fab.Geo.Modding
                 WorldProxy worldProxy = new WorldProxy(inputHandler);
                 globals.Add(worldProxy.Name, worldProxy);
             }
+
+            TriangleProxy triangleProxy = new TriangleProxy();
+            globals.Add(triangleProxy.Name, triangleProxy);
         }
 
         private void LoadLuaModulesForScript(Script script)
