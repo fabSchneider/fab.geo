@@ -20,7 +20,7 @@ namespace Fab.Geo.Modding
         public History ConsoleHistory => history;
 
         private LuaHelpInfoExtractor luaHelpInfo;
-        private LuaHelpInfoFormatter luaHelpInfoFormatter;
+        private LuaHelpConsoleFormatter luaHelpInfoFormatter;
 
         [SerializeField]
         [Tooltip("Maximum number of items in the history.")]
@@ -40,7 +40,7 @@ namespace Fab.Geo.Modding
         {
             history = new History(maxHistoryEntries);
             luaHelpInfo = new LuaHelpInfoExtractor();
-            luaHelpInfoFormatter = new LuaHelpInfoFormatter();
+            luaHelpInfoFormatter = new LuaHelpConsoleFormatter();
         }
 
         private void Start()
