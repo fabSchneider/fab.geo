@@ -1,10 +1,6 @@
 using CommandTerminal;
 using MoonSharp.Interpreter;
-using MoonSharp.Interpreter.Debugging;
 using MoonSharp.VsCodeDebugger;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 namespace Fab.Geo.Modding
@@ -19,8 +15,6 @@ namespace Fab.Geo.Modding
 
         private MoonSharpVsCodeDebugServer debuggerServer;
 
-        //public MoonSharpVsCodeDebugServer DebuggerServer => debuggerServer;
-
         private void OnEnable()
         {
             Debug.Log("Starting debug server on port " + port);
@@ -33,7 +27,6 @@ namespace Fab.Geo.Modding
 
         private void OnDisable()
         {
-            //debuggerServer.();
             debuggerServer = null;
             manager.SetDebugger(null);
             Debug.Log("Debug server has been stopped");
