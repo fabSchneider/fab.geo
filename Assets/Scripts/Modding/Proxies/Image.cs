@@ -3,20 +3,17 @@ using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     [LuaHelpInfo("An image object")]
-    public class TextureProxy : ProxyBase<Texture2D>
+    public class Image : LuaProxy<Texture2D>
     {
-        public override string Name => "image";
-
-        [MoonSharpHidden]
-        public TextureProxy(Texture2D source) : base(source) {}
+        [LuaHelpInfo("The name of the image")]
         public string name => Value.name;
-        public int width => Value.width;
-        public int height => Value.height;
 
-        [MoonSharpHidden]
-        public Texture2D Texture => Value;
+        [LuaHelpInfo("The width of the image")]
+        public int width => Value.width;
+
+        [LuaHelpInfo("The height of the image")]
+        public int height => Value.height;
 
         public override string ToString()
         {

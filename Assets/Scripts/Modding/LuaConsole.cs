@@ -3,6 +3,7 @@ using MoonSharp.Interpreter.Interop;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -74,11 +75,11 @@ namespace Fab.Geo.Modding
                     break;
                 case DataType.Void:
                     AddToPrintOutput("Type <b>help(<i>module</i>)</b> to show help information for that module." + Environment.NewLine + 
-                        "Type <b>list()</b> to get a list of all avaolable modules.", false);
+                        "Type <b>list()</b> to get a list of all available modules.", false);
                     break;
                 case DataType.UserData:
                     object obj = value.ToObject();
-                    if (obj is ProxyBase proxy && proxy.IsNil())
+                    if (obj is LuaProxy proxy && proxy.IsNil())
                     {
                         AddToPrintOutput("Nil", false);
                     }
@@ -100,10 +101,10 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("Lists all available modules")]
         private void list()
         {
-            foreach (ProxyBase proxy in manager.Proxies)
+            foreach (Type type in LuaObjectRegistry.GetRegisteredTypes(true))
             {
-                LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(proxy.GetType());
-                AddToPrintOutput($"{proxy.Name.PadRight(8, ' ')} <i>{helpInfo.description}</i>" + Environment.NewLine, false);
+                LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(type);
+                AddToPrintOutput($"{helpInfo.name.PadRight(8, ' ')} <i>{helpInfo.description}</i>" + Environment.NewLine, false);
             }
         }
 
@@ -126,7 +127,7 @@ namespace Fab.Geo.Modding
                 {
                     object obj = val.ToObject();
 
-                    if (obj is TextureProxy tex)
+                    if (obj is Image tex)
                         imageOutput = tex.Value;
 
                     script.DoString($"print({code})");

@@ -5,49 +5,51 @@ using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     [LuaHelpInfo("Module for controlling the world camera")]
-    public class WorldCameraControllerProxy : ProxyBase<WorldCameraController>
+    public class Camera : LuaObject, ILuaObjectInitialize
     {
-        public override string Name => "camera";
-
+        private WorldCameraController cameraController;
         private Closure onAnimationFinished;
+        public void Initialize()
+        {
+            cameraController = Object.FindObjectOfType<WorldCameraController>();
 
-        [MoonSharpHidden]
-        public WorldCameraControllerProxy(WorldCameraController value) : base(value) { }
+            if (!cameraController)
+                throw new LuaObjectInitializationException("Could not find camera controller");
+        }
 
         [LuaHelpInfo("Gets/Sets the camera's position in coordinates")]
         public Coordinate coord
         {
-            get => Value.GetCoordinate();
-            set => Value.SetCoordinate(value);
+            get => cameraController.GetCoordinate();
+            set => cameraController.SetCoordinate(value);
         }
 
         [LuaHelpInfo("Sets the camera's zoom level [0-1]")]
         public void set_zoom(float zoom)
         {
-            Value.SetZoom(zoom);
+            cameraController.SetZoom(zoom);
         }
 
         [LuaHelpInfo("Enables the camera's input control")]
-        public void enable_control() => Value.ControlEnabled = true;
+        public void enable_control() => cameraController.ControlEnabled = true;
 
         [LuaHelpInfo("Disables the camera's input control")]
-        public void disable_control() => Value.ControlEnabled = false;
+        public void disable_control() => cameraController.ControlEnabled = false;
         
         [LuaHelpInfo("Moves the camera from one coordinate to the next in a list of coordinates")]
         public void animate(Coordinate[] coords, float speed, bool loop = false)
         {
-            Value.Animate(coords, speed, loop);
+            cameraController.Animate(coords, speed, loop);
         }
 
         [LuaHelpInfo("Called when a camera animation finished")]
         public void on_animation_finished(Closure evt)
         {
             onAnimationFinished = evt;
-            Value.onAnimationFinished -= OnAnimationFinished;
+            cameraController.onAnimationFinished -= OnAnimationFinished;
             if(evt != null)
-                Value.onAnimationFinished += OnAnimationFinished;
+                cameraController.onAnimationFinished += OnAnimationFinished;
         }
 
         private void OnAnimationFinished()

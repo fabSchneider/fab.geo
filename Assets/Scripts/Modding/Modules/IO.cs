@@ -6,29 +6,24 @@ using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     [LuaHelpInfo("Module for loading image and text")]
-    public class IOProxy : ProxyBase
+    public class IO : LuaObject, ILuaObjectInitialize
     {
         private static readonly HashSet<string> imageExtensions = new HashSet<string>() { ".jpg", ".jpeg", ".png" };
         private static readonly HashSet<string> textExtensions = new HashSet<string>() { ".txt", ".json", ".geojson" };
-        public override string Name => "io";
-
-        private string dataDirectory;
 
         [LuaHelpInfo("Returns the directory path that data can be loaded from (read only)")]
-        public string data_dir => dataDirectory;
+        public string data_dir => LuaEnvironment.DataDirectory;
 
-        [MoonSharpHidden]
-        public IOProxy(string dataDirectory)
+        public void Initialize()
         {
-            this.dataDirectory = dataDirectory;
+
         }
 
         [LuaHelpInfo("Loads a text(txt, json, geojson) or image file(jpg, png) from the data path")]
         public object load(string file)
         {
-            string loadPath = Path.Combine(dataDirectory, file);
+            string loadPath = Path.Combine(LuaEnvironment.DataDirectory, file);
 
             if (!File.Exists(loadPath))
                 throw new ArgumentException("Loading failed. The path does not exist");
@@ -44,12 +39,14 @@ namespace Fab.Geo.Modding
                 Texture2D tex = new Texture2D(2, 2);
                 tex.LoadImage(File.ReadAllBytes(loadPath));
                 tex.name = Path.GetFileNameWithoutExtension(loadPath);
-                return new TextureProxy(tex);
+                var proxy = new Image();
+                proxy.SetValue(tex);
+                return proxy;
             }
             else if (textExtensions.Contains(ext))
             {
                 //load text
-                return File.ReadAllText(Path.Combine(dataDirectory, file));
+                return File.ReadAllText(Path.Combine(LuaEnvironment.DataDirectory, file));
             }
 
             throw new ArgumentException($"Loading failed. The file extension \"{ext}\" is not supported");

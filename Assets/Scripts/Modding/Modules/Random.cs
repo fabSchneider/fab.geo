@@ -1,28 +1,37 @@
 using MoonSharp.Interpreter;
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = Unity.Mathematics.Random;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     [LuaHelpInfo("Module for generating random numbers and more")]
-    public class RandomProxy : ProxyBase
+    public class Random : LuaObject, ILuaObjectInitialize
     {
-        private Random rand;
+        private Unity.Mathematics.Random rand;
 
-        [MoonSharpHidden]
-        public RandomProxy(uint seed) 
+
+        public void Initialize()
         {
-            rand.InitState(seed);
+            // Initialize the module with a default seed taken from the current time
+            DateTime now = DateTime.UtcNow;
+            uint seed =
+                (uint)now.Year * (uint)31557600 +
+                (uint)now.Month * (uint)2629800 +
+                (uint)now.Day * (uint)86400 +
+                (uint)now.Hour * (uint)3600 +
+                (uint)now.Minute * (uint)60 +
+                (uint)now.Second;
+
+            rand = new Unity.Mathematics.Random(seed);
         }
 
-        public override string Name => "random";
 
         [LuaHelpInfo("Sets the seed of the random generator")]
         public void set_seed(uint seed)
         {
-            rand = new Random(seed);
+            rand = new Unity.Mathematics.Random(seed);
         }
 
         [LuaHelpInfo("returns a random number between 0 [inclusive] and 1 (exclusive)")]

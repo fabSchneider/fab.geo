@@ -142,14 +142,14 @@ namespace Fab.Geo.Modding
 
         private Label codeText;
         private Label printText;
-        private Image img;
+        private UnityEngine.UIElements.Image img;
 
         public HistoryEntryElement()
         {
             AddToClassList(className);
             codeText = new Label();
             codeText.AddToClassList(codeClassName);
-            img = new Image();
+            img = new UnityEngine.UIElements.Image();
             img.AddToClassList(imgClassName);
             printText = new Label();
             printText.enableRichText = true;

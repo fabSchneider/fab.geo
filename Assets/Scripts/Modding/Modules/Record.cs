@@ -5,23 +5,21 @@ using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    // NOTE: Not really a proxy as it does not stand in for anything. Should maybe rename later
-    [MoonSharpUserData]
-    [LuaHelpInfo("Module to record coordinates from mouse inpute")]
-    public class RecordProxy : ProxyBase
+    [LuaName("rec")]
+    [LuaHelpInfo("Module to record coordinates from mouse inputs")]
+    public class Record : LuaObject, ILuaObjectInitialize
     {
-        public override string Name => "rec";
+        private WorldInputHandler worldInput;
 
-        WorldInputHandler worldInput;
+        private Table recordTable;
 
-        Table recordTable;
-
-        [MoonSharpHidden]
-        public RecordProxy(WorldInputHandler worldInput)
+        public void Initialize()
         {
-            this.worldInput = worldInput;
-        }
+            worldInput = Object.FindObjectOfType<WorldInputHandler>();
 
+            if (worldInput == null)
+                throw new LuaObjectInitializationException("Could not find world input");
+        }
 
         [LuaHelpInfo("Starts recording clicks on the globe and appends the coordinate at the click position to the supplied table")]
         public void to(Table to)

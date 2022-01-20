@@ -7,32 +7,18 @@ using System.Text;
 namespace Fab.Geo.Modding
 {
     /// <summary>
-    /// Use this attribute on a method or class to add help information when calling help(...) in lua
-    /// </summary>
-    [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = false)]
-    sealed class LuaHelpInfoAttribute : Attribute
-    {
-        readonly string info;
-        public string Info => info;
-
-        public LuaHelpInfoAttribute(string info)
-        {
-            this.info = info;
-        }
-    }
-
-    /// <summary>
     /// Struct holding all the help information about a lua object
     /// </summary>
     public struct LuaHelpInfo
     {
+        public string name;
         public string description;
         public IEnumerable<(MethodInfo, string helpInfo)> methodsHelp;
         public IEnumerable<(PropertyInfo, string helpInfo)> propertiesHelp;
     }
 
     /// <summary>
-    /// Utillity class to extract lua help information from classes with <see cref="LuaHelpInfoAttribute"/>
+    /// Utility class to extract lua help information from classes with <see cref="LuaHelpInfoAttribute"/>
     /// </summary>
     public class LuaHelpInfoExtractor
     {
@@ -62,23 +48,9 @@ namespace Fab.Geo.Modding
             return info;
         }
 
-        public LuaHelpInfo GetHelpInfoForMethod(MethodInfo methodInfo)
-        {
-            if (methodInfo == null)
-                throw new ArgumentNullException(nameof(methodInfo));
-
-            LuaHelpInfoAttribute helpAttr = methodInfo.GetCustomAttribute<LuaHelpInfoAttribute>();
-            if (helpAttr != null)
-                return new LuaHelpInfo()
-                {
-                    description = helpAttr.Info
-                };
-
-            return default;
-        }
-
         private LuaHelpInfo ExtractHelpInfoFromType(Type t)
         {
+            string name = LuaObject.GetLuaName(t);
             string description = string.Empty;
             LuaHelpInfoAttribute classInfoAttr = t.GetCustomAttribute<LuaHelpInfoAttribute>();
             if (classInfoAttr != null)
@@ -94,11 +66,13 @@ namespace Fab.Geo.Modding
 
             return new LuaHelpInfo()
             {
+                name = name,
                 description = description,
                 methodsHelp = methods.ToArray(),
                 propertiesHelp = properties.ToArray()
             };
         }
+
     }
 
     public class LuaHelpInfoFormatter

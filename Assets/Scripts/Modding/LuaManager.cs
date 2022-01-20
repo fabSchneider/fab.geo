@@ -16,10 +16,6 @@ namespace Fab.Geo.Modding
 {
     public class LuaManager : MonoBehaviour
     {
-        private static string DocumentsDirectory => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), Application.productName);
-        private static string ScriptsDirectory => Path.Combine(DocumentsDirectory, "Scripts");
-        private static string DataDirectory => Path.Combine(DocumentsDirectory, "Data");
-
         private static readonly string LuaFileSearchPattern = "*.lua";
 
         private static readonly string scriptNameKey = "SCRIPT_NAME";
@@ -41,8 +37,6 @@ namespace Fab.Geo.Modding
         private LuaDebugger debugger;
 
         private Dictionary<string, object> globals;
-        public IEnumerable<ProxyBase> Proxies => globals.Values.OfType<ProxyBase>();
-
         public void SetDebugger(LuaDebugger debugger)
         {
             if (debugger == null)
@@ -65,8 +59,13 @@ namespace Fab.Geo.Modding
         private void Awake()
         {
             UserData.RegisterAssembly();
+            LuaObjectRegistry.RegisterAssembly();
             ClrConversion.RegisterConverters();
             Script.GlobalOptions.Platform = new StandardPlatformAccessor();
+
+
+            Debug.Log("Loaded Lua Objects: " + Environment.NewLine + string.Join(", ", UserData.GetRegisteredTypes().Select(t => t.Name).ToArray()));
+
         }
 
         private void Start()
@@ -114,8 +113,8 @@ namespace Fab.Geo.Modding
         [Button("Reload Scripts")]
         public void LoadScripts()
         {
-            string scriptsDir = ScriptsDirectory;
-            string dataDir = DataDirectory;
+            string scriptsDir = LuaEnvironment.ScriptsDirectory;
+            string dataDir = LuaEnvironment.DataDirectory;
             Directory.CreateDirectory(scriptsDir);
             Directory.CreateDirectory(dataDir);
 
@@ -216,8 +215,8 @@ namespace Fab.Geo.Modding
 
             //add constants
             script.Globals[scriptNameKey] = Path.GetFileNameWithoutExtension(scriptName);
-            script.Globals[scriptDirKey] = ScriptsDirectory + Path.DirectorySeparatorChar;
-            script.Globals[dataDirKey] = DataDirectory + Path.DirectorySeparatorChar;
+            script.Globals[scriptDirKey] = LuaEnvironment.ScriptsDirectory + Path.DirectorySeparatorChar;
+            script.Globals[dataDirKey] = LuaEnvironment.DataDirectory + Path.DirectorySeparatorChar;
 
             //attach to debugger
             if (debugger != null)
@@ -232,64 +231,21 @@ namespace Fab.Geo.Modding
         {
             globals = new Dictionary<string, object>();
 
-            //foreach (var t in UserData.GetRegisteredTypes())
-            //{
-            //    Debug.Log(t.Name);
-            //}
-
-            FeatureManager featureManager = FindObjectOfType<FeatureManager>();
-            if (featureManager)
+            UserData.RegisterProxyType<Image, Texture2D>(v =>
             {
-                FeatureManagerProxy proxy = new FeatureManagerProxy(featureManager);
-                globals.Add(proxy.Name, proxy);
-            }
+                var proxy = new Image();
+                proxy.SetValue(v);
+                return proxy;
+            });
 
-            UIManager uiManager = FindObjectOfType<UIManager>();
-            if (uiManager)
+            UserData.RegisterProxyType<Feature, Fab.Geo.Feature>(v =>
             {
-                PopupProxy popupProxy = new PopupProxy(uiManager.Popup);
-                globals.Add(popupProxy.Name, popupProxy);
-                ControlPanelProxy controlProxy = new ControlPanelProxy(uiManager.ControlPanel);
-                globals.Add(controlProxy.Name, controlProxy);
-            }
+                var proxy = new Feature();
+                proxy.SetValue(v);
+                return proxy;
+            });
 
-            WorldCameraController cameraController = FindObjectOfType<WorldCameraController>();
-            if (cameraController)
-            {
-                WorldCameraControllerProxy proxy = new WorldCameraControllerProxy(cameraController);
-                globals.Add(proxy.Name, proxy);
-            }
-
-            GeoProxy geoProxy = new GeoProxy();
-            globals.Add(geoProxy.Name, geoProxy);
-
-            UserData.RegisterProxyType<TextureProxy, Texture2D>(t => new TextureProxy(t));
-
-            IOProxy ioProxy = new IOProxy(DataDirectory);
-            globals.Add(ioProxy.Name, ioProxy);
-
-            DateTime now = DateTime.UtcNow;
-            uint seed =
-                (uint)now.Year * (uint)31557600 +
-                (uint)now.Month * (uint)2629800 +
-                (uint)now.Day * (uint)86400 +
-                (uint)now.Hour * (uint)3600 +
-                (uint)now.Minute * (uint)60 +
-                (uint)now.Second;
-
-            RandomProxy randProxy = new RandomProxy(seed);
-            globals.Add(randProxy.Name, randProxy);
-
-            WorldInputHandler inputHandler = FindObjectOfType<WorldInputHandler>();
-            if (inputHandler)
-            {
-                RecordProxy recordProxy = new RecordProxy(inputHandler);
-                globals.Add(recordProxy.Name, recordProxy);
-
-                WorldProxy worldProxy = new WorldProxy(inputHandler);
-                globals.Add(worldProxy.Name, worldProxy);
-            }
-
+            LuaObjectRegistry.InitalizeLuaObjects(globals);
         }
 
         private void LoadLuaModulesForScript(Script script)

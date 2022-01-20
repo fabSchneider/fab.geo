@@ -5,17 +5,10 @@ using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     [LuaHelpInfo("A feature object")]
-    public class FeatureProxy : ProxyBase<Feature>
+    public class Feature : LuaProxy<Fab.Geo.Feature>
     {
-        [MoonSharpHidden]
-        public override string Name => "feature";
-
         private Closure clickEvent;
-
-        [MoonSharpHidden]
-        public FeatureProxy(Feature value) : base(value) { }
 
         [LuaHelpInfo("The name of the feature")]
         public string name
@@ -24,7 +17,7 @@ namespace Fab.Geo.Modding
             set => Value.SetName(value);
         }
 
-        [LuaHelpInfo("The type of the feature (readonly)")]
+        [LuaHelpInfo("The type of the feature (read only)")]
         public string type
         {
             get
@@ -50,7 +43,7 @@ namespace Fab.Geo.Modding
             set => Value.SetColor(value);
         }
 
-        [LuaHelpInfo("The geometry of the feature as a list of coordinates (readonly)")]
+        [LuaHelpInfo("The geometry of the feature as a list of coordinates (read only)")]
         public Coordinate[] geometry => Value.Geometry;
 
         [LuaHelpInfo("Event function that is called when the feature is clicked")]

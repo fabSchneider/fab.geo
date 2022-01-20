@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 namespace Fab.Geo.Modding
 {
-    public abstract class ControlProxy : ProxyBase<VisualElement>, IDisposable
+    public abstract class Control : LuaProxy<VisualElement>, IDisposable
     {
         protected string controlPath;
 
@@ -25,11 +25,12 @@ namespace Fab.Geo.Modding
             set => Value.SetEnabled(value);
         }
 
-        private ControlPanelProxy panel;
+        private Controls panel;
 
         [MoonSharpHidden]
-        public ControlProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value)
+        public Control(VisualElement value, Controls panel, string path)
         {
+            this.value = value;
             controlPath = path;
             this.panel = panel;
         }
@@ -41,7 +42,7 @@ namespace Fab.Geo.Modding
             panel.remove(this);
         }
 
-        [LuaHelpInfo("Moves the control up in the hierachy")]
+        [LuaHelpInfo("Moves the control up in the hierarchy")]
         public void move_up()
         {
             int index = Value.parent.IndexOf(Value);
@@ -51,7 +52,7 @@ namespace Fab.Geo.Modding
             Value.PlaceBehind(Value.parent.ElementAt(index - 1));
         }
 
-        [LuaHelpInfo("Moves the control down in the hierachy")]
+        [LuaHelpInfo("Moves the control down in the hierarchy")]
         public void move_down()
         {
             int index = Value.parent.IndexOf(Value);
@@ -72,21 +73,19 @@ namespace Fab.Geo.Modding
             if (IsNil())
                 return "nil";
 
-            return $"{Name} {{ path: {path} }}";
+            return $"{GetLuaName(GetType())} {{ path: {path} }}";
         }
     }
 
-    [MoonSharpUserData]
+    [LuaName("button")]
     [LuaHelpInfo("A button control")]
-    public class ButtonProxy : ControlProxy
+    public class ButtonProxy : Control
     {
         private Closure onClick;
 
         [MoonSharpHidden]
-        public ButtonProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path) { }
+        public ButtonProxy(VisualElement value, Controls panel, string path) : base(value, panel, path) { }
 
-        [MoonSharpHidden]
-        public override string Name => "button";
 
         [LuaHelpInfo("The text of the button")]
         public string text
@@ -121,9 +120,9 @@ namespace Fab.Geo.Modding
         }
     }
 
-    [MoonSharpUserData]
+    [LuaName("slider")]
     [LuaHelpInfo("A slider control")]
-    public class SliderProxy : ControlProxy
+    public class SliderProxy : Control
     {
         private Closure onValueChange;
 
@@ -131,12 +130,9 @@ namespace Fab.Geo.Modding
         public float val => ((Slider)Value).value;
 
         [MoonSharpHidden]
-        public SliderProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
+        public SliderProxy(VisualElement value, Controls panel, string path) : base(value, panel, path)
         {
         }
-
-        [MoonSharpHidden]
-        public override string Name => "slider";
 
         [LuaHelpInfo("Add a function to be executed when the value of this slider changes")]
         public void on_change(Closure callback)
@@ -162,21 +158,18 @@ namespace Fab.Geo.Modding
         }
     }
 
-    [MoonSharpUserData]
-    [LuaHelpInfo("A seperator")]
-    public class SeparatorProxy : ControlProxy
+    [LuaName("separator")]
+    [LuaHelpInfo("A separator")]
+    public class SeparatorProxy : Control
     {
-        public SeparatorProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
+        public SeparatorProxy(VisualElement value, Controls panel, string path) : base(value, panel, path)
         {
         }
-
-        [MoonSharpHidden]
-        public override string Name => "separator";
     }
 
-    [MoonSharpUserData]
+    [LuaName("label")]
     [LuaHelpInfo("A label")]
-    public class LabelProxy : ControlProxy
+    public class LabelProxy : Control
     {
         [LuaHelpInfo("The text of the label")]
         public string text
@@ -207,17 +200,14 @@ namespace Fab.Geo.Modding
         }
 
         [MoonSharpHidden]
-        public LabelProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
+        public LabelProxy(VisualElement value, Controls panel, string path) : base(value, panel, path)
         {
         }
-
-        [MoonSharpHidden]
-        public override string Name => "label";
     }
 
-    [MoonSharpUserData]
+    [LuaName("choice")]
     [LuaHelpInfo("A choice control")]
-    public class ChoiceProxy : ControlProxy
+    public class ChoiceProxy : Control
     {
         private Closure onValueChange;
 
@@ -225,12 +215,9 @@ namespace Fab.Geo.Modding
         public string val => ((DropdownField)Value).value;
 
         [MoonSharpHidden]
-        public ChoiceProxy(VisualElement value, ControlPanelProxy panel, string path) : base(value, panel, path)
+        public ChoiceProxy(VisualElement value, Controls panel, string path) : base(value, panel, path)
         {
         }
-
-        [MoonSharpHidden]
-        public override string Name => "choice";
 
         [LuaHelpInfo("Add a function to be executed when the selected choice changes")]
         public void on_change(Closure callback)

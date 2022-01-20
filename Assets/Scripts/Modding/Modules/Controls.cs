@@ -7,38 +7,41 @@ using UnityEngine.UIElements;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     [LuaHelpInfo("Module for adding controls to the control panel")]
-    public class ControlPanelProxy : ProxyBase<ControlPanel>
+    public class Controls : LuaObject, ILuaObjectInitialize
     {
-        public override string Name => "controls";
+        private ControlPanel panel;
+        private List<Control> controlProxies;
 
-        private List<ControlProxy> controlProxies;
-
-        [MoonSharpHidden]
-        public ControlPanelProxy(ControlPanel source) : base(source)
+        public void Initialize()
         {
-            controlProxies = new List<ControlProxy>();
+            UIManager manager = UnityEngine.Object.FindObjectOfType<UIManager>();
+
+            if (!manager)
+                throw new LuaObjectInitializationException("UI Manager could not be found");
+
+            panel = manager.ControlPanel;     
+            controlProxies = new List<Control>();
         }
 
         [LuaHelpInfo("Shows the control panel")]
-        public void show() => Value.Show();
+        public void show() => panel.Show();
 
         [LuaHelpInfo("Hides the control panel")]
-        public void hide() => Value.Hide();
+        public void hide() => panel.Hide();
 
         [LuaHelpInfo("Gets the control at the given path from the panel")]
-        public ControlProxy get(string path)
+        public Control get(string path)
         {
             return GetControlProxy(path);
         }
 
         [LuaHelpInfo("Removes the control at the given path from the panel")]
-        public void remove(ControlProxy control)
+        public void remove(Control control)
         {
             if (controlProxies.Remove(control))
             {
-                Value.RemoveControl(control.path);
+                panel.RemoveControl(control.path);
                 control.Dispose();
             }
 
@@ -47,7 +50,7 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("Removes all controls from the panel")]
         public void remove_all()
         {
-            Value.ClearAndHide();
+            panel.ClearAndHide();
 
             foreach (var control in controlProxies)
                 control.Dispose();
@@ -55,9 +58,9 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a label to the control panel")]
-        public ControlProxy label(string path, string text)
+        public Control label(string path, string text)
         {
-            VisualElement l = Value.AddLabel(path, text);
+            VisualElement l = panel.AddLabel(path, text);
             LabelProxy proxy = GetControlProxy<LabelProxy>(path);
             if (proxy == null)
             {
@@ -69,9 +72,9 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a separator to the control panel")]
-        public ControlProxy separator(string path)
+        public Control separator(string path)
         {
-            VisualElement s = Value.AddSeparator(path);
+            VisualElement s = panel.AddSeparator(path);
             SeparatorProxy proxy = GetControlProxy<SeparatorProxy>(path);
             if (proxy == null)
             {
@@ -83,9 +86,9 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a slider to the control panel")]
-        public ControlProxy slider(string path, float min, float max, float value)
+        public Control slider(string path, float min, float max, float value)
         {
-            Slider s = Value.AddSlider(path, min, max, value);
+            Slider s = panel.AddSlider(path, min, max, value);
             SliderProxy proxy = GetControlProxy<SliderProxy>(path);
             if (proxy == null)
             {
@@ -97,9 +100,9 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a ranged slider to the control panel.")]
-        public ControlProxy range(string path, float min, float max, float minLimit, float maxLimit)
+        public Control range(string path, float min, float max, float minLimit, float maxLimit)
         {
-            MinMaxSlider s = Value.AddRangeSlider(path, min, max, minLimit, maxLimit);
+            MinMaxSlider s = panel.AddRangeSlider(path, min, max, minLimit, maxLimit);
             SliderProxy proxy = GetControlProxy<SliderProxy>(path);
             if (proxy == null)
             {
@@ -110,9 +113,9 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a choice field to the control panel")]
-        public ControlProxy choice(string path, List<string> choices, string value)
+        public Control choice(string path, List<string> choices, string value)
         {
-            DropdownField d = Value.AddChoice(path, choices, value);
+            DropdownField d = panel.AddChoice(path, choices, value);
             ChoiceProxy proxy = GetControlProxy<ChoiceProxy>(path);
             if (proxy == null)
             {
@@ -123,9 +126,9 @@ namespace Fab.Geo.Modding
         }
 
         [LuaHelpInfo("Adds a button to the control panel. You can pass in a function that will be called when the button was pressed")]
-        public ControlProxy button(string path, string text, Closure on_click)
+        public Control button(string path, string text, Closure on_click)
         {
-            Button b = Value.AddButton(path, null);
+            Button b = panel.AddButton(path, null);
             ButtonProxy proxy = GetControlProxy<ButtonProxy>(path);
             if (proxy == null)
             {
@@ -139,12 +142,12 @@ namespace Fab.Geo.Modding
             return proxy;
         }
 
-        private ControlProxy GetControlProxy(string path)
+        private Control GetControlProxy(string path)
         {
             return controlProxies.FirstOrDefault(c => c.path == path);
         }
 
-        private T GetControlProxy<T>(string path) where T : ControlProxy
+        private T GetControlProxy<T>(string path) where T : Control
         {
             return controlProxies.OfType<T>().FirstOrDefault(c => c.path == path);
         }

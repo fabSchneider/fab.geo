@@ -1,31 +1,30 @@
 using MoonSharp.Interpreter;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [MoonSharpUserData]
     [LuaHelpInfo("Module for interacting with the world")]
-    public class WorldProxy : ProxyBase<WorldInputHandler>
+    public class World : LuaObject, ILuaObjectInitialize
     {
-        public override string Name => "world";
-       
+        private WorldInputHandler worldInput;
         private Closure clickEvent;
 
-        [MoonSharpHidden]
-        public WorldProxy(WorldInputHandler value) : base(value)
+        public void Initialize()
         {
+            worldInput = UnityEngine.Object.FindObjectOfType<WorldInputHandler>();
+
+            if (worldInput == null)
+                throw new LuaObjectInitializationException("Could not find world input");
         }
 
         [LuaHelpInfo("Event function that is called when the world is clicked")]
         public void on_click(Closure action)
         {
             clickEvent = action;
-            Value.clicked -= OnClick;
+            worldInput.clicked -= OnClick;
             if (action != null)
-                Value.clicked += OnClick;
+                worldInput.clicked += OnClick;
         }
 
         private void OnClick(Coordinate coord)
