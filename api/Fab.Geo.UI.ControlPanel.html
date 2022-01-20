@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Coordinate
+    <title>Class ControlPanel
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Coordinate
+    <meta name="title" content="Class ControlPanel
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,47 +68,59 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Coordinate">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.UI.ControlPanel">
   
   
-  <h1 id="Fab_Geo_Coordinate" data-uid="Fab.Geo.Coordinate" class="text-break">Struct Coordinate
+  <h1 id="Fab_Geo_UI_ControlPanel" data-uid="Fab.Geo.UI.ControlPanel" class="text-break">Class ControlPanel
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a>&gt;</div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ControlPanel</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
       <span class="xref">System.Object.GetType()</span>
     </div>
     <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.html">Fab.Geo</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.UI.html">Fab.Geo.UI</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Coordinate_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_UI_ControlPanel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Serializable]
-public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class ControlPanel</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="Fab_Geo_Coordinate__ctor_" data-uid="Fab.Geo.Coordinate.#ctor*"></a>
-  <h4 id="Fab_Geo_Coordinate__ctor_System_Single_System_Single_" data-uid="Fab.Geo.Coordinate.#ctor(System.Single,System.Single)">Coordinate(Single, Single)</h4>
+  <a id="Fab_Geo_UI_ControlPanel__ctor_" data-uid="Fab.Geo.UI.ControlPanel.#ctor*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel__ctor_VisualElement_" data-uid="Fab.Geo.UI.ControlPanel.#ctor(VisualElement)">ControlPanel(VisualElement)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Coordinate(float longitude, float latitude)</code></pre>
+    <pre><code class="lang-csharp hljs">public ControlPanel(VisualElement root)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -121,63 +133,8 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">longitude</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">latitude</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="Fab_Geo_Coordinate_latitude" data-uid="Fab.Geo.Coordinate.latitude">latitude</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float latitude</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="Fab_Geo_Coordinate_longitude" data-uid="Fab.Geo.Coordinate.longitude">longitude</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float longitude</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
+        <td><span class="xref">VisualElement</span></td>
+        <td><span class="parametername">root</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -186,176 +143,33 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
   </h3>
   
   
-  <a id="Fab_Geo_Coordinate_Equals_" data-uid="Fab.Geo.Coordinate.Equals*"></a>
-  <h4 id="Fab_Geo_Coordinate_Equals_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Coordinate.Equals(Fab.Geo.Coordinate)">Equals(Coordinate)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Equals(Coordinate rhs)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">rhs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_Coordinate_Equals_" data-uid="Fab.Geo.Coordinate.Equals*"></a>
-  <h4 id="Fab_Geo_Coordinate_Equals_System_Object_" data-uid="Fab.Geo.Coordinate.Equals(System.Object)">Equals(Object)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object o)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">o</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
-  
-  
-  <a id="Fab_Geo_Coordinate_GetHashCode_" data-uid="Fab.Geo.Coordinate.GetHashCode*"></a>
-  <h4 id="Fab_Geo_Coordinate_GetHashCode" data-uid="Fab.Geo.Coordinate.GetHashCode">GetHashCode()</h4>
-  <div class="markdown level1 summary"><p>Returns a hash code for the float2.</p>
+  <a id="Fab_Geo_UI_ControlPanel_AddButton_" data-uid="Fab.Geo.UI.ControlPanel.AddButton*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_AddButton_System_String_Action_" data-uid="Fab.Geo.UI.ControlPanel.AddButton(System.String,Action)">AddButton(String, Action)</h4>
+  <div class="markdown level1 summary"><p>Adds a button to the panel</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+    <pre><code class="lang-csharp hljs">public Button AddButton(string path, Action callback)</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>The computed hash code.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
-  
-  
-  <a id="Fab_Geo_Coordinate_ToString_" data-uid="Fab.Geo.Coordinate.ToString*"></a>
-  <h4 id="Fab_Geo_Coordinate_ToString" data-uid="Fab.Geo.Coordinate.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.ToString()</span></div>
-  <h3 id="operators">Operators
-  </h3>
-  
-  
-  <a id="Fab_Geo_Coordinate_op_Equality_" data-uid="Fab.Geo.Coordinate.op_Equality*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Equality_Fab_Geo_Coordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Coordinate.op_Equality(Fab.Geo.Coordinate,Fab.Geo.Coordinate)">Equality(Coordinate, Coordinate)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool2 operator ==(Coordinate lhs, Coordinate rhs)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">lhs</span></td>
+        <td><span class="parametername">path</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">rhs</span></td>
+        <td><span class="xref">Action</span></td>
+        <td><span class="parametername">callback</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -370,20 +184,21 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool2</span></td>
+        <td><span class="xref">Button</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Coordinate_op_Implicit_" data-uid="Fab.Geo.Coordinate.op_Implicit*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Implicit_Fab_Geo_Coordinate__float2" data-uid="Fab.Geo.Coordinate.op_Implicit(Fab.Geo.Coordinate)~float2">Implicit(Coordinate to float2)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Fab_Geo_UI_ControlPanel_AddChoice_" data-uid="Fab.Geo.UI.ControlPanel.AddChoice*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_AddChoice_System_String_List_System_String__System_String_" data-uid="Fab.Geo.UI.ControlPanel.AddChoice(System.String,List{System.String},System.String)">AddChoice(String, List&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Adds a choice dropdown to the panel</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator float2(Coordinate c)</code></pre>
+    <pre><code class="lang-csharp hljs">public DropdownField AddChoice(string path, List&lt;string&gt; choices, string value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -396,8 +211,18 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">c</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">choices</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -412,20 +237,21 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float2</span></td>
+        <td><span class="xref">DropdownField</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Coordinate_op_Implicit_" data-uid="Fab.Geo.Coordinate.op_Implicit*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Implicit_float2__Fab_Geo_Coordinate" data-uid="Fab.Geo.Coordinate.op_Implicit(float2)~Fab.Geo.Coordinate">Implicit(float2 to Coordinate)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Fab_Geo_UI_ControlPanel_AddLabel_" data-uid="Fab.Geo.UI.ControlPanel.AddLabel*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_AddLabel_System_String_System_String_" data-uid="Fab.Geo.UI.ControlPanel.AddLabel(System.String,System.String)">AddLabel(String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds a label to the panel</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator Coordinate(float2 f2)</code></pre>
+    <pre><code class="lang-csharp hljs">public VisualElement AddLabel(string path, string text = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -438,8 +264,77 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float2</span></td>
-        <td><span class="parametername">f2</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">text</span></td>
+        <td><p>The text of the label. If null the last item of the path is used instead</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">VisualElement</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_UI_ControlPanel_AddRangeSlider_" data-uid="Fab.Geo.UI.ControlPanel.AddRangeSlider*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_AddRangeSlider_System_String_System_Single_System_Single_System_Single_System_Single_" data-uid="Fab.Geo.UI.ControlPanel.AddRangeSlider(System.String,System.Single,System.Single,System.Single,System.Single)">AddRangeSlider(String, Single, Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds a ranged slider to the panel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MinMaxSlider AddRangeSlider(string path, float min, float max, float minLimit, float maxLimit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">minLimit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">maxLimit</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -454,20 +349,21 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="xref">MinMaxSlider</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Coordinate_op_Inequality_" data-uid="Fab.Geo.Coordinate.op_Inequality*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Inequality_Fab_Geo_Coordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Coordinate.op_Inequality(Fab.Geo.Coordinate,Fab.Geo.Coordinate)">Inequality(Coordinate, Coordinate)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Fab_Geo_UI_ControlPanel_AddSeparator_" data-uid="Fab.Geo.UI.ControlPanel.AddSeparator*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_AddSeparator_System_String_" data-uid="Fab.Geo.UI.ControlPanel.AddSeparator(System.String)">AddSeparator(String)</h4>
+  <div class="markdown level1 summary"><p>Adds a separator to the panel</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool2 operator !=(Coordinate lhs, Coordinate rhs)</code></pre>
+    <pre><code class="lang-csharp hljs">public VisualElement AddSeparator(string path)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -480,13 +376,8 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">lhs</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">rhs</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -501,14 +392,188 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool2</span></td>
+        <td><span class="xref">VisualElement</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">IEquatable&lt;&gt;</span>
+  
+  
+  <a id="Fab_Geo_UI_ControlPanel_AddSlider_" data-uid="Fab.Geo.UI.ControlPanel.AddSlider*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_AddSlider_System_String_System_Single_System_Single_System_Single_" data-uid="Fab.Geo.UI.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single)">AddSlider(String, Single, Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Adds a slider to the panel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Slider AddSlider(string path, float min, float max, float value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">min</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">max</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Slider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_UI_ControlPanel_ClearAndHide_" data-uid="Fab.Geo.UI.ControlPanel.ClearAndHide*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_ClearAndHide" data-uid="Fab.Geo.UI.ControlPanel.ClearAndHide">ClearAndHide()</h4>
+  <div class="markdown level1 summary"><p>Removes all controls and hides the panel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearAndHide()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_UI_ControlPanel_GetControl_" data-uid="Fab.Geo.UI.ControlPanel.GetControl*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_GetControl_System_String_" data-uid="Fab.Geo.UI.ControlPanel.GetControl(System.String)">GetControl(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the control at the given path</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VisualElement GetControl(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">VisualElement</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_UI_ControlPanel_Hide_" data-uid="Fab.Geo.UI.ControlPanel.Hide*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_Hide" data-uid="Fab.Geo.UI.ControlPanel.Hide">Hide()</h4>
+  <div class="markdown level1 summary"><p>Hides the control panel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Hide()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_UI_ControlPanel_RemoveControl_" data-uid="Fab.Geo.UI.ControlPanel.RemoveControl*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_RemoveControl_System_String_" data-uid="Fab.Geo.UI.ControlPanel.RemoveControl(System.String)">RemoveControl(String)</h4>
+  <div class="markdown level1 summary"><p>Removes a control at the given path</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveControl(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Returns true if the element was found and removed</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_UI_ControlPanel_Show_" data-uid="Fab.Geo.UI.ControlPanel.Show*"></a>
+  <h4 id="Fab_Geo_UI_ControlPanel_Show" data-uid="Fab.Geo.UI.ControlPanel.Show">Show()</h4>
+  <div class="markdown level1 summary"><p>Shows the control panel</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Show()</code></pre>
   </div>
 </article>
           </div>

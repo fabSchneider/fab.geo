@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ControlPanel
+    <title>Class VisualElementHierachyBuilder
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ControlPanel
+    <meta name="title" content="Class VisualElementHierachyBuilder
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,17 +68,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.ControlPanel">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder">
   
   
-  <h1 id="Fab_Geo_ControlPanel" data-uid="Fab.Geo.ControlPanel" class="text-break">Class ControlPanel
+  <h1 id="Fab_Geo_UI_VisualElementHierachyBuilder" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder" class="text-break">Class VisualElementHierachyBuilder
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Utility class for building a VisualElement hierachy from a path</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ControlPanel</span></div>
+    <div class="level1"><span class="xref">VisualElementHierachyBuilder</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -104,23 +105,23 @@
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.html">Fab.Geo</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.UI.html">Fab.Geo.UI</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_ControlPanel_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_UI_VisualElementHierachyBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ControlPanel</code></pre>
+    <pre><code class="lang-csharp hljs">public class VisualElementHierachyBuilder</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="Fab_Geo_ControlPanel__ctor_" data-uid="Fab.Geo.ControlPanel.#ctor*"></a>
-  <h4 id="Fab_Geo_ControlPanel__ctor_VisualElement_" data-uid="Fab.Geo.ControlPanel.#ctor(VisualElement)">ControlPanel(VisualElement)</h4>
+  <a id="Fab_Geo_UI_VisualElementHierachyBuilder__ctor_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.#ctor*"></a>
+  <h4 id="Fab_Geo_UI_VisualElementHierachyBuilder__ctor_VisualElement_Func_System_String_VisualElement__System_Char_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.#ctor(VisualElement,Func{System.String,VisualElement},System.Char)">VisualElementHierachyBuilder(VisualElement, Func&lt;String, VisualElement&gt;, Char)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ControlPanel(VisualElement root)</code></pre>
+    <pre><code class="lang-csharp hljs">public VisualElementHierachyBuilder(VisualElement root, Func&lt;string, VisualElement&gt; createGroupFunc, char separatorChar = '.')</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -135,6 +136,45 @@
       <tr>
         <td><span class="xref">VisualElement</span></td>
         <td><span class="parametername">root</span></td>
+        <td><p>The root element of the hierachy</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">VisualElement</span>&gt;</td>
+        <td><span class="parametername">createGroupFunc</span></td>
+        <td><p>The function creating a hierachy element</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td><span class="parametername">separatorChar</span></td>
+        <td><p>The separator charactor to split the path by</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Fab_Geo_UI_VisualElementHierachyBuilder_GroupNameSuffix" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.GroupNameSuffix">GroupNameSuffix</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly string GroupNameSuffix</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -143,13 +183,49 @@
   </h3>
   
   
-  <a id="Fab_Geo_ControlPanel_AddButton_" data-uid="Fab.Geo.ControlPanel.AddButton*"></a>
-  <h4 id="Fab_Geo_ControlPanel_AddButton_System_String_Action_" data-uid="Fab.Geo.ControlPanel.AddButton(System.String,Action)">AddButton(String, Action)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Fab_Geo_UI_VisualElementHierachyBuilder_AddToHierachy_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.AddToHierachy*"></a>
+  <h4 id="Fab_Geo_UI_VisualElementHierachyBuilder_AddToHierachy_VisualElement_System_String_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.AddToHierachy(VisualElement,System.String)">AddToHierachy(VisualElement, String)</h4>
+  <div class="markdown level1 summary"><p>Adds an element to the hierachy</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddButton(string name, Action callback)</code></pre>
+    <pre><code class="lang-csharp hljs">public void AddToHierachy(VisualElement element, string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">VisualElement</span></td>
+        <td><span class="parametername">element</span></td>
+        <td><p>The element to add</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>The path of the element</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_UI_VisualElementHierachyBuilder_GetElementAtPath_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.GetElementAtPath*"></a>
+  <h4 id="Fab_Geo_UI_VisualElementHierachyBuilder_GetElementAtPath_System_String_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.GetElementAtPath(System.String)">GetElementAtPath(String)</h4>
+  <div class="markdown level1 summary"><p>Returns the element at the given path</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VisualElement GetElementAtPath(string path)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -163,25 +239,36 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
+        <td><span class="parametername">path</span></td>
         <td></td>
       </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><span class="xref">Action</span></td>
-        <td><span class="parametername">callback</span></td>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">VisualElement</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_ControlPanel_AddChoice_" data-uid="Fab.Geo.ControlPanel.AddChoice*"></a>
-  <h4 id="Fab_Geo_ControlPanel_AddChoice_System_String_List_System_String__System_String_" data-uid="Fab.Geo.ControlPanel.AddChoice(System.String,List{System.String},System.String)">AddChoice(String, List&lt;String&gt;, String)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Fab_Geo_UI_VisualElementHierachyBuilder_GetName_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.GetName*"></a>
+  <h4 id="Fab_Geo_UI_VisualElementHierachyBuilder_GetName_System_String_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.GetName(System.String)">GetName(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the elements name from a path</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddChoice(string name, List&lt;string&gt; choices, string value)</code></pre>
+    <pre><code class="lang-csharp hljs">public string GetName(string path)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -195,30 +282,47 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
+        <td><span class="parametername">path</span></td>
         <td></td>
       </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">choices</span></td>
-        <td></td>
+        <th>Type</th>
+        <th>Description</th>
       </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_ControlPanel_AddRangeSlider_" data-uid="Fab.Geo.ControlPanel.AddRangeSlider*"></a>
-  <h4 id="Fab_Geo_ControlPanel_AddRangeSlider_System_String_System_Single_System_Single_System_Single_System_Single_" data-uid="Fab.Geo.ControlPanel.AddRangeSlider(System.String,System.Single,System.Single,System.Single,System.Single)">AddRangeSlider(String, Single, Single, Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="Fab_Geo_UI_VisualElementHierachyBuilder_RemoveAll_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.RemoveAll*"></a>
+  <h4 id="Fab_Geo_UI_VisualElementHierachyBuilder_RemoveAll" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.RemoveAll">RemoveAll()</h4>
+  <div class="markdown level1 summary"><p>Removes all elements leaving only the root</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddRangeSlider(string name, float min, float max, float minLimit, float maxLimit)</code></pre>
+    <pre><code class="lang-csharp hljs">public void RemoveAll()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_UI_VisualElementHierachyBuilder_RemoveElement_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.RemoveElement*"></a>
+  <h4 id="Fab_Geo_UI_VisualElementHierachyBuilder_RemoveElement_System_String_" data-uid="Fab.Geo.UI.VisualElementHierachyBuilder.RemoveElement(System.String)">RemoveElement(String)</h4>
+  <div class="markdown level1 summary"><p>Removes an element at the given path</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveElement(string path)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -232,130 +336,27 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">min</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">max</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">minLimit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">maxLimit</span></td>
+        <td><span class="parametername">path</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Fab_Geo_ControlPanel_AddSeperator_" data-uid="Fab.Geo.ControlPanel.AddSeperator*"></a>
-  <h4 id="Fab_Geo_ControlPanel_AddSeperator" data-uid="Fab.Geo.ControlPanel.AddSeperator">AddSeperator()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddSeperator()</code></pre>
-  </div>
-  
-  
-  <a id="Fab_Geo_ControlPanel_AddSlider_" data-uid="Fab.Geo.ControlPanel.AddSlider*"></a>
-  <h4 id="Fab_Geo_ControlPanel_AddSlider_System_String_System_Single_System_Single_System_Single_Action_System_Single__" data-uid="Fab.Geo.ControlPanel.AddSlider(System.String,System.Single,System.Single,System.Single,Action{System.Single})">AddSlider(String, Single, Single, Single, Action&lt;Single&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddSlider(string name, float min, float max, float value, Action&lt;float&gt; callback = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">min</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">max</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Action</span>&lt;<span class="xref">System.Single</span>&gt;</td>
-        <td><span class="parametername">callback</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_ControlPanel_BeginGroup_" data-uid="Fab.Geo.ControlPanel.BeginGroup*"></a>
-  <h4 id="Fab_Geo_ControlPanel_BeginGroup_System_String_System_Boolean_" data-uid="Fab.Geo.ControlPanel.BeginGroup(System.String,System.Boolean)">BeginGroup(String, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void BeginGroup(string name, bool expanded = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">expanded</span></td>
-        <td></td>
+        <td><p>Returns true if the element was found and removed.False otherwise</p>
+</td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Fab_Geo_ControlPanel_EndGroup_" data-uid="Fab.Geo.ControlPanel.EndGroup*"></a>
-  <h4 id="Fab_Geo_ControlPanel_EndGroup" data-uid="Fab.Geo.ControlPanel.EndGroup">EndGroup()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void EndGroup()</code></pre>
-  </div>
 </article>
           </div>
           

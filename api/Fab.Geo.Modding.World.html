@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PopupProxy
+    <title>Class World
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PopupProxy
+    <meta name="title" content="Class World
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,23 +68,27 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.PopupProxy">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.World">
   
   
-  <h1 id="Fab_Geo_Modding_PopupProxy" data-uid="Fab.Geo.Modding.PopupProxy" class="text-break">Class PopupProxy
+  <h1 id="Fab_Geo_Modding_World" data-uid="Fab.Geo.Modding.World" class="text-break">Class World
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html">ProxyBase</a>&lt;<a class="xref" href="Fab.Geo.Popup.html">Popup</a>&gt;</div>
-    <div class="level2"><span class="xref">PopupProxy</span></div>
+    <div class="level1"><a class="xref" href="Fab.Geo.Modding.LuaObject.html">LuaObject</a></div>
+    <div class="level2"><span class="xref">World</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1_Source">ProxyBase&lt;Popup&gt;.Source</a>
+      <a class="xref" href="Fab.Geo.Modding.LuaObject.html#Fab_Geo_Modding_LuaObject_GetLuaName_Type_">LuaObject.GetLuaName(Type)</a>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
@@ -110,50 +114,31 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Modding_PopupProxy_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_World_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PopupProxy : ProxyBase&lt;Popup&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class World : LuaObject, ILuaObjectInitialize</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="Fab_Geo_Modding_PopupProxy__ctor_" data-uid="Fab.Geo.Modding.PopupProxy.#ctor*"></a>
-  <h4 id="Fab_Geo_Modding_PopupProxy__ctor_Fab_Geo_Popup_" data-uid="Fab.Geo.Modding.PopupProxy.#ctor(Fab.Geo.Popup)">PopupProxy(Popup)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PopupProxy(Popup source)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Popup.html">Popup</a></td>
-        <td><span class="parametername">source</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Fab_Geo_Modding_PopupProxy_show_" data-uid="Fab.Geo.Modding.PopupProxy.show*"></a>
-  <h4 id="Fab_Geo_Modding_PopupProxy_show_System_String_Fab_Geo_Modding_TextureProxy_" data-uid="Fab.Geo.Modding.PopupProxy.show(System.String,Fab.Geo.Modding.TextureProxy)">show(String, TextureProxy)</h4>
+  <a id="Fab_Geo_Modding_World_Initialize_" data-uid="Fab.Geo.Modding.World.Initialize*"></a>
+  <h4 id="Fab_Geo_Modding_World_Initialize" data-uid="Fab.Geo.Modding.World.Initialize">Initialize()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void show(string title, TextureProxy image)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Initialize()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_World_on_click_" data-uid="Fab.Geo.Modding.World.on_click*"></a>
+  <h4 id="Fab_Geo_Modding_World_on_click_Closure_" data-uid="Fab.Geo.Modding.World.on_click(Closure)">on_click(Closure)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void on_click(Closure action)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -166,49 +151,16 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Modding.TextureProxy.html">TextureProxy</a></td>
-        <td><span class="parametername">image</span></td>
+        <td><span class="xref">Closure</span></td>
+        <td><span class="parametername">action</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Fab_Geo_Modding_PopupProxy_show_" data-uid="Fab.Geo.Modding.PopupProxy.show*"></a>
-  <h4 id="Fab_Geo_Modding_PopupProxy_show_System_String_System_String_" data-uid="Fab.Geo.Modding.PopupProxy.show(System.String,System.String)">show(String, String)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void show(string title, string text)</code></pre>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">text</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 </article>
           </div>
           

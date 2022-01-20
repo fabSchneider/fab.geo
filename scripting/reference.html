@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Scripting reference </title>
+    <title>Lua Modules </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Scripting reference ">
+    <meta name="title" content="Lua Modules ">
     <meta name="generator" content="docfx 2.56.7.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,9 +67,119 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="scripting-reference">Scripting reference</h1>
+<h1 id="lua-modules">Lua Modules</h1>
 
-<p>coming soon...</p>
+<h2 id="camera">camera</h2>
+<p>Module for controlling the world camera</p>
+<h3 id="methods">Methods:</h3>
+<h4 id="set_zoomzoom">set_zoom(zoom)</h4>
+<p>Sets the camera's zoom level [0-1]</p>
+<h4 id="enable_control">enable_control()</h4>
+<p>Enables the camera's input control</p>
+<h4 id="disable_control">disable_control()</h4>
+<p>Disables the camera's input control</p>
+<h4 id="animatecoords-speed-loop">animate(coords speed loop)</h4>
+<p>Moves the camera from one coordinate to the next in a list of coordinates</p>
+<h4 id="on_animation_finishedevt">on_animation_finished(evt)</h4>
+<p>Called when a camera animation finished</p>
+<h3 id="properties">Properties:</h3>
+<h4 id="coord">coord</h4>
+<p>Gets/Sets the camera's position in coordinates</p>
+<h2 id="controls">controls</h2>
+<p>Module for adding controls to the control panel</p>
+<h3 id="methods-1">Methods:</h3>
+<h4 id="show">show()</h4>
+<p>Shows the control panel</p>
+<h4 id="hide">hide()</h4>
+<p>Hides the control panel</p>
+<h4 id="getpath">get(path)</h4>
+<p>Gets the control at the given path from the panel</p>
+<h4 id="removecontrol">remove(control)</h4>
+<p>Removes the control at the given path from the panel</p>
+<h4 id="remove_all">remove_all()</h4>
+<p>Removes all controls from the panel</p>
+<h4 id="labelpath-text">label(path text)</h4>
+<p>Adds a label to the control panel</p>
+<h4 id="separatorpath">separator(path)</h4>
+<p>Adds a separator to the control panel</p>
+<h4 id="sliderpath-min-max-value">slider(path min max value)</h4>
+<p>Adds a slider to the control panel</p>
+<h4 id="rangepath-min-max-minlimit-maxlimit">range(path min max minLimit maxLimit)</h4>
+<p>Adds a ranged slider to the control panel.</p>
+<h4 id="choicepath-choices-value">choice(path choices value)</h4>
+<p>Adds a choice field to the control panel</p>
+<h4 id="buttonpath-text-on_click">button(path text on_click)</h4>
+<p>Adds a button to the control panel. You can pass in a function that will be called when the button was pressed</p>
+<h2 id="features">features</h2>
+<p>Module for adding features (points, lines...) to the world</p>
+<h3 id="methods-2">Methods:</h3>
+<h4 id="pointname-coord">point(name coord)</h4>
+<p>Adds a point at the given coordinates</p>
+<h4 id="linename-coord1-coord2">line(name coord1 coord2)</h4>
+<p>Adds a line between two coordinates</p>
+<h4 id="linename-feature_1-feature_2">line(name feature_1 feature_2)</h4>
+<p>Adds a line between two features</p>
+<h4 id="polylinename-coords-closed">polyline(name coords closed)</h4>
+<p>Adds a polyline through a list of coordinates</p>
+<h4 id="getname">get(name)</h4>
+<p>Gets the first feature with the given name</p>
+<h4 id="get_allname">get_all(name)</h4>
+<p>Gets all feature with the given name</p>
+<h4 id="removefeature">remove(feature)</h4>
+<p>Removes a feature from the world</p>
+<h4 id="remove_all-1">remove_all()</h4>
+<p>Removes all features from the world</p>
+<h2 id="geo">geo</h2>
+<p>Module for geo operations</p>
+<h3 id="methods-3">Methods:</h3>
+<h4 id="distancecoord1-coord2">distance(coord1 coord2)</h4>
+<p>Calculates the distance in kilometer between two coordinates</p>
+<h2 id="io">io</h2>
+<p>Module for loading image and text</p>
+<h3 id="methods-4">Methods:</h3>
+<h4 id="loadfile">load(file)</h4>
+<p>Loads a text(txt, json, geojson) or image file(jpg, png) from the data path</p>
+<h3 id="properties-1">Properties:</h3>
+<h4 id="data_dir">data_dir</h4>
+<p>Returns the directory path that data can be loaded from (read only)</p>
+<h2 id="popup">popup</h2>
+<p>Module to show a popup on the screen</p>
+<h3 id="methods-5">Methods:</h3>
+<h4 id="showtitle-text">show(title text)</h4>
+<p>Shows a popup with some text</p>
+<h4 id="showtitle-image">show(title image)</h4>
+<p>Shows a popup with an image</p>
+<h4 id="close">close()</h4>
+<p>Closes any open popup</p>
+<h4 id="buttontext-on_click">button(text on_click)</h4>
+<p>Adds a button to the popup</p>
+<h2 id="random">random</h2>
+<p>Module for generating random numbers and more</p>
+<h3 id="methods-6">Methods:</h3>
+<h4 id="set_seedseed">set_seed(seed)</h4>
+<p>Sets the seed of the random generator</p>
+<h4 id="number">number()</h4>
+<p>returns a random number between 0 [inclusive] and 1 (exclusive)</p>
+<h4 id="numbermin-max">number(min max)</h4>
+<p>returns a random number between min [inclusive] and max (exclusive)</p>
+<h4 id="whole_numbermin-max">whole_number(min max)</h4>
+<p>returns a random whole number between min [inclusive] and max (exclusive)</p>
+<h4 id="coord-1">coord()</h4>
+<p>returns a random coordinate</p>
+<h4 id="colorsaturation-brightness">color(saturation brightness)</h4>
+<p>returns a color with a random hue</p>
+<h2 id="rec">rec</h2>
+<p>Module to record coordinates from mouse inputs</p>
+<h3 id="methods-7">Methods:</h3>
+<h4 id="toto">to(to)</h4>
+<p>Starts recording clicks on the globe and appends the coordinate at the click position to the supplied table</p>
+<h4 id="stop">stop()</h4>
+<p>Stops recording clicks</p>
+<h2 id="world">world</h2>
+<p>Module for interacting with the world</p>
+<h3 id="methods-8">Methods:</h3>
+<h4 id="on_clickaction">on_click(action)</h4>
+<p>Event function that is called when the world is clicked</p>
 </article>
           </div>
           
@@ -78,7 +188,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/fabSchneider/fab.geo/blob/master/Documentation/scripting/reference.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/fabSchneider/fab.geo/blob/lua-help-markdown/Documentation/scripting/reference.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

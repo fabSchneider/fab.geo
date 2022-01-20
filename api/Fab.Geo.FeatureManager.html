@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Feature
+    <title>Class FeatureManager
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Feature
+    <meta name="title" content="Class FeatureManager
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,202 +68,35 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Feature">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.FeatureManager">
   
   
-  <h1 id="Fab_Geo_Feature" data-uid="Fab.Geo.Feature" class="text-break">Class Feature
+  <h1 id="Fab_Geo_FeatureManager" data-uid="Fab.Geo.FeatureManager" class="text-break">Class FeatureManager
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Feature</span></div>
-      <div class="level2"><a class="xref" href="Fab.Geo.FeatureLine.html">FeatureLine</a></div>
-      <div class="level2"><a class="xref" href="Fab.Geo.FeaturePoint.html">FeaturePoint</a></div>
-      <div class="level2"><a class="xref" href="Fab.Geo.FeaturePolyline.html">FeaturePolyline</a></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">IPointerClickHandler</span></div>
+    <div class="level1"><span class="xref">FeatureManager</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.html">Fab.Geo</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Feature_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_FeatureManager_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Feature : MonoBehaviour, IPointerClickHandler</code></pre>
+    <pre><code class="lang-csharp hljs">public class FeatureManager : MonoBehaviour</code></pre>
   </div>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="Fab_Geo_Feature_baseColorId" data-uid="Fab.Geo.Feature.baseColorId">baseColorId</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected int baseColorId</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="Fab_Geo_Feature_renderer" data-uid="Fab.Geo.Feature.renderer">renderer</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Renderer renderer</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Renderer</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="Fab_Geo_Feature_styleProps" data-uid="Fab.Geo.Feature.styleProps">styleProps</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected MaterialPropertyBlock styleProps</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">MaterialPropertyBlock</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
-  <a id="Fab_Geo_Feature_Geometry_" data-uid="Fab.Geo.Feature.Geometry*"></a>
-  <h4 id="Fab_Geo_Feature_Geometry" data-uid="Fab.Geo.Feature.Geometry">Geometry</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract Coordinate[] Geometry { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Fab_Geo_Feature_Awake_" data-uid="Fab.Geo.Feature.Awake*"></a>
-  <h4 id="Fab_Geo_Feature_Awake" data-uid="Fab.Geo.Feature.Awake">Awake()</h4>
+  <a id="Fab_Geo_FeatureManager_AddLine_" data-uid="Fab.Geo.FeatureManager.AddLine*"></a>
+  <h4 id="Fab_Geo_FeatureManager_AddLine_System_String_Fab_Geo_Coordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.FeatureManager.AddLine(System.String,Fab.Geo.Coordinate,Fab.Geo.Coordinate)">AddLine(String, Coordinate, Coordinate)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Awake()</code></pre>
-  </div>
-  
-  
-  <a id="Fab_Geo_Feature_GetColor_" data-uid="Fab.Geo.Feature.GetColor*"></a>
-  <h4 id="Fab_Geo_Feature_GetColor" data-uid="Fab.Geo.Feature.GetColor">GetColor()</h4>
-  <div class="markdown level1 summary"><p>Returns the main color of this feature</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Color GetColor()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Color</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_Feature_Remove_" data-uid="Fab.Geo.Feature.Remove*"></a>
-  <h4 id="Fab_Geo_Feature_Remove" data-uid="Fab.Geo.Feature.Remove">Remove()</h4>
-  <div class="markdown level1 summary"><p>Removes the feature</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Remove()</code></pre>
-  </div>
-  
-  
-  <a id="Fab_Geo_Feature_ResetStyle_" data-uid="Fab.Geo.Feature.ResetStyle*"></a>
-  <h4 id="Fab_Geo_Feature_ResetStyle" data-uid="Fab.Geo.Feature.ResetStyle">ResetStyle()</h4>
-  <div class="markdown level1 summary"><p>Resets the features style to its default state</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void ResetStyle()</code></pre>
-  </div>
-  
-  
-  <a id="Fab_Geo_Feature_SetColor_" data-uid="Fab.Geo.Feature.SetColor*"></a>
-  <h4 id="Fab_Geo_Feature_SetColor_Color_" data-uid="Fab.Geo.Feature.SetColor(Color)">SetColor(Color)</h4>
-  <div class="markdown level1 summary"><p>Sets the main color of this feature</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void SetColor(Color color)</code></pre>
+    <pre><code class="lang-csharp hljs">public FeatureLine AddLine(string name, Coordinate a, Coordinate b)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -276,22 +109,146 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Color</span></td>
-        <td><span class="parametername">color</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="parametername">b</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.FeatureLine.html">FeatureLine</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Feature_SetName_" data-uid="Fab.Geo.Feature.SetName*"></a>
-  <h4 id="Fab_Geo_Feature_SetName_System_String_" data-uid="Fab.Geo.Feature.SetName(System.String)">SetName(String)</h4>
-  <div class="markdown level1 summary"><p>Sets the features name</p>
+  <a id="Fab_Geo_FeatureManager_AddPoint_" data-uid="Fab.Geo.FeatureManager.AddPoint*"></a>
+  <h4 id="Fab_Geo_FeatureManager_AddPoint_System_String_Fab_Geo_Coordinate_" data-uid="Fab.Geo.FeatureManager.AddPoint(System.String,Fab.Geo.Coordinate)">AddPoint(String, Coordinate)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeaturePoint AddPoint(string name, Coordinate coord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.FeaturePoint.html">FeaturePoint</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_FeatureManager_AddPolyline_" data-uid="Fab.Geo.FeatureManager.AddPolyline*"></a>
+  <h4 id="Fab_Geo_FeatureManager_AddPolyline_System_String_ICollection_Fab_Geo_Coordinate__System_Boolean_" data-uid="Fab.Geo.FeatureManager.AddPolyline(System.String,ICollection{Fab.Geo.Coordinate},System.Boolean)">AddPolyline(String, ICollection&lt;Coordinate&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FeaturePolyline AddPolyline(string name, ICollection&lt;Coordinate&gt; coords, bool closed)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ICollection</span>&lt;<a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a>&gt;</td>
+        <td><span class="parametername">coords</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">closed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.FeaturePolyline.html">FeaturePolyline</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_FeatureManager_GetFeature_" data-uid="Fab.Geo.FeatureManager.GetFeature*"></a>
+  <h4 id="Fab_Geo_FeatureManager_GetFeature_System_String_" data-uid="Fab.Geo.FeatureManager.GetFeature(System.String)">GetFeature(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the first feature with given name or null if no feature with that name exists</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void SetName(string name)</code></pre>
+    <pre><code class="lang-csharp hljs">public Feature GetFeature(string name)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -310,18 +267,7 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="events">Events
-  </h3>
-  
-  
-  <h4 id="Fab_Geo_Feature_clicked" data-uid="Fab.Geo.Feature.clicked">clicked</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event Action clicked</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -331,15 +277,106 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Action</span></td>
+        <td><a class="xref" href="Fab.Geo.Feature.html">Feature</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">IPointerClickHandler</span>
+  
+  
+  <a id="Fab_Geo_FeatureManager_GetFeatures_" data-uid="Fab.Geo.FeatureManager.GetFeatures*"></a>
+  <h4 id="Fab_Geo_FeatureManager_GetFeatures_System_String_" data-uid="Fab.Geo.FeatureManager.GetFeatures(System.String)">GetFeatures(String)</h4>
+  <div class="markdown level1 summary"><p>Gets all features with the given name or null if no feature with that name exists</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Feature&gt; GetFeatures(string name)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Fab.Geo.Feature.html">Feature</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_FeatureManager_RemoveAllFeatures_" data-uid="Fab.Geo.FeatureManager.RemoveAllFeatures*"></a>
+  <h4 id="Fab_Geo_FeatureManager_RemoveAllFeatures" data-uid="Fab.Geo.FeatureManager.RemoveAllFeatures">RemoveAllFeatures()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAllFeatures()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_FeatureManager_RemoveFeature_" data-uid="Fab.Geo.FeatureManager.RemoveFeature*"></a>
+  <h4 id="Fab_Geo_FeatureManager_RemoveFeature_Fab_Geo_Feature_" data-uid="Fab.Geo.FeatureManager.RemoveFeature(Fab.Geo.Feature)">RemoveFeature(Feature)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveFeature(Feature feature)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Feature.html">Feature</a></td>
+        <td><span class="parametername">feature</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           

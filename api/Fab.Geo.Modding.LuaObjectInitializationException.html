@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class WorldCameraControllerProxy
+    <title>Class LuaObjectInitializationException
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class WorldCameraControllerProxy
+    <meta name="title" content="Class LuaObjectInitializationException
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,20 +68,65 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.LuaObjectInitializationException">
   
   
-  <h1 id="Fab_Geo_Modding_WorldCameraControllerProxy" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy" class="text-break">Class WorldCameraControllerProxy
+  <h1 id="Fab_Geo_Modding_LuaObjectInitializationException" data-uid="Fab.Geo.Modding.LuaObjectInitializationException" class="text-break">Class LuaObjectInitializationException
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">WorldCameraControllerProxy</span></div>
+    <div class="level1"><span class="xref">System.Exception</span></div>
+    <div class="level2"><span class="xref">LuaObjectInitializationException</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
+    <div><span class="xref">System.Runtime.InteropServices._Exception</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Exception.GetBaseException()</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.Message</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.Data</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.InnerException</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.TargetSite</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.StackTrace</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.HelpLink</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.Source</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.HResult</span>
+    </div>
+    <div>
+      <span class="xref">System.Exception.SerializeObjectState</span>
+    </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
@@ -92,13 +137,7 @@
       <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
       <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
     </div>
     <div>
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
@@ -106,21 +145,32 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Modding_WorldCameraControllerProxy_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_LuaObjectInitializationException_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WorldCameraControllerProxy</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class LuaObjectInitializationException : Exception, ISerializable, _Exception</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   
   
-  <a id="Fab_Geo_Modding_WorldCameraControllerProxy__ctor_" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.#ctor*"></a>
-  <h4 id="Fab_Geo_Modding_WorldCameraControllerProxy__ctor_Fab_Geo_WorldCameraController_" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.#ctor(Fab.Geo.WorldCameraController)">WorldCameraControllerProxy(WorldCameraController)</h4>
+  <a id="Fab_Geo_Modding_LuaObjectInitializationException__ctor_" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor*"></a>
+  <h4 id="Fab_Geo_Modding_LuaObjectInitializationException__ctor" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor">LuaObjectInitializationException()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WorldCameraControllerProxy(WorldCameraController controller)</code></pre>
+    <pre><code class="lang-csharp hljs">public LuaObjectInitializationException()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_LuaObjectInitializationException__ctor_" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor*"></a>
+  <h4 id="Fab_Geo_Modding_LuaObjectInitializationException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">LuaObjectInitializationException(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected LuaObjectInitializationException(SerializationInfo info, StreamingContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -133,48 +183,26 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.WorldCameraController.html">WorldCameraController</a></td>
-        <td><span class="parametername">controller</span></td>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
-  <a id="Fab_Geo_Modding_WorldCameraControllerProxy_get_coord_" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.get_coord*"></a>
-  <h4 id="Fab_Geo_Modding_WorldCameraControllerProxy_get_coord" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.get_coord">get_coord()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float[] get_coord()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span>[]</td>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Modding_WorldCameraControllerProxy_set_coord_" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.set_coord*"></a>
-  <h4 id="Fab_Geo_Modding_WorldCameraControllerProxy_set_coord_System_Single_System_Single_" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.set_coord(System.Single,System.Single)">set_coord(Single, Single)</h4>
+  <a id="Fab_Geo_Modding_LuaObjectInitializationException__ctor_" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor*"></a>
+  <h4 id="Fab_Geo_Modding_LuaObjectInitializationException__ctor_System_String_" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor(System.String)">LuaObjectInitializationException(String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void set_coord(float lat, float lon)</code></pre>
+    <pre><code class="lang-csharp hljs">public LuaObjectInitializationException(string message)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -187,26 +215,21 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lat</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lon</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Modding_WorldCameraControllerProxy_set_zoom_" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom*"></a>
-  <h4 id="Fab_Geo_Modding_WorldCameraControllerProxy_set_zoom_System_Single_" data-uid="Fab.Geo.Modding.WorldCameraControllerProxy.set_zoom(System.Single)">set_zoom(Single)</h4>
+  <a id="Fab_Geo_Modding_LuaObjectInitializationException__ctor_" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor*"></a>
+  <h4 id="Fab_Geo_Modding_LuaObjectInitializationException__ctor_System_String_System_Exception_" data-uid="Fab.Geo.Modding.LuaObjectInitializationException.#ctor(System.String,System.Exception)">LuaObjectInitializationException(String, Exception)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void set_zoom(float zoom)</code></pre>
+    <pre><code class="lang-csharp hljs">public LuaObjectInitializationException(string message, Exception inner)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -219,12 +242,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">zoom</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Exception</span></td>
+        <td><span class="parametername">inner</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <div>
+      <span class="xref">System.Runtime.InteropServices._Exception</span>
+  </div>
 </article>
           </div>
           

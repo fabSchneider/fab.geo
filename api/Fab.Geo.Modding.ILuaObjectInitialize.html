@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class FeatureManager
+    <title>Interface ILuaObjectInitialize
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class FeatureManager
+    <meta name="title" content="Interface ILuaObjectInitialize
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,120 +68,32 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.FeatureManager">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.ILuaObjectInitialize">
   
   
-  <h1 id="Fab_Geo_Modding_FeatureManager" data-uid="Fab.Geo.Modding.FeatureManager" class="text-break">Class FeatureManager
+  <h1 id="Fab_Geo_Modding_ILuaObjectInitialize" data-uid="Fab.Geo.Modding.ILuaObjectInitialize" class="text-break">Interface ILuaObjectInitialize
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>A <a class="xref" href="Fab.Geo.Modding.LuaObject.html">LuaObject</a> implementing this interface will be initialized in script registration process</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">FeatureManager</span></div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Modding_FeatureManager_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_ILuaObjectInitialize_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class FeatureManager : MonoBehaviour</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ILuaObjectInitialize</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Fab_Geo_Modding_FeatureManager_AddPoint_" data-uid="Fab.Geo.Modding.FeatureManager.AddPoint*"></a>
-  <h4 id="Fab_Geo_Modding_FeatureManager_AddPoint_System_String_System_Single_System_Single_" data-uid="Fab.Geo.Modding.FeatureManager.AddPoint(System.String,System.Single,System.Single)">AddPoint(String, Single, Single)</h4>
+  <a id="Fab_Geo_Modding_ILuaObjectInitialize_Initialize_" data-uid="Fab.Geo.Modding.ILuaObjectInitialize.Initialize*"></a>
+  <h4 id="Fab_Geo_Modding_ILuaObjectInitialize_Initialize" data-uid="Fab.Geo.Modding.ILuaObjectInitialize.Initialize">Initialize()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FeaturePoint AddPoint(string name, float lat, float lon)</code></pre>
+    <pre><code class="lang-csharp hljs">void Initialize()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lat</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">lon</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.FeaturePoint.html">FeaturePoint</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_Modding_FeatureManager_RemoveFeature_" data-uid="Fab.Geo.Modding.FeatureManager.RemoveFeature*"></a>
-  <h4 id="Fab_Geo_Modding_FeatureManager_RemoveFeature_System_Int32_" data-uid="Fab.Geo.Modding.FeatureManager.RemoveFeature(System.Int32)">RemoveFeature(Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool RemoveFeature(int id)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">id</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 </article>
           </div>
           

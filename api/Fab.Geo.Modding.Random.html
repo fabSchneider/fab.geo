@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ControlPanelProxy
+    <title>Class Random
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ControlPanelProxy
+    <meta name="title" content="Class Random
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,23 +68,27 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.ControlPanelProxy">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.Random">
   
   
-  <h1 id="Fab_Geo_Modding_ControlPanelProxy" data-uid="Fab.Geo.Modding.ControlPanelProxy" class="text-break">Class ControlPanelProxy
+  <h1 id="Fab_Geo_Modding_Random" data-uid="Fab.Geo.Modding.Random" class="text-break">Class Random
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html">ProxyBase</a>&lt;<a class="xref" href="Fab.Geo.ControlPanel.html">ControlPanel</a>&gt;</div>
-    <div class="level2"><span class="xref">ControlPanelProxy</span></div>
+    <div class="level1"><a class="xref" href="Fab.Geo.Modding.LuaObject.html">LuaObject</a></div>
+    <div class="level2"><span class="xref">Random</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Fab.Geo.Modding.ProxyBase-1.html#Fab_Geo_Modding_ProxyBase_1_Source">ProxyBase&lt;ControlPanel&gt;.Source</a>
+      <a class="xref" href="Fab.Geo.Modding.LuaObject.html#Fab_Geo_Modding_LuaObject_GetLuaName_Type_">LuaObject.GetLuaName(Type)</a>
     </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
@@ -110,50 +114,21 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Modding_ControlPanelProxy_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_Random_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ControlPanelProxy : ProxyBase&lt;ControlPanel&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class Random : LuaObject, ILuaObjectInitialize</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="Fab_Geo_Modding_ControlPanelProxy__ctor_" data-uid="Fab.Geo.Modding.ControlPanelProxy.#ctor*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy__ctor_Fab_Geo_ControlPanel_" data-uid="Fab.Geo.Modding.ControlPanelProxy.#ctor(Fab.Geo.ControlPanel)">ControlPanelProxy(ControlPanel)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ControlPanelProxy(ControlPanel source)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.ControlPanel.html">ControlPanel</a></td>
-        <td><span class="parametername">source</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Fab_Geo_Modding_ControlPanelProxy_add_button_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_button*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_button_System_String_Closure_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_button(System.String,Closure)">add_button(String, Closure)</h4>
+  <a id="Fab_Geo_Modding_Random_color_" data-uid="Fab.Geo.Modding.Random.color*"></a>
+  <h4 id="Fab_Geo_Modding_Random_color_System_Single_System_Single_" data-uid="Fab.Geo.Modding.Random.color(System.Single,System.Single)">color(Single, Single)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void add_button(string name, Closure callback)</code></pre>
+    <pre><code class="lang-csharp hljs">public Color color(float saturation = 1F, float brightness = 1F)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -166,63 +141,101 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">saturation</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Closure</span></td>
-        <td><span class="parametername">callback</span></td>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">brightness</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Color</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Modding_ControlPanelProxy_add_choice_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_choice*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_choice_System_String_List_System_String__System_String_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_choice(System.String,List{System.String},System.String)">add_choice(String, List&lt;String&gt;, String)</h4>
+  <a id="Fab_Geo_Modding_Random_coord_" data-uid="Fab.Geo.Modding.Random.coord*"></a>
+  <h4 id="Fab_Geo_Modding_Random_coord" data-uid="Fab.Geo.Modding.Random.coord">coord()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void add_choice(string name, List&lt;string&gt; choices, string value)</code></pre>
+    <pre><code class="lang-csharp hljs">public Coordinate coord()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">choices</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">value</span></td>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Modding_ControlPanelProxy_add_range_slider_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_range_slider*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_range_slider_System_String_System_Single_System_Single_System_Single_System_Single_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_range_slider(System.String,System.Single,System.Single,System.Single,System.Single)">add_range_slider(String, Single, Single, Single, Single)</h4>
+  <a id="Fab_Geo_Modding_Random_Initialize_" data-uid="Fab.Geo.Modding.Random.Initialize*"></a>
+  <h4 id="Fab_Geo_Modding_Random_Initialize" data-uid="Fab.Geo.Modding.Random.Initialize">Initialize()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void add_range_slider(string name, float min, float max, float minLimit, float maxLimit)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Initialize()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_Random_number_" data-uid="Fab.Geo.Modding.Random.number*"></a>
+  <h4 id="Fab_Geo_Modding_Random_number" data-uid="Fab.Geo.Modding.Random.number">number()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float number()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_Random_number_" data-uid="Fab.Geo.Modding.Random.number*"></a>
+  <h4 id="Fab_Geo_Modding_Random_number_System_Single_System_Single_" data-uid="Fab.Geo.Modding.Random.number(System.Single,System.Single)">number(Single, Single)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float number(float min, float max)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -234,11 +247,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
       <tr>
         <td><span class="xref">System.Single</span></td>
         <td><span class="parametername">min</span></td>
@@ -249,37 +257,32 @@
         <td><span class="parametername">max</span></td>
         <td></td>
       </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">minLimit</span></td>
-        <td></td>
+        <th>Type</th>
+        <th>Description</th>
       </tr>
+    </thead>
+    <tbody>
       <tr>
         <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">maxLimit</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Modding_ControlPanelProxy_add_seperator_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_seperator*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_seperator" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_seperator">add_seperator()</h4>
+  <a id="Fab_Geo_Modding_Random_set_seed_" data-uid="Fab.Geo.Modding.Random.set_seed*"></a>
+  <h4 id="Fab_Geo_Modding_Random_set_seed_System_UInt32_" data-uid="Fab.Geo.Modding.Random.set_seed(System.UInt32)">set_seed(UInt32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void add_seperator()</code></pre>
-  </div>
-  
-  
-  <a id="Fab_Geo_Modding_ControlPanelProxy_add_slider_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_slider_System_String_System_Single_System_Single_System_Single_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single)">add_slider(String, Single, Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void add_slider(string name, float min, float max, float value)</code></pre>
+    <pre><code class="lang-csharp hljs">public void set_seed(uint seed)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -292,115 +295,62 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
+        <td><span class="xref">System.UInt32</span></td>
+        <td><span class="parametername">seed</span></td>
         <td></td>
       </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_Random_whole_number_" data-uid="Fab.Geo.Modding.Random.whole_number*"></a>
+  <h4 id="Fab_Geo_Modding_Random_whole_number_System_Int32_System_Int32_" data-uid="Fab.Geo.Modding.Random.whole_number(System.Int32,System.Int32)">whole_number(Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float whole_number(int min, int max)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><span class="xref">System.Single</span></td>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">min</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Single</span></td>
+        <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">max</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Fab_Geo_Modding_ControlPanelProxy_add_slider_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_add_slider_System_String_System_Single_System_Single_System_Single_Closure_" data-uid="Fab.Geo.Modding.ControlPanelProxy.add_slider(System.String,System.Single,System.Single,System.Single,Closure)">add_slider(String, Single, Single, Single, Closure)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void add_slider(string name, float min, float max, float value, Closure callback)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
         <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">min</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">max</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Closure</span></td>
-        <td><span class="parametername">callback</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="Fab_Geo_Modding_ControlPanelProxy_begin_group_" data-uid="Fab.Geo.Modding.ControlPanelProxy.begin_group*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_begin_group_System_String_System_Boolean_" data-uid="Fab.Geo.Modding.ControlPanelProxy.begin_group(System.String,System.Boolean)">begin_group(String, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void begin_group(string name, bool expanded = true)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td><span class="parametername">expanded</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_Modding_ControlPanelProxy_end_group_" data-uid="Fab.Geo.Modding.ControlPanelProxy.end_group*"></a>
-  <h4 id="Fab_Geo_Modding_ControlPanelProxy_end_group" data-uid="Fab.Geo.Modding.ControlPanelProxy.end_group">end_group()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void end_group()</code></pre>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a>
   </div>
 </article>
           </div>

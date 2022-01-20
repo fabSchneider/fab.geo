@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct Coordinate
+    <title>Class Features
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct Coordinate
+    <meta name="title" content="Class Features
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,131 +68,67 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Coordinate">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.Features">
   
   
-  <h1 id="Fab_Geo_Coordinate" data-uid="Fab.Geo.Coordinate" class="text-break">Struct Coordinate
+  <h1 id="Fab_Geo_Modding_Features" data-uid="Fab.Geo.Modding.Features" class="text-break">Class Features
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Fab.Geo.Modding.LuaObject.html">LuaObject</a></div>
+    <div class="level2"><span class="xref">Features</span></div>
+  </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a>&gt;</div>
+    <div><a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="Fab.Geo.Modding.LuaObject.html#Fab_Geo_Modding_LuaObject_GetLuaName_Type_">LuaObject.GetLuaName(Type)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
       <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
     </div>
     <div>
       <span class="xref">System.Object.GetType()</span>
     </div>
     <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.html">Fab.Geo</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Coordinate_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_Features_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Serializable]
-public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class Features : LuaObject, ILuaObjectInitialize</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="Fab_Geo_Coordinate__ctor_" data-uid="Fab.Geo.Coordinate.#ctor*"></a>
-  <h4 id="Fab_Geo_Coordinate__ctor_System_Single_System_Single_" data-uid="Fab.Geo.Coordinate.#ctor(System.Single,System.Single)">Coordinate(Single, Single)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Coordinate(float longitude, float latitude)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">longitude</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td><span class="parametername">latitude</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="Fab_Geo_Coordinate_latitude" data-uid="Fab.Geo.Coordinate.latitude">latitude</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float latitude</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="Fab_Geo_Coordinate_longitude" data-uid="Fab.Geo.Coordinate.longitude">longitude</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float longitude</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Single</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   
   
-  <a id="Fab_Geo_Coordinate_Equals_" data-uid="Fab.Geo.Coordinate.Equals*"></a>
-  <h4 id="Fab_Geo_Coordinate_Equals_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Coordinate.Equals(Fab.Geo.Coordinate)">Equals(Coordinate)</h4>
+  <a id="Fab_Geo_Modding_Features_get_" data-uid="Fab.Geo.Modding.Features.get*"></a>
+  <h4 id="Fab_Geo_Modding_Features_get_System_String_" data-uid="Fab.Geo.Modding.Features.get(System.String)">get(String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Equals(Coordinate rhs)</code></pre>
+    <pre><code class="lang-csharp hljs">public Feature get(string name)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -200,162 +136,13 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
       <tr>
         <th>Type</th>
         <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">rhs</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="Fab_Geo_Coordinate_Equals_" data-uid="Fab.Geo.Coordinate.Equals*"></a>
-  <h4 id="Fab_Geo_Coordinate_Equals_System_Object_" data-uid="Fab.Geo.Coordinate.Equals(System.Object)">Equals(Object)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool Equals(object o)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">o</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
-  
-  
-  <a id="Fab_Geo_Coordinate_GetHashCode_" data-uid="Fab.Geo.Coordinate.GetHashCode*"></a>
-  <h4 id="Fab_Geo_Coordinate_GetHashCode" data-uid="Fab.Geo.Coordinate.GetHashCode">GetHashCode()</h4>
-  <div class="markdown level1 summary"><p>Returns a hash code for the float2.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><p>The computed hash code.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
-  
-  
-  <a id="Fab_Geo_Coordinate_ToString_" data-uid="Fab.Geo.Coordinate.ToString*"></a>
-  <h4 id="Fab_Geo_Coordinate_ToString" data-uid="Fab.Geo.Coordinate.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.ValueType.ToString()</span></div>
-  <h3 id="operators">Operators
-  </h3>
-  
-  
-  <a id="Fab_Geo_Coordinate_op_Equality_" data-uid="Fab.Geo.Coordinate.op_Equality*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Equality_Fab_Geo_Coordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Coordinate.op_Equality(Fab.Geo.Coordinate,Fab.Geo.Coordinate)">Equality(Coordinate, Coordinate)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool2 operator ==(Coordinate lhs, Coordinate rhs)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">lhs</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">rhs</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -370,20 +157,20 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool2</span></td>
+        <td><a class="xref" href="Fab.Geo.Feature.html">Feature</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Coordinate_op_Implicit_" data-uid="Fab.Geo.Coordinate.op_Implicit*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Implicit_Fab_Geo_Coordinate__float2" data-uid="Fab.Geo.Coordinate.op_Implicit(Fab.Geo.Coordinate)~float2">Implicit(Coordinate to float2)</h4>
+  <a id="Fab_Geo_Modding_Features_get_all_" data-uid="Fab.Geo.Modding.Features.get_all*"></a>
+  <h4 id="Fab_Geo_Modding_Features_get_all_System_String_" data-uid="Fab.Geo.Modding.Features.get_all(System.String)">get_all(String)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator float2(Coordinate c)</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Feature&gt; get_all(string name)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -396,8 +183,8 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">c</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -412,20 +199,30 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float2</span></td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Fab.Geo.Feature.html">Feature</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Coordinate_op_Implicit_" data-uid="Fab.Geo.Coordinate.op_Implicit*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Implicit_float2__Fab_Geo_Coordinate" data-uid="Fab.Geo.Coordinate.op_Implicit(float2)~Fab.Geo.Coordinate">Implicit(float2 to Coordinate)</h4>
+  <a id="Fab_Geo_Modding_Features_Initialize_" data-uid="Fab.Geo.Modding.Features.Initialize*"></a>
+  <h4 id="Fab_Geo_Modding_Features_Initialize" data-uid="Fab.Geo.Modding.Features.Initialize">Initialize()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator Coordinate(float2 f2)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Initialize()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_Features_line_" data-uid="Fab.Geo.Modding.Features.line*"></a>
+  <h4 id="Fab_Geo_Modding_Features_line_System_String_Fab_Geo_Coordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Modding.Features.line(System.String,Fab.Geo.Coordinate,Fab.Geo.Coordinate)">line(String, Coordinate, Coordinate)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Feature line(string name, Coordinate coord1, Coordinate coord2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -438,8 +235,18 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">float2</span></td>
-        <td><span class="parametername">f2</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="parametername">coord1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="parametername">coord2</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -454,20 +261,20 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><a class="xref" href="Fab.Geo.Feature.html">Feature</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Coordinate_op_Inequality_" data-uid="Fab.Geo.Coordinate.op_Inequality*"></a>
-  <h4 id="Fab_Geo_Coordinate_op_Inequality_Fab_Geo_Coordinate_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Coordinate.op_Inequality(Fab.Geo.Coordinate,Fab.Geo.Coordinate)">Inequality(Coordinate, Coordinate)</h4>
+  <a id="Fab_Geo_Modding_Features_line_" data-uid="Fab.Geo.Modding.Features.line*"></a>
+  <h4 id="Fab_Geo_Modding_Features_line_System_String_Fab_Geo_Modding_Feature_Fab_Geo_Modding_Feature_" data-uid="Fab.Geo.Modding.Features.line(System.String,Fab.Geo.Modding.Feature,Fab.Geo.Modding.Feature)">line(String, Feature, Feature)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool2 operator !=(Coordinate lhs, Coordinate rhs)</code></pre>
+    <pre><code class="lang-csharp hljs">public Feature line(string name, Feature feature_1, Feature feature_2)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -480,13 +287,18 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">lhs</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
-        <td><span class="parametername">rhs</span></td>
+        <td><a class="xref" href="Fab.Geo.Modding.Feature.html">Feature</a></td>
+        <td><span class="parametername">feature_1</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Modding.Feature.html">Feature</a></td>
+        <td><span class="parametername">feature_2</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -501,14 +313,165 @@ public struct Coordinate : IEquatable&lt;Coordinate&gt;</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">bool2</span></td>
+        <td><a class="xref" href="Fab.Geo.Feature.html">Feature</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Fab_Geo_Modding_Features_point_" data-uid="Fab.Geo.Modding.Features.point*"></a>
+  <h4 id="Fab_Geo_Modding_Features_point_System_String_Fab_Geo_Coordinate_" data-uid="Fab.Geo.Modding.Features.point(System.String,Fab.Geo.Coordinate)">point(String, Coordinate)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Feature point(string name, Coordinate coord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Feature.html">Feature</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_Features_polyline_" data-uid="Fab.Geo.Modding.Features.polyline*"></a>
+  <h4 id="Fab_Geo_Modding_Features_polyline_System_String_ICollection_Fab_Geo_Coordinate__System_Boolean_" data-uid="Fab.Geo.Modding.Features.polyline(System.String,ICollection{Fab.Geo.Coordinate},System.Boolean)">polyline(String, ICollection&lt;Coordinate&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Feature polyline(string name, ICollection&lt;Coordinate&gt; coords, bool closed = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ICollection</span>&lt;<a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a>&gt;</td>
+        <td><span class="parametername">coords</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">closed</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Feature.html">Feature</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_Features_remove_" data-uid="Fab.Geo.Modding.Features.remove*"></a>
+  <h4 id="Fab_Geo_Modding_Features_remove_Fab_Geo_Modding_Feature_" data-uid="Fab.Geo.Modding.Features.remove(Fab.Geo.Modding.Feature)">remove(Feature)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool remove(Feature feature)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fab.Geo.Modding.Feature.html">Feature</a></td>
+        <td><span class="parametername">feature</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fab_Geo_Modding_Features_remove_all_" data-uid="Fab.Geo.Modding.Features.remove_all*"></a>
+  <h4 id="Fab_Geo_Modding_Features_remove_all" data-uid="Fab.Geo.Modding.Features.remove_all">remove_all()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void remove_all()</code></pre>
+  </div>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">IEquatable&lt;&gt;</span>
+      <a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a>
   </div>
 </article>
           </div>

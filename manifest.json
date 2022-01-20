@@ -53,6 +53,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.CameraPostProcessController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.CameraPostProcessController.html",
+          "hash": "PYCG+lp/5GQQGQCthpCLaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Fab.Geo.ChunkLOD.yml",
       "output": {
         ".html": {
@@ -89,11 +101,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.ControlPanel.yml",
+      "source_relative_path": "api/Fab.Geo.Coordinate.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.ControlPanel.html",
-          "hash": "4+rowhDOQdUG5nkL6N7o0Q=="
+          "relative_path": "api/Fab.Geo.Coordinate.html",
+          "hash": "Ca0EehzjKkH+2BU+k9O9gw=="
         }
       },
       "is_incremental": false,
@@ -101,11 +113,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Coordinate.yml",
+      "source_relative_path": "api/Fab.Geo.Editor.BlitWindow.OutputFormat.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Coordinate.html",
-          "hash": "IAojAw785IE9KJSmTQyTPA=="
+          "relative_path": "api/Fab.Geo.Editor.BlitWindow.OutputFormat.html",
+          "hash": "Blk/7bBvBaAMrtg1FNh0sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Editor.BlitWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Editor.BlitWindow.html",
+          "hash": "s8h7e+eyJ+tG1hSrcKpOjA=="
         }
       },
       "is_incremental": false,
@@ -137,11 +161,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Editor.GenerateDistanceField.yml",
+      "source_relative_path": "api/Fab.Geo.Editor.GenerateDistanceFieldWindow.OutputFormat.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Editor.GenerateDistanceField.html",
-          "hash": "ZkOgnK5Q/kaNNpW5GWlnNg=="
+          "relative_path": "api/Fab.Geo.Editor.GenerateDistanceFieldWindow.OutputFormat.html",
+          "hash": "kqQ4mMAbQPBA9Xw4CR5ZBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Editor.GenerateDistanceFieldWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Editor.GenerateDistanceFieldWindow.html",
+          "hash": "gQW4t29BOZ6bIxh5LTauHA=="
         }
       },
       "is_incremental": false,
@@ -153,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.Editor.html",
-          "hash": "A9P9Xr2KxvVXpkqbQtGtYA=="
+          "hash": "JaM+WK9LdHvn0WRyav9Nnw=="
         }
       },
       "is_incremental": false,
@@ -177,7 +213,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.Feature.html",
-          "hash": "7lcdX6epYNcWLaRbPSy60A=="
+          "hash": "x00ef6UFELLcJoGDSPQnUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.FeatureLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.FeatureLine.html",
+          "hash": "u98Ug0G0sSgGuPO1tivJWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.FeatureManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.FeatureManager.html",
+          "hash": "J9+k0Ma5J/p7vdYKjoRPbw=="
         }
       },
       "is_incremental": false,
@@ -189,7 +249,55 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.FeaturePoint.html",
-          "hash": "4Xbq5Fca90ZEoZvi15HwGA=="
+          "hash": "zySjFHjvMpT7+oSNgoA8Ww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.FeaturePolyline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.FeaturePolyline.html",
+          "hash": "4pJ0o4Zzp0/czb0Od+yrBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Gen.GenerateDistanceField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Gen.GenerateDistanceField.html",
+          "hash": "DsH4cjkblupazAzafXrdWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Gen.GenerateDistanceField_OLD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Gen.GenerateDistanceField_OLD.html",
+          "hash": "EkJsTamuY1RTm2D9kVapuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Gen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Gen.html",
+          "hash": "Pmdi1F8cr4AV174na94zIQ=="
         }
       },
       "is_incremental": false,
@@ -273,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.GeoUtils.html",
-          "hash": "jm1E2gw9PLNB9eJMhdCTDQ=="
+          "hash": "xP98lzJgg9Vrp2iOlO3eDQ=="
         }
       },
       "is_incremental": false,
@@ -293,11 +401,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.ControlPanelProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.ButtonProxy.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.ControlPanelProxy.html",
-          "hash": "sx/PxJmxBQUOoOmqjbMhQA=="
+          "relative_path": "api/Fab.Geo.Modding.ButtonProxy.html",
+          "hash": "BLYtd5BoKH3+39WUD1labg=="
         }
       },
       "is_incremental": false,
@@ -305,11 +413,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.FeatureManager.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.Camera.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.FeatureManager.html",
-          "hash": "zbK+Q9Y9QU3o2vuk4Fg7og=="
+          "relative_path": "api/Fab.Geo.Modding.Camera.html",
+          "hash": "tm6pNZ/nGRuExAg2b/WFqQ=="
         }
       },
       "is_incremental": false,
@@ -317,11 +425,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.FeatureManagerProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.ChoiceProxy.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.FeatureManagerProxy.html",
-          "hash": "8NasxkrJnaWgIH1HEm9WRQ=="
+          "relative_path": "api/Fab.Geo.Modding.ChoiceProxy.html",
+          "hash": "XW99Ovs2I8vRtUQrFHdcmw=="
         }
       },
       "is_incremental": false,
@@ -329,11 +437,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.FeatureProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.ClrConversion.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.FeatureProxy.html",
-          "hash": "c0DWTGXhv3PIVGZiP11lsA=="
+          "relative_path": "api/Fab.Geo.Modding.ClrConversion.html",
+          "hash": "T+A4D/VzU64gxFAWIfqikQ=="
         }
       },
       "is_incremental": false,
@@ -341,11 +449,83 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.GeoProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.Control.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.GeoProxy.html",
-          "hash": "nwrf4WGXjtTgXC7azvQnsw=="
+          "relative_path": "api/Fab.Geo.Modding.Control.html",
+          "hash": "InGygMHynBQJulebXNZlYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Controls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Controls.html",
+          "hash": "s1yh4H4vWEnVB3P29XnCFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Editor.LuaHelpMarkdownGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Editor.LuaHelpMarkdownGenerator.html",
+          "hash": "AvLzQAVg7P3T7450eDGcIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Editor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Editor.html",
+          "hash": "d0Pkf8zYvw7X+TKKIVUmSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Feature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Feature.html",
+          "hash": "dlVVwX7lqIyrOLRp3ku+og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Features.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Features.html",
+          "hash": "A3Gdf0MPZzfIX7PrRdwWJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Geo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Geo.html",
+          "hash": "YNlN4E+fBj7t1KzvGaAY7g=="
         }
       },
       "is_incremental": false,
@@ -357,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.Modding.HistoryEntryElement.html",
-          "hash": "+tCukc7rtw2jioQ71c6cDw=="
+          "hash": "Yp1gx5365TNyvEbHIyThbA=="
         }
       },
       "is_incremental": false,
@@ -365,11 +545,47 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.IOProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.ILuaObjectInitialize.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.IOProxy.html",
-          "hash": "Z+2ibuit7gn/7s2U1klHNg=="
+          "relative_path": "api/Fab.Geo.Modding.ILuaObjectInitialize.html",
+          "hash": "hClGK5UH1PUE65Vstd91sA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.IO.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.IO.html",
+          "hash": "ek2VyvARqr14FBsfY65Zdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Image.html",
+          "hash": "O3wphPwepXQQZCbQtmdn1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LabelProxy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LabelProxy.html",
+          "hash": "mn163FzIjjjzJZyqiq1wIA=="
         }
       },
       "is_incremental": false,
@@ -381,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.Modding.LuaConsole.History.html",
-          "hash": "SyWoC0eOgsBCuk6rPnBEHA=="
+          "hash": "dpTXsPzfgmlx9ZCCnpNCtQ=="
         }
       },
       "is_incremental": false,
@@ -393,7 +609,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.Modding.LuaConsole.HistoryEntry.html",
-          "hash": "uungnZFILgM83BHpcwi8cA=="
+          "hash": "GiDKTBSoVr6J0I8IOejvjg=="
         }
       },
       "is_incremental": false,
@@ -449,6 +665,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaEnvironment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LuaEnvironment.html",
+          "hash": "z/qRWvuymL4pTPtMTMJSfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Fab.Geo.Modding.LuaGUI.yml",
       "output": {
         ".html": {
@@ -461,11 +689,59 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaHelpConsoleFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LuaHelpConsoleFormatter.html",
+          "hash": "gMwWaSJxt0EavdhP6u7MAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaHelpInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LuaHelpInfo.html",
+          "hash": "g5XiNwEXksLn77kqAXvQJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaHelpInfoExtractor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LuaHelpInfoExtractor.html",
+          "hash": "QvwiD2RoBnqBqgzEWmUhFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaHelpMarkdownFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LuaHelpMarkdownFormatter.html",
+          "hash": "7iG3zHdnop/v7dr6s5Eu+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Fab.Geo.Modding.LuaManager.yml",
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.Modding.LuaManager.html",
-          "hash": "3Xpw8f06uyXakeB5HmTncg=="
+          "hash": "OA6yKcMOpfrZmN/DpyUDHQ=="
         }
       },
       "is_incremental": false,
@@ -473,11 +749,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.PopupProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.PopupProxy.html",
-          "hash": "+iCHsbiHoPLnINsmYlI2zQ=="
+          "relative_path": "api/Fab.Geo.Modding.LuaObject.html",
+          "hash": "D/YjLRBtg+bqhc47+zY1gw=="
         }
       },
       "is_incremental": false,
@@ -485,11 +761,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.ProxyBase-1.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaObjectInitializationException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.ProxyBase-1.html",
-          "hash": "dX8TgH+ZPs/W2+io2ZW27Q=="
+          "relative_path": "api/Fab.Geo.Modding.LuaObjectInitializationException.html",
+          "hash": "P27f+wGkol1FKGRHZ6kGYg=="
         }
       },
       "is_incremental": false,
@@ -497,11 +773,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.TextureProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaObjectRegistry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.TextureProxy.html",
-          "hash": "h05SMNe3LEiKeBuNwYUzjQ=="
+          "relative_path": "api/Fab.Geo.Modding.LuaObjectRegistry.html",
+          "hash": "GZkrfiAzTIRUKnq0wB7CQw=="
         }
       },
       "is_incremental": false,
@@ -509,11 +785,107 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Modding.WorldCameraControllerProxy.yml",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaProxy-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Modding.WorldCameraControllerProxy.html",
-          "hash": "fnvyR+OCUMiifW2Stj1REw=="
+          "relative_path": "api/Fab.Geo.Modding.LuaProxy-1.html",
+          "hash": "XTXuJPMM6jzWvk/vq16lsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.LuaProxy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.LuaProxy.html",
+          "hash": "Y7HiF3/mwx5exy/qgLU9UQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Popup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Popup.html",
+          "hash": "a+oUrDYFLwbZgq7UMTPp4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Random.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Random.html",
+          "hash": "+3erDnL0CzkAL6eMuy32jA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.Record.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.Record.html",
+          "hash": "/4/xEmpq6QtR5VFUsp8mPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.ReloadUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.ReloadUI.html",
+          "hash": "99MrOKs5crdueaIGQbfHnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.SeparatorProxy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.SeparatorProxy.html",
+          "hash": "80v9C4ThD9DhQnjRVSImpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.SliderProxy.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.SliderProxy.html",
+          "hash": "P4tl2rgs/yu6Kl5ouWSDWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.Modding.World.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.Modding.World.html",
+          "hash": "fdgaFNWp6KXie7S3CRLaZA=="
         }
       },
       "is_incremental": false,
@@ -525,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.Modding.html",
-          "hash": "Paq9WidxY4A7VXcoFkleIw=="
+          "hash": "PWO1Uxf0o9PYSHwz7cCmnQ=="
         }
       },
       "is_incremental": false,
@@ -533,11 +905,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.Popup.yml",
+      "source_relative_path": "api/Fab.Geo.UI.ControlPanel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.Popup.html",
-          "hash": "oDAgnPxd8cI8tnszcgUZ0A=="
+          "relative_path": "api/Fab.Geo.UI.ControlPanel.html",
+          "hash": "RoLCOtWgGLy9R5Ae4s6gNA=="
         }
       },
       "is_incremental": false,
@@ -545,11 +917,47 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Fab.Geo.UIManager.yml",
+      "source_relative_path": "api/Fab.Geo.UI.Popup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fab.Geo.UIManager.html",
-          "hash": "2Sh7bYvR4QFHlWgbopLHtw=="
+          "relative_path": "api/Fab.Geo.UI.Popup.html",
+          "hash": "IBAY8Dm3D2s9aKbHniV3Yg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.UI.UIManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.UI.UIManager.html",
+          "hash": "98Niu70CB2Ug5I3N/Q74lA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.UI.VisualElementHierachyBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.UI.VisualElementHierachyBuilder.html",
+          "hash": "+WG03qAcAdyS5kbeGVt8Ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.UI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.UI.html",
+          "hash": "ojnwG1F8mjCHQVBLVGgvEQ=="
         }
       },
       "is_incremental": false,
@@ -573,7 +981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.WorldCameraController.html",
-          "hash": "7EESRbW9A8CxP5zqa0v2rA=="
+          "hash": "D7nE5cdv85go3/PpdUgbFQ=="
         }
       },
       "is_incremental": false,
@@ -593,11 +1001,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Fab.Geo.WorldInputHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fab.Geo.WorldInputHandler.html",
+          "hash": "KqvzSYdtZYa6XHAX1KPaJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Fab.Geo.yml",
       "output": {
         ".html": {
           "relative_path": "api/Fab.Geo.html",
-          "hash": "Axzosz8ci5w57d7GKsT5ZQ=="
+          "hash": "shO4XVYGDjuND1wKYZIRdg=="
         }
       },
       "is_incremental": false,
@@ -609,7 +1029,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "cFmlv90fLpL+gZC/zfHKjg=="
+          "hash": "5ULHGXrlsFH/BupCD4kZFA=="
         }
       },
       "is_incremental": false,
@@ -621,7 +1041,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "H5iSKtNTHG5IXiVxJr52zw=="
+          "hash": "Sh7OEsc7uxH8uElsMaKQ3g=="
         }
       },
       "is_incremental": false,
@@ -633,7 +1053,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/commands.html",
-          "hash": "TeVQoXJ4lzYG6dajNNFwEA=="
+          "hash": "aBjDb0kt2iT4k7QRXBdFtQ=="
         }
       },
       "is_incremental": false,
@@ -645,7 +1065,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/controls.html",
-          "hash": "1J3kCNO+ZurmYan1uRO0YQ=="
+          "hash": "g2Sv3ZUuO4Rfi9icINbm7A=="
         }
       },
       "is_incremental": false,
@@ -657,7 +1077,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "zlL60hFxRa+ve7uNm0lM8A=="
+          "hash": "Cq1J7lejbFAGZylZC+hJpQ=="
         }
       },
       "is_incremental": false,
@@ -714,7 +1134,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "cD2j+lSxzcM/Du7FEN5XHg=="
+          "hash": "YuLIxdWd7GvTrNap68Le1A=="
         }
       },
       "is_incremental": false,
@@ -726,7 +1146,7 @@
       "output": {
         ".html": {
           "relative_path": "scripting/debugging.html",
-          "hash": "G2PclMyWhvEhFQIbLuKDvA=="
+          "hash": "ljfJG5Ms3WXuKjQh2m2WNA=="
         }
       },
       "is_incremental": false,
@@ -738,7 +1158,7 @@
       "output": {
         ".html": {
           "relative_path": "scripting/example1.html",
-          "hash": "kIfzWoGFyROq6knfiTC0dw=="
+          "hash": "BWSUaeMQXODdVp+l/LtbYg=="
         }
       },
       "is_incremental": false,
@@ -750,7 +1170,7 @@
       "output": {
         ".html": {
           "relative_path": "scripting/quickstart.html",
-          "hash": "0XqoWPtqNp08Cxy2Y0jpyA=="
+          "hash": "gqZQZ7wAiCkIBJ7Z5aY4nQ=="
         }
       },
       "is_incremental": false,
@@ -762,7 +1182,7 @@
       "output": {
         ".html": {
           "relative_path": "scripting/reference.html",
-          "hash": "INqYalolwFXURqAcsbHKCA=="
+          "hash": "Se4qiNUXe66I92gHx+kMOA=="
         }
       },
       "is_incremental": false,
@@ -813,7 +1233,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 50,
+          "total_file_count": 85,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

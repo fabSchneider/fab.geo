@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Popup
+    <title>Class Camera
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Popup
+    <meta name="title" content="Class Camera
    ">
     <meta name="generator" content="docfx 2.56.7.0">
     
@@ -68,20 +68,28 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Fab.Geo.Popup">
+            <article class="content wrap" id="_content" data-uid="Fab.Geo.Modding.Camera">
   
   
-  <h1 id="Fab_Geo_Popup" data-uid="Fab.Geo.Popup" class="text-break">Class Popup
+  <h1 id="Fab_Geo_Modding_Camera" data-uid="Fab.Geo.Modding.Camera" class="text-break">Class Camera
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">Popup</span></div>
+    <div class="level1"><a class="xref" href="Fab.Geo.Modding.LuaObject.html">LuaObject</a></div>
+    <div class="level2"><span class="xref">Camera</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Fab.Geo.Modding.LuaObject.html#Fab_Geo_Modding_LuaObject_GetLuaName_Type_">LuaObject.GetLuaName(Type)</a>
+    </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
@@ -104,37 +112,35 @@
       <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.html">Fab.Geo</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fab.Geo.Modding.html">Fab.Geo.Modding</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="Fab_Geo_Popup_syntax">Syntax</h5>
+  <h5 id="Fab_Geo_Modding_Camera_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Popup</code></pre>
+    <pre><code class="lang-csharp hljs">public class Camera : LuaObject, ILuaObjectInitialize</code></pre>
   </div>
-  <h3 id="constructors">Constructors
+  <h3 id="properties">Properties
   </h3>
   
   
-  <a id="Fab_Geo_Popup__ctor_" data-uid="Fab.Geo.Popup.#ctor*"></a>
-  <h4 id="Fab_Geo_Popup__ctor_VisualElement_" data-uid="Fab.Geo.Popup.#ctor(VisualElement)">Popup(VisualElement)</h4>
+  <a id="Fab_Geo_Modding_Camera_coord_" data-uid="Fab.Geo.Modding.Camera.coord*"></a>
+  <h4 id="Fab_Geo_Modding_Camera_coord" data-uid="Fab.Geo.Modding.Camera.coord">coord</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Popup(VisualElement root)</code></pre>
+    <pre><code class="lang-csharp hljs">public Coordinate coord { get; set; }</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">VisualElement</span></td>
-        <td><span class="parametername">root</span></td>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -143,23 +149,13 @@
   </h3>
   
   
-  <a id="Fab_Geo_Popup_Close_" data-uid="Fab.Geo.Popup.Close*"></a>
-  <h4 id="Fab_Geo_Popup_Close" data-uid="Fab.Geo.Popup.Close">Close()</h4>
+  <a id="Fab_Geo_Modding_Camera_animate_" data-uid="Fab.Geo.Modding.Camera.animate*"></a>
+  <h4 id="Fab_Geo_Modding_Camera_animate_Fab_Geo_Coordinate___System_Single_System_Boolean_" data-uid="Fab.Geo.Modding.Camera.animate(Fab.Geo.Coordinate[],System.Single,System.Boolean)">animate(Coordinate[], Single, Boolean)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Close()</code></pre>
-  </div>
-  
-  
-  <a id="Fab_Geo_Popup_Show_" data-uid="Fab.Geo.Popup.Show*"></a>
-  <h4 id="Fab_Geo_Popup_Show_System_String_System_String_" data-uid="Fab.Geo.Popup.Show(System.String,System.String)">Show(String, String)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Show(string title, string text)</code></pre>
+    <pre><code class="lang-csharp hljs">public void animate(Coordinate[] coords, float speed, bool loop = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -172,26 +168,61 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
+        <td><a class="xref" href="Fab.Geo.Coordinate.html">Coordinate</a>[]</td>
+        <td><span class="parametername">coords</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">text</span></td>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">speed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">loop</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="Fab_Geo_Popup_Show_" data-uid="Fab.Geo.Popup.Show*"></a>
-  <h4 id="Fab_Geo_Popup_Show_System_String_Texture2D_" data-uid="Fab.Geo.Popup.Show(System.String,Texture2D)">Show(String, Texture2D)</h4>
+  <a id="Fab_Geo_Modding_Camera_disable_control_" data-uid="Fab.Geo.Modding.Camera.disable_control*"></a>
+  <h4 id="Fab_Geo_Modding_Camera_disable_control" data-uid="Fab.Geo.Modding.Camera.disable_control">disable_control()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Show(string title, Texture2D image)</code></pre>
+    <pre><code class="lang-csharp hljs">public void disable_control()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_Camera_enable_control_" data-uid="Fab.Geo.Modding.Camera.enable_control*"></a>
+  <h4 id="Fab_Geo_Modding_Camera_enable_control" data-uid="Fab.Geo.Modding.Camera.enable_control">enable_control()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void enable_control()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_Camera_Initialize_" data-uid="Fab.Geo.Modding.Camera.Initialize*"></a>
+  <h4 id="Fab_Geo_Modding_Camera_Initialize" data-uid="Fab.Geo.Modding.Camera.Initialize">Initialize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize()</code></pre>
+  </div>
+  
+  
+  <a id="Fab_Geo_Modding_Camera_on_animation_finished_" data-uid="Fab.Geo.Modding.Camera.on_animation_finished*"></a>
+  <h4 id="Fab_Geo_Modding_Camera_on_animation_finished_Closure_" data-uid="Fab.Geo.Modding.Camera.on_animation_finished(Closure)">on_animation_finished(Closure)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void on_animation_finished(Closure evt)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -204,17 +235,43 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">title</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Texture2D</span></td>
-        <td><span class="parametername">image</span></td>
+        <td><span class="xref">Closure</span></td>
+        <td><span class="parametername">evt</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="Fab_Geo_Modding_Camera_set_zoom_" data-uid="Fab.Geo.Modding.Camera.set_zoom*"></a>
+  <h4 id="Fab_Geo_Modding_Camera_set_zoom_System_Single_" data-uid="Fab.Geo.Modding.Camera.set_zoom(System.Single)">set_zoom(Single)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void set_zoom(float zoom)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">zoom</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Fab.Geo.Modding.ILuaObjectInitialize.html">ILuaObjectInitialize</a>
+  </div>
 </article>
           </div>
           
