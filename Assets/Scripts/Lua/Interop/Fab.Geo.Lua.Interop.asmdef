@@ -1,0 +1,20 @@
+{
+    "name": "Fab.Geo.Lua.Interop",
+    "rootNamespace": "Fab.Geo.Lua.Interop",
+    "references": [
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:8b7f6e1967d3724498e6c93f135870c3",
+        "GUID:295bf292576904645bc785544eaaf32f",
+        "GUID:4298efc50ec98f84ea1034dbbcd56de8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
