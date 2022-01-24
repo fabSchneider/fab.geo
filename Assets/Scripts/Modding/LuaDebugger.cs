@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [RequireComponent(typeof(LuaManager))]
+    [AddComponentMenu("FabGeo/Lua/Debugger")]
     public class LuaDebugger : MonoBehaviour
     {
         private LuaManager manager;
@@ -21,16 +21,29 @@ namespace Fab.Geo.Modding
 
             debuggerServer = new MoonSharpVsCodeDebugServer(port);
             manager = GetComponent<LuaManager>();
-            manager.SetDebugger(this);
+
+            // attach already loaded scripts
+            foreach (var script in manager.LoadedScripts)
+                AttachScript(script);
+
+            // add listeners to attach newly loaded and detach unloaded scripts 
+            manager.AfterScriptLoaded += AttachScript;
+            manager.BeforeScriptUnloaded += DetachScript;
+
             debuggerServer.Start();         
         }
 
         private void OnDisable()
         {
+            debuggerServer?.Dispose();
             debuggerServer = null;
-            manager.SetDebugger(null);
+
+            manager.AfterScriptLoaded -= AttachScript;
+            manager.BeforeScriptUnloaded -= DetachScript;
+
             Debug.Log("Debug server has been stopped");
         }
+
 
         /// <summary>
         /// Attaches a script to the debugger
@@ -38,6 +51,7 @@ namespace Fab.Geo.Modding
         /// <param name="script"></param>
         public void AttachScript(Script script)
         {
+            Debug.Log("Attaching debugger to " + manager.GetScriptName(script));
             debuggerServer.AttachToScript(script, manager.GetScriptName(script), s => manager.GetScriptLoadPath(s.OwnerScript));
         }
 
@@ -47,6 +61,7 @@ namespace Fab.Geo.Modding
         /// <param name="script"></param>
         public void DetachScript(Script script)
         {
+            Debug.Log("Detaching debugger from " + manager.GetScriptName(script));
             debuggerServer.Detach(script);
         }
 
