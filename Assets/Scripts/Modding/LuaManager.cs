@@ -180,11 +180,6 @@ namespace Fab.Geo.Modding
 
             //add script to loaded script list
             loadedScripts.Add(script);
-
-            //call init function
-            Closure initFunc = script.Globals.Get(initFuncKey).Function;
-            if (initFunc != null)
-                initFunc.Call();
         }
 
         /// <summary>
