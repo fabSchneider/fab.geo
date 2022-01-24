@@ -10,7 +10,7 @@ namespace Fab.Geo.Lua.Interop
         private static void Register()
         {
             UserData.RegisterAssembly();
-            LuaObjectRegistry.RegisterAssembly();
+            LuaEnvironment.Registry.RegisterAssembly();
             ClrConversion.RegisterConverters();
         }
     }

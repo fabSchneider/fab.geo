@@ -118,7 +118,7 @@ namespace Fab.Geo.Lua.Core
 
             string scriptName = Path.GetFileNameWithoutExtension(path);
 
-            Dictionary<object, object> globals = LuaObjectRegistry.InitalizeLuaObjects();
+            Dictionary<object, object> globals = LuaEnvironment.Registry.InitalizeLuaObjects();
             Script script = LuaEnvironment.CreateScript(scriptName, globals);
 
             //execute script

@@ -20,8 +20,8 @@ namespace Fab.Geo.Lua.Editor
 
             StringBuilder sb = new StringBuilder();
 
-            LuaObjectRegistry.RegisterAssembly();
-            foreach (Type t in LuaObjectRegistry.GetRegisteredTypes(true))
+            LuaEnvironment.Registry.RegisterAssembly();
+            foreach (Type t in LuaEnvironment.Registry.GetRegisteredTypes(true))
             {
                 LuaHelpInfo info = extactor.GetHelpInfoForType(t);
 

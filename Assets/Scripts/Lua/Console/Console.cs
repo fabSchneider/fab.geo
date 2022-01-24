@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,7 +9,7 @@ namespace Fab.Geo.Lua.Console
 {
     [RequireComponent(typeof(UIDocument))]
     [AddComponentMenu("FabGeo/Lua/Lua Console")]
-    public class LuaConsole : MonoBehaviour
+    public class Console : MonoBehaviour
     {
         private Script script;
 
@@ -43,7 +42,7 @@ namespace Fab.Geo.Lua.Console
 
         private void Start()
         {
-            var globals = LuaObjectRegistry.InitalizeLuaObjects();
+            var globals = LuaEnvironment.Registry.InitalizeLuaObjects();
             script = LuaEnvironment.CreateScript("live-script", globals);
             script.Globals["help"] = (Action<DynValue>)help;
             script.Globals["list"] = (Action)list;
@@ -99,7 +98,7 @@ namespace Fab.Geo.Lua.Console
         [LuaHelpInfo("Lists all available modules")]
         private void list()
         {
-            foreach (Type type in LuaObjectRegistry.GetRegisteredTypes(true))
+            foreach (Type type in LuaEnvironment.Registry.GetRegisteredTypes(true))
             {
                 LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(type);
                 AddToPrintOutput($"{helpInfo.name.PadRight(8, ' ')} <i>{helpInfo.description}</i>" + Environment.NewLine, false);
@@ -143,61 +142,10 @@ namespace Fab.Geo.Lua.Console
             return new Result() { success = true };
         }
 
-
-        public class History : IReadOnlyList<HistoryEntry>
-        {
-            private int maxEntries;
-            public int MaxEntries => maxEntries;
-
-            public History(int maxEntries)
-            {
-                this.maxEntries = maxEntries;
-                codeHistory = new List<HistoryEntry>(maxEntries);
-            }
-            private List<HistoryEntry> codeHistory;
-            public HistoryEntry this[int index] => codeHistory[index];
-            public int Count => codeHistory.Count;
-            public IEnumerator<HistoryEntry> GetEnumerator() => codeHistory.GetEnumerator();
-            IEnumerator IEnumerable.GetEnumerator() => codeHistory.GetEnumerator();
-
-            public void Clear()
-            {
-                codeHistory.Clear();
-            }
-
-            public void Add(string code, string output, Texture image)
-            {
-                if (codeHistory.Count > 0 && codeHistory.Count >= maxEntries)
-                    codeHistory.RemoveAt(0);
-
-                codeHistory.Add(new HistoryEntry(code, output, image));
-            }
-        }
-
         public struct Result
         {
             public bool success;
             public string errorMsg;
-        }
-
-        public class HistoryEntry
-        {
-            private string code;
-
-            private string print;
-
-            public Texture image;
-
-            public string Code { get => code; }
-            public string Print { get => print; }
-            public Texture Image { get => image; }
-
-            public HistoryEntry(string code, string print, Texture image = null)
-            {
-                this.code = code;
-                this.print = print;
-                this.image = image;
-            }
         }
     }
 }

@@ -8,18 +8,26 @@ using UnityEngine;
 
 namespace Fab.Geo.Lua.Core
 {
+
     /// <summary>
     /// Registry for all <see cref="LuaObject"/>s
     /// </summary>
-    public static class LuaObjectRegistry
+    public class LuaObjectRegistry
     {
-        private static List<StandardUserDataDescriptor> initializeObjectDescriptors;
+        private class LuaObjectDescriptorCollection
+        {
+            public List<StandardUserDataDescriptor> objectDescriptors;
+            public List<StandardUserDataDescriptor> proxyDescriptors;
+            public List<StandardUserDataDescriptor> initializeDescriptors;
+        }
+
+        private Dictionary<string, LuaObjectDescriptorCollection> assemblyDescriptorCollections = new Dictionary<string, LuaObjectDescriptorCollection>();
 
         /// <summary>
         /// Registers all <see cref="LuaObject"/>s in an assembly
         /// </summary>
         /// <param name="assembly">The assembly to register. If null the calling assembly will be registered</param>
-        public static void RegisterAssembly(Assembly asm = null)
+        public void RegisterAssembly(Assembly asm = null)
         {
             if (asm == null)
             {
@@ -30,6 +38,12 @@ namespace Fab.Geo.Lua.Core
 #endif
             }
 
+            if (assemblyDescriptorCollections.ContainsKey(asm.FullName))
+                throw new InvalidOperationException("You are trying to register an assembly that has already been registered");
+
+
+            assemblyDescriptorCollections[asm.FullName] = new LuaObjectDescriptorCollection();
+
             RegisterLuaObjectTypes(asm);
             RegisterLuaProxyTypes(asm);
         }
@@ -37,18 +51,20 @@ namespace Fab.Geo.Lua.Core
         /// <summary>
         /// Initializes all registered LuaObjects implementing <see cref="ILuaObjectInitialize"/>
         /// </summary>
-        public static Dictionary<object, object> InitalizeLuaObjects()
+        public Dictionary<object, object> InitalizeLuaObjects()
         {
             Dictionary<object, object> globals = new Dictionary<object, object>();
 
-            foreach (StandardUserDataDescriptor descriptor in initializeObjectDescriptors)
+            var descriptors = assemblyDescriptorCollections.Values.Select(c => c.initializeDescriptors).SelectMany(d => d);
+            foreach (StandardUserDataDescriptor descriptor in descriptors)
             {
                 LuaObject luaObject = (LuaObject)Activator.CreateInstance(descriptor.Type);
                 try
-                {           
+                {
                     ((ILuaObjectInitialize)luaObject).Initialize();
                     globals.Add(descriptor.FriendlyName, luaObject);
-                }catch(LuaObjectInitializationException e)
+                }
+                catch (LuaObjectInitializationException e)
                 {
                     Debug.LogError($"Error initializing lua {descriptor.FriendlyName} module: {e.Message}");
                 }
@@ -62,18 +78,22 @@ namespace Fab.Geo.Lua.Core
         /// </summary>
         /// <param name="excludeProxyTypes"></param>
         /// <returns></returns>
-        public static IEnumerable<Type> GetRegisteredTypes(bool excludeProxyTypes)
+        public IEnumerable<Type> GetRegisteredTypes(bool excludeProxyTypes)
         {
             if (excludeProxyTypes)
-                return UserData.GetRegisteredTypes()
-                        .Where(t => t.IsSubclassOf(typeof(LuaObject)) && !t.IsSubclassOf(typeof(LuaProxy)));
+                return assemblyDescriptorCollections.Values
+                    .Select(c => c.objectDescriptors)
+                    .SelectMany(d => d)
+                    .Select(d => d.Type);
 
-            return UserData.GetRegisteredTypes()
-                    .Where(t => t.IsSubclassOf(typeof(LuaObject)));
-
+            return assemblyDescriptorCollections.Values
+                    .Select(c => c.objectDescriptors)
+                    .Concat(assemblyDescriptorCollections.Values.Select(c => c.proxyDescriptors))
+                    .SelectMany(d => d)
+                    .Select(d => d.Type);
         }
 
-        private static string GetLuaName(Type type)
+        private string GetLuaName(Type type)
         {
             var attr = type.GetCustomAttributes(typeof(LuaNameAttribute), false);
             if (attr.Length > 0)
@@ -84,9 +104,11 @@ namespace Fab.Geo.Lua.Core
             return type.Name.ToLower();
         }
 
-        private static void RegisterLuaObjectTypes(Assembly asm)
+        private void RegisterLuaObjectTypes(Assembly asm)
         {
-            initializeObjectDescriptors = new List<StandardUserDataDescriptor>();
+            List<StandardUserDataDescriptor> objectDescriptors = new List<StandardUserDataDescriptor>();
+            List<StandardUserDataDescriptor> proxyDescriptors = new List<StandardUserDataDescriptor>();
+            List<StandardUserDataDescriptor> initializeDescriptors = new List<StandardUserDataDescriptor>();
 
             var luaObjectTypes = from t in asm.SafeGetTypes()
                                  where t.IsSubclassOf(typeof(LuaObject)) && !t.IsAbstract
@@ -96,19 +118,30 @@ namespace Fab.Geo.Lua.Core
             {
                 string name = GetLuaName(luaObjectType);
                 var descriptor = (StandardUserDataDescriptor)UserData.RegisterType(luaObjectType, friendlyName: name);
+
+                if (typeof(LuaProxy).IsAssignableFrom(luaObjectType))
+                    proxyDescriptors.Add(descriptor);
+                else
+                    objectDescriptors.Add(descriptor);
+
                 if (luaObjectType.GetInterfaces().Any(i => i == typeof(ILuaObjectInitialize)))
                 {
-                    initializeObjectDescriptors.Add(descriptor);
+                    initializeDescriptors.Add(descriptor);
                     descriptor.RemoveMember("Initialize");
                 }
             }
+
+            string asmName = asm.FullName;
+            assemblyDescriptorCollections[asmName].objectDescriptors = objectDescriptors;
+            assemblyDescriptorCollections[asmName].proxyDescriptors = proxyDescriptors;
+            assemblyDescriptorCollections[asmName].initializeDescriptors = initializeDescriptors;
         }
 
-        private static void RegisterLuaProxyTypes(Assembly asm)
+        private void RegisterLuaProxyTypes(Assembly asm)
         {
             var luaProxyFactoryTypes = from t in asm.SafeGetTypes()
-                                 where typeof(IProxyFactory).IsAssignableFrom(t) && !t.IsAbstract
-                                 select t;
+                                       where typeof(IProxyFactory).IsAssignableFrom(t) && !t.IsAbstract
+                                       select t;
 
             foreach (var luaProxyFactoryType in luaProxyFactoryTypes)
             {

@@ -21,6 +21,21 @@ namespace Fab.Geo.Lua.Core
         public static readonly string ScriptLoadDirKey = "SCRIPT_DIR";
         public static readonly string ScriptDataDirKey = "DATA_DIR";
 
+        private static LuaObjectRegistry registry;
+
+        /// <summary>
+        /// The environments lua object registry 
+        /// </summary>
+        public static LuaObjectRegistry Registry
+        {
+            get
+            {
+                if (registry == null)
+                    registry = new LuaObjectRegistry();
+                return registry;
+            }
+        }
+
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
         public static void Init()
         {

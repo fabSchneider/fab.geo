@@ -4,10 +4,10 @@ using UnityEngine.UIElements;
 
 namespace Fab.Geo.Lua.Console
 {
-    [RequireComponent(typeof(LuaConsole))]
+    [RequireComponent(typeof(Console))]
     [RequireComponent(typeof(UIDocument))]
     [AddComponentMenu("FabGeo/Lua/Lua Console UI")]
-    public class LuaConsoleUI : MonoBehaviour
+    public class ConsoleUI : MonoBehaviour
     {
         private static readonly string className = "lua-console";
         private static readonly string textFieldClassName = className + "__text-field";
@@ -15,7 +15,7 @@ namespace Fab.Geo.Lua.Console
         private static readonly string historyContainerName = "history-container";
         private static readonly string errorMsgClassName = className + "__error-msg";
 
-        private LuaConsole console;
+        private Console console;
         private UIDocument doc;
         private TextField consoleTextField;
         private ScrollView consoleHistory;
@@ -30,7 +30,7 @@ namespace Fab.Geo.Lua.Console
 
         private void Start()
         {
-            console = GetComponent<LuaConsole>();
+            console = GetComponent<Console>();
 
             doc = GetComponent<UIDocument>();
             consoleTextField = doc.rootVisualElement.Q<TextField>(className: textFieldClassName);
@@ -56,7 +56,7 @@ namespace Fab.Geo.Lua.Console
             if (string.IsNullOrWhiteSpace(code))
                 return;
 
-            LuaConsole.Result res = console.Execute(code);
+            Console.Result res = console.Execute(code);
             if (res.success)
             {
                 errorMsg.style.display = DisplayStyle.None;
@@ -68,8 +68,6 @@ namespace Fab.Geo.Lua.Console
                 errorMsg.text = res.errorMsg;
                 errorMsg.style.display = DisplayStyle.Flex;
             }
-
-
         }
 
         private void OnTextFieldKeyDown(KeyDownEvent evt)
@@ -86,7 +84,7 @@ namespace Fab.Geo.Lua.Console
 
                 //select next
                 selectedHistoryEntry--;
-                LuaConsole.HistoryEntry entry = console.ConsoleHistory[selectedHistoryEntry];
+                HistoryEntry entry = console.ConsoleHistory[selectedHistoryEntry];
                 ((HistoryEntryElement)consoleHistory[selectedHistoryEntry]).SetSelected(true);
                 consoleTextField.SetValueWithoutNotify(entry.Code);
                 evt.StopPropagation();
@@ -99,7 +97,7 @@ namespace Fab.Geo.Lua.Console
 
                 //select next
                 selectedHistoryEntry++;
-                LuaConsole.HistoryEntry entry = console.ConsoleHistory[selectedHistoryEntry];
+                HistoryEntry entry = console.ConsoleHistory[selectedHistoryEntry];
                 ((HistoryEntryElement)consoleHistory[selectedHistoryEntry]).SetSelected(true);
                 consoleTextField.SetValueWithoutNotify(entry.Code);
                 evt.StopPropagation();
