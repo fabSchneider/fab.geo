@@ -6,7 +6,7 @@ namespace Fab.Geo.Modding
 {
     [RequireComponent(typeof(LuaConsole))]
     [RequireComponent(typeof(UIDocument))]
-    [AddComponentMenu("FabGeo/Lua/Console UI")]
+    [AddComponentMenu("FabGeo/Lua/Lua Console UI")]
     public class LuaConsoleUI : MonoBehaviour
     {
         private static readonly string className = "lua-console";
@@ -110,8 +110,6 @@ namespace Fab.Geo.Modding
                 if(selectedHistoryEntry >= 0 && selectedHistoryEntry < consoleHistory.childCount)
                     ((HistoryEntryElement)consoleHistory[selectedHistoryEntry]).SetSelected(false);
             }
-
-
         }
 
         private void UpdateHistory()

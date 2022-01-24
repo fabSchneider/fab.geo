@@ -11,10 +11,9 @@ using UnityEngine.UIElements;
 namespace Fab.Geo.Modding
 {
     [RequireComponent(typeof(UIDocument))]
-    [AddComponentMenu("FabGeo/Lua/Console")]
+    [AddComponentMenu("FabGeo/Lua/Lua Console")]
     public class LuaConsole : MonoBehaviour
     {
-        private LuaManager manager;
         private Script script;
 
         private History history;
@@ -46,8 +45,8 @@ namespace Fab.Geo.Modding
 
         private void Start()
         {
-            manager = FindObjectOfType<LuaManager>();
-            script = manager.CreateScript("live-script");
+            var globals = LuaObjectRegistry.InitalizeLuaObjects();
+            script = LuaEnvironment.CreateScript("live-script", globals);
             script.Globals["help"] = (Action<DynValue>)help;
             script.Globals["list"] = (Action)list;
 

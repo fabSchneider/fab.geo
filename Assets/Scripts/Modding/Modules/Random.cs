@@ -11,20 +11,23 @@ namespace Fab.Geo.Modding
     {
         private Unity.Mathematics.Random rand;
 
+        private static uint defaultSeed;
 
-        public void Initialize()
+        static Random()
         {
-            // Initialize the module with a default seed taken from the current time
             DateTime now = DateTime.UtcNow;
-            uint seed =
+            defaultSeed =
                 (uint)now.Year * (uint)31557600 +
                 (uint)now.Month * (uint)2629800 +
                 (uint)now.Day * (uint)86400 +
                 (uint)now.Hour * (uint)3600 +
                 (uint)now.Minute * (uint)60 +
                 (uint)now.Second;
+        }
 
-            rand = new Unity.Mathematics.Random(seed);
+        public void Initialize()
+        {
+            rand = new Unity.Mathematics.Random(defaultSeed);
         }
 
 

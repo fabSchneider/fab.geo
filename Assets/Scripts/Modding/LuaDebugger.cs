@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [AddComponentMenu("FabGeo/Lua/Debugger")]
+    [AddComponentMenu("FabGeo/Lua/Lua Debugger")]
     public class LuaDebugger : MonoBehaviour
     {
         private LuaManager manager;
@@ -51,8 +51,8 @@ namespace Fab.Geo.Modding
         /// <param name="script"></param>
         public void AttachScript(Script script)
         {
-            Debug.Log("Attaching debugger to " + manager.GetScriptName(script));
-            debuggerServer.AttachToScript(script, manager.GetScriptName(script), s => manager.GetScriptLoadPath(s.OwnerScript));
+            Debug.Log("Attaching debugger to " + LuaEnvironment.GetScriptName(script));
+            debuggerServer.AttachToScript(script, LuaEnvironment.GetScriptName(script), s => LuaEnvironment.GetScriptLoadPath(s.OwnerScript));
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Fab.Geo.Modding
         /// <param name="script"></param>
         public void DetachScript(Script script)
         {
-            Debug.Log("Detaching debugger from " + manager.GetScriptName(script));
+            Debug.Log("Detaching debugger from " + LuaEnvironment.GetScriptName(script));
             debuggerServer.Detach(script);
         }
 

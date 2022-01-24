@@ -15,6 +15,8 @@ namespace Fab.Geo.Modding
     /// </summary>
     public static class LuaObjectRegistry
     {
+        private static List<StandardUserDataDescriptor> initializeObjectDescriptors;
+
         /// <summary>
         /// Registers all <see cref="LuaObject"/>s in an assembly
         /// </summary>
@@ -35,30 +37,26 @@ namespace Fab.Geo.Modding
         }
 
         /// <summary>
-        /// Initialized all registered LuaObjects implementing <see cref="ILuaObjectInitialize"/>
+        /// Initializes all registered LuaObjects implementing <see cref="ILuaObjectInitialize"/>
         /// </summary>
-        /// <param name="globals"></param>
-        public static void InitalizeLuaObjects(Dictionary<string, object> globals)
+        public static Dictionary<object, object> InitalizeLuaObjects()
         {
-            var luaIntializeTypes = from t in UserData.GetRegisteredTypes()
-                                    where t.IsSubclassOf(typeof(LuaObject)) && t.GetInterfaces().Any(i => i == typeof(ILuaObjectInitialize))
-                                    select t;
+            Dictionary<object, object> globals = new Dictionary<object, object>();
 
-            foreach (Type type in luaIntializeTypes)
+            foreach (StandardUserDataDescriptor descriptor in initializeObjectDescriptors)
             {
-                LuaObject luaObject = (LuaObject)Activator.CreateInstance(type);
-                StandardUserDataDescriptor descriptor = (StandardUserDataDescriptor)UserData.GetDescriptorForType(type, false);
+                LuaObject luaObject = (LuaObject)Activator.CreateInstance(descriptor.Type);
                 try
-                {
-                 
+                {           
                     ((ILuaObjectInitialize)luaObject).Initialize();
                     globals.Add(descriptor.FriendlyName, luaObject);
                 }catch(LuaObjectInitializationException e)
                 {
                     Debug.LogError($"Error initializing lua {descriptor.FriendlyName} module: {e.Message}");
                 }
-
             }
+
+            return globals;
         }
 
         /// <summary>
@@ -90,6 +88,8 @@ namespace Fab.Geo.Modding
 
         private static void RegisterLuaObjectTypes(Assembly asm)
         {
+            initializeObjectDescriptors = new List<StandardUserDataDescriptor>();
+
             var luaObjectTypes = from t in asm.SafeGetTypes()
                                  where t.IsSubclassOf(typeof(LuaObject)) && !t.IsAbstract
                                  select t;
@@ -99,7 +99,10 @@ namespace Fab.Geo.Modding
                 string name = GetLuaName(luaObjectType);
                 var descriptor = (StandardUserDataDescriptor)UserData.RegisterType(luaObjectType, friendlyName: name);
                 if (luaObjectType.GetInterfaces().Any(i => i == typeof(ILuaObjectInitialize)))
+                {
+                    initializeObjectDescriptors.Add(descriptor);
                     descriptor.RemoveMember("Initialize");
+                }
             }
         }
 

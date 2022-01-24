@@ -1,27 +1,22 @@
+using CommandTerminal;
+using MoonSharp.Interpreter;
+using MoonSharp.Interpreter.Loaders;
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
-using NaughtyAttributes;
-using MoonSharp.Interpreter;
-using MoonSharp.Interpreter.Platforms;
-using MoonSharp.VsCodeDebugger;
-using CommandTerminal;
 using System.Linq;
-using MoonSharp.Interpreter.Debugging;
-using MoonSharp.Interpreter.Loaders;
-using Fab.Geo.UI;
+using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
-    [AddComponentMenu("FabGeo/Lua/Manager")]
+    /// <summary>
+    /// Manager class responsible for loading, unloading and updating lua scripts
+    /// </summary>
+    [AddComponentMenu("FabGeo/Lua/Lua Manager")]
     public class LuaManager : MonoBehaviour
     {
         private static readonly string LuaFileSearchPattern = "*.lua";
-
-        private static readonly string scriptNameKey = "SCRIPT_NAME";
-        private static readonly string scriptDirKey = "SCRIPT_DIR";
-        private static readonly string dataDirKey = "DATA_DIR";
 
         private static readonly string updateFuncKey = "update";
         private static readonly string deltaTimeKey = "deltaTime";
@@ -30,11 +25,7 @@ namespace Fab.Geo.Modding
 
         public IEnumerable<Script> LoadedScripts => loadedScripts;
 
-        public TextAsset[] luaModules;
-
         private Dictionary<Script, Closure> updateFunctions = new Dictionary<Script, Closure>();
-
-        private Dictionary<string, object> globals;
 
         private event Action<Script> afterScriptLoaded;
 
@@ -54,15 +45,7 @@ namespace Fab.Geo.Modding
 
         private void Start()
         {
-            UserData.RegisterAssembly();
-            LuaObjectRegistry.RegisterAssembly();
-            ClrConversion.RegisterConverters();
-            Script.GlobalOptions.Platform = new StandardPlatformAccessor();
-
-            GetGlobals();
             LoadScripts();
-
-            Debug.Log("Loaded Lua Objects: " + Environment.NewLine + string.Join(", ", UserData.GetRegisteredTypes().Select(t => t.Name).ToArray()));
         }
 
         private void Update()
@@ -75,49 +58,35 @@ namespace Fab.Geo.Modding
         }
 
         /// <summary>
-        /// Returns the name the script is registered with
+        /// Loads all scripts found in the scripts directory
         /// </summary>
-        /// <param name="script"></param>
-        /// <returns></returns>
-        public string GetScriptName(Script script)
-        {
-            if (loadedScripts.Contains(script))
-                return (string)script.Globals[scriptNameKey];
-
-            Debug.LogError("The script is not registered");
-            return null;
-        }
-
-        /// <summary>
-        /// Returns the path the script was loaded from
-        /// </summary>
-        /// <param name="script"></param>
-        /// <returns></returns>
-        public string GetScriptLoadPath(Script script)
-        {
-            return Path.Combine((string)script.Globals[scriptDirKey], (string)script.Globals[scriptNameKey] + ".lua");
-        }
-
-        /// <summary>
-        /// (Re)loads all scripts found in the scripts directory
-        /// </summary>
-        [Button("Reload Scripts")]
         public void LoadScripts()
         {
-            string scriptsDir = LuaEnvironment.ScriptsDirectory;
-            string dataDir = LuaEnvironment.DataDirectory;
-            Directory.CreateDirectory(scriptsDir);
-            Directory.CreateDirectory(dataDir);
-
-            Debug.Log("Loading scripts from " + scriptsDir);
-            string[] files = Directory.GetFiles(scriptsDir, LuaFileSearchPattern, SearchOption.AllDirectories);
+            Directory.CreateDirectory(LuaEnvironment.ScriptsDirectory);
+            Directory.CreateDirectory(LuaEnvironment.DataDirectory);
+            string[] files = Directory.GetFiles(LuaEnvironment.ScriptsDirectory, LuaFileSearchPattern, SearchOption.AllDirectories);
 
             UnloadAllScripts();
 
             foreach (string scriptPath in files)
                 LoadScript(scriptPath);
 
-            Debug.Log($"Loaded {loadedScripts.Count} scripts");
+            Debug.Log($"Loaded {loadedScripts.Count} script(s) from " + LuaEnvironment.ScriptsDirectory);
+        }
+
+        /// <summary>
+        /// Unloads the specified script
+        /// </summary>
+        /// <param name="script"></param>
+        public void UnloadScript(Script script)
+        {
+            if (LoadedScripts.Contains(script))
+            {
+                beforeScriptUnloaded?.Invoke(script);
+
+                loadedScripts.Remove(script);
+                updateFunctions.Remove(script);
+            }
         }
 
         /// <summary>
@@ -130,18 +99,6 @@ namespace Fab.Geo.Modding
         }
 
         /// <summary>
-        /// Unloads the specified script
-        /// </summary>
-        /// <param name="script"></param>
-        public void UnloadScript(Script script)
-        {
-            beforeScriptUnloaded?.Invoke(script);
-
-            loadedScripts.Remove(script);
-            updateFunctions.Remove(script);
-        }
-
-        /// <summary>
         /// Lists all loaded scripts
         /// </summary>
         /// <returns></returns>
@@ -149,50 +106,22 @@ namespace Fab.Geo.Modding
         {
             string[] list = new string[loadedScripts.Count];
             for (int i = 0; i < loadedScripts.Count; i++)
-                list[i] = loadedScripts[i].Globals[scriptNameKey].ToString();
+                list[i] = loadedScripts[i].Globals[LuaEnvironment.ScriptNameKey].ToString();
 
             return list;
         }
 
-        /// <summary>
-        /// Creates a script with the given script name
-        /// </summary>
-        /// <param name="scriptName"></param>
-        /// <returns></returns>
-        public Script CreateScript(string scriptName)
-        {
-            Script script = new Script(CoreModules.Preset_SoftSandbox | CoreModules.LoadMethods);
-
-            //set script loader
-            UnityAssetsScriptLoader scriptLoader = new UnityAssetsScriptLoader();
-
-            //we need to set the module path to '?' for it tor load the resource correctly
-            scriptLoader.ModulePaths = new string[] { "?" };
-            script.Options.ScriptLoader = scriptLoader;
-
-            //set globals
-            foreach (var global in globals)
-                script.Globals[global.Key] = global.Value;
-
-            script.Options.DebugPrint = s => Debug.Log(s);
-
-            //add constants
-            script.Globals[scriptNameKey] = Path.GetFileNameWithoutExtension(scriptName);
-            script.Globals[scriptDirKey] = LuaEnvironment.ScriptsDirectory + Path.DirectorySeparatorChar;
-            script.Globals[dataDirKey] = LuaEnvironment.DataDirectory + Path.DirectorySeparatorChar;
-
-
-            LoadLuaModulesForScript(script);
-
-            return script;
-        }
-
         private void LoadScript(string path)
         {
-            string scriptName = Path.GetFileNameWithoutExtension(path);
-            Script script = CreateScript(scriptName);
+            if (!File.Exists(path))
+                throw new FileNotFoundException("Could not load script. File not found", path);
 
             using Stream fileStream = new FileStream(path, FileMode.Open);
+
+            string scriptName = Path.GetFileNameWithoutExtension(path);
+
+            Dictionary<object, object> globals = LuaObjectRegistry.InitalizeLuaObjects();
+            Script script = LuaEnvironment.CreateScript(scriptName, globals);
 
             //execute script
             script.DoStream(fileStream);
@@ -206,35 +135,6 @@ namespace Fab.Geo.Modding
             loadedScripts.Add(script);
 
             afterScriptLoaded?.Invoke(script);
-        }
-
-        private void GetGlobals()
-        {
-            globals = new Dictionary<string, object>();
-            //UserData.RegisterProxyType<Image, Texture2D>(v =>
-            //{
-            //    var proxy = new Image();
-            //    proxy.SetTarget(v);
-            //    return proxy;
-            //});
-
-            //UserData.RegisterProxyType<Feature, Fab.Geo.Feature>(v =>
-            //{
-            //    var proxy = new Feature();
-            //    proxy.SetTarget(v);
-            //    return proxy;
-            //});
-
-            LuaObjectRegistry.InitalizeLuaObjects(globals);
-        }
-
-        private void LoadLuaModulesForScript(Script script)
-        {
-            //load all modules
-            for (int i = 0; i < luaModules.Length; i++)
-            {
-                script.DoString($"require \'{luaModules[i].name}\'");
-            }
         }
 
         #region Commands
@@ -270,7 +170,7 @@ namespace Fab.Geo.Modding
             LuaManager manager = FindObjectOfType<LuaManager>();
             if (manager)
             {
-                Script script = manager.loadedScripts.FirstOrDefault(s => (string)s.Globals[scriptNameKey] == scriptName);
+                Script script = manager.loadedScripts.FirstOrDefault(s => (string)s.Globals[LuaEnvironment.ScriptLoadDirKey] == scriptName);
                 if (script != null)
                     manager.UnloadScript(script);
             }
