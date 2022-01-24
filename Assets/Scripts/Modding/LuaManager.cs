@@ -56,22 +56,18 @@ namespace Fab.Geo.Modding
                 debugger.AttachScript(script);
         }
 
-        private void Awake()
+
+        private void Start()
         {
             UserData.RegisterAssembly();
             LuaObjectRegistry.RegisterAssembly();
             ClrConversion.RegisterConverters();
             Script.GlobalOptions.Platform = new StandardPlatformAccessor();
 
-
-            Debug.Log("Loaded Lua Objects: " + Environment.NewLine + string.Join(", ", UserData.GetRegisteredTypes().Select(t => t.Name).ToArray()));
-
-        }
-
-        private void Start()
-        {
             GetGlobals();
             LoadScripts();
+
+            Debug.Log("Loaded Lua Objects: " + Environment.NewLine + string.Join(", ", UserData.GetRegisteredTypes().Select(t => t.Name).ToArray()));
         }
 
         private void Update()
