@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Fab.Geo.Modding
+namespace Fab.Geo.UI
 {
     [RequireComponent(typeof(UIDocument))]
     public class ReloadUI : MonoBehaviour

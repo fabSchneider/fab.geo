@@ -415,6 +415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LuaManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3820910762265899291, guid: eb5dca500f43de34ab36723fa2ba6d0c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3820910762265899292, guid: eb5dca500f43de34ab36723fa2ba6d0c, type: 3}
       propertyPath: m_RootOrder
       value: 2
