@@ -30,16 +30,8 @@ namespace Fab.Geo.Modding
 #endif
             }
 
-            var luaObjectTypes = from t in asm.SafeGetTypes()
-                                 where t.IsSubclassOf(typeof(LuaObject)) && !t.IsAbstract
-                                 select t;
-
-            foreach (var luaObjectType in luaObjectTypes)
-            {
-                var descriptor = (StandardUserDataDescriptor)UserData.RegisterType(luaObjectType);
-                if (luaObjectType.GetInterfaces().Any(i => i == typeof(ILuaObjectInitialize)))
-                    descriptor.RemoveMember("Initialize");
-            }
+            RegisterLuaObjectTypes(asm);
+            RegisterLuaProxyTypes(asm);
         }
 
         /// <summary>
@@ -55,13 +47,15 @@ namespace Fab.Geo.Modding
             foreach (Type type in luaIntializeTypes)
             {
                 LuaObject luaObject = (LuaObject)Activator.CreateInstance(type);
+                StandardUserDataDescriptor descriptor = (StandardUserDataDescriptor)UserData.GetDescriptorForType(type, false);
                 try
                 {
+                 
                     ((ILuaObjectInitialize)luaObject).Initialize();
-                    globals.Add(LuaObject.GetLuaName(type), luaObject);
+                    globals.Add(descriptor.FriendlyName, luaObject);
                 }catch(LuaObjectInitializationException e)
                 {
-                    Debug.LogError($"Error initializing lua {LuaObject.GetLuaName(type)} module: {e.Message}");
+                    Debug.LogError($"Error initializing lua {descriptor.FriendlyName} module: {e.Message}");
                 }
 
             }
@@ -81,6 +75,45 @@ namespace Fab.Geo.Modding
             return UserData.GetRegisteredTypes()
                     .Where(t => t.IsSubclassOf(typeof(LuaObject)));
 
+        }
+
+        private static string GetLuaName(Type type)
+        {
+            var attr = type.GetCustomAttributes(typeof(LuaNameAttribute), false);
+            if (attr.Length > 0)
+            {
+                LuaNameAttribute nameAttr = (LuaNameAttribute)attr[0];
+                return nameAttr.Name;
+            }
+            return type.Name.ToLower();
+        }
+
+        private static void RegisterLuaObjectTypes(Assembly asm)
+        {
+            var luaObjectTypes = from t in asm.SafeGetTypes()
+                                 where t.IsSubclassOf(typeof(LuaObject)) && !t.IsAbstract
+                                 select t;
+
+            foreach (var luaObjectType in luaObjectTypes)
+            {
+                string name = GetLuaName(luaObjectType);
+                var descriptor = (StandardUserDataDescriptor)UserData.RegisterType(luaObjectType, friendlyName: name);
+                if (luaObjectType.GetInterfaces().Any(i => i == typeof(ILuaObjectInitialize)))
+                    descriptor.RemoveMember("Initialize");
+            }
+        }
+
+        private static void RegisterLuaProxyTypes(Assembly asm)
+        {
+            var luaProxyFactoryTypes = from t in asm.SafeGetTypes()
+                                 where typeof(IProxyFactory).IsAssignableFrom(t) && !t.IsAbstract
+                                 select t;
+
+            foreach (var luaProxyFactoryType in luaProxyFactoryTypes)
+            {
+                IProxyFactory factory = (IProxyFactory)Activator.CreateInstance(luaProxyFactoryType);
+                UserData.RegisterProxyType(factory);
+            }
         }
     }
 }

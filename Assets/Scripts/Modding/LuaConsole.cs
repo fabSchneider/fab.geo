@@ -128,7 +128,7 @@ namespace Fab.Geo.Modding
                     object obj = val.ToObject();
 
                     if (obj is Image tex)
-                        imageOutput = tex.Value;
+                        imageOutput = tex.Target;
 
                     script.DoString($"print({code})");
                 }

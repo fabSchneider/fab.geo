@@ -28,7 +28,7 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("Shows a popup with an image")]
         public void show(string title, Image image)
         {
-            popup.Show(title, image.Value);
+            popup.Show(title, image.Target);
         }
 
         [LuaHelpInfo("Closes any open popup")]

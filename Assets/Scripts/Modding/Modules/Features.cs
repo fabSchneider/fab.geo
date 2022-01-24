@@ -60,7 +60,7 @@ namespace Fab.Geo.Modding
         {
             if (feature == null || feature.IsNil())
                 return false;
-            return manager.RemoveFeature(feature.Value);
+            return manager.RemoveFeature(feature.Target);
         }
 
         [LuaHelpInfo("Removes all features from the world")]

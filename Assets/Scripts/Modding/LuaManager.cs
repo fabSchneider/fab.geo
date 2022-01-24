@@ -22,7 +22,6 @@ namespace Fab.Geo.Modding
         private static readonly string scriptDirKey = "SCRIPT_DIR";
         private static readonly string dataDirKey = "DATA_DIR";
 
-        private static readonly string initFuncKey = "init";
         private static readonly string updateFuncKey = "update";
         private static readonly string deltaTimeKey = "deltaTime";
 
@@ -34,28 +33,23 @@ namespace Fab.Geo.Modding
 
         private Dictionary<Script, Closure> updateFunctions = new Dictionary<Script, Closure>();
 
-        private LuaDebugger debugger;
-
         private Dictionary<string, object> globals;
-        public void SetDebugger(LuaDebugger debugger)
+
+        private event Action<Script> afterScriptLoaded;
+
+        public event Action<Script> AfterScriptLoaded
         {
-            if (debugger == null)
-            {
-                this.debugger = null;
-                return;
-            }
-
-            // don't allow to 'overwrite' an existing debugger
-            if (this.debugger != null)
-                Debug.LogError("Debugger has already been set");
-
-            this.debugger = debugger;
-
-            //attach all loaded scripts to the debugger
-            foreach (Script script in loadedScripts)
-                debugger.AttachScript(script);
+            add => afterScriptLoaded += value;
+            remove => afterScriptLoaded -= value;
         }
 
+        private event Action<Script> beforeScriptUnloaded;
+
+        public event Action<Script> BeforeScriptUnloaded
+        {
+            add => beforeScriptUnloaded += value;
+            remove => beforeScriptUnloaded -= value;
+        }
 
         private void Start()
         {
@@ -140,8 +134,7 @@ namespace Fab.Geo.Modding
         /// <param name="script"></param>
         public void UnloadScript(Script script)
         {
-            if (debugger != null)
-                debugger.DetachScript(script);
+            beforeScriptUnloaded?.Invoke(script);
 
             loadedScripts.Remove(script);
             updateFunctions.Remove(script);
@@ -158,28 +151,6 @@ namespace Fab.Geo.Modding
                 list[i] = loadedScripts[i].Globals[scriptNameKey].ToString();
 
             return list;
-        }
-
-
-        private void LoadScript(string path)
-        {
-            string scriptName = Path.GetFileNameWithoutExtension(path);
-            Script script = CreateScript(scriptName);
-
-            script.Options.DebugPrint = s => Debug.Log(s);
-
-            using Stream fileStream = new FileStream(path, FileMode.Open);
-
-            //execute script
-            script.DoStream(fileStream);
-
-            //add update function
-            Closure updateFunc = script.Globals.Get(updateFuncKey).Function;
-            if (updateFunc != null)
-                updateFunctions.Add(script, updateFunc);
-
-            //add script to loaded script list
-            loadedScripts.Add(script);
         }
 
         /// <summary>
@@ -209,32 +180,49 @@ namespace Fab.Geo.Modding
             script.Globals[scriptDirKey] = LuaEnvironment.ScriptsDirectory + Path.DirectorySeparatorChar;
             script.Globals[dataDirKey] = LuaEnvironment.DataDirectory + Path.DirectorySeparatorChar;
 
-            //attach to debugger
-            if (debugger != null)
-                debugger.AttachScript(script);
 
             LoadLuaModulesForScript(script);
 
             return script;
         }
 
+        private void LoadScript(string path)
+        {
+            string scriptName = Path.GetFileNameWithoutExtension(path);
+            Script script = CreateScript(scriptName);
+
+            using Stream fileStream = new FileStream(path, FileMode.Open);
+
+            //execute script
+            script.DoStream(fileStream);
+
+            //add update function
+            Closure updateFunc = script.Globals.Get(updateFuncKey).Function;
+            if (updateFunc != null)
+                updateFunctions.Add(script, updateFunc);
+
+            //add script to loaded script list
+            loadedScripts.Add(script);
+
+            afterScriptLoaded?.Invoke(script);
+        }
+
         private void GetGlobals()
         {
             globals = new Dictionary<string, object>();
+            //UserData.RegisterProxyType<Image, Texture2D>(v =>
+            //{
+            //    var proxy = new Image();
+            //    proxy.SetTarget(v);
+            //    return proxy;
+            //});
 
-            UserData.RegisterProxyType<Image, Texture2D>(v =>
-            {
-                var proxy = new Image();
-                proxy.SetValue(v);
-                return proxy;
-            });
-
-            UserData.RegisterProxyType<Feature, Fab.Geo.Feature>(v =>
-            {
-                var proxy = new Feature();
-                proxy.SetValue(v);
-                return proxy;
-            });
+            //UserData.RegisterProxyType<Feature, Fab.Geo.Feature>(v =>
+            //{
+            //    var proxy = new Feature();
+            //    proxy.SetTarget(v);
+            //    return proxy;
+            //});
 
             LuaObjectRegistry.InitalizeLuaObjects(globals);
         }

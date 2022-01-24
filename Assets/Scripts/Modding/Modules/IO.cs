@@ -40,7 +40,7 @@ namespace Fab.Geo.Modding
                 tex.LoadImage(File.ReadAllBytes(loadPath));
                 tex.name = Path.GetFileNameWithoutExtension(loadPath);
                 var proxy = new Image();
-                proxy.SetValue(tex);
+                proxy.SetTarget(tex);
                 return proxy;
             }
             else if (textExtensions.Contains(ext))

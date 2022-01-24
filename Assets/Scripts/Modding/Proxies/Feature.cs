@@ -1,10 +1,13 @@
 using MoonSharp.Interpreter;
+using MoonSharp.Interpreter.Interop;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Fab.Geo.Modding
 {
+    public class FeatureProxyFactory : LuaProxyFactory<Feature, Fab.Geo.Feature> { }
+
     [LuaHelpInfo("A feature object")]
     public class Feature : LuaProxy<Fab.Geo.Feature>
     {
@@ -13,8 +16,8 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("The name of the feature")]
         public string name
         {
-            get => Value.name;
-            set => Value.SetName(value);
+            get => Target.name;
+            set => Target.SetName(value);
         }
 
         [LuaHelpInfo("The type of the feature (read only)")]
@@ -22,7 +25,7 @@ namespace Fab.Geo.Modding
         {
             get
             {
-                switch (Value)
+                switch (Target)
                 {
                     case FeaturePoint:
                         return "point";
@@ -39,32 +42,32 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("The main color of this feature")]
         public Color color
         {
-            get => Value.GetColor();
-            set => Value.SetColor(value);
+            get => Target.GetColor();
+            set => Target.SetColor(value);
         }
 
         [LuaHelpInfo("The geometry of the feature as a list of coordinates (read only)")]
-        public Coordinate[] geometry => Value.Geometry;
+        public Coordinate[] geometry => Target.Geometry;
 
         [LuaHelpInfo("Event function that is called when the feature is clicked")]
         public void on_click(Closure action)
         {
             clickEvent = action;
-            Value.clicked -= OnClick;
+            Target.clicked -= OnClick;
             if (action != null)
-                Value.clicked += OnClick;
+                Target.clicked += OnClick;
         }
 
         [LuaHelpInfo("Removes this feature")]
         public void remove()
         {
-            Value.Remove();
+            Target.Remove();
         }
 
         [LuaHelpInfo("Resets this features style to its default state")]
         public void reset_style()
         {
-            Value.ResetStyle();
+            Target.ResetStyle();
         }
 
         [MoonSharpHidden]

@@ -134,7 +134,7 @@ namespace Fab.Geo.Modding
             {
                 proxy = new ButtonProxy(b, this, path);
                 if (text != null)
-                    ((Button)proxy.Value).text = text;
+                    ((Button)proxy.Target).text = text;
                 if(on_click != null)
                     proxy.on_click(on_click);
                 controlProxies.Add(proxy);

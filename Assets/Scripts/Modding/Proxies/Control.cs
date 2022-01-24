@@ -21,8 +21,8 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("The enabled state of the control")]
         public bool enabled
         {
-            get => Value.enabledSelf;
-            set => Value.SetEnabled(value);
+            get => Target.enabledSelf;
+            set => Target.SetEnabled(value);
         }
 
         private Controls panel;
@@ -30,7 +30,7 @@ namespace Fab.Geo.Modding
         [MoonSharpHidden]
         public Control(VisualElement value, Controls panel, string path)
         {
-            this.value = value;
+            this.target = value;
             controlPath = path;
             this.panel = panel;
         }
@@ -45,26 +45,26 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("Moves the control up in the hierarchy")]
         public void move_up()
         {
-            int index = Value.parent.IndexOf(Value);
+            int index = Target.parent.IndexOf(Target);
             if (index == 0)
                 return;
 
-            Value.PlaceBehind(Value.parent.ElementAt(index - 1));
+            Target.PlaceBehind(Target.parent.ElementAt(index - 1));
         }
 
         [LuaHelpInfo("Moves the control down in the hierarchy")]
         public void move_down()
         {
-            int index = Value.parent.IndexOf(Value);
-            if (index == Value.parent.childCount - 1)
+            int index = Target.parent.IndexOf(Target);
+            if (index == Target.parent.childCount - 1)
                 return;
 
-            Value.PlaceInFront(Value.parent.ElementAt(index + 1));
+            Target.PlaceInFront(Target.parent.ElementAt(index + 1));
         }
 
         public virtual void Dispose()
         {
-            value = null;
+            target = null;
             controlPath = null;
         }
 
@@ -73,7 +73,7 @@ namespace Fab.Geo.Modding
             if (IsNil())
                 return "nil";
 
-            return $"{GetLuaName(GetType())} {{ path: {path} }}";
+            return $"{UserData.GetDescriptorForObject(this).Name} {{ path: {path} }}";
         }
     }
 
@@ -90,8 +90,8 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("The text of the button")]
         public string text
         {
-            get => ((Button)Value).text;
-            set => ((Button)Value).text = value;
+            get => ((Button)Target).text;
+            set => ((Button)Target).text = value;
         }
 
         [LuaHelpInfo("Add a function to be executed when the button is clicked")]
@@ -99,7 +99,7 @@ namespace Fab.Geo.Modding
         {
             ThrowIfNil();
 
-            if (Value is Button button)
+            if (Target is Button button)
             {
                 onClick = callback;
                 button.clickable.clicked -= OnClick;
@@ -127,7 +127,7 @@ namespace Fab.Geo.Modding
         private Closure onValueChange;
 
         [LuaHelpInfo("The currently value of the slider")]
-        public float val => ((Slider)Value).value;
+        public float val => ((Slider)Target).value;
 
         [MoonSharpHidden]
         public SliderProxy(VisualElement value, Controls panel, string path) : base(value, panel, path)
@@ -141,9 +141,9 @@ namespace Fab.Geo.Modding
 
             onValueChange = callback;
 
-            Value.UnregisterCallback<ChangeEvent<float>>(OnValueChange);
+            Target.UnregisterCallback<ChangeEvent<float>>(OnValueChange);
             if (onValueChange != null)
-                Value.RegisterCallback<ChangeEvent<float>>(OnValueChange);
+                Target.RegisterCallback<ChangeEvent<float>>(OnValueChange);
         }
 
         private void OnValueChange(ChangeEvent<float> evt)
@@ -174,29 +174,29 @@ namespace Fab.Geo.Modding
         [LuaHelpInfo("The text of the label")]
         public string text
         {
-            get => ((Label)Value).text;
-            set => ((Label)Value).text = value;
+            get => ((Label)Target).text;
+            set => ((Label)Target).text = value;
         }
 
         [LuaHelpInfo("The text size of the label")]
         public float size
         {
-            get => ((Label)Value).style.fontSize.value.value;
-            set => ((Label)Value).style.fontSize = new Length(value, LengthUnit.Pixel);
+            get => ((Label)Target).style.fontSize.value.value;
+            set => ((Label)Target).style.fontSize = new Length(value, LengthUnit.Pixel);
         }
 
         [LuaHelpInfo("Sets texts boldness of the label")]
         public bool bold
         {
-            get => ((Label)Value).style.unityFontStyleAndWeight.value == UnityEngine.FontStyle.Bold;
-            set => ((Label)Value).style.unityFontStyleAndWeight = value ? UnityEngine.FontStyle.Bold : UnityEngine.FontStyle.Normal;
+            get => ((Label)Target).style.unityFontStyleAndWeight.value == UnityEngine.FontStyle.Bold;
+            set => ((Label)Target).style.unityFontStyleAndWeight = value ? UnityEngine.FontStyle.Bold : UnityEngine.FontStyle.Normal;
         }
 
         [LuaHelpInfo("Sets the text alignment to centered")]
         public bool center
         {
-            get => ((Label)Value).style.unityTextAlign.value == UnityEngine.TextAnchor.UpperCenter;
-            set => ((Label)Value).style.unityTextAlign = value ? UnityEngine.TextAnchor.UpperCenter : UnityEngine.TextAnchor.UpperLeft;
+            get => ((Label)Target).style.unityTextAlign.value == UnityEngine.TextAnchor.UpperCenter;
+            set => ((Label)Target).style.unityTextAlign = value ? UnityEngine.TextAnchor.UpperCenter : UnityEngine.TextAnchor.UpperLeft;
         }
 
         [MoonSharpHidden]
@@ -212,7 +212,7 @@ namespace Fab.Geo.Modding
         private Closure onValueChange;
 
         [LuaHelpInfo("The currently selected choice")]
-        public string val => ((DropdownField)Value).value;
+        public string val => ((DropdownField)Target).value;
 
         [MoonSharpHidden]
         public ChoiceProxy(VisualElement value, Controls panel, string path) : base(value, panel, path)
@@ -226,9 +226,9 @@ namespace Fab.Geo.Modding
 
             onValueChange = callback;
 
-            Value.UnregisterCallback<ChangeEvent<string>>(OnValueChange);
+            Target.UnregisterCallback<ChangeEvent<string>>(OnValueChange);
             if (onValueChange != null)
-                Value.RegisterCallback<ChangeEvent<string>>(OnValueChange);
+                Target.RegisterCallback<ChangeEvent<string>>(OnValueChange);
         }
 
         private void OnValueChange(ChangeEvent<string> evt)

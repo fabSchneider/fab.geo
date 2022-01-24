@@ -1,3 +1,5 @@
+using MoonSharp.Interpreter;
+using MoonSharp.Interpreter.Interop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,7 +52,7 @@ namespace Fab.Geo.Modding
 
         private LuaHelpInfo ExtractHelpInfoFromType(Type t)
         {
-            string name = LuaObject.GetLuaName(t);
+            string name = ((StandardUserDataDescriptor)UserData.GetDescriptorForType(t, false)).FriendlyName;
             string description = string.Empty;
             LuaHelpInfoAttribute classInfoAttr = t.GetCustomAttribute<LuaHelpInfoAttribute>();
             if (classInfoAttr != null)
