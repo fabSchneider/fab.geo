@@ -14,6 +14,7 @@ using Fab.Geo.UI;
 
 namespace Fab.Geo.Modding
 {
+    [AddComponentMenu("FabGeo/Lua/Manager")]
     public class LuaManager : MonoBehaviour
     {
         private static readonly string LuaFileSearchPattern = "*.lua";

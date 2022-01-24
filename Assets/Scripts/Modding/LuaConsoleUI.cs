@@ -6,6 +6,7 @@ namespace Fab.Geo.Modding
 {
     [RequireComponent(typeof(LuaConsole))]
     [RequireComponent(typeof(UIDocument))]
+    [AddComponentMenu("FabGeo/Lua/Console UI")]
     public class LuaConsoleUI : MonoBehaviour
     {
         private static readonly string className = "lua-console";

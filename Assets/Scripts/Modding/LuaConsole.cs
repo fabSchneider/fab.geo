@@ -11,6 +11,7 @@ using UnityEngine.UIElements;
 namespace Fab.Geo.Modding
 {
     [RequireComponent(typeof(UIDocument))]
+    [AddComponentMenu("FabGeo/Lua/Console")]
     public class LuaConsole : MonoBehaviour
     {
         private LuaManager manager;
