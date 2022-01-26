@@ -35,7 +35,7 @@ namespace Fab.Geo
                     ""id"": ""77b3af4d-6e38-4c7f-b95e-5b3255340f7e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
@@ -53,7 +53,7 @@ namespace Fab.Geo
                     ""id"": ""31420ae2-6629-46a4-8042-fb31c77cfdd2"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
@@ -88,7 +88,7 @@ namespace Fab.Geo
                 {
                     ""name"": """",
                     ""id"": ""394e1edf-f0d9-4d06-93a1-34bbe39e67a1"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -134,7 +134,7 @@ namespace Fab.Geo
                     ""id"": ""4ff648a3-5dd1-484a-8780-77c681fe07d0"",
                     ""path"": ""<Mouse>/scroll"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,

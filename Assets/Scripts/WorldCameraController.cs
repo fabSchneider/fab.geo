@@ -42,7 +42,9 @@ namespace Fab.Geo
 
 
         [SerializeField]
-        private AnimationCurve zoomSpeed;
+        private AnimationCurve zoomCurve;
+        [SerializeField]
+        private float zoomSpeed = 1f;
 
         [SerializeField]
         private AnimationCurve cameraPitch;
@@ -168,15 +170,17 @@ namespace Fab.Geo
             }
         }
 
+
         private void Pan(Vector2 delta)
         {
             Vector3 camLocalPos = cam.transform.localPosition;
             float lastZoomLevel = -camLocalPos.z;
             float currPanSpeed = Mathf.Lerp(panSpeed, panSpeed * 0.05f, Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, lastZoomLevel));
 
-            transform.localRotation = transform.localRotation *
+            Quaternion target = transform.localRotation *
             Quaternion.AngleAxis(delta.x * currPanSpeed, Vector3.up) *
             Quaternion.AngleAxis(-delta.y * currPanSpeed, Vector3.right);
+            transform.localRotation = target;
         }
 
         private void Orbit(Vector2 delta)
@@ -194,7 +198,7 @@ namespace Fab.Geo
             float lastZoomLevel = -camLocalPos.z;
             float lastZoomLevelNorm = Mathf.InverseLerp(zoomBounds.y, zoomBounds.x, lastZoomLevel);
 
-            float currZoomSpeed = zoomSpeed.Evaluate(lastZoomLevelNorm) * 0.1f;
+            float currZoomSpeed = zoomCurve.Evaluate(lastZoomLevelNorm) * zoomSpeed;
 
             float zoomLevel = Mathf.Clamp(lastZoomLevel + delta * currZoomSpeed, zoomBounds.x, zoomBounds.y);
 
