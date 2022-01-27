@@ -66,10 +66,28 @@ namespace Fab.Geo.Lua.Core
 
             UnloadAllScripts();
 
-            foreach (string scriptPath in files)
-                LoadScript(scriptPath);
+            int loaded = 0;
 
-            Debug.Log($"Loaded {loadedScripts.Count} script(s) from " + LuaEnvironment.ScriptsDirectory);
+            foreach (string scriptPath in files)
+            {
+                //ignore files starting with ~
+                if (!Path.GetFileName(scriptPath).StartsWith('~'))
+                {
+                    LoadScript(scriptPath);
+                    loaded++;
+                }
+
+            }
+
+            int ignored = files.Length - loaded;
+
+            if (loaded == 0 && ignored > 0)
+                Debug.Log($"Loaded no scripts from user script directory (ignored {files.Length} script(s))");
+            else
+                Debug.Log($"Loaded {loaded} script(s) from user script directory" +
+                    (ignored > 0 ? $" (ignored {ignored}script(s))" : string.Empty));
+            
+          
         }
 
         /// <summary>
