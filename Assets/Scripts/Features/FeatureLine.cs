@@ -9,7 +9,7 @@ namespace Fab.Geo
     [RequireComponent(typeof(MeshCollider))]
     public class FeatureLine : Feature
     {
-        // Line segement length in km
+        // Line segment length in km
         private static readonly float SegmentLength = 100;
 
         private LineRenderer lr;
