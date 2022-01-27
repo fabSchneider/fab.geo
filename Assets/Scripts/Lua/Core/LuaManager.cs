@@ -84,9 +84,7 @@ namespace Fab.Geo.Lua.Core
                 Debug.Log($"Loaded no scripts from user script directory (ignored {files.Length} script(s))");
             else
                 Debug.Log($"Loaded {loaded} script(s) from user script directory" +
-                    (ignored > 0 ? $" (ignored {ignored}script(s))" : string.Empty));
-            
-          
+                    (ignored > 0 ? $" (ignored {ignored}script(s))" : string.Empty));   
         }
 
         /// <summary>
