@@ -11,7 +11,7 @@ namespace Fab.Geo.Lua.Interop
     public class Controls : LuaObject, ILuaObjectInitialize
     {
         private ControlPanel panel;
-        private List<Control> controlProxies;
+        private List<ControlProxy> controlProxies;
 
         public void Initialize()
         {
@@ -21,7 +21,7 @@ namespace Fab.Geo.Lua.Interop
                 throw new LuaObjectInitializationException("UI Manager could not be found");
 
             panel = manager.ControlPanel;     
-            controlProxies = new List<Control>();
+            controlProxies = new List<ControlProxy>();
         }
 
         [LuaHelpInfo("Shows the control panel")]
@@ -31,13 +31,13 @@ namespace Fab.Geo.Lua.Interop
         public void hide() => panel.Hide();
 
         [LuaHelpInfo("Gets the control at the given path from the panel")]
-        public Control get(string path)
+        public ControlProxy get(string path)
         {
             return GetControlProxy(path);
         }
 
         [LuaHelpInfo("Removes the control at the given path from the panel")]
-        public void remove(Control control)
+        public void remove(ControlProxy control)
         {
             if (controlProxies.Remove(control))
             {
@@ -58,7 +58,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a label to the control panel")]
-        public Control label(string path, string text)
+        public ControlProxy label(string path, string text)
         {
             VisualElement l = panel.AddLabel(path, text);
             LabelProxy proxy = GetControlProxy<LabelProxy>(path);
@@ -72,7 +72,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a separator to the control panel")]
-        public Control separator(string path)
+        public ControlProxy separator(string path)
         {
             VisualElement s = panel.AddSeparator(path);
             SeparatorProxy proxy = GetControlProxy<SeparatorProxy>(path);
@@ -86,7 +86,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a slider to the control panel")]
-        public Control slider(string path, float min, float max, float value)
+        public ControlProxy slider(string path, float min, float max, float value)
         {
             Slider s = panel.AddSlider(path, min, max, value);
             SliderProxy proxy = GetControlProxy<SliderProxy>(path);
@@ -100,7 +100,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a ranged slider to the control panel.")]
-        public Control range(string path, float min, float max, float minLimit, float maxLimit)
+        public ControlProxy range(string path, float min, float max, float minLimit, float maxLimit)
         {
             MinMaxSlider s = panel.AddRangeSlider(path, min, max, minLimit, maxLimit);
             SliderProxy proxy = GetControlProxy<SliderProxy>(path);
@@ -113,7 +113,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a choice field to the control panel")]
-        public Control choice(string path, List<string> choices, string value)
+        public ControlProxy choice(string path, List<string> choices, string value)
         {
             DropdownField d = panel.AddChoice(path, choices, value);
             ChoiceProxy proxy = GetControlProxy<ChoiceProxy>(path);
@@ -126,7 +126,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a button to the control panel. You can pass in a function that will be called when the button was pressed")]
-        public Control button(string path, string text, Closure on_click)
+        public ControlProxy button(string path, string text, Closure on_click)
         {
             Button b = panel.AddButton(path, null);
             ButtonProxy proxy = GetControlProxy<ButtonProxy>(path);
@@ -142,12 +142,12 @@ namespace Fab.Geo.Lua.Interop
             return proxy;
         }
 
-        private Control GetControlProxy(string path)
+        private ControlProxy GetControlProxy(string path)
         {
             return controlProxies.FirstOrDefault(c => c.path == path);
         }
 
-        private T GetControlProxy<T>(string path) where T : Control
+        private T GetControlProxy<T>(string path) where T : ControlProxy
         {
             return controlProxies.OfType<T>().FirstOrDefault(c => c.path == path);
         }

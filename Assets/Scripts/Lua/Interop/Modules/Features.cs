@@ -29,7 +29,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a line between two features")]
-        public Fab.Geo.Feature line(string name, Feature feature_1, Feature feature_2)
+        public Fab.Geo.Feature line(string name, FeatureProxy feature_1, FeatureProxy feature_2)
         { 
             return manager.AddLine(name,feature_1.geometry[0], feature_2.geometry[0]);
         }
@@ -53,7 +53,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Removes a feature from the world")]
-        public bool remove(Feature feature)
+        public bool remove(FeatureProxy feature)
         {
             if (feature == null || feature.IsNil())
                 return false;

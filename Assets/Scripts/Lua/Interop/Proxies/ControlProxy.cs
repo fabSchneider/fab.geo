@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Fab.Geo.Lua.Interop
 {
-    public abstract class Control : LuaProxy<VisualElement>, IDisposable
+    public abstract class ControlProxy : LuaProxy<VisualElement>, IDisposable
     {
         protected string controlPath;
 
@@ -29,7 +29,7 @@ namespace Fab.Geo.Lua.Interop
         private Controls panel;
 
         [MoonSharpHidden]
-        public Control(VisualElement value, Controls panel, string path)
+        public ControlProxy(VisualElement value, Controls panel, string path)
         {
             this.target = value;
             controlPath = path;
@@ -80,7 +80,7 @@ namespace Fab.Geo.Lua.Interop
 
     [LuaName("button")]
     [LuaHelpInfo("A button control")]
-    public class ButtonProxy : Control
+    public class ButtonProxy : ControlProxy
     {
         private Closure onClick;
 
@@ -123,7 +123,7 @@ namespace Fab.Geo.Lua.Interop
 
     [LuaName("slider")]
     [LuaHelpInfo("A slider control")]
-    public class SliderProxy : Control
+    public class SliderProxy : ControlProxy
     {
         private Closure onValueChange;
 
@@ -161,7 +161,7 @@ namespace Fab.Geo.Lua.Interop
 
     [LuaName("separator")]
     [LuaHelpInfo("A separator")]
-    public class SeparatorProxy : Control
+    public class SeparatorProxy : ControlProxy
     {
         public SeparatorProxy(VisualElement value, Controls panel, string path) : base(value, panel, path)
         {
@@ -170,7 +170,7 @@ namespace Fab.Geo.Lua.Interop
 
     [LuaName("label")]
     [LuaHelpInfo("A label")]
-    public class LabelProxy : Control
+    public class LabelProxy : ControlProxy
     {
         [LuaHelpInfo("The text of the label")]
         public string text
@@ -208,7 +208,7 @@ namespace Fab.Geo.Lua.Interop
 
     [LuaName("choice")]
     [LuaHelpInfo("A choice control")]
-    public class ChoiceProxy : Control
+    public class ChoiceProxy : ControlProxy
     {
         private Closure onValueChange;
 

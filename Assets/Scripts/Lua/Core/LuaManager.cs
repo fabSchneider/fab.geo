@@ -67,7 +67,6 @@ namespace Fab.Geo.Lua.Core
             UnloadAllScripts();
 
             int loaded = 0;
-
             foreach (string scriptPath in files)
             {
                 //ignore files starting with ~
@@ -136,8 +135,7 @@ namespace Fab.Geo.Lua.Core
 
             string scriptName = Path.GetFileNameWithoutExtension(path);
 
-            Dictionary<object, object> globals = LuaEnvironment.Registry.InitalizeLuaObjects();
-            Script script = LuaEnvironment.CreateScript(scriptName, globals);
+            Script script = LuaEnvironment.CreateScript(scriptName);
 
             //execute script
             script.DoStream(fileStream);

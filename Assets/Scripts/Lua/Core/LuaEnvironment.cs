@@ -48,7 +48,7 @@ namespace Fab.Geo.Lua.Core
         /// </summary>
         /// <param name="scriptName"></param>
         /// <returns></returns>
-        public static Script CreateScript(string scriptName, Dictionary<object, object> globals)
+        public static Script CreateScript(string scriptName)
         {
             Script script = new Script(CoreModules.Preset_SoftSandbox | CoreModules.LoadMethods);
 
@@ -58,6 +58,8 @@ namespace Fab.Geo.Lua.Core
             //we need to set the module path to '?' for it tor load the resource correctly
             scriptLoader.ModulePaths = new string[] { "?" };
             script.Options.ScriptLoader = scriptLoader;
+
+            Dictionary<object, object> globals = registry.InitalizeLuaObjects();
 
             //set globals
             foreach (var global in globals)

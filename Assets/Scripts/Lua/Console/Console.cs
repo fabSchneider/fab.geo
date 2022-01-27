@@ -42,8 +42,7 @@ namespace Fab.Geo.Lua.Console
 
         private void Start()
         {
-            var globals = LuaEnvironment.Registry.InitalizeLuaObjects();
-            script = LuaEnvironment.CreateScript("live-script", globals);
+            script = LuaEnvironment.CreateScript("REPL");
             script.Globals["help"] = (Action<DynValue>)help;
             script.Globals["list"] = (Action)list;
 
@@ -71,7 +70,7 @@ namespace Fab.Geo.Lua.Console
                     AddToPrintOutput("Nil", false);
                     break;
                 case DataType.Void:
-                    AddToPrintOutput("Type <b>help(<i>module</i>)</b> to show help information for that module." + Environment.NewLine + 
+                    AddToPrintOutput("Type <b>help(<i>module</i>)</b> to show help information for that module." + Environment.NewLine +
                         "Type <b>list()</b> to get a list of all available modules.", false);
                     break;
                 case DataType.UserData:
@@ -122,10 +121,9 @@ namespace Fab.Geo.Lua.Console
 
                 if (val != null)
                 {
-                    object obj = val.ToObject();
-
-                    if (obj is Image tex)
-                        imageOutput = tex.image;
+                    var texProxy = val.ToObject<LuaProxy<Texture2D>>();
+                    if (texProxy != null)
+                        imageOutput = texProxy.Target;
 
                     script.DoString($"print({code})");
                 }

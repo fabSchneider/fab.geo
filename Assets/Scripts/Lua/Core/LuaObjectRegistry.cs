@@ -147,6 +147,7 @@ namespace Fab.Geo.Lua.Core
             {
                 IProxyFactory factory = (IProxyFactory)Activator.CreateInstance(luaProxyFactoryType);
                 UserData.RegisterProxyType(factory);
+                Debug.Log("Registered " + luaProxyFactoryType.Name);
             }
         }
     }

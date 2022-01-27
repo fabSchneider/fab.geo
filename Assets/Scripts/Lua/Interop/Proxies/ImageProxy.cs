@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace Fab.Geo.Lua.Interop
 {
-    public class ImageProxyFactory : LuaProxyFactory<Image, Texture2D> { }
+    public class ImageProxyFactory : LuaProxyFactory<ImageProxy, Texture2D> { }
 
     [LuaHelpInfo("An image object")]
-    public class Image : LuaProxy<Texture2D>
+    [LuaName("image")]
+    public class ImageProxy : LuaProxy<Texture2D>
     {
         [LuaHelpInfo("The name of the image")]
         public string name => Target.name;

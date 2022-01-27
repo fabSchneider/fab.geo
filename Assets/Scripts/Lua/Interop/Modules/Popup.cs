@@ -26,7 +26,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Shows a popup with an image")]
-        public void show(string title, Image image)
+        public void show(string title, ImageProxy image)
         {
             popup.Show(title, image.Target);
         }

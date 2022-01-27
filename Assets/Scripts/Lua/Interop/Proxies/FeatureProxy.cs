@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace Fab.Geo.Lua.Interop
 {
-    public class FeatureProxyFactory : LuaProxyFactory<Feature, Fab.Geo.Feature> { }
+    public class FeatureProxyFactory : LuaProxyFactory<FeatureProxy, Feature> { }
 
     [LuaHelpInfo("A feature object")]
-    public class Feature : LuaProxy<Fab.Geo.Feature>
+    [LuaName("feature")]
+    public class FeatureProxy : LuaProxy<Feature>
     {
         private Closure clickEvent;
 

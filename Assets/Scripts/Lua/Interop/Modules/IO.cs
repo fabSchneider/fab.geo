@@ -39,7 +39,7 @@ namespace Fab.Geo.Lua.Interop
                 Texture2D tex = new Texture2D(2, 2);
                 tex.LoadImage(File.ReadAllBytes(loadPath));
                 tex.name = Path.GetFileNameWithoutExtension(loadPath);
-                var proxy = new Image();
+                var proxy = new ImageProxy();
                 proxy.SetTarget(tex);
                 return proxy;
             }
