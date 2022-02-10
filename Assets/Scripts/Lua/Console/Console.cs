@@ -120,10 +120,14 @@ namespace Fab.Geo.Lua.Console
 
                 if (val != null)
                 {
-                    var texProxy = val.ToObject<LuaProxy<Texture2D>>();
-                    if (texProxy != null)
-                        imageOutput = texProxy.Target;
-
+                    try
+                    {
+                        var texProxy = val.ToObject<LuaProxy<Texture2D>>();
+                        if (texProxy != null)
+                            imageOutput = texProxy.Target;
+                    }
+                    catch (Exception) { }
+  
                     script.DoString($"print({code})");
                 }
                 else

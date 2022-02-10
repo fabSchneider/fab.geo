@@ -210,7 +210,7 @@ namespace Fab.Geo
                                 positions[vertexID] = p;
                                 normals[vertexID] = p;
 
-                                float2 texCoord = GeoUtils.NormalizeCoordinate(GeoUtils.PointToCoordinate(p));
+                                float2 texCoord = GeoUtils.NormalizeCoordinate(GeoUtils.PointToCoordinate(p)).xy;
 
                                 //handle seam wrapping where the latitude is -180/180
                                 if (texCoord.x == 1f)
