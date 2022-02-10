@@ -10,7 +10,6 @@ namespace Fab.Geo
         public const int EARTH_RADIUS_KM = 6371;
         public const int EARTH_RADIUS_MILES = 3960;
 
-
         /// <summary>
         /// Calculates latitude and longitude (in radians) from a point on a unit sphere
         /// </summary>
@@ -61,11 +60,12 @@ namespace Fab.Geo
         /// </summary>
         /// <param name="coordinate"></param>
         /// <returns></returns>
-        public static float2 NormalizeCoordinate(Coordinate coordinate)
+        public static float3 NormalizeCoordinate(Coordinate coordinate)
         {
-            return new float2(
+            return new float3(
                 (math.PI + coordinate.longitude) / (math.PI * 2), 
-                (math.PI / 2f + coordinate.latitude) / (math.PI));
+                (math.PI / 2f + coordinate.latitude) / (math.PI), 
+                coordinate.altitude);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Fab.Geo
         /// <param name="lat"></param>
         /// <param name="lon"></param>
         /// <returns></returns>
-        public static float2 NormalizeCoordinate(float lat, float lon)
+        public static float2 NormalizeCoordinate(float lon, float lat)
         {
             return new float2(
                 (math.PI + lon) / (math.PI * 2),
@@ -86,11 +86,12 @@ namespace Fab.Geo
         /// </summary>
         /// <param name="coordinate"></param>
         /// <returns></returns>
-        public static Coordinate NormalizedToCoordinate(float2 normalized)
+        public static Coordinate NormalizedToCoordinate(float2 normalized, float altitude = 0f)
         {
             return new Coordinate(
                 normalized.x  * math.PI * 2 - math.PI,
-                normalized.y * math.PI - math.PI / 2);
+                normalized.y * math.PI - math.PI / 2,
+                altitude);
         }
 
         /// <summary>
