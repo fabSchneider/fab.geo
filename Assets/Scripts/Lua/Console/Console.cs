@@ -45,7 +45,6 @@ namespace Fab.Geo.Lua.Console
             script = LuaEnvironment.CreateScript("REPL");
             script.Globals["help"] = (Action<DynValue>)help;
             script.Globals["list"] = (Action)list;
-
             script.Options.DebugPrint = print => AddToPrintOutput(print);
         }
 
@@ -129,7 +128,6 @@ namespace Fab.Geo.Lua.Console
                 }
                 else
                 {
-                    Debug.LogException(e);
                     return new Result() { success = false, errorMsg = e.Message };
                 }
             }
