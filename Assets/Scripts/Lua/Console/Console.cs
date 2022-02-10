@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using MoonSharp.Interpreter;
+using MoonSharp.Interpreter.Interop;
 using Fab.Geo.Lua.Core;
 
 namespace Fab.Geo.Lua.Console
@@ -73,17 +74,14 @@ namespace Fab.Geo.Lua.Console
                         "Type <b>list()</b> to get a list of all available modules.", false);
                     break;
                 case DataType.UserData:
-                    object obj = value.ToObject();
-                    if (obj is LuaProxy proxy && proxy.IsNil())
-                    {
-                        AddToPrintOutput("Nil", false);
-                    }
-                    else
-                    {
-                        LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(obj.GetType());
-                        string formatted = luaHelpInfoFormatter.Format(helpInfo);
-                        AddToPrintOutput(formatted, false);
-                    }
+                    IUserDataDescriptor descriptor = value.UserData.Descriptor;
+                    if (descriptor is ProxyUserDataDescriptor proxyDescriptor)
+                        descriptor = proxyDescriptor.InnerDescriptor;
+
+                    LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType((StandardUserDataDescriptor)descriptor);
+                    string formatted = luaHelpInfoFormatter.Format(helpInfo);
+                    AddToPrintOutput(formatted, false);
+
                     break;
                 case DataType.ClrFunction:
                     break;
@@ -96,9 +94,9 @@ namespace Fab.Geo.Lua.Console
         [LuaHelpInfo("Lists all available modules")]
         private void list()
         {
-            foreach (Type type in LuaEnvironment.Registry.GetRegisteredTypes(true))
+            foreach (StandardUserDataDescriptor descriptor in LuaEnvironment.Registry.GetRegisteredTypes(true))
             {
-                LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(type);
+                LuaHelpInfo helpInfo = luaHelpInfo.GetHelpInfoForType(descriptor);
                 AddToPrintOutput($"{helpInfo.name.PadRight(8, ' ')} <i>{helpInfo.description}</i>" + Environment.NewLine, false);
             }
         }
@@ -127,7 +125,7 @@ namespace Fab.Geo.Lua.Console
                             imageOutput = texProxy.Target;
                     }
                     catch (Exception) { }
-  
+
                     script.DoString($"print({code})");
                 }
                 else

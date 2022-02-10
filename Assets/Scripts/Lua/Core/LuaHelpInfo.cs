@@ -1,5 +1,6 @@
 using MoonSharp.Interpreter;
 using MoonSharp.Interpreter.Interop;
+using MoonSharp.Interpreter.Interop.BasicDescriptors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +25,11 @@ namespace Fab.Geo.Lua.Core
     /// </summary>
     public class LuaHelpInfoExtractor
     {
-        private Dictionary<Type, LuaHelpInfo> cachedInfo;
+        private Dictionary<StandardUserDataDescriptor, LuaHelpInfo> cachedInfo;
 
         public LuaHelpInfoExtractor()
         {
-            cachedInfo = new Dictionary<Type, LuaHelpInfo>();
+            cachedInfo = new Dictionary<StandardUserDataDescriptor, LuaHelpInfo>();
         }
 
         /// <summary>
@@ -37,32 +38,33 @@ namespace Fab.Geo.Lua.Core
         /// <param name="t"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public LuaHelpInfo GetHelpInfoForType(Type t)
+        public LuaHelpInfo GetHelpInfoForType(StandardUserDataDescriptor descriptor)
         {
-            if (t == null)
-                throw new ArgumentNullException(nameof(t));
+            if (descriptor == null)
+                throw new ArgumentNullException(nameof(descriptor));
 
-            if (cachedInfo.TryGetValue(t, out LuaHelpInfo info))
+            if (cachedInfo.TryGetValue(descriptor, out LuaHelpInfo info))
                 return info;
 
-            info = ExtractHelpInfoFromType(t);
-            cachedInfo.Add(t, info);
+            info = ExtractHelpInfoFromType(descriptor);
+            cachedInfo.Add(descriptor, info);
             return info;
         }
 
-        private LuaHelpInfo ExtractHelpInfoFromType(Type t)
+        private LuaHelpInfo ExtractHelpInfoFromType(StandardUserDataDescriptor descriptor)
         {
-            string name = ((StandardUserDataDescriptor)UserData.GetDescriptorForType(t, false)).FriendlyName;
+            Type type = descriptor.Type;
+            string name = descriptor.FriendlyName;
             string description = string.Empty;
-            LuaHelpInfoAttribute classInfoAttr = t.GetCustomAttribute<LuaHelpInfoAttribute>();
+            LuaHelpInfoAttribute classInfoAttr = type.GetCustomAttribute<LuaHelpInfoAttribute>();
             if (classInfoAttr != null)
                 description = classInfoAttr.Info;
 
-            var methods = from m in t.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+            var methods = from m in type.GetMethods(BindingFlags.Public | BindingFlags.Instance)
                           where Attribute.IsDefined(m, typeof(LuaHelpInfoAttribute))
                           select (m, m.GetCustomAttribute<LuaHelpInfoAttribute>().Info);
 
-            var properties = from p in t.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+            var properties = from p in type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
                              where Attribute.IsDefined(p, typeof(LuaHelpInfoAttribute))
                              select (p, p.GetCustomAttribute<LuaHelpInfoAttribute>().Info);
 

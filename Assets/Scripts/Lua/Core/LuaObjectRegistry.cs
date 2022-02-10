@@ -78,19 +78,17 @@ namespace Fab.Geo.Lua.Core
         /// </summary>
         /// <param name="excludeProxyTypes"></param>
         /// <returns></returns>
-        public IEnumerable<Type> GetRegisteredTypes(bool excludeProxyTypes)
+        public IEnumerable<StandardUserDataDescriptor> GetRegisteredTypes(bool excludeProxyTypes)
         {
             if (excludeProxyTypes)
                 return assemblyDescriptorCollections.Values
                     .Select(c => c.objectDescriptors)
-                    .SelectMany(d => d)
-                    .Select(d => d.Type);
+                    .SelectMany(d => d);
 
             return assemblyDescriptorCollections.Values
                     .Select(c => c.objectDescriptors)
                     .Concat(assemblyDescriptorCollections.Values.Select(c => c.proxyDescriptors))
-                    .SelectMany(d => d)
-                    .Select(d => d.Type);
+                    .SelectMany(d => d);
         }
 
         private string GetLuaName(Type type)

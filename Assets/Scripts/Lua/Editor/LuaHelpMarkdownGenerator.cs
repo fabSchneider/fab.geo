@@ -4,6 +4,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 using Fab.Geo.Lua.Core;
+using MoonSharp.Interpreter.Interop;
 
 namespace Fab.Geo.Lua.Editor
 {
@@ -21,9 +22,9 @@ namespace Fab.Geo.Lua.Editor
             StringBuilder sb = new StringBuilder();
 
             LuaEnvironment.Registry.RegisterAssembly();
-            foreach (Type t in LuaEnvironment.Registry.GetRegisteredTypes(true))
+            foreach (StandardUserDataDescriptor descriptor in LuaEnvironment.Registry.GetRegisteredTypes(true))
             {
-                LuaHelpInfo info = extactor.GetHelpInfoForType(t);
+                LuaHelpInfo info = extactor.GetHelpInfoForType(descriptor);
 
                 sb.Append(formatter.Format(info));
             }
