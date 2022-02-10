@@ -7,7 +7,7 @@ namespace Fab.Geo.Lua.Editor
 {
     /// <summary>
     /// Scripted importer for files with .lua extension.
-    /// Will create a text asset from the lua script
+    /// Will create a text asset from the lua script.
     /// </summary>
     [ScriptedImporter(1, "lua")]
     public class LuaScriptImporter : ScriptedImporter
