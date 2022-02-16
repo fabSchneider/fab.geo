@@ -39,8 +39,9 @@ namespace Fab.Geo
         [Tooltip("Number of chunks per row/column on each side of the sphere. Must be multiple of 2 and cannot be bigger than the chunk resolution.")]
         [Range(1, 32)]
         public int chunkCount = 8;
-        [Tooltip("The chunk prefab to instantiate")]
-        public MeshRenderer chunkPrefab;
+
+        [SerializeField]
+        private Material worldMaterial; 
 
         [SerializeField]
         private ChunkLOD[] chunkLODs;
@@ -57,8 +58,12 @@ namespace Fab.Geo
         private void Start()
         {
             Debug.Log("Generating World...");
-           // System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
-           // stopwatch.Start();
+
+            // Copy material;
+            //worldMaterial = new Material(worldMaterial);
+
+            // System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            // stopwatch.Start();
             GenerateWorld();
             //Debug.Log($"Generated world with {chunkCount * chunkCount * 6} chunks @ res {chunkResolution} in {(stopwatch.ElapsedMilliseconds / 1000.0):0.00s}");
 
@@ -90,6 +95,12 @@ namespace Fab.Geo
             }
 
             return chunkLODs.Length - 1;
+        }
+
+        public float HeightScale
+        {
+            get => worldMaterial.GetFloat("_HeightScale");
+            set => worldMaterial.SetFloat("_HeightScale", value);
         }
 
         public void SetChunkActive(int3 id, bool active)
@@ -134,7 +145,7 @@ namespace Fab.Geo
 
             GameObject worldChunksParent = new GameObject("WorldChunks");
             worldChunksParent.transform.SetParent(transform, false);
-            chunkMeshRenderers = CreateWorldChunkObjects(worldChunksParent.transform, chunkPrefab, chunkMeshes);
+            chunkMeshRenderers = CreateWorldChunkObjects(worldChunksParent.transform, worldMaterial, chunkMeshes);
 
             worldJobHandle.Complete();
             //apply mesh data 
@@ -167,20 +178,22 @@ namespace Fab.Geo
             }
         }
 
-        private static MeshRenderer[] CreateWorldChunkObjects(Transform parent, MeshRenderer chunkPrefab, Mesh[] chunkMeshes)
+        private static MeshRenderer[] CreateWorldChunkObjects(Transform parent, Material material, Mesh[] chunkMeshes)
         {
-            MeshRenderer[] MeshRenderer = new MeshRenderer[chunkMeshes.Length];
+            MeshRenderer[] meshRenderers = new MeshRenderer[chunkMeshes.Length];
 
             //instantiate mesh chunk game object for each mesh
             for (int i = 0; i < chunkMeshes.Length; i++)
             {
-                MeshRenderer chunkInst = Instantiate(chunkPrefab, parent);
-                chunkInst.GetComponent<MeshFilter>().mesh = chunkMeshes[i];
-                chunkInst.name = chunkMeshes[i].name;
-                MeshRenderer[i] = chunkInst;
+                GameObject chunkObj = new GameObject(chunkMeshes[i].name);
+                chunkObj.AddComponent<MeshFilter>().mesh = chunkMeshes[i];
+                MeshRenderer mr = chunkObj.AddComponent<MeshRenderer>();
+                mr.sharedMaterial = material;
+                meshRenderers[i] = mr;
+                chunkObj.transform.parent = parent;
             }
 
-            return MeshRenderer;
+            return meshRenderers;
         }
 
         private static JobHandle GenerateWorldMeshes(ushort chunkResolution, ushort chunkCount, out Mesh.MeshDataArray meshDataArray)

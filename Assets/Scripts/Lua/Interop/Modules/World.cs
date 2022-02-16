@@ -37,6 +37,13 @@ namespace Fab.Geo.Lua.Interop
             return world.GetAltitude(lon, lat);
         }
 
+        [LuaHelpInfo("Get/Set the scaling of the world terrain")]
+        public float height_scale
+        {
+            get => world.HeightScale;
+            set => world.HeightScale = value;
+        }
+
         private void OnClick(Coordinate coord)
         {
             clickEvent.Call(coord);

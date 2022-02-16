@@ -734,6 +734,10 @@ PrefabInstance:
       propertyPath: heightMap
       value: 
       objectReference: {fileID: 2800000, guid: 1c3139d6c1c42ed4dadd0ba091319c0e, type: 3}
+    - target: {fileID: 9089927257923183192, guid: 744cc02bfeee75348aca161ad820b06b, type: 3}
+      propertyPath: worldMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ae61a8e28fa27814199fd4f8ed5c5148, type: 2}
     - target: {fileID: 9089927257923183193, guid: 744cc02bfeee75348aca161ad820b06b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -797,10 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79bdaf21d0ead0444aaf68ac652c09e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: ae169b6b78701a64b8397e1333e77cd8, type: 2}
-  population: 1000000
-  scale: 0.003
 --- !u!114 &9089927257080179461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,6 +813,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558872def1b24574e8d8dea5d9400dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 10000
-  scale: 0.01
-  color: {r: 0, g: 1, b: 0, a: 1}
