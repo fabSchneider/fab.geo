@@ -88,7 +88,7 @@ namespace Fab.Geo
                 {
                     ""name"": """",
                     ""id"": ""394e1edf-f0d9-4d06-93a1-34bbe39e67a1"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
