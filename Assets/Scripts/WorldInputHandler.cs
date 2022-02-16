@@ -1,22 +1,32 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Fab.Geo
 {
+    [RequireComponent(typeof(World))]
     public class WorldInputHandler : MonoBehaviour, IPointerClickHandler
     {
+        private World world;
+
+        private void Start()
+        {
+            world = GetComponent<World>();
+        }
+
         public event Action<Coordinate> clicked;
         public void OnPointerClick(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
                 Vector3 localPos = transform.worldToLocalMatrix.MultiplyPoint(eventData.pointerCurrentRaycast.worldPosition);
-                Coordinate coord = GeoUtils.PointToCoordinate(localPos.normalized);
-                clicked?.Invoke(coord);
+                float2 lonlat = GeoUtils.PointToLonLat(localPos.normalized);
+                float altitude = world.GetAltitude(lonlat.x, lonlat.y);
+                clicked?.Invoke(new Coordinate(lonlat.x, lonlat.y, altitude));
             }
         }
     }

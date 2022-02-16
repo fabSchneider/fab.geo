@@ -51,6 +51,9 @@ namespace Fab.Geo
         private MeshRenderer[] chunkMeshRenderers;
         public MeshRenderer GetChunk(int3 id) => chunkMeshRenderers[id.x + id.y * chunkCount + (chunkCount * chunkCount) * id.z];
 
+        [SerializeField]
+        private Texture2D heightMap;
+
         private void Start()
         {
             Debug.Log("Generating World...");
@@ -58,6 +61,24 @@ namespace Fab.Geo
            // stopwatch.Start();
             GenerateWorld();
             //Debug.Log($"Generated world with {chunkCount * chunkCount * 6} chunks @ res {chunkResolution} in {(stopwatch.ElapsedMilliseconds / 1000.0):0.00s}");
+
+            Texture2D copy = new Texture2D(heightMap.width, heightMap.height, heightMap.format, false, false);
+            Graphics.CopyTexture(heightMap, copy);
+            heightMap = copy;
+        }
+
+        /// <summary>
+        /// Returns the altitude at a given longitude and latitude
+        /// </summary>
+        /// <param name="lon"></param>
+        /// <param name="lat"></param>
+        /// <returns></returns>
+        public float GetAltitude(float lon, float lat)
+        {
+            float2 uv = GeoUtils.NormalizeLonLat(lon, lat);
+            float height = heightMap.GetPixelBilinear(uv.x, uv.y).r;
+            float altitude = height * 19832 - 10984;
+            return altitude;
         }
 
         public int GetChunkLOD(float dist)

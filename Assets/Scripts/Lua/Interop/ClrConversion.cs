@@ -37,7 +37,7 @@ namespace Fab.Geo.Lua.Interop
         {
             DynValue lon = DynValue.NewNumber(Mathf.Rad2Deg * coordinate.longitude);
             DynValue lat = DynValue.NewNumber(Mathf.Rad2Deg * coordinate.latitude);
-            return script.Call(script.Globals.Get(COORD), lon, lat);
+            return script.Call(script.Globals.Get(COORD), lon, lat, coordinate.altitude);
         }
 
         static object ScriptToCoordinate(DynValue dynVal)
@@ -46,7 +46,7 @@ namespace Fab.Geo.Lua.Interop
             float lon = (float)table.Get(COORD_LON).CastToNumber();
             float lat = (float)table.Get(COORD_LAT).CastToNumber();
             float alt = (float)table.Get(COORD_ALT).CastToNumber();
-            return new Coordinate(Mathf.Deg2Rad * lon, Mathf.Deg2Rad * lat);
+            return new Coordinate(Mathf.Deg2Rad * lon, Mathf.Deg2Rad * lat, alt);
         }
 
         static DynValue VectorToScript(Script script, Vector3 vector)

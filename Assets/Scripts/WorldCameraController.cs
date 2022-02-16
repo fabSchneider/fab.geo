@@ -106,7 +106,7 @@ namespace Fab.Geo
         /// <param name="coordinate"></param>
         public void SetCoordinate(Coordinate coordinate)
         {
-            Vector3 to = GeoUtils.CoordinateToPoint(coordinate);
+            Vector3 to = GeoUtils.LonLatToPoint(coordinate.longitude, coordinate.latitude);
             transform.rotation = Quaternion.LookRotation(-to);
             if (world)
                 CullWorld();
@@ -146,13 +146,13 @@ namespace Fab.Geo
                 while (true)
                 {
                     Coordinate coord = coords[i];
-                    Vector3 target = GeoUtils.CoordinateToPoint(coord);
-                    Vector3 current = GeoUtils.CoordinateToPoint(GetCoordinate());
+                    Vector3 target = GeoUtils.LonLatToPoint(coord);
+                    Vector3 current = GeoUtils.LonLatToPoint(GetCoordinate());
 
                     while (current != target)
                     {
                         current = Vector3.MoveTowards(current, target, Time.deltaTime * speed);
-                        SetCoordinate(GeoUtils.PointToCoordinate(current));
+                        SetCoordinate(GeoUtils.PointToLonLat(current));
                         yield return null;
                     }
                     i++;

@@ -5,7 +5,6 @@ namespace Fab.Geo
 {
     public class FeatureManager : MonoBehaviour
     {
-
         [SerializeField]
         private FeaturePoint pointPrefab;
         [SerializeField]
@@ -47,9 +46,7 @@ namespace Fab.Geo
         public FeaturePoint AddPoint(string name, Coordinate coord)
         {
             FeaturePoint inst = Instantiate(pointPrefab, transform);
-            Vector3 pos = GeoUtils.CoordinateToPoint(coord);
-            //add some altitude so the point is not sunken into the ground
-            inst.transform.localPosition = pos + pos * 0.005f;
+            inst.transform.localPosition = GeoUtils.CoordinateToPoint(coord);
             inst.name = name;
             AddFeature(inst);
             return inst;

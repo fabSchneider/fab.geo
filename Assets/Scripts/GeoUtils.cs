@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 
 namespace Fab.Geo
@@ -8,6 +9,7 @@ namespace Fab.Geo
     public static class GeoUtils
     {
         public const int EARTH_RADIUS_KM = 6371;
+        public static readonly float EARTH_RADIUS_KM_INV = 1f / EARTH_RADIUS_KM;
         public const int EARTH_RADIUS_MILES = 3960;
 
         /// <summary>
@@ -15,26 +17,46 @@ namespace Fab.Geo
         /// </summary>
         /// <param name="pointOnUnitSphere"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Coordinate PointToCoordinate(float3 pointOnUnitSphere)
         {
-           //pointOnUnitSphere = math.normalize(pointOnUnitSphere);
             float longitude = math.atan2(pointOnUnitSphere.x, -pointOnUnitSphere.z);
-            float latitude = math.asin(pointOnUnitSphere.y); 
-            return new Coordinate(longitude, latitude);
+            float latitude = math.asin(pointOnUnitSphere.y);
+
+            float len = math.length(pointOnUnitSphere);
+            float altitude = (len - 1f) * EARTH_RADIUS_KM / 1000f;
+            return new Coordinate(longitude, latitude, altitude);
         }
 
         /// <summary>
-        /// Calculates a point on a unit sphere from latitude and longitude (in radians)
+        /// Calculates a point on a unit sphere from a coordinate (in radians) offset by its altitude
         /// </summary>
         /// <param name="coordinate"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 CoordinateToPoint(Coordinate coordinate)
         {
             float y = math.sin(coordinate.latitude);
             float r = math.cos(coordinate.latitude);
             float x = math.sin(coordinate.longitude) * r;
             float z = -math.cos(coordinate.longitude) * r;
-            return new float3(x, y, z);
+
+            float alt = 1f + EARTH_RADIUS_KM_INV * (coordinate.altitude / 1000f);
+            return new float3(x * alt, y * alt, z * alt);
+        }
+
+
+        /// <summary>
+        /// Calculates latitude and longitude (in radians) from a point on a unit sphere
+        /// </summary>
+        /// <param name="pointOnUnitSphere"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 PointToLonLat(float3 pointOnUnitSphere)
+        {
+            float longitude = math.atan2(pointOnUnitSphere.x, -pointOnUnitSphere.z);
+            float latitude = math.asin(pointOnUnitSphere.y);
+            return new float2(longitude, latitude);
         }
 
         /// <summary>
@@ -43,7 +65,8 @@ namespace Fab.Geo
         /// <param name="lat"></param>
         /// <param name="lon"></param>
         /// <returns></returns>
-        public static float3 CoordinateToPoint(float lat, float lon)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 LonLatToPoint(float lon, float lat)
         {
             float latRad = math.radians(lat);
             float latLon = math.radians(lon);
@@ -54,27 +77,37 @@ namespace Fab.Geo
             return new float3(x, y, z);
         }
 
+        /// <summary>
+        /// Calculates a point on a unit sphere from latitude and longitude
+        /// </summary>
+        /// <param name="lonlat"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 LonLatToPoint(float2 lonlat) => LonLatToPoint(lonlat.x, lonlat.y);
+
 
         /// <summary>
         /// Maps longitude and latitude into the interval [0, 1]
         /// </summary>
         /// <param name="coordinate"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 NormalizeCoordinate(Coordinate coordinate)
         {
             return new float3(
-                (math.PI + coordinate.longitude) / (math.PI * 2), 
-                (math.PI / 2f + coordinate.latitude) / (math.PI), 
+                (math.PI + coordinate.longitude) / (math.PI * 2),
+                (math.PI / 2f + coordinate.latitude) / (math.PI),
                 coordinate.altitude);
         }
 
         /// <summary>
-        ///  Maps longitude and latitude into the interval [0, 1]
+        /// Maps longitude and latitude into the interval [0, 1]
         /// </summary>
         /// <param name="lat"></param>
         /// <param name="lon"></param>
         /// <returns></returns>
-        public static float2 NormalizeCoordinate(float lon, float lat)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 NormalizeLonLat(float lon, float lat)
         {
             return new float2(
                 (math.PI + lon) / (math.PI * 2),
@@ -82,14 +115,24 @@ namespace Fab.Geo
         }
 
         /// <summary>
+        /// Maps longitude and latitude into the interval [0, 1]
+        /// </summary>
+        /// <param name="lat"></param>
+        /// <param name="lon"></param>
+        /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 NormalizeLonLat(float2 lonlat) => NormalizeLonLat(lonlat.x, lonlat.y);
+
+        /// <summary>
         /// Maps a normalized coordinate to longitude and latitude
         /// </summary>
         /// <param name="coordinate"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Coordinate NormalizedToCoordinate(float2 normalized, float altitude = 0f)
         {
             return new Coordinate(
-                normalized.x  * math.PI * 2 - math.PI,
+                normalized.x * math.PI * 2 - math.PI,
                 normalized.y * math.PI - math.PI / 2,
                 altitude);
         }
@@ -99,6 +142,7 @@ namespace Fab.Geo
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 PointOnCubeToPointOnSphere(float3 p)
         {
             float x2 = p.x * p.x;
@@ -118,6 +162,7 @@ namespace Fab.Geo
         /// <param name="coord1"></param>
         /// <param name="coord2"></param>
         /// <returns></returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float Distance(Coordinate coord1, Coordinate coord2)
         {
             float dLat = coord2.latitude - coord1.latitude;
