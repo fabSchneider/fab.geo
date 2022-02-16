@@ -140,7 +140,15 @@ namespace Fab.Geo.Lua.Console
                 consoleHistory.Add(entryElement);
             }
 
+            consoleHistory.contentContainer.RegisterCallback<GeometryChangedEvent>(OnHistoryUpdated);
             selectedHistoryEntry = console.ConsoleHistory.Count;
+        }
+
+        private void OnHistoryUpdated(GeometryChangedEvent evt)
+        {
+            VisualElement elem = (VisualElement)evt.target;
+            elem.UnregisterCallback<GeometryChangedEvent>(OnHistoryUpdated);
+            consoleHistory.verticalScroller.value = consoleHistory.contentContainer.layout.height;
         }
     }
 
