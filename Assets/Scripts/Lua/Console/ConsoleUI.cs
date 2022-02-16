@@ -10,13 +10,19 @@ namespace Fab.Geo.Lua.Console
     public class ConsoleUI : MonoBehaviour
     {
         private static readonly string className = "lua-console";
+        private static readonly string hiddenClassName = "lua-console--hidden";
+        private static readonly string containerClassName = className + "__container";
         private static readonly string textFieldClassName = className + "__text-field";
         private static readonly string historyClassName = className + "__history";
         private static readonly string historyContainerName = "history-container";
         private static readonly string errorMsgClassName = className + "__error-msg";
 
+        private static readonly string toggleBtnName = "toggle-btn";
+
         private Console console;
         private UIDocument doc;
+
+        private VisualElement consoleElem;
         private TextField consoleTextField;
         private ScrollView consoleHistory;
         private Label errorMsg;
@@ -33,20 +39,31 @@ namespace Fab.Geo.Lua.Console
             console = GetComponent<Console>();
 
             doc = GetComponent<UIDocument>();
-            consoleTextField = doc.rootVisualElement.Q<TextField>(className: textFieldClassName);
+
+            consoleElem = doc.rootVisualElement.Q(className: className);
+
+            consoleElem.Q<Button>(name: toggleBtnName).clicked += ToggleVisible;
+
+            consoleTextField = consoleElem.Q<TextField>(className: textFieldClassName);
 
             consoleTextField.RegisterCallback<KeyDownEvent>(OnTextFieldKeyDown);
             consoleTextField.RegisterCallback<NavigationSubmitEvent>(OnTextFieldSubmit);
 
-            consoleHistory = doc.rootVisualElement.Q<ScrollView>(name: historyContainerName);
+            consoleHistory = consoleElem.Q<ScrollView>(name: historyContainerName);
+
             historyEntryPool = new ObjectPool<HistoryEntryElement>(
                 console.ConsoleHistory.MaxEntries,
                 false,
                 () => new HistoryEntryElement(),
                 entry => entry.Reset());
 
-            errorMsg = doc.rootVisualElement.Q<Label>(className: errorMsgClassName);
+            errorMsg = consoleElem.Q<Label>(className: errorMsgClassName);
             errorMsg.style.display = DisplayStyle.None;
+        }
+
+        public void ToggleVisible()
+        {
+            consoleElem.ToggleInClassList(hiddenClassName);
         }
 
         private void OnTextFieldSubmit(NavigationSubmitEvent evt)
@@ -105,7 +122,7 @@ namespace Fab.Geo.Lua.Console
             else
             {
                 //deselect last 
-                if(selectedHistoryEntry >= 0 && selectedHistoryEntry < consoleHistory.childCount)
+                if (selectedHistoryEntry >= 0 && selectedHistoryEntry < consoleHistory.childCount)
                     ((HistoryEntryElement)consoleHistory[selectedHistoryEntry]).SetSelected(false);
             }
         }
