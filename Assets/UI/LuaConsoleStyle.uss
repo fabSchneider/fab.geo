@@ -3,15 +3,23 @@
     left: 0;
     bottom: 0;
     right: 0;
-    align-items: flex-start;
+    align-items: flex-end;
     max-height: 100%;
+    flex-direction: row-reverse;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.lua-console--hidden > .lua-console__container {
+    display: none;
+}
+
+.lua-console__container {
+    width: 100%;
 }
 
 .lua-console__text-field {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 0;
-    margin-bottom: 10px;
     border-left-color: var(--window-border-color);
     border-right-color: var(--window-border-color);
     border-top-color: var(--window-border-color);
@@ -26,6 +34,10 @@
     border-bottom-right-radius: 14px;
     background-color: var(--window-color);
     flex-grow: 1;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .lua-console__text-field #unity-text-input {
@@ -46,6 +58,24 @@
     padding-bottom: 5px;
 }
 
+.lua-console__toggle-button {
+    margin-left: 5px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 28px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    height: 28px;
+    font-size: 22px;
+}
+
 .lua-console__history {
     margin-left: 18px;
     margin-right: 18px;
@@ -55,6 +85,7 @@
     align-items: flex-start;
     max-width: 60%;
     min-width: 200px;
+    max-height: 500px;
 }
 
 .history-entry {

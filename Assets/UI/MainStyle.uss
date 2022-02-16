@@ -245,27 +245,33 @@ VisualElement {
     border-bottom-color: rgb(200, 200, 200);
 }
 
-#reload-btn {
+.topbar {
+    flex-direction: row-reverse;
+}
+
+.topbar__button {
+    color: rgba(204, 204, 204, 0.67);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
     background-color: rgba(0, 0, 0, 0);
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     font-size: 24px;
-    color: rgb(153, 153, 153);
 }
 
-#reload-btn:hover {
-    color: rgb(204, 204, 204);
-}
-
-#reload-btn:active {
+.topbar > .topbar__button:active {
     color: rgb(255, 255, 255);
+}
+
+.topbar > .topbar__button:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(204, 204, 204);
 }
