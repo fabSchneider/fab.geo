@@ -44,6 +44,25 @@ namespace Fab.Geo.Lua.Interop
             set => world.HeightScale = value;
         }
 
+        [LuaHelpInfo("Get/Set the oceans water level [0 to 1]")]
+        public float water_level
+        {
+            get => world.WaterLevel;
+            set => world.WaterLevel = value;
+        }
+
+        public float overlay_strength
+        {
+            get => world.OverlayStrength;
+            set => world.OverlayStrength = value;
+        }
+
+        public float overlay_scale
+        {
+            get => world.OverlayScale;
+            set => world.OverlayScale = value;
+        }
+
         private void OnClick(Coordinate coord)
         {
             clickEvent.Call(coord);

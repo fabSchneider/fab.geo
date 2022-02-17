@@ -103,6 +103,26 @@ namespace Fab.Geo
             set => worldMaterial.SetFloat("_HeightScale", value);
         }
 
+        public float WaterLevel
+        {
+            get => worldMaterial.GetFloat("_WaterLevel");
+            set => worldMaterial.SetFloat("_WaterLevel", value);
+        }
+
+        public float OverlayStrength
+        {
+            get => worldMaterial.GetFloat("_OverlayScale");
+            set => worldMaterial.SetFloat("_OverlayScale", value);
+        }
+
+        public float OverlayScale
+        {
+            get => worldMaterial.GetFloat("_OverlayExp");
+            set => worldMaterial.SetFloat("_OverlayExp", value);
+        }
+
+
+
         public void SetChunkActive(int3 id, bool active)
         {
             GetChunk(id).gameObject.SetActive(active);

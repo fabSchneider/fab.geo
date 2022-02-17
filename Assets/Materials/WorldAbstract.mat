@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OverlayMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 24db72177d88d394282675f520f554d1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -49,15 +49,17 @@ Material:
     - _HeightStrength: 1.23
     - _LandSmoothness: 0.2
     - _NormalStrength: -20
-    - _OverlayExp: 5
-    - _OverlayScale: 0.81
+    - _OverlayExp: -1
+    - _OverlayScale: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _WaterHeight: 0.5
+    - _WaterLevel: 0.5
     - _WaterSmoothness: 0.5
     m_Colors:
     - _LandColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 0}
     - _OverlayColor1: {r: 0.38155133, g: 0.38155133, b: 1, a: 0}
-    - _OverlayColor2: {r: 1, g: 0, b: 0.20784315, a: 0}
+    - _OverlayColor2: {r: 0, g: 1, b: 0.6841078, a: 1}
     - _WaterColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6319431909014188535
