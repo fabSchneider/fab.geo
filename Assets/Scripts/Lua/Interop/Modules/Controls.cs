@@ -10,7 +10,13 @@ namespace Fab.Geo.Lua.Interop
     [LuaHelpInfo("Module for adding controls to the control panel")]
     public class Controls : LuaObject, ILuaObjectInitialize
     {
+
         private ControlPanel panel;
+
+        [MoonSharpHidden]
+        public ControlPanel Panel  => panel;
+
+
         private List<ControlProxy> controlProxies;
 
         public void Initialize()
@@ -44,7 +50,6 @@ namespace Fab.Geo.Lua.Interop
                 panel.RemoveControl(control.path);
                 control.Dispose();
             }
-
         }
 
         [LuaHelpInfo("Removes all controls from the panel")]
@@ -86,7 +91,7 @@ namespace Fab.Geo.Lua.Interop
         }
 
         [LuaHelpInfo("Adds a slider to the control panel")]
-        public ControlProxy slider(string path, float min, float max, float value)
+        public ControlProxy slider(string path, float min, float max, float value = default)
         {
             Slider s = panel.AddSlider(path, min, max, value);
             SliderProxy proxy = GetControlProxy<SliderProxy>(path);

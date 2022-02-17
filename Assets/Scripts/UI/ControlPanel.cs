@@ -36,6 +36,11 @@ namespace Fab.Geo.UI
             hierachyBuilder = new VisualElementHierachyBuilder(controlPanelContent, CreateGroup);
         }
 
+        public string GetNameFromPath(string path)
+        {
+            return hierachyBuilder.GetName(path);
+        }
+
         private VisualElement CreateGroup(string name)
         {
             Foldout foldout = new Foldout();

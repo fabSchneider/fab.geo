@@ -60,7 +60,7 @@ namespace Fab.Geo
             Debug.Log("Generating World...");
 
             // Copy material;
-            //worldMaterial = new Material(worldMaterial);
+            worldMaterial = new Material(worldMaterial);
 
             // System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
             // stopwatch.Start();
