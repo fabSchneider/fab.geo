@@ -21,9 +21,9 @@ namespace Fab.Geo.UI
         private VisualElement popupRoot;
         private VisualElement popupElement;
         private Label titleLabel;
-        private Label textLabel;
-        private Image img;
-        private List<Button> buttons;
+
+        private VisualElement header;
+        private VisualElement content;
         private VisualElement footer;
 
         public Popup(VisualElement root)
@@ -36,29 +36,23 @@ namespace Fab.Geo.UI
             popupElement = new VisualElement();
             popupElement.AddToClassList(className);
 
-            VisualElement header = new VisualElement();
+            header = new VisualElement();
             header.AddToClassList(headerClassName);
             titleLabel = new Label();
             titleLabel.AddToClassList(titleClassName);
             Button closeButton = new Button(Close);
             closeButton.text = "";
             closeButton.AddToClassList(closeBtnClassName);
+
             header.Add(titleLabel);
             header.Add(closeButton);
 
-            VisualElement content = new VisualElement();
+            content = new VisualElement();
             content.AddToClassList(contentClassName);
-            textLabel = new Label();
-            textLabel.AddToClassList(textClassName);
-            img = new Image();
-            img.AddToClassList(imgClassName);
-            content.Add(img);
-            content.Add(textLabel);
 
             footer = new VisualElement();
             footer.AddToClassList(footerClassName);
 
-            buttons = new List<Button>();
 
             popupElement.Add(header);
             popupElement.Add(content);
@@ -77,52 +71,51 @@ namespace Fab.Geo.UI
             popupRoot.Blur();
             popupRoot.RemoveFromHierarchy();
             titleLabel.text = null;
-            textLabel.text = null;
-            img.image = null;
-            img.style.maxWidth = StyleKeyword.Null;
-            img.style.maxWidth = StyleKeyword.Null;
-
-            foreach (Button b in buttons)
-                b.RemoveFromHierarchy();
-
-            buttons.Clear();
+            content.Clear();
+            footer.Clear();
         }
 
-        public void Show(string title, string text)
+
+        public void Show()
         {
             if (IsOpen)
                 Close();
-
-            titleLabel.text = title;
-            img.style.display = DisplayStyle.None;
-            textLabel.text = text;
-            textLabel.style.display = DisplayStyle.Flex;
 
             root.Add(popupRoot);
             popupElement.Focus();
         }
 
-        public void Show(string title, Texture2D image)
+        public Popup WithTitle(string title)
         {
-            if (IsOpen)
-                Close();
-
             titleLabel.text = title;
-            textLabel.style.display = DisplayStyle.None;
+            return this;
+        }
+
+        public Popup WithText(string text)
+        {
+            Label textLabel = new Label(text);
+            textLabel.AddToClassList(textClassName);
+            content.Add(textLabel);
+            return this;
+        }
+
+        public Popup WithImage(Texture2D image)
+        {
+            Image img = new Image();
             img.image = image;
+            img.AddToClassList(imgClassName);
             img.style.maxWidth = image.width;
             img.style.maxHeight = image.height;
-            img.style.display = DisplayStyle.Flex;
-            root.Add(popupRoot);
-            popupElement.Focus();
+            content.Add(img);
+            return this;
         }
 
-        public void AddButton(string text, Action onClick)
+        public Popup WithButton(string text, Action onClick)
         {
             Button btn = new Button(onClick);
             btn.text = text;
             footer.Add(btn);
-            buttons.Add(btn);
+            return this;
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Fab.Geo.Lua.Interop
 {
-    [LuaHelpInfo("Module to show a popup on the screen")]
+    [LuaHelpInfo("Module to create a popup and show it on screen")]
     public class Popup : LuaObject, ILuaObjectInitialize
     {
         private UI.Popup popup;
@@ -19,29 +19,41 @@ namespace Fab.Geo.Lua.Interop
             popup = manager.Popup;
         }
 
-        [LuaHelpInfo("Shows a popup with some text")]
-        public void show(string title, string text = null)
+        [LuaHelpInfo("Shows the popup")]
+        public void show() => popup.Show();
+
+        [LuaHelpInfo("Sets the title of the popup")]
+        public Popup title(string title)
         {
-            popup.Show(title, text);
+            popup.WithTitle(title);
+            return this;
         }
 
-        [LuaHelpInfo("Shows a popup with an image")]
-        public void show(string title, ImageProxy image)
+        [LuaHelpInfo("Adds some text to the popup")]
+        public Popup text(string text)
         {
-            popup.Show(title, image.Target);
+            popup.WithText(text);
+            return this;
+        }
+
+        [LuaHelpInfo("Adds an image to the popup")]
+        public Popup image(ImageProxy image)
+        {
+            popup.WithImage(image.Target);
+            return this;
+        }
+
+        [LuaHelpInfo("Adds a button to the bottom of the popup")]
+        public Popup button(string text, Closure action)
+        {
+            popup.WithButton(text, () => action.Call());
+            return this;
         }
 
         [LuaHelpInfo("Closes any open popup")]
         public void close()
         {
             popup.Close();
-        }
-
-        [LuaHelpInfo("Adds a button to the popup")]
-        public Popup button(string text, Closure on_click)
-        {
-            popup.AddButton(text, () => on_click.Call());
-            return this;
         }
     }
 }
