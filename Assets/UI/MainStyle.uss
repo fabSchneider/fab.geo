@@ -98,7 +98,7 @@ VisualElement {
     position: absolute;
     bottom: 60px;
     max-height: 500px;
-    width: 600px;
+    width: 350px;
     right: 10px;
     border-left-color: var(--window-border-color);
     border-right-color: var(--window-border-color);

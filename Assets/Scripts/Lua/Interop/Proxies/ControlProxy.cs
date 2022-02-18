@@ -19,6 +19,16 @@ namespace Fab.Geo.Lua.Interop
             }
         }
 
+        protected string bindingName;
+
+        public string name
+        {
+            get
+            {
+                return controls.Panel.GetNameFromPath(path);
+            }
+        }
+
         [LuaHelpInfo("The enabled state of the control")]
         public bool enabled
         {
@@ -26,21 +36,28 @@ namespace Fab.Geo.Lua.Interop
             set => Target.SetEnabled(value);
         }
 
-        private Controls panel;
+        private Controls controls;
 
         [MoonSharpHidden]
-        public ControlProxy(VisualElement value, Controls panel, string path)
+        public ControlProxy(VisualElement value, Controls controls, string path)
         {
             this.target = value;
             controlPath = path;
-            this.panel = panel;
+            this.controls = controls;
+            bindingName = PathToBindingName(path);
         }
+
+        private string PathToBindingName(string path)
+        {
+           return controls.Panel.GetNameFromPath(path).ToLower().Replace(' ', '_');      
+        }
+
 
         [LuaHelpInfo("Removes the control from the panel")]
         public void remove()
         {
             ThrowIfNil();
-            panel.remove(this);
+            controls.remove(this);
         }
 
         [LuaHelpInfo("Moves the control up in the hierarchy")]
@@ -147,9 +164,42 @@ namespace Fab.Geo.Lua.Interop
                 Target.RegisterCallback<ChangeEvent<float>>(OnValueChange);
         }
 
+        public void bind(DynValue obj)
+        {
+            if (obj.Type != DataType.UserData)
+                throw new Exception("Controls can only bind to user data");
+
+            object bObj = obj.UserData.Object;
+            boundProperty = bObj.GetType().GetProperty(bindingName, typeof(float));
+            if(boundProperty == null)
+                throw new Exception($"Cannot bind the control {path}. A property named \"{bindingName}\" does not exist for the supplied object.");
+
+            ((Slider)Target).SetValueWithoutNotify((float)boundProperty.GetValue(bObj));
+
+            boundObject = bObj;
+            Target.RegisterCallback<ChangeEvent<float>>(OnValueChange);
+        }
+
+        public void unbind()
+        {
+            boundObject = null;
+            boundProperty = null;
+            Target.UnregisterCallback<ChangeEvent<float>>(OnValueChange);
+        }
+
+        private void SetBind(float val)
+        {
+            boundProperty.SetValue(boundObject, val);
+        }
+
+        private object boundObject;
+        private System.Reflection.PropertyInfo boundProperty;
+
         private void OnValueChange(ChangeEvent<float> evt)
         {
-            onValueChange.Call(evt.newValue);
+            if (boundObject != null)
+                SetBind(evt.newValue);
+           // onValueChange?.Call(evt.newValue);
         }
 
         public override void Dispose()
