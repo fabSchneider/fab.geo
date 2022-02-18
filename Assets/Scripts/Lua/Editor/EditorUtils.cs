@@ -6,8 +6,8 @@ using UnityEditor;
 
 namespace Fab.Geo.Lua.Editor
 {
-    public static class EditorUtils
-    {
+	public static class EditorUtils
+	{
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 
         [MenuItem("FabGeo/Lua/Open scripts folder")]
@@ -43,5 +43,5 @@ namespace Fab.Geo.Lua.Editor
 #endif
 
 
-    }
+	}
 }

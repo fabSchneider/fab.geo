@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Fab.Geo.Lua.Interop
 {
-    internal static class RegisterAssembly
-    {
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
-        private static void Register()
-        {
-            UserData.RegisterAssembly();
-            LuaEnvironment.Registry.RegisterAssembly();
-            ClrConversion.RegisterConverters();
-        }
-    }
+	internal static class RegisterAssembly
+	{
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
+		private static void Register()
+		{
+			UserData.RegisterAssembly();
+			LuaEnvironment.Registry.RegisterAssembly();
+			ClrConversion.RegisterConverters();
+		}
+	}
 }
