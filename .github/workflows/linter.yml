@@ -1,23 +1,23 @@
 name: linter
 
-# Run this workflow every time a new commit pushed to your repository
 on: 
+  push:
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
   super-lint:
     name: lint code base
-    # Set the type of machine to run on
     runs-on: ubuntu-latest
     env:
-      working-directory : ./   
+      working-directory : ./
     
     steps:
       - uses: actions/checkout@v2
       - run: git pull
       - run: dotnet tool install -g dotnet-format
       - name: format
-        run: dotnet-format -f Assets/Scripts -v d --severity warn
+        run: dotnet-format -f Assets/Scripts -v d
         working-directory: ${{env.working-directory}}
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
