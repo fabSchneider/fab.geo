@@ -1,98 +1,120 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Fab.Geo.UI
 {
-    public class Popup
-    {
-        private static readonly string blockLayerClassName = "blocking-layer";
-        private static readonly string className = "popup";
-        private static readonly string headerClassName = className + "__header";
-        private static readonly string contentClassName = className + "__content";
-        private static readonly string footerClassName = className + "__footer";
-        private static readonly string closeBtnClassName = className + "__close-btn";
-        private static readonly string titleClassName = className + "__title";
-        private static readonly string textClassName = className + "__text";
-        private static readonly string imgClassName = className + "__img";
+	public class Popup
+	{
+		private static readonly string blockLayerClassName = "blocking-layer";
+		private static readonly string className = "popup";
+		private static readonly string headerClassName = className + "__header";
+		private static readonly string contentClassName = className + "__content";
+		private static readonly string footerClassName = className + "__footer";
+		private static readonly string closeBtnClassName = className + "__close-btn";
+		private static readonly string titleClassName = className + "__title";
+		private static readonly string textClassName = className + "__text";
+		private static readonly string imgClassName = className + "__img";
 
-        private VisualElement root;
-        private VisualElement popupRoot;
-        private VisualElement popupElement;
-        private Label titleLabel;
-        private Label textLabel;
-        private Image img;
+		private VisualElement root;
+		private VisualElement popupRoot;
+		private VisualElement popupElement;
+		private Label titleLabel;
 
-        public Popup(VisualElement root)
-        {
-            this.root = root;
+		private VisualElement header;
+		private VisualElement content;
+		private VisualElement footer;
 
-            popupRoot = new VisualElement();
-            popupRoot.AddToClassList(blockLayerClassName);
+		public Popup(VisualElement root)
+		{
+			this.root = root;
 
-            popupElement = new VisualElement();
-            popupElement.AddToClassList(className);
+			popupRoot = new VisualElement();
+			popupRoot.AddToClassList(blockLayerClassName);
 
-            VisualElement header = new VisualElement();
-            header.AddToClassList(headerClassName);
-            titleLabel = new Label();
-            titleLabel.AddToClassList(titleClassName);
-            Button closeButton = new Button(Close);
-            closeButton.text = "";
-            closeButton.AddToClassList(closeBtnClassName);
-            header.Add(titleLabel);
-            header.Add(closeButton);
+			popupElement = new VisualElement();
+			popupElement.AddToClassList(className);
 
-            VisualElement content = new VisualElement();
-            content.AddToClassList(contentClassName);
-            textLabel = new Label();
-            textLabel.AddToClassList(textClassName);
-            img = new Image();
-            img.AddToClassList(imgClassName);
-            content.Add(img);
-            content.Add(textLabel);
+			header = new VisualElement();
+			header.AddToClassList(headerClassName);
+			titleLabel = new Label();
+			titleLabel.AddToClassList(titleClassName);
+			Button closeButton = new Button(Close);
+			closeButton.text = "";
+			closeButton.AddToClassList(closeBtnClassName);
 
-            VisualElement footer = new VisualElement();
-            footer.AddToClassList(footerClassName);
+			header.Add(titleLabel);
+			header.Add(closeButton);
 
-            popupElement.Add(header);
-            popupElement.Add(content);
-            popupElement.Add(footer);
+			content = new VisualElement();
+			content.AddToClassList(contentClassName);
 
-            popupRoot.Add(popupElement);
-        }
+			footer = new VisualElement();
+			footer.AddToClassList(footerClassName);
 
-        public void Close()
-        {
-            popupElement.Blur();
-            popupRoot.RemoveFromHierarchy();
-            titleLabel.text = null;
-            textLabel.text = null;
-            img.image = null;
-            img.style.maxWidth = StyleKeyword.Null;
-            img.style.maxWidth = StyleKeyword.Null;
-        }
 
-        public void Show(string title, string text)
-        {
-            titleLabel.text = title;
-            img.style.display = DisplayStyle.None;
-            textLabel.text = text;
-            textLabel.style.display = DisplayStyle.Flex;
+			popupElement.Add(header);
+			popupElement.Add(content);
+			popupElement.Add(footer);
 
-            root.Add(popupRoot);
-            popupElement.Focus();
-        }
+			popupRoot.Add(popupElement);
+		}
 
-        public void Show(string title, Texture2D image)
-        {
-            titleLabel.text = title;
-            textLabel.style.display = DisplayStyle.None;
-            img.image = image;
-            img.style.maxWidth = image.width;
-            img.style.maxHeight = image.height;
-            img.style.display = DisplayStyle.Flex;
-            root.Add(popupRoot);
-            popupElement.Focus();
-        }
-    }
+		public bool IsOpen => popupRoot.parent != null;
+
+		public void Close()
+		{
+			if (!IsOpen)
+				return;
+
+			popupRoot.Blur();
+			popupRoot.RemoveFromHierarchy();
+			titleLabel.text = null;
+			content.Clear();
+			footer.Clear();
+		}
+
+
+		public void Show()
+		{
+			if (IsOpen)
+				Close();
+
+			root.Add(popupRoot);
+			popupElement.Focus();
+		}
+
+		public Popup WithTitle(string title)
+		{
+			titleLabel.text = title;
+			return this;
+		}
+
+		public Popup WithText(string text)
+		{
+			Label textLabel = new Label(text);
+			textLabel.AddToClassList(textClassName);
+			content.Add(textLabel);
+			return this;
+		}
+
+		public Popup WithImage(Texture2D image)
+		{
+			Image img = new Image();
+			img.image = image;
+			img.AddToClassList(imgClassName);
+			img.style.maxWidth = image.width;
+			img.style.maxHeight = image.height;
+			content.Add(img);
+			return this;
+		}
+
+		public Popup WithButton(string text, Action onClick)
+		{
+			Button btn = new Button(onClick);
+			btn.text = text;
+			footer.Add(btn);
+			return this;
+		}
+	}
 }

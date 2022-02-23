@@ -49,6 +49,7 @@ MonoBehaviour:
   luaModules:
   - {fileID: 4900000, guid: bc8d7760ce0d7364db24c7bd1d55e4ae, type: 3}
   - {fileID: 4900000, guid: 0d8d9d52c21d61a479d68f43d17d50fb, type: 3}
+  - {fileID: 4900000, guid: a5b40b31999303b44b0eb7ebbe3ad6da, type: 3}
 --- !u!114 &3820910762265899293
 MonoBehaviour:
   m_ObjectHideFlags: 0

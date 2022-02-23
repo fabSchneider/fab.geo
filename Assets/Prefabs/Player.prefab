@@ -44,14 +44,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9825486, b: 0.9192872, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.85
@@ -128,6 +128,8 @@ GameObject:
   - component: {fileID: 7856592489878637007}
   - component: {fileID: 7856592489878637000}
   - component: {fileID: 7856592489878637003}
+  - component: {fileID: 651210459}
+  - component: {fileID: 5202366488229118930}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -160,7 +162,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.001, g: 0.001, b: 0.001, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -224,7 +226,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -248,8 +250,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_MaxRayIntersections: 0
+--- !u!114 &651210459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856592489878637004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4575d3e1ceabe9d48a41acfca8d1aeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeProfile: {fileID: 11400000, guid: 2981213479facd044851defadb8f6791, type: 2}
+  environmentSpaceColor: {r: 0, g: 0, b: 0, a: 1}
+  environmentSkyColor: {r: 0.58431375, g: 0.58431375, b: 0.58431375, a: 1}
+  backgroundBlendStart: 1.1
+  backgroundBlendEnd: 1.05
+--- !u!114 &5202366488229118930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856592489878637004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4575d3e1ceabe9d48a41acfca8d1aeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeProfile: {fileID: 11400000, guid: 2981213479facd044851defadb8f6791, type: 2}
+  environmentSpaceColor: {r: 0, g: 0, b: 0, a: 1}
+  environmentSkyColor: {r: 0.58431375, g: 0.58431375, b: 0.58431375, a: 1}
+  backgroundBlendStart: 1.1
+  backgroundBlendEnd: 1.05
 --- !u!1 &7856592490295406574
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,42 +369,41 @@ MonoBehaviour:
   panSpeed: 0.4
   orbitSpeed: 0.3
   orbitPitchSpeed: 0.1
-  minPitch: -90
-  maxPitch: 0
-  zoomBounds: {x: 1.012, y: 5}
-  zoomSpeed:
+  zoomBounds: {x: 1.02, y: 5}
+  zoomCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.0015983582
-      value: 0.015758056
-      inSlope: -0.00018801229
-      outSlope: -0.00018801229
-      tangentMode: 0
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.107845284
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.7768908
-      value: 0.015198696
-      inSlope: -0.0037026396
-      outSlope: -0.0037026396
+      time: 0.75691265
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.09970404
-      outWeight: 0.1259825
+      inWeight: 0.33333334
+      outWeight: 0.52325577
     - serializedVersion: 3
       time: 1
-      value: 0.001
-      inSlope: 0.0037085095
-      outSlope: 0.0037085095
+      value: 0.017831028
+      inSlope: -0.02812196
+      outSlope: -0.02812196
       tangentMode: 0
-      weightedMode: 1
-      inWeight: 1
+      weightedMode: 0
+      inWeight: 0.47606084
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  zoomSpeed: 0.4
   cameraPitch:
     serializedVersion: 2
     m_Curve:
