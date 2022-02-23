@@ -1,4 +1,4 @@
-using Fab.Geo.Lua.Core;
+using Fab.Lua.Core;
 using UnityEngine;
 
 namespace Fab.Geo.Lua.Interop

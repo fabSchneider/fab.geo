@@ -1,0 +1,17 @@
+{
+    "name": "Fab.Lua.Console",
+    "rootNamespace": "Fab.Lua.Console",
+    "references": [
+        "GUID:8b7f6e1967d3724498e6c93f135870c3",
+        "GUID:4298efc50ec98f84ea1034dbbcd56de8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

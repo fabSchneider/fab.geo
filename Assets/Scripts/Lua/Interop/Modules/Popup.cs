@@ -1,4 +1,4 @@
-using Fab.Geo.Lua.Core;
+using Fab.Lua.Core;
 using Fab.Geo.UI;
 using MoonSharp.Interpreter;
 using UnityEngine;

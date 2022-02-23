@@ -7,13 +7,11 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
-    "com.fab.luaconsole": {
+    "com.fab.livelua": {
       "version": "file:LuaConsole",
       "depth": 0,
       "source": "embedded",
-      "dependencies": {
-        "moonsharp": "https://github.com/fabSchneider/moonsharp.git#v2.0.0-upm"
-      }
+      "dependencies": {}
     },
     "com.fabschneider.commandterminal": {
       "version": "https://github.com/fabSchneider/command_terminal.git?path=/CommandTerminal#v1.4.1",

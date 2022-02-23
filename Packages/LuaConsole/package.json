@@ -1,15 +1,12 @@
 {
-  "name": "com.fab.luaconsole",
+  "name": "com.fab.livelua",
   "version": "0.1.0",
-  "displayName": "Lua Console",
-  "description": "A runtime lua console for unity",
+  "displayName": "Live Lua",
+  "description": "A live lua scripting console build on to of moonsharp",
   "unity": "2021.2",
   "unityRelease": "7f1",
   "keywords": [],
   "author": {
     "name": "Fabian Schneider"
-  },
-  "dependencies": {
-     "moonsharp": "https://github.com/fabSchneider/moonsharp.git#v2.0.0-upm"
   }
 }

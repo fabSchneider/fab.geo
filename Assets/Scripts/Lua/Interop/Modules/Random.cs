@@ -1,4 +1,4 @@
-using Fab.Geo.Lua.Core;
+using Fab.Lua.Core;
 using System;
 using Unity.Mathematics;
 using UnityEngine;
