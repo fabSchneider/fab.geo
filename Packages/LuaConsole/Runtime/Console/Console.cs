@@ -10,6 +10,8 @@ namespace Fab.Lua.Console
 	/// </summary>
 	public class Console
 	{
+		private string name;
+		private IScriptFactory scriptFactory;
 		private Script script;
 
 		private History history;
@@ -18,13 +20,42 @@ namespace Fab.Lua.Console
 
 		public Console(string name, IScriptFactory scriptFactory, History history)
 		{
-			script = scriptFactory.CreateScript(name);
+			this.name = name;
+			this.scriptFactory = scriptFactory;	
 			this.history = history;
+		}
+
+		/// <summary>
+		/// Initializes the console script
+		/// </summary>
+		public void Initialize()
+		{ 
+			script = scriptFactory.CreateScript(name);
 
 			if (history == null)
 				script.Options.DebugPrint = print => Debug.Log(print);
 			else
+			{
+				history.Clear();
 				script.Options.DebugPrint = print => history.AddText(print);
+			}
+		}
+
+		/// <summary>
+		/// Resets the console script, removing all variables and registered commands.
+		/// </summary>
+		public void Reset()
+		{
+			Initialize();
+		}
+
+		/// <summary>
+		/// Registers one or more console commands
+		/// </summary>
+		/// <param name="command"></param>
+		public void RegisterCommand(IConsoleCommand command)
+		{
+			command.Register(this);
 		}
 
 		/// <summary>

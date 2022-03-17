@@ -27,6 +27,10 @@ namespace Fab.Geo.Lua.Interop
 				throw new LuaObjectInitializationException("UI Manager could not be found");
 
 			panel = manager.ControlPanel;
+
+			if(panel == null)
+				throw new LuaObjectInitializationException("Control panel is not set");
+
 			controlProxies = new List<ControlProxy>();
 		}
 

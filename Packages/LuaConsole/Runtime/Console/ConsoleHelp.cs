@@ -8,7 +8,7 @@ namespace Fab.Lua.Console
 	/// <summary>
 	/// Class implementing console help methods
 	/// </summary>
-    public class ConsoleHelp
+    public class ConsoleHelp : IConsoleCommand
     {
 		private LuaHelpInfoCache helpInfoCache;
 		private ILuaHelpFormatter formatter;
@@ -19,11 +19,7 @@ namespace Fab.Lua.Console
 			this.formatter = formatter;
 		}
 
-		/// <summary>
-		/// Registers help methods for the given console
-		/// </summary>
-		/// <param name="console"></param>
-		public void Register(Console console)
+		void IConsoleCommand.Register(Console console)
 		{
 			console.RegisterMethod<DynValue>("help", (value) => help(console, value));
 			console.RegisterMethod("list", () => list(console));

@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 7856592489878637000}
   - component: {fileID: 7856592489878637003}
   - component: {fileID: 651210459}
-  - component: {fileID: 5202366488229118930}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -269,23 +268,6 @@ MonoBehaviour:
   environmentSkyColor: {r: 0.58431375, g: 0.58431375, b: 0.58431375, a: 1}
   backgroundBlendStart: 1.1
   backgroundBlendEnd: 1.05
---- !u!114 &5202366488229118930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7856592489878637004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4575d3e1ceabe9d48a41acfca8d1aeeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeProfile: {fileID: 11400000, guid: 2981213479facd044851defadb8f6791, type: 2}
-  environmentSpaceColor: {r: 0, g: 0, b: 0, a: 1}
-  environmentSkyColor: {r: 0.58431375, g: 0.58431375, b: 0.58431375, a: 1}
-  backgroundBlendStart: 1.1
-  backgroundBlendEnd: 1.05
 --- !u!1 &7856592490295406574
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +365,7 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.75691265
+      time: 0.80163234
       value: 1
       inSlope: 0
       outSlope: 0
@@ -393,17 +375,17 @@ MonoBehaviour:
       outWeight: 0.52325577
     - serializedVersion: 3
       time: 1
-      value: 0.017831028
-      inSlope: -0.02812196
-      outSlope: -0.02812196
+      value: 0.3040859
+      inSlope: -0.77886087
+      outSlope: -0.77886087
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.47606084
+      inWeight: 0.32379252
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  zoomSpeed: 0.4
+  zoomSpeed: 0.3
   cameraPitch:
     serializedVersion: 2
     m_Curve:

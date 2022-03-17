@@ -81,7 +81,7 @@ Transform:
   - {fileID: 9089927257039564841}
   - {fileID: 8773782349004120456}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9089927257923183192
 MonoBehaviour:
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkCount: 32
-  chunkPrefab: {fileID: 5985422108095710154, guid: 5f4ec0fba2387644ba36d963fbaee4e8, type: 3}
+  worldMaterial: {fileID: 2100000, guid: ae61a8e28fa27814199fd4f8ed5c5148, type: 2}
   chunkLODs:
   - resolution: 255
     distance: 0.15
@@ -108,6 +108,7 @@ MonoBehaviour:
     distance: 1
   - resolution: 3
     distance: 1
+  heightMap: {fileID: 2800000, guid: 1c3139d6c1c42ed4dadd0ba091319c0e, type: 3}
 --- !u!114 &9089927257923183195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +139,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 9089927257923183193}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3b748ee4e66361541ac20e3dec09a6fd, type: 3}
@@ -209,6 +211,7 @@ PrefabInstance:
       value: Atmosphere
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b748ee4e66361541ac20e3dec09a6fd, type: 3}
 --- !u!4 &8773782349004120456 stripped
 Transform:

@@ -164,6 +164,7 @@ namespace Fab.Geo.Lua.Interop
 				Target.RegisterCallback<ChangeEvent<float>>(OnValueChange);
 		}
 
+		[LuaHelpInfo("Binds this control to a an objects value")]
 		public void bind(DynValue obj)
 		{
 			if (obj.Type != DataType.UserData)
@@ -180,6 +181,7 @@ namespace Fab.Geo.Lua.Interop
 			Target.RegisterCallback<ChangeEvent<float>>(OnValueChange);
 		}
 
+		[LuaHelpInfo("Unbinds this control")]
 		public void unbind()
 		{
 			boundObject = null;
