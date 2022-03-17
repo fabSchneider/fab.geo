@@ -35,5 +35,11 @@ namespace Fab.Lua.Console
 			console.Initialize();
 			console.RegisterCommand(help);
 		}
+
+		public void ResetConsole()
+		{
+			console.Reset();
+			console.RegisterCommand(help);
+		}
 	}
 }

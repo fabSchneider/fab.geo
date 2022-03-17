@@ -28,7 +28,7 @@
                     "type": "Value",
                     "id": "31420ae2-6629-46a4-8042-fb31c77cfdd2",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -282,7 +282,7 @@
                     "type": "PassThrough",
                     "id": "eb341105-51ce-4767-96c0-0b95dde3e2b6",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2,ScaleVector2(x=500,y=500)",
                     "interactions": "",
                     "initialStateCheck": false
                 },

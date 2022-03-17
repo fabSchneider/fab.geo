@@ -16,7 +16,15 @@
 }
 
 .lua-console__container {
+    flex-direction: row;
     width: 100%;
+    align-items: flex-end;
+}
+
+.lua-console__wrapper {
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
 }
 
 .lua-console__text-field {

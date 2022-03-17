@@ -18,6 +18,7 @@ namespace Fab.Lua.Console
 		private static readonly string errorMsgClassName = className + "__error-msg";
 
 		private static readonly string toggleBtnName = "toggle-btn";
+		private static readonly string resetBtnName = "reset-btn";
 
 		private ConsoleComponent consoleComp;
 		private UIDocument doc;
@@ -28,6 +29,8 @@ namespace Fab.Lua.Console
 		private Label errorMsg;
 
 		private ObjectPool<HistoryEntryElement> historyEntryPool;
+
+		bool isNavigationEvent;
 
 		/// <summary>
 		/// The current position in the history triggered through the up arrow
@@ -42,12 +45,21 @@ namespace Fab.Lua.Console
 
 			consoleElem = doc.rootVisualElement.Q(className: className);
 
-			consoleElem.Q<Button>(name: toggleBtnName).clicked += ToggleVisible;
+			consoleElem.Q<Button>(name: toggleBtnName).clicked += () => consoleElem.ToggleInClassList(hiddenClassName);
+			consoleElem.Q<Button>(name: resetBtnName).clicked += () =>
+			{
+				consoleComp.ResetConsole();
+				UpdateHistory();
+				consoleTextField.SetValueWithoutNotify(string.Empty);
+				errorMsg.style.display = DisplayStyle.None;
+			};
 
 			consoleTextField = consoleElem.Q<TextField>(className: textFieldClassName);
 
 			consoleTextField.RegisterCallback<KeyDownEvent>(OnTextFieldKeyDown);
 			consoleTextField.RegisterCallback<NavigationSubmitEvent>(OnTextFieldSubmit);
+
+			consoleTextField.RegisterValueChangedCallback(OnValueChanged);
 
 			consoleHistory = consoleElem.Q<ScrollView>(name: historyContainerName);
 
@@ -60,10 +72,6 @@ namespace Fab.Lua.Console
 			errorMsg.style.display = DisplayStyle.None;
 		}
 
-		public void ToggleVisible()
-		{
-			consoleElem.ToggleInClassList(hiddenClassName);
-		}
 
 		private void OnTextFieldSubmit(NavigationSubmitEvent evt)
 		{
@@ -86,6 +94,15 @@ namespace Fab.Lua.Console
 			}
 		}
 
+		private void OnValueChanged(ChangeEvent<string> evt)
+		{
+			if (isNavigationEvent)
+			{
+				consoleTextField.SelectAll();
+			}
+			isNavigationEvent = false;
+		}
+
 		private void OnTextFieldKeyDown(KeyDownEvent evt)
 		{
 			if (consoleComp.History.Count == 0)
@@ -101,8 +118,12 @@ namespace Fab.Lua.Console
 				//select next
 				selectedHistoryEntry--;
 				HistoryEntry entry = consoleComp.History[selectedHistoryEntry];
-				((HistoryEntryElement)consoleHistory[selectedHistoryEntry]).SetSelected(true);
-				consoleTextField.SetValueWithoutNotify(entry.Code);
+				var historyElem = ((HistoryEntryElement)consoleHistory[selectedHistoryEntry]);
+				historyElem.SetSelected(true);
+				isNavigationEvent = true;
+				consoleTextField.value = entry.Code;
+				consoleHistory.ScrollTo(historyElem);
+
 				evt.StopPropagation();
 			}
 			else if (evt.keyCode == KeyCode.DownArrow && selectedHistoryEntry + 1 < consoleComp.History.Count)
@@ -114,8 +135,12 @@ namespace Fab.Lua.Console
 				//select next
 				selectedHistoryEntry++;
 				HistoryEntry entry = consoleComp.History[selectedHistoryEntry];
-				((HistoryEntryElement)consoleHistory[selectedHistoryEntry]).SetSelected(true);
-				consoleTextField.SetValueWithoutNotify(entry.Code);
+				var historyElem = ((HistoryEntryElement)consoleHistory[selectedHistoryEntry]);
+				historyElem.SetSelected(true);
+				isNavigationEvent = true;
+				consoleTextField.value = entry.Code;
+				consoleHistory.ScrollTo(historyElem);
+
 				evt.StopPropagation();
 			}
 			else
@@ -213,6 +238,7 @@ namespace Fab.Lua.Console
 			codeText.text = string.Empty;
 			printText.text = string.Empty;
 			img.image = null;
+			RemoveFromHierarchy();
 		}
 
 		public void SetSelected(bool selected)
