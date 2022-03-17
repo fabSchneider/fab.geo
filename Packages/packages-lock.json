@@ -46,14 +46,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.vscode": {
-      "version": "1.2.4",
+      "version": "1.2.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.2.0",
+      "version": "1.3.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -69,7 +69,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
-      "version": "12.1.2",
+      "version": "13.1.7",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -79,14 +79,14 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-      "version": "12.1.2",
+      "version": "13.1.7",
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.5.0",
-        "com.unity.render-pipelines.core": "12.1.2",
-        "com.unity.shadergraph": "12.1.2"
+        "com.unity.render-pipelines.core": "13.1.7",
+        "com.unity.shadergraph": "13.1.7"
       }
     },
     "com.unity.searcher": {
@@ -97,11 +97,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.shadergraph": {
-      "version": "12.1.2",
+      "version": "13.1.7",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
-        "com.unity.render-pipelines.core": "12.1.2",
+        "com.unity.render-pipelines.core": "13.1.7",
         "com.unity.searcher": "4.9.1"
       }
     },
@@ -122,7 +122,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.1.30",
+      "version": "1.1.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -133,7 +133,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.6.3",
+      "version": "1.7.0-pre.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
