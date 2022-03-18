@@ -10,7 +10,7 @@ namespace Fab.Lua.Console
 	{
 		public Script CreateScript(string scriptName)
 		{
-			Script script = new Script(CoreModules.Preset_SoftSandbox);
+			Script script = new Script(CoreModules.Preset_SoftSandbox | CoreModules.LoadMethods);
 
 			//set script loader
 			UnityAssetsScriptLoader scriptLoader = new UnityAssetsScriptLoader();
@@ -30,7 +30,7 @@ namespace Fab.Lua.Console
 			script.Globals[LuaEnvironment.ScriptDataDirKey] = LuaEnvironment.DataDirectory + Path.DirectorySeparatorChar;
 
 			foreach (var loaded in scriptLoader.GetLoadedScripts())
-				script.RequireModule(loaded);
+				script.DoString($"require \'{loaded}\'");
 
 			return script;
 		}

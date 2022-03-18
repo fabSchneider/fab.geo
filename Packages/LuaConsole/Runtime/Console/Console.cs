@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Fab.Lua.Core;
 using MoonSharp.Interpreter;
 using UnityEngine;
@@ -39,6 +40,8 @@ namespace Fab.Lua.Console
 				history.Clear();
 				script.Options.DebugPrint = print => history.AddText(print);
 			}
+
+			var keys = new List<object>(script.Globals.Keys);
 		}
 
 		/// <summary>
@@ -88,6 +91,8 @@ namespace Fab.Lua.Console
 		{
 			try
 			{
+				var keys = new List<object>(script.Globals.Keys);
+
 				DynValue returnVal = script.DoString(code);
 				if (returnVal.IsNotNil())
 				{
